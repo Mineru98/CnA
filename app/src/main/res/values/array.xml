@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="todo_form">
+        <item>페이지</item>
+        <item>No</item>
+        <item>페이지 + No</item>
+        <item>없음</item>
+    </string-array>
+</resources>

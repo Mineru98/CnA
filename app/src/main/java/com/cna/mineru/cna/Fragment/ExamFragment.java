@@ -58,9 +58,9 @@ public class ExamFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         FragmentPagerAdapter viewPagerAdapter = new FragmentPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.addFragment(new DoExamFragment(), "시험1");
+        viewPagerAdapter.addFragment(new DoExamFragment(), getString(R.string.title_test_1));
         viewPager.setAdapter(viewPagerAdapter);
-        viewPagerAdapter.addFragment(new ListExamFragment(), "시험2");
+        viewPagerAdapter.addFragment(new ListExamFragment(), getString(R.string.title_test_2));
         viewPager.setAdapter(viewPagerAdapter);
     }
 }

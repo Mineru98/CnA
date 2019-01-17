@@ -2,6 +2,8 @@ package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -14,24 +16,28 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
+import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.NetworkService;
+import com.cna.mineru.cna.Utils.PhotoDialog;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -44,20 +50,24 @@ import retrofit2.Retrofit;
 
 public class AddNote extends AppCompatActivity {
 
-    private ImageView imageView;
-    private Button btn_gallery;
-    private Button btn_camera;
-    private LinearLayout llBottomNav;
-
     private byte[] image;
+    private byte[] image2;
     private static final int PICK_FROM_ALBUM = 1;
     private static final int PICK_FROM_CAMERA = 2;
     private File tempFile;
     private HomeSQLClass db;
+    private ImageSQLClass img_db;
+    private GraphSQLClass gp_db;
     private boolean isOk;
+    private boolean isLeft;
     private LoadingDialog loadingDialog;
     private Bitmap bitmap_t;
     private EditText et_title;
+    private RelativeLayout set_image;
+    private RelativeLayout set_image2;
+    private TextView tv_1;
+    private TextView tv_2;
+    private TextView et_class;
 
     String boundary = "*****";
     String crlf = "\r\n";
@@ -65,6 +75,8 @@ public class AddNote extends AppCompatActivity {
     String getServerURL;
     String getImgURL="";
     String getImgName="";
+    private int divide_t;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,30 +87,61 @@ public class AddNote extends AppCompatActivity {
 
         loadingDialog = new LoadingDialog();
         db = new HomeSQLClass(this);
+        gp_db = new GraphSQLClass(this);
+        img_db = new ImageSQLClass(this);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
-        btn_gallery = (Button) findViewById(R.id.btnGallery);
-        btn_camera = (Button) findViewById(R.id.btnCamera);
-        llBottomNav = (LinearLayout)findViewById(R.id.llBottomNav);
+        isLeft = true;
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
         et_title = (EditText) findViewById(R.id.et_title);
+        set_image = (RelativeLayout) findViewById(R.id.set_image);
+        set_image2 = (RelativeLayout) findViewById(R.id.set_image2);
+        tv_1 = (TextView) findViewById(R.id.tv_1);
+        tv_2 = (TextView) findViewById(R.id.tv_2);
+        et_class = (EditText) findViewById(R.id.et_class);
 
         TextView btn_ok = (TextView) findViewById(R.id.btn_save);
         TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
         ImageView btn_back = (ImageView) findViewById(R.id.btn_back);
-        image= new byte[]{0};
-        btn_camera.setOnClickListener(new View.OnClickListener() {
+        //image= new byte[]{0};
+
+        set_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                takePhoto();
+                PhotoDialog myCalendarView = new PhotoDialog();
+                myCalendarView.show(getSupportFragmentManager(),"photo_dialog");
+                myCalendarView.setDialogResult(new PhotoDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        isLeft = true;
+                        if(result==1){
+                            takePhoto();
+                        }else if(result==2) {
+                            goToAlbum();
+                        }
+                    }
+                });
             }
         });
 
-        btn_gallery.setOnClickListener(new View.OnClickListener() {
+        set_image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToAlbum();
+                PhotoDialog myCalendarView = new PhotoDialog();
+                myCalendarView.show(getSupportFragmentManager(),"photo_dialog");
+                myCalendarView.setDialogResult(new PhotoDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        isLeft = false;
+                        if(result==1){
+                            takePhoto();
+                        }else if(result==2) {
+                            goToAlbum();
+                        }
+                    }
+                });
             }
         });
+
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,14 +159,53 @@ public class AddNote extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //et_title 다시 분석해서 tag 수정
-                //임시적으로 랜덤값으로 수정
+
+                int tag = Integer.parseInt(et_class.getText().toString());
+                db.add_values(et_title.getText().toString(), tag);
+                int id = db.getId();
+                gp_db.add_values(id, tag);
+
+                ArrayList<ArrayList<Byte>> image_divide = new ArrayList<>();
                 Drawable d = (Drawable)((ImageView) findViewById(R.id.imageView)).getDrawable();
-                getByteArrayFromDrawable(d);
-                image = getByteArrayFromDrawable(d);
-                Random rnd = new Random();
-                int tag = rnd.nextInt(10);
-                db.add_values(et_title.getText().toString(),tag,image);
+
+                Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+
+                int divide = stream.size() / 1048349 + 1;
+                divide_t = stream.size() % 1048349;
+                isOk = true;
+                ArrayList<Byte> good;
+
+                byte[] main_byte = stream.toByteArray();
+                ArrayList<Byte> tmp = new ArrayList<>();
+                ByteBuffer buf = ByteBuffer.wrap(main_byte);
+                int count=0;
+                for(int i=0;i<divide;i++) {
+                    for (int j = 0; j < 1048349; j++) {
+                        if (count == stream.size()) {
+                            break;
+                        }
+                        tmp.add(Byte.parseByte(String.valueOf(buf.get(count))));
+                        count++;
+                    }
+                    image_divide.add(tmp);
+                    good = image_divide.get(i);
+                    if (i == divide-1) {
+                        image = new byte[divide_t];
+                        for (int j = 0; j < divide_t; j++) {
+                            image[j] = good.get(j);
+                        }
+                    } else {
+                        image = new byte[1048349];
+                        for (int j = 0; j < 1048349; j++) {
+                            image[j] = good.get(j);
+                        }
+                    }
+                    img_db.add_value(id, 0, 0, image);
+                    tmp.clear();
+                }
+                img_db.add_value2();
                 finish();
             }
         });
@@ -137,17 +219,22 @@ public class AddNote extends AppCompatActivity {
         startActivityForResult(intent, PICK_FROM_ALBUM);
     }
 
-    private byte[] getByteArrayFromDrawable(Drawable d) {
-        Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        if (stream.size() < 2096683) {
-            isOk = true;
-        } else
-            isOk = false;
-        byte[] data = stream.toByteArray();
-        return data;
-    }
+//    private byte[] getByteArrayFromDrawable(Drawable d) {
+//        Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//
+//        int divide = stream.size() / 2096683;
+//        ArrayList<byte[]> image_divde = new ArrayList<byte[]>();
+//        byte[] tmp = stream.toByteArray();
+//        ByteBuffer buf = ByteBuffer.wrap(tmp);
+//        for (int i = 0; i < 2096683; i++) {
+//            buf.position(i);
+//        }
+//        isOk = true;
+//        return data;
+//    }
+
 
     private void takePhoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -196,20 +283,26 @@ public class AddNote extends AppCompatActivity {
             {
                 try {
                     loadingDialog.progressON(AddNote.this,"Loading...");
-                    //Uri에서 이미지 이름을 얻어온다.
                     String name_Str = getImageNameToUri(data.getData());
-                    //이미지 데이터를 비트맵으로 받아온다.
                     Bitmap image_bitmap 	= MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
-                    ImageView image = (ImageView)findViewById(R.id.imageView);
-                    //배치해놓은 ImageView에 set
-                    image.setImageBitmap(image_bitmap);
-                    //Toast.makeText(getBaseContext(), "name_Str : "+name_Str , Toast.LENGTH_SHORT).show();
+                    if(isLeft){
+                        ImageView image = (ImageView)findViewById(R.id.imageView);
+                        image.setImageBitmap(image_bitmap);
+                        tv_1.setVisibility(View.INVISIBLE);
+                    }else{
+                        ImageView image = (ImageView)findViewById(R.id.imageView2);
+                        image.setImageBitmap(image_bitmap);
+                        loadingDialog.progressOFF();
+                        tv_2.setVisibility(View.INVISIBLE);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-        uploadFile(getImgURL , getImgName);
+        if(isLeft){
+            uploadFile(getImgURL , getImgName);
+        }
     }
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -298,7 +391,7 @@ public class AddNote extends AppCompatActivity {
     private String getStringFromBitmap(Bitmap bitmapPicture) {
         String encodedImage;
         ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
-        bitmapPicture.compress(Bitmap.CompressFormat.PNG, 100, byteArrayBitmapStream);
+        bitmapPicture.compress(Bitmap.CompressFormat.PNG, 0, byteArrayBitmapStream);
         byte[] b = byteArrayBitmapStream.toByteArray();
         encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
         return encodedImage;

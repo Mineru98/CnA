@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cna.mineru.cna.AddNote;
+import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DTO.HomeData;
 import com.cna.mineru.cna.Adapter.GridAdapter;
@@ -28,6 +30,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<HomeData> list  = new ArrayList<HomeData>();
     private GridView gv;
     private HomeSQLClass db;
+    private GraphSQLClass gp_db;
     private FloatingActionButton fb;
 
     public HomeFragment(){
@@ -40,6 +43,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         fb = (FloatingActionButton)view.findViewById(R.id.fb_add);
         db = new HomeSQLClass(getActivity());
+        gp_db = new GraphSQLClass(getActivity());
         list = db.load_values();
 
         mAdapater = new GridAdapter(getContext(), R.layout.row, list);
@@ -61,11 +65,16 @@ public class HomeFragment extends Fragment {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HomeData data = new HomeData(0,"",0);
+                gv.setEnabled(false);
+                Handler h = new Handler();
+                h.postDelayed(new splashHandler(), 1000);
+
+                HomeData data;
                 data = db.select_item(list.get(position).id);
                 Intent i = new Intent(getActivity(),ModifyHomeItem.class);
-                i.putExtra("id",data.id);
-                i.putExtra("title",data.title_text);
+                i.putExtra("id", data.id);
+                i.putExtra("title", data.title_text);
+                i.putExtra("tag", data.tag);
                 startActivity(i);
             }
         });
@@ -81,6 +90,7 @@ public class HomeFragment extends Fragment {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     db.delete_item(list.get(position).id);
+                                    gp_db.delete_value(list.get(position).id);
                                     onResume();
                                 }
                             });
@@ -103,6 +113,8 @@ public class HomeFragment extends Fragment {
     private class splashHandler implements Runnable{
         public void run()	{
             fb.setEnabled(true); // 클릭 유효화
+            gv.setEnabled(true);
+
         }
     }
     @Override

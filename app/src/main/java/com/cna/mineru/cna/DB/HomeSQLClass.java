@@ -3,8 +3,11 @@ package com.cna.mineru.cna.DB;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -15,7 +18,6 @@ import java.util.ArrayList;
 
 //HomeSQLClass
 public class HomeSQLClass extends AppCompatActivity {
-
     SQLiteDatabase sqliteDb;
     Context context;
 
@@ -47,10 +49,11 @@ public class HomeSQLClass extends AppCompatActivity {
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Note (" +
-                    "Id "       + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "Title "    + "TEXT," +
-                    "Image "    + "BLOB DEFAULT ''," +
-                    "Tag "      + "INTEGER" + ");";
+                    "Id "         + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "Title "      + "TEXT," +
+                    "Image "      + "BLOB DEFAULT ''," +
+                    "ImageIndex " + "INTEGER DEFAULT 0," +
+                    "Tag "        + "INTEGER" + ");";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
@@ -60,7 +63,7 @@ public class HomeSQLClass extends AppCompatActivity {
         ArrayList<HomeData> list = new ArrayList<HomeData>();
 
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT * FROM Note ORDER BY Id DESC";
+            String sqlQueryTb1 = "SELECT Id, Title FROM Note ORDER BY Id DESC";
             Cursor cursor = null;
 
             System.out.println(sqlQueryTb1);
@@ -70,14 +73,13 @@ public class HomeSQLClass extends AppCompatActivity {
                 cursor.moveToNext();
                 int id = cursor.getInt(0);
                 String title = cursor.getString(1);
-                int tag = cursor.getInt(0);
-                list.add(new HomeData(id, title,tag));
+                list.add(new HomeData(id, title, 0,null));
             }
         }
         return list;
     }
 
-    public void update_item(int id, String title,int tag){
+    public void update_item(int id, String title, int tag){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE Note SET Title = '" +  title + "', " +
                     "Tag = "+ tag + " WHERE Id = " + id + ";";
@@ -135,7 +137,6 @@ public class HomeSQLClass extends AppCompatActivity {
                 list.add(new ExamData(title,examid));
             }
         }
-        Log.d("TAG","Mineru : 2");
 
         return list;
     }
@@ -155,42 +156,65 @@ public class HomeSQLClass extends AppCompatActivity {
     }
     public HomeData select_item(int id){
         HomeData data;
+
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT * FROM Note WHERE id =" + id + ";";
-            Cursor cursor = null;
+            String sqlQueryTb1 = "SELECT Id, Title, Tag FROM Note WHERE id = " + id + ";";
+            String sqlQueryTb2 = "SELECT Image FROM Note WHERE id = " + id + ";";
+            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            Cursor image_curs = sqliteDb.rawQuery(sqlQueryTb2, null);
 
             System.out.println(sqlQueryTb1);
 
-            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             cursor.moveToNext();
+            image_curs.moveToNext();
+
             id = cursor.getInt(0);
             String title = cursor.getString(1);
-            data = new HomeData(id,title,0);
+            int tag = cursor.getInt(2);
+            byte[] image = null;
+
+            data = new HomeData(id,title,tag,image);
         }
         else{
-            data = new HomeData(id,"Error",0);
+            data = new HomeData(id,"Error",0,null);
         }
         return data;
     }
 
-    public void add_values(String title, int tag, byte[] image){
+    public int getId(){
+        int id=0;
+        if(sqliteDb != null) {
+            String sqlQueryTb1 = "select id from Note order by id desc";
+            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            System.out.println(sqlQueryTb1);
+            cursor.moveToNext();
+            id = cursor.getInt(0);
+        }
+        return id;
+    }
+
+    public byte[] getImg(int id){
+        byte[] data = null;
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "SELECT Image FROM Note WHERE id = " + id + ";";
+            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            System.out.println(sqlQueryTb1);
+            cursor.moveToNext();
+            data = cursor.getBlob(0);
+        }
+        else{
+            return null;
+        }
+        return data;
+    }
+
+    public void add_values(String title, int tag){
         if (sqliteDb != null) {
-            Log.d("TAG","Mineru : " + image);
-            if (image.length>1){
-                SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Title, Tag, Image) VALUES (?,?,?);");
-                p.bindString(1,title);
-                p.bindLong(2,tag);
-                p.bindBlob(3,image);
-                System.out.println(p) ;
-                p.execute();
-            }
-            else{
-                SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Title, Tag) VALUES (?,?);");
-                p.bindString(1,title);
-                p.bindLong(2,tag);
-                System.out.println(p) ;
-                p.execute();
-            }
+            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Title, Tag) VALUES (?,?);");
+            p.bindString(1, title);
+            p.bindLong(2, tag);
+            System.out.println(p);
+            p.execute();
         }
     }
 }

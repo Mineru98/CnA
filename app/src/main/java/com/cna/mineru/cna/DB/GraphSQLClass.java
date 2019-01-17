@@ -49,6 +49,7 @@ public class GraphSQLClass extends AppCompatActivity {
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Graph (" +
                     "Id "       + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "Note_Id "  + "INTEFER,"+
                     "Home_Tag " + "INTEGER" + ")";
 
             System.out.println(sqlCreateTb);
@@ -67,21 +68,42 @@ public class GraphSQLClass extends AppCompatActivity {
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
                 int id = cursor.getInt(0);
-                int tag = cursor.getInt(1);
+                int tag = cursor.getInt(2);
                 list.add(new GraphData(id,tag));
             }
         }
         return list;
     }
-    public void add_values(int Home_Tag){
+
+    public void add_values(int Note_Id, int Home_Tag){
         if (sqliteDb != null) {
 
             String sqlInsert = "INSERT INTO Graph " +
-                    "(Home_Tag) VALUES (" +
-                    "'" + Home_Tag + "'" + ")" ;
+                    "(Note_Id, Home_Tag) VALUES (" +
+                    Note_Id + ", " +
+                    Home_Tag + ");" ;
 
             System.out.println(sqlInsert) ;
 
+            sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
+
+    public void update_value(int Note_Id, int Home_Tag){
+        if (sqliteDb != null) {
+
+            String sqlInsert = "UPDATE Graph SET Home_Tag = " + Home_Tag
+                    +" WHERE Note_Id = " + Note_Id + ";";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
+
+    public void delete_value(int Note_Id){
+        if (sqliteDb != null) {
+
+            String sqlInsert = "DELETE FROM Graph WHERE Note_Id = " + Note_Id + ";";
+            System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;
         }
     }

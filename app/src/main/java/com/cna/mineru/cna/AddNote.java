@@ -3,14 +3,21 @@ package com.cna.mineru.cna;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +57,10 @@ import retrofit2.Retrofit;
 
 public class AddNote extends AppCompatActivity {
 
+    public static final String WIFI_STATE = "WIFE";
+    public static final String MOBILE_STATE = "MOBILE";
+    public static final String NONE_STATE = "NONE";
+
     private byte[] image;
     private byte[] image2;
     private static final int PICK_FROM_ALBUM = 1;
@@ -58,23 +69,19 @@ public class AddNote extends AppCompatActivity {
     private HomeSQLClass db;
     private ImageSQLClass img_db;
     private GraphSQLClass gp_db;
-    private boolean isOk;
     private boolean isLeft;
     private LoadingDialog loadingDialog;
-    private Bitmap bitmap_t;
     private EditText et_title;
-    private RelativeLayout set_image;
-    private RelativeLayout set_image2;
     private TextView tv_1;
     private TextView tv_2;
     private TextView et_class;
+    private TextView btn_ok;
+    private TextView btn_cancel;
+    private ImageView btn_back;
 
-    String boundary = "*****";
-    String crlf = "\r\n";
-    String twoHyphens = "--";
     String getServerURL;
     String getImgURL="";
-    String getImgName="";
+
     private int divide_t;
 
     @Override
@@ -91,18 +98,18 @@ public class AddNote extends AppCompatActivity {
         img_db = new ImageSQLClass(this);
 
         isLeft = true;
+
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         et_title = (EditText) findViewById(R.id.et_title);
-        set_image = (RelativeLayout) findViewById(R.id.set_image);
-        set_image2 = (RelativeLayout) findViewById(R.id.set_image2);
+        RelativeLayout set_image = (RelativeLayout) findViewById(R.id.set_image);
+        RelativeLayout set_image2 = (RelativeLayout) findViewById(R.id.set_image2);
         tv_1 = (TextView) findViewById(R.id.tv_1);
         tv_2 = (TextView) findViewById(R.id.tv_2);
         et_class = (EditText) findViewById(R.id.et_class);
 
-        TextView btn_ok = (TextView) findViewById(R.id.btn_save);
-        TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
-        ImageView btn_back = (ImageView) findViewById(R.id.btn_back);
-        //image= new byte[]{0};
+        btn_ok = (TextView) findViewById(R.id.btn_save);
+        btn_cancel = (TextView) findViewById(R.id.btn_cancel);
+        btn_back = (ImageView) findViewById(R.id.btn_back);
 
         set_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +152,9 @@ public class AddNote extends AppCompatActivity {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Handler h = new Handler();
+                h.postDelayed(new splashHandler(), 2000);
+                btn_cancel.setEnabled(false);
                 finish();
             }
         });
@@ -152,6 +162,9 @@ public class AddNote extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Handler h = new Handler();
+                h.postDelayed(new splashHandler(), 2000);
+                btn_back.setEnabled(false);
                 finish();
             }
         });
@@ -159,54 +172,89 @@ public class AddNote extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Handler h = new Handler();
+                h.postDelayed(new splashHandler(), 2000);
+                btn_ok.setEnabled(false);
+                if(et_class.getText().toString().equals("")){
+                    et_class.setHintTextColor(0xFFD32F2F);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
+                    builder.setTitle("입력 오류");
+                    builder.setMessage("단원을 입력해주세요.");
+                    builder.setPositiveButton("확인",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                    builder.show();
+                }else{
+                    int tag = Integer.parseInt(et_class.getText().toString());
+                    db.add_values(et_title.getText().toString(), tag);
+                    int id = db.getId();
+                    gp_db.add_values(id, tag);
 
-                int tag = Integer.parseInt(et_class.getText().toString());
-                db.add_values(et_title.getText().toString(), tag);
-                int id = db.getId();
-                gp_db.add_values(id, tag);
-
-                ArrayList<ArrayList<Byte>> image_divide = new ArrayList<>();
-                Drawable d = (Drawable)((ImageView) findViewById(R.id.imageView)).getDrawable();
-
-                Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-
-                int divide = stream.size() / 1048349 + 1;
-                divide_t = stream.size() % 1048349;
-                isOk = true;
-                ArrayList<Byte> good;
-
-                byte[] main_byte = stream.toByteArray();
-                ArrayList<Byte> tmp = new ArrayList<>();
-                ByteBuffer buf = ByteBuffer.wrap(main_byte);
-                int count=0;
-                for(int i=0;i<divide;i++) {
-                    for (int j = 0; j < 1048349; j++) {
-                        if (count == stream.size()) {
-                            break;
+                    for(int solve=0;solve<2;solve++){
+                        ArrayList<ArrayList<Byte>> image_divide = new ArrayList<>();
+                        Drawable d;
+                        if(solve==0){
+                            d = (Drawable)((ImageView) findViewById(R.id.imageView)).getDrawable();
+                        }else{
+                            d = (Drawable)((ImageView) findViewById(R.id.imageView2)).getDrawable();
                         }
-                        tmp.add(Byte.parseByte(String.valueOf(buf.get(count))));
-                        count++;
+                        int count=0;
+                        Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+
+                        int divide = stream.size() / 1048349 + 1;
+                        divide_t = stream.size() % 1048349;
+                        ArrayList<Byte> good;
+
+                        byte[] main_byte = stream.toByteArray();
+                        ArrayList<Byte> tmp = new ArrayList<>();
+                        ByteBuffer buf = ByteBuffer.wrap(main_byte);
+                        for(int i=0;i<divide;i++) {
+                            for (int j = 0; j < 1048349; j++) {
+                                if (count == stream.size()) {
+                                    break;
+                                }
+                                tmp.add(Byte.parseByte(String.valueOf(buf.get(count))));
+                                count++;
+                            }
+                            image_divide.add(tmp);
+                            good = image_divide.get(i);
+                            if (i == divide-1) {
+                                if(solve==0)
+                                    image = new byte[divide_t];
+                                else
+                                    image2 = new byte[divide_t];
+                                for (int j = 0; j < divide_t; j++) {
+                                    if(solve==0)
+                                        image[j] = good.get(j);
+                                    else
+                                        image2[j] = good.get(j);
+                                }
+                            } else {
+                                if(solve==0)
+                                    image = new byte[1048349];
+                                else
+                                    image2 = new byte[1048349];
+                                for (int j = 0; j < 1048349; j++) {
+                                    if(solve==0)
+                                        image[j] = good.get(j);
+                                    else
+                                        image2[j] = good.get(j);
+                                }
+                            }
+                            if(solve==0)
+                                img_db.add_value(id, 0, solve, image);
+                            else
+                                img_db.add_value(id, 0, solve, image2);
+                            tmp.clear();
+                        }
                     }
-                    image_divide.add(tmp);
-                    good = image_divide.get(i);
-                    if (i == divide-1) {
-                        image = new byte[divide_t];
-                        for (int j = 0; j < divide_t; j++) {
-                            image[j] = good.get(j);
-                        }
-                    } else {
-                        image = new byte[1048349];
-                        for (int j = 0; j < 1048349; j++) {
-                            image[j] = good.get(j);
-                        }
-                    }
-                    img_db.add_value(id, 0, 0, image);
-                    tmp.clear();
+                    img_db.add_value2();
+                    finish();
                 }
-                img_db.add_value2();
-                finish();
             }
         });
     }
@@ -218,23 +266,6 @@ public class AddNote extends AppCompatActivity {
         intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, PICK_FROM_ALBUM);
     }
-
-//    private byte[] getByteArrayFromDrawable(Drawable d) {
-//        Bitmap bitmap = ((BitmapDrawable) d).getBitmap();
-//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-//
-//        int divide = stream.size() / 2096683;
-//        ArrayList<byte[]> image_divde = new ArrayList<byte[]>();
-//        byte[] tmp = stream.toByteArray();
-//        ByteBuffer buf = ByteBuffer.wrap(tmp);
-//        for (int i = 0; i < 2096683; i++) {
-//            buf.position(i);
-//        }
-//        isOk = true;
-//        return data;
-//    }
-
 
     private void takePhoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -253,6 +284,7 @@ public class AddNote extends AppCompatActivity {
     }
 
     private File createImageFile() throws IOException {
+        @SuppressLint("SimpleDateFormat")
         String timeStamp = new SimpleDateFormat("yyyyMMdd_kkmmss").format(new Date());
         String imageFileName = "CnA_" + timeStamp + "";
         File storageDir = new File("sdcard/CnA/Img");
@@ -263,17 +295,22 @@ public class AddNote extends AppCompatActivity {
         return image;
     }
 
-    public String getImageNameToUri(Uri data)
-    {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(data, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String imgPath = cursor.getString(column_index);
-        String imgName = imgPath.substring(imgPath.lastIndexOf("/")+1);
-        getImgURL = imgPath;
-        getImgName = imgName;
-        return "success";
+    public String getPath(Uri uri) {
+        // uri가 null일경우 null반환
+        if( uri == null ) {
+            return null;
+        }
+        // 미디어스토어에서 유저가 선택한 사진의 URI를 받아온다.
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        if( cursor != null ){
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        }
+        // URI경로를 반환한다.
+        return uri.getPath();
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -283,16 +320,45 @@ public class AddNote extends AppCompatActivity {
             {
                 try {
                     loadingDialog.progressON(AddNote.this,"Loading...");
-                    String name_Str = getImageNameToUri(data.getData());
-                    Bitmap image_bitmap 	= MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
+                    Uri selectedImageUri = data.getData();
+                    Bitmap image_bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
                     if(isLeft){
-                        ImageView image = (ImageView)findViewById(R.id.imageView);
-                        image.setImageBitmap(image_bitmap);
+                        ImageView imageView = (ImageView)findViewById(R.id.imageView);
+                        try
+                        {
+                            // 비트맵 이미지로 가져온다
+                            String imagePath = getPath(selectedImageUri);
+                            getImgURL = imagePath;
+                            Bitmap image = BitmapFactory.decodeFile(imagePath);
+                            ExifInterface exif = new ExifInterface(imagePath);
+                            int exifOrientation = exif.getAttributeInt(
+                                    ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                            int exifDegree = exifOrientationToDegrees(exifOrientation);
+                            image = rotate(image, exifDegree);
+                            imageView.setImageBitmap(image);
+                        }
+                        catch(Exception e) {
+                            Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
                         tv_1.setVisibility(View.INVISIBLE);
                     }else{
-                        ImageView image = (ImageView)findViewById(R.id.imageView2);
-                        image.setImageBitmap(image_bitmap);
                         loadingDialog.progressOFF();
+                        ImageView imageView = (ImageView)findViewById(R.id.imageView2);
+                        try
+                        {
+                            // 비트맵 이미지로 가져온다
+                            String imagePath = getPath(selectedImageUri);
+                            Bitmap image = BitmapFactory.decodeFile(imagePath);
+                            ExifInterface exif = new ExifInterface(imagePath);
+                            int exifOrientation = exif.getAttributeInt(
+                                    ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                            int exifDegree = exifOrientationToDegrees(exifOrientation);
+                            image = rotate(image, exifDegree);
+                            imageView.setImageBitmap(image);
+                        }
+                        catch(Exception e) {
+                            Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
                         tv_2.setVisibility(View.INVISIBLE);
                     }
                 } catch (Exception e) {
@@ -300,105 +366,35 @@ public class AddNote extends AppCompatActivity {
                 }
             }
         }
+
         if(isLeft){
-            uploadFile(getImgURL , getImgName);
+            if("NONE".equals(getWhatKindOfNetwork(this))) {
+                loadingDialog.progressOFF();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("오류");
+                builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+                builder.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentConfirm = new Intent();
+                                intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                                startActivity(intentConfirm);
+                            }
+                        });
+                builder.setNegativeButton("아니요",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+                builder.show();
+            }else{
+                uploadFile(getImgURL);
+            }
         }
     }
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (resultCode != Activity.RESULT_OK) {
-//            Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_SHORT).show();
-//            if(tempFile != null) {
-//                if (tempFile.exists()) {
-//                    if (tempFile.delete()) {
-//                        Log.e("AddNote", tempFile.getAbsolutePath() + " 삭제 성공");
-//                        tempFile = null;
-//                    }
-//                }
-//            }
-//            return;
-//        }
-//        if (requestCode == PICK_FROM_ALBUM) {
-//            Uri photoUri = data.getData();
-//            Cursor cursor = null;
-//            try {
-//                String[] proj = { MediaStore.Images.Media.DATA };
-//                assert photoUri != null;
-//                cursor = getContentResolver().query(photoUri, proj, null, null, null);
-//                assert cursor != null;
-//                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//                cursor.moveToFirst();
-//                tempFile = new File(cursor.getString(column_index));
-//            } finally {
-//                if (cursor != null) {
-//                    cursor.close();
-//                }
-//            }
-//            loadingDialog.progressON(this,"Loading...");
-//            setImage();
-//
-//            Drawable d = (Drawable)((ImageView) findViewById(R.id.imageView)).getDrawable();
-//            getByteArrayFromDrawable(d);
-//            image = getByteArrayFromDrawable(d);
-//            if(isOk){
-//                //db.add_values("",1,image);
-//                Log.d("TAG", "Mineru : upload");
-//                new JSONTask().execute("http://192.168.219.102:3000/api/file/upload");
-//                //new JSONTask().execute("http://122.34.12.104/api/file/upload");
-//            }
-//            else{
-//                AlertDialog.Builder dialog = new AlertDialog.Builder(AddNote.this);
-//                dialog.setTitle("이미지 크기 오류");
-//                dialog.setMessage("현재 이미지 크기가 큽니다. (최대 1.9MB)");
-//                dialog.setPositiveButton("취소", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                        AddNote.this.finish();
-//                    }
-//                });
-//                dialog.show();
-//            }
-//        }
-//        else if (requestCode == PICK_FROM_CAMERA) {
-//            loadingDialog.progressON(this,"Loading...");
-//            setImage();
-//            Drawable d = (Drawable)((ImageView) findViewById(R.id.imageView)).getDrawable();
-//            getByteArrayFromDrawable(d);
-//            byte[] image = getByteArrayFromDrawable(d);
-//            if(isOk){
-//                //db.add_values("",1,image);
-//                Log.d("TAG", "Mineru : upload");
-//                new JSONTask().execute("http://192.168.219.102:3000/api/file/upload");
-//                //new JSONTask().execute("http://122.34.12.104/api/file/upload");
-//            }
-//            else{
-//                AlertDialog.Builder dialog = new AlertDialog.Builder(AddNote.this);
-//                dialog.setTitle("이미지 크기 오류");
-//                dialog.setMessage("현재 이미지 크기가 큽니다. (최대 1.9MB)");
-//                dialog.setPositiveButton("취소", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                        AddNote.this.finish();
-//                    }
-//                });
-//                dialog.show();
-//            }
-//        }
-//    }
 
-    private String getStringFromBitmap(Bitmap bitmapPicture) {
-        String encodedImage;
-        ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
-        bitmapPicture.compress(Bitmap.CompressFormat.PNG, 0, byteArrayBitmapStream);
-        byte[] b = byteArrayBitmapStream.toByteArray();
-        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-        return encodedImage;
-    }
-
-    private void uploadFile(String ImgURL, String ImgName) {
-
+    private void uploadFile(String ImgURL) {
         String url = getServerURL;
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -409,9 +405,7 @@ public class AddNote extends AppCompatActivity {
 
         File photo = new File(ImgURL);
         RequestBody photoBody = RequestBody.create(MediaType.parse("multipart/form-data"), photo);
-        //RequestBody photoBody = RequestBody.create(MediaType.parse("image/jpg"), photo);
         MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
-
         String descriptionString = "userfile";
 
         RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
@@ -436,5 +430,65 @@ public class AddNote extends AppCompatActivity {
                 loadingDialog.progressOFF();
             }
         });
+    }
+
+
+    public static String getWhatKindOfNetwork(Context context){
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                return WIFI_STATE;
+            } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                return MOBILE_STATE;
+            }
+        }
+        return NONE_STATE;
+    }
+
+    public Bitmap rotate(Bitmap bitmap, int degrees)
+    {
+        if(degrees != 0 && bitmap != null)
+        {
+            Matrix m = new Matrix();
+            m.setRotate(degrees, (float) bitmap.getWidth() / 2,
+                    (float) bitmap.getHeight() / 2);
+
+            try
+            {
+                Bitmap converted = Bitmap.createBitmap(bitmap, 0, 0,
+                        bitmap.getWidth(), bitmap.getHeight(), m, true);
+                if(bitmap != converted)
+                {
+                    bitmap.recycle();
+                    bitmap = converted;
+                }
+            }
+            catch(OutOfMemoryError ex)
+            {
+                // 메모리가 부족하여 회전을 시키지 못할 경우 그냥 원본을 반환합니다.
+            }
+        }
+        return bitmap;
+    }
+
+    public int exifOrientationToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+            return 180;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270;
+        }
+        return 0;
+    }
+
+    private class splashHandler implements Runnable{
+        public void run()	{
+            btn_ok.setEnabled(true); // 클릭 유효화
+            btn_cancel.setEnabled(true); // 클릭 유효화
+            btn_back.setEnabled(true); // 클릭 유효화
+            et_class.setHintTextColor(0xFF505050);
+        }
     }
 }

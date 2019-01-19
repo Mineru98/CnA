@@ -1,6 +1,7 @@
 package com.cna.mineru.cna.Fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cna.mineru.cna.Adapter.RcExamAdapter;
 import com.cna.mineru.cna.DB.ExamSQLClass;
@@ -47,6 +49,7 @@ public class ListExamFragment extends Fragment {
         rv.setAdapter(mAdapater);
         return view;
     }
+
     @Override
     public void onResume() {
         super.onResume();

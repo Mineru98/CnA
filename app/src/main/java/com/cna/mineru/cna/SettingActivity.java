@@ -187,6 +187,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
             }
         });
     }
@@ -267,5 +268,12 @@ public class SettingActivity extends AppCompatActivity {
     public void onDestroy(){
         super.onDestroy();
         loadingDialog.progressOFF();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        loadingDialog.progressOFF();
+        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
     }
 }

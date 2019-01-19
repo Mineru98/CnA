@@ -59,6 +59,19 @@ public class PlanFragment extends Fragment {
         list = db.load_values(new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis())));
 
         mAdapater = new RcAdapter(getContext(), R.layout.item, list);
+        rv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        rv.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                return false;
+            }
+        });
         rv.setAdapter(mAdapater);
         tv_left.setText(new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date(System.currentTimeMillis())));
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

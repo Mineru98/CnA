@@ -2,7 +2,12 @@ package com.cna.mineru.cna;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -56,12 +61,36 @@ public class MainActivity extends AppCompatActivity {
     MenuItem prevMenuItem;
 
     UserSQLClass db;
+
+    public static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+
+        if(!isOnline()){
+            android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("오류");
+            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    });
+            builder.setNegativeButton("아니요",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
+        }
 
         db = new UserSQLClass(this);
         {
@@ -143,9 +172,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(examFragment);
         viewPager.setAdapter(adapter);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //return super.onCreateOptionsMenu(menu);
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu, menu);
         return true;
@@ -157,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Intent i = new Intent(this,SettingActivity.class);
                 startActivityForResult(i,3000);
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
                 i.putExtra("isLogin",true);
                 return true;
 
@@ -193,5 +223,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private static class CheckConnect extends Thread{
+        private boolean success;
+        private String host;
+
+        CheckConnect(String host){
+            this.host = host;
+        }
+
+        @Override
+        public void run() {
+
+            HttpURLConnection conn = null;
+            try {
+                conn = (HttpURLConnection)new URL(host).openConnection();
+                conn.setRequestProperty("User-Agent","Android");
+                conn.setConnectTimeout(1000);
+                conn.connect();
+                int responseCode = conn.getResponseCode();
+                if(responseCode == 204) success = true;
+                else success = false;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                success = false;
+            }
+            if(conn != null){
+                conn.disconnect();
+            }
+        }
+
+        public boolean isSuccess(){
+            return success;
+        }
+
+    }
+
+    public static boolean isOnline() {
+        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
+        cc.start();
+        try{
+            cc.join();
+            return cc.isSuccess();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }

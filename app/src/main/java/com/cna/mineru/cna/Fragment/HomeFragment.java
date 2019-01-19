@@ -21,6 +21,8 @@ import com.cna.mineru.cna.DTO.HomeData;
 import com.cna.mineru.cna.Adapter.GridAdapter;
 import com.cna.mineru.cna.ModifyHomeItem;
 import com.cna.mineru.cna.R;
+import com.cna.mineru.cna.Utils.LoadingDialog;
+
 import java.util.ArrayList;
 
 
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment {
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
     private FloatingActionButton fb;
+    private LoadingDialog loadingDialog;
 
     public HomeFragment(){
 
@@ -44,9 +47,11 @@ public class HomeFragment extends Fragment {
         fb = (FloatingActionButton)view.findViewById(R.id.fb_add);
         db = new HomeSQLClass(getActivity());
         gp_db = new GraphSQLClass(getActivity());
+        loadingDialog = new LoadingDialog();
+        mAdapater = new GridAdapter(getContext(), R.layout.row, list);
+
         list = db.load_values();
 
-        mAdapater = new GridAdapter(getContext(), R.layout.row, list);
         gv = (GridView)view.findViewById(R.id.gridView1);
         gv.setAdapter(mAdapater);
 
@@ -65,6 +70,7 @@ public class HomeFragment extends Fragment {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                loadingDialog.progressON(getActivity(),"Loading...");
                 gv.setEnabled(false);
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
@@ -76,6 +82,7 @@ public class HomeFragment extends Fragment {
                 i.putExtra("title", data.title_text);
                 i.putExtra("tag", data.tag);
                 startActivity(i);
+                getActivity().overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
             }
         });
 
@@ -117,11 +124,18 @@ public class HomeFragment extends Fragment {
 
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();
         list = db.load_values();
         mAdapater = new GridAdapter(getContext(), R.layout.row, list);
         gv.setAdapter(mAdapater);
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        loadingDialog.progressOFF();
     }
 }

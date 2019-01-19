@@ -1,5 +1,6 @@
 package com.cna.mineru.cna.DB;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -99,33 +100,32 @@ public class HomeSQLClass extends AppCompatActivity {
         }
     }
 
+    public int[] getItemIdEach(){
+        int[] result = new int[getCount()];
+        if(sqliteDb != null) {
+            String sqlQueryTb1 = "SELECT id FROM Note;";
+            @SuppressLint("Recycle")
+            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+
+            for (int i = 0; i < getCount(); i++) {
+                cursor.moveToNext();
+                result[i] = cursor.getInt(0);
+            }
+        }
+        return result;
+    }
     public ArrayList<ExamData> getList(){
         int count = getCount();
         int[] tmp_arr = new int[count];
         int index;
         ArrayList<ExamData> list = new ArrayList<ExamData>();
         int[] rnd = new int[4];
-        /*
-        Random generator = new Random();
-        Log.d("TAG","Mineru : 0");
-        for(int i=0;i<4;i++) {
-            index=generator.nextInt(tmp_arr.length);
-            Log.d("TAG","Mineru : index : " + index);
-            rnd[i] = tmp_arr[index];
-            Log.d("TAG","Mineru : rnd : " + rnd[i]);
-            /*
-            for(int j=0;j<i;j++){
-                if(rnd[i] == rnd[j]){
-                    i--;
-                    break;
-                }
-            }
-        }
-        */
+
         rnd[0]= 1;
         rnd[1]= 3;
         rnd[2]= 4;
         rnd[3]= 2;
+
         if(sqliteDb != null) {
             for(int i=0;i<4;i++){
                 String sqlQueryTb1 = "SELECT * FROM Note WHERE Id = "+rnd[i]+";";
@@ -154,6 +154,7 @@ public class HomeSQLClass extends AppCompatActivity {
         }
         return result;
     }
+
     public HomeData select_item(int id){
         HomeData data;
 

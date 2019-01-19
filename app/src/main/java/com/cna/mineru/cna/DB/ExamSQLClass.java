@@ -79,6 +79,24 @@ public class ExamSQLClass extends AppCompatActivity {
         }
         return list;
     }
+
+    public ArrayList<ExamData> get_point_values(String exam_title){
+        ArrayList<ExamData> list = new ArrayList<ExamData>();
+
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "select * from Exam where ExamRoomId=(select ExamRoomId from Exam where ExamTitle='"+exam_title+"');";
+            Cursor cursor = null;
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            for(int i=0;i<cursor.getCount();i++){
+                cursor.moveToNext();
+                int id = cursor.getInt(2);
+                String examtitle = cursor.getString(5);
+                list.add(new ExamData(examtitle,id));
+            }
+        }
+        return list;
+    }
+
     public boolean make_Exam(){
         int count = 0;
         if (sqliteDb != null) {
@@ -128,6 +146,7 @@ public class ExamSQLClass extends AppCompatActivity {
         }
         return true;
     }
+
     private void exam_first_update(){
         if (sqliteDb != null) {
             String sql_select = "SELECT Id FROM Exam WHERE Tag = 1;";

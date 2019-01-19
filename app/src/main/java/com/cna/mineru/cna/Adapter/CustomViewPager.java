@@ -10,6 +10,7 @@ import java.io.StringWriter;
 
 public class CustomViewPager extends ViewPager {
     private boolean enabled; //이 것이 스크롤을 막아주는 중요 변수!
+    
     public CustomViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.enabled = false;

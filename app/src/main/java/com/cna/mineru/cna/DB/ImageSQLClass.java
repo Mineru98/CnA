@@ -51,16 +51,15 @@ public class ImageSQLClass extends AppCompatActivity {
                     "ImageId "   + "INTEGER DEFAULT 0," +
                     "isSolve "   + "BOOLEAN DEFAULT 0," +
                     "Image "     + "BLOB DEFAULT '');";
-
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
     }
 
-    public ArrayList<byte[]> getImg(long NoteId) {
+    public ArrayList<byte[]> getImg(long NoteId, long isSolve) {
         ArrayList<byte[]> image = new ArrayList<>();
         if (sqliteDb != null) {
-            String sqlQueryTb1 = "SELECT Image FROM Image WHERE NoteId = " + NoteId + ";";
+            String sqlQueryTb1 = "SELECT Image FROM Image WHERE NoteId = " + NoteId + " And isSolve = " + isSolve + ";";
             Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             while(cursor.moveToNext()){
                 image.add(cursor.getBlob(0));
@@ -69,10 +68,10 @@ public class ImageSQLClass extends AppCompatActivity {
         return image;
     }
 
-    public int getCount(long NoteId) {
+    public int getCount(long NoteId, long isSolve) {
         int count=0;
         if (sqliteDb != null) {
-            String sqlQueryTb1 = "SELECT Image FROM Image WHERE NoteId = " + NoteId + ";";
+            String sqlQueryTb1 = "SELECT Image FROM Image WHERE NoteId = " + NoteId + " And isSolve = " + isSolve + ";";
             Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             while(cursor.moveToNext()){
                 count++;

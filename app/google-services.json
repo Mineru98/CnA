@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1064577095287-uqih27ithb0ks5a4e2qcb2qe9421ih2m.apps.googleusercontent.com",
+          "client_id": "1064577095287-31e6oc01rf2dkv4jv7aa7b6g3hl5v7fu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.cna.mineru.cna",
-            "certificate_hash": "a7d416e7cc2679ef262f49f61c27daa0c046312e"
+            "certificate_hash": "63bbdc8552cf8f22fcd9a8691aa9a8ece5ada8fb"
           }
         },
         {

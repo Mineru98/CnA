@@ -153,7 +153,6 @@ public class SignupActivity extends AppCompatActivity {
 
     private void createUser(String email, String password) {
         loadingDialog.progressON(this, "Loading...");
-        Log.d("TAG","Mineru : 1");
         new JSONTask().execute(getString(R.string.ip_set) + "/api/user/create");
     }
 

@@ -45,7 +45,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -219,7 +218,6 @@ public class LoginActivity extends AppCompatActivity {
                 assert account != null;
                 firebaseAuthWithGoogle(account);
             } catch (ApiException ignored) {
-                Log.d("TAG","Mineru : google 2");
             }
         }
     }
@@ -231,7 +229,6 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            Log.d("TAG","Mineru : google");
                             google_email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
                             google_name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
                             new GoogleJSONTask().execute(getString(R.string.ip_set)+"/api/user/google");

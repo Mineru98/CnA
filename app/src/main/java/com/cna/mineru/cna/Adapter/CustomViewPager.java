@@ -19,14 +19,11 @@ public class CustomViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent event) {
         try {
             if (this.enabled) {
-//				Log.i("INFO", "스크롤 중..");
                 return super.onTouchEvent(event);
             }
         } catch (Exception e) {
-
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));
-            String exceptionAsStrting = sw.toString();
         }
         return false;
     }

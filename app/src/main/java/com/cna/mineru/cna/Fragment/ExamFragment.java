@@ -1,24 +1,19 @@
 package com.cna.mineru.cna.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.cna.mineru.cna.Adapter.CustomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentPagerAdapter;
-import com.cna.mineru.cna.LoginActivity;
+import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment;
+import com.cna.mineru.cna.Fragment.ExamFragmentChild.ListExamFragment;
 import com.cna.mineru.cna.R;
-
-import java.util.ArrayList;
-
-import static android.app.Activity.RESULT_OK;
 
 
 public class ExamFragment extends Fragment {

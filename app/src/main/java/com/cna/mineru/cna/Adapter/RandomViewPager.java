@@ -19,7 +19,6 @@ public class RandomViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent event) {
         try {
             if (this.enabled) {
-//				Log.i("INFO", "스크롤 중..");
                 return super.onTouchEvent(event);
             }
         } catch (Exception e) {
@@ -31,9 +30,11 @@ public class RandomViewPager extends ViewPager {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (this.enabled) {
-            return super.onInterceptTouchEvent(event);
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        try {
+            return super.onInterceptTouchEvent(ev);
+        } catch (IllegalArgumentException ex) {
+            ex.printStackTrace();
         }
         return false;
     }

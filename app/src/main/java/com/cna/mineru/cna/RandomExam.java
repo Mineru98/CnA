@@ -12,6 +12,7 @@ import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 import com.cna.mineru.cna.Adapter.RandomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
 import com.cna.mineru.cna.DB.ExamSQLClass;
-import com.cna.mineru.cna.Fragment.RandomExamFragment;
+import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment;
 
 import java.util.ArrayList;
 
@@ -29,11 +30,9 @@ public class RandomExam extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TextView time_out;
-    private Button btn_no;
     private Button btn_ok;
 
     private long setting_time;
-    private long setting_time_first;
 
     private int[] testArr;
     private long myBaseTime;
@@ -48,16 +47,13 @@ public class RandomExam extends AppCompatActivity {
         setContentView(R.layout.activity_random);
         i_list = new ArrayList<Integer>();
         b_list = new ArrayList<Integer>();
-
         ExamSQLClass db = new ExamSQLClass(this);
 
         viewPager = (RandomViewPager) findViewById(R.id.view_pager);
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
         time_out = (TextView) findViewById(R.id.time_out);
-        btn_no = (Button) findViewById(R.id.btn_no);
         btn_ok = (Button) findViewById(R.id.btn_ok);
 
-        setting_time_first = getIntent().getLongExtra("time",0);
+        long setting_time_first = getIntent().getLongExtra("time", 0);
         setting_time = getIntent().getLongExtra("time",0);
         testArr = getIntent().getIntArrayExtra("randomArr");
 
@@ -74,78 +70,15 @@ public class RandomExam extends AppCompatActivity {
             public void onClick(View v) {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
-                btn_ok.setEnabled(false);
-                btn_no.setEnabled(false);
-                b_list.set(viewPager.getCurrentItem(),1);
-                viewPager.setCurrentItem(getItem(+1), true);
+//                btn_ok.setEnabled(false);
                 count++;
-                if(viewPager.getCurrentItem()==3) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
-                    builder.setTitle("시험종료");
-                    builder.setMessage("주어진 문제를 모두 풀었습니다.\n시험을 종료합니다.");
-                    builder.setPositiveButton("확인",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-//                                    Intent resultIntent = new Intent();
-//                                    resultIntent.putExtra("b_result", b_list);
-//                                    resultIntent.putExtra("i_result", i_list);
-//                                    setResult(RESULT_OK, resultIntent);
-                                    finish();
-                                }
-                            });
-                    builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-//                            Intent resultIntent = new Intent();
-//                            resultIntent.putExtra("b_result", b_list);
-//                            resultIntent.putExtra("i_result", i_list);
-//                            setResult(RESULT_OK, resultIntent);
-                            finish();
-                        }
-                    });
-                    builder.show();
-                }
+                Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+                i.putExtra("id",viewPager.getCurrentItem());
+                i.putExtra("noteId",testArr[viewPager.getCurrentItem()]);
+                startActivityForResult(i,1000);
             }
         });
 
-        btn_no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Handler h = new Handler();
-                h.postDelayed(new splashHandler(), 1000);
-                btn_ok.setEnabled(false);
-                btn_no.setEnabled(false);
-                b_list.set(viewPager.getCurrentItem(),0);
-                viewPager.setCurrentItem(getItem(+1), true);
-                count++;
-                if(viewPager.getCurrentItem()==3){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
-                    builder.setTitle("시험종료");
-                    builder.setMessage("주어진 문제를 모두 풀었습니다.\n시험을 종료합니다.");
-                    builder.setPositiveButton("확인",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-//                                    Intent resultIntent = new Intent();
-//                                    resultIntent.putExtra("b_result", b_list);
-//                                    resultIntent.putExtra("i_result", i_list);
-//                                    setResult(RESULT_OK,resultIntent);
-                                    finish();
-                                }
-                            });
-                    builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-//                            Intent resultIntent = new Intent();
-//                            resultIntent.putExtra("b_result", b_list);
-//                            resultIntent.putExtra("i_result", i_list);
-//                            setResult(RESULT_OK,resultIntent);
-                            finish();
-                        }
-                    });
-                    builder.show();
-                }
-            }
-        });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -155,18 +88,18 @@ public class RandomExam extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int i) {
-                if(viewPager.getCurrentItem()==3){
-                    Toast.makeText(RandomExam.this, "마지막 페이지입니다.", Toast.LENGTH_LONG).show();
-                }
+
             }
 
             @Override
             public void onPageScrollStateChanged(int i) {
+
             }
+
+
         });
         setupViewPager(viewPager);
     }
-
 
     @SuppressLint("HandlerLeak")
     Handler myTimer = new Handler(){
@@ -182,10 +115,6 @@ public class RandomExam extends AppCompatActivity {
                 builder.setPositiveButton("확인",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-//                                Intent resultIntent = new Intent();
-//                                resultIntent.putExtra("b_result", b_list);
-//                                resultIntent.putExtra("i_result", i_list);
-//                                setResult(RESULT_OK,resultIntent);
                                 finish();
                             }
                         });
@@ -219,6 +148,7 @@ public class RandomExam extends AppCompatActivity {
         }
         viewPager.setAdapter(adapter);
     }
+
     private int getItem(int i) {
         return viewPager.getCurrentItem() + i;
     }
@@ -226,7 +156,39 @@ public class RandomExam extends AppCompatActivity {
     private class splashHandler implements Runnable{
         public void run()	{
             btn_ok.setEnabled(true); // 클릭 유효화
-            btn_no.setEnabled(true); // 클릭 유효화
+            viewPager.setCurrentItem(getItem(+1), true);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 1000:
+                    int result = data.getIntExtra("result",0);
+                    int id = data.getIntExtra("id",0);
+                    b_list.set(viewPager.getCurrentItem()-1,result);
+                    Toast.makeText(RandomExam.this, ""+result, Toast.LENGTH_SHORT).show();
+                    if(id==3) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
+                        builder.setTitle("시험종료");
+                        builder.setMessage("주어진 문제를 모두 풀었습니다.\n시험을 종료합니다.");
+                        builder.setPositiveButton("확인",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        finish();
+                                    }
+                                });
+                        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                            @Override
+                            public void onCancel(DialogInterface dialog) {
+                                finish();
+                            }
+                        });
+                        builder.show();
+                    }
+                    break;
+            }
         }
     }
 

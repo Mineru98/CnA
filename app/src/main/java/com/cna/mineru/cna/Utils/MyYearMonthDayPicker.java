@@ -44,7 +44,6 @@ public class MyYearMonthDayPicker extends DialogFragment {
         final NumberPicker monthPicker = (NumberPicker)dialog.findViewById(R.id.picker_month);
         final NumberPicker yearPicker = (NumberPicker)dialog.findViewById(R.id.picker_year);
 
-
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,10 +76,12 @@ public class MyYearMonthDayPicker extends DialogFragment {
 
         return builder.create();
     }
-    public void setDialogResult(OnMyDialogResult dialogResult){
+
+    public void setDialogResult(OnMyDialogResult dialogResult) {
         mDialogResult = dialogResult;
     }
-    public interface OnMyDialogResult{
+
+    public interface OnMyDialogResult {
         void finish(int year,int month, int day);
     }
 }

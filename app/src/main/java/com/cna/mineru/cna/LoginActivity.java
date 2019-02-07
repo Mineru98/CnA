@@ -60,11 +60,8 @@ public class LoginActivity extends AppCompatActivity {
     LoadingDialog loadingDialog;
     String token;
     private static final int RC_SIGN_IN = 900;
-    // 구글api클라이언트
     private GoogleSignInClient googleSignInClient;
-    // 파이어베이스 인증 객체 생성
     private FirebaseAuth mAuth;
-    // 구글  로그인 버튼
     private SignInButton btn_login_google;
 
     private boolean isView;
@@ -143,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                     h.postDelayed(new splashHandler(), 1000);
                     loadingDialog.progressON(LoginActivity.this,"Loading...");
                     if(isValidPasswd()&&isValidEmail()){
-                        loginUser(et_email.getText().toString(),et_pw.getText().toString());
+                        loginUser();
                     }
                 }
             }
@@ -190,9 +187,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void loginUser(String email, String password)
+    private void loginUser()
     {
-        loadingDialog.progressON(this, "Loading...");
         new JSONTask().execute(getString(R.string.ip_set)+"/api/user/signin");
     }
 
@@ -331,15 +327,21 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             if(isVerified){
-                db.update_isGoogle(isGoogle,et_email.getText().toString(),name,id);
+                db.update_isGoogle(isGoogle,name,id);
                 loadingDialog.progressOFF();
                 SharedPreferences pref = getSharedPreferences("isLogin", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putBoolean("isLogin", true);
                 editor.apply();
-                startActivity(new Intent(getApplication(), MainActivity.class));
+                if(db.getFirst()==0){
+                    Log.d("TAG","Mineru OK test1");
+                    startActivity(new Intent(getApplication(), MainActivity.class));
+                }else{
+                    Log.d("TAG","Mineru OK test2");
+                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
+                }
                 LoginActivity.this.finish();
-                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+                //overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
             }else{
                 loadingDialog.progressOFF();
                 Toast.makeText(LoginActivity.this, "이메일 또는 비밀번호가 다시 확인하세요.\n" +
@@ -434,15 +436,19 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (isVerified) {
-                db.update_isGoogle(isGoogle, et_email.getText().toString(), name, id);
+                db.update_isGoogle(isGoogle, name, id);
                 loadingDialog.progressOFF();
                 SharedPreferences pref = getSharedPreferences("isLogin", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putBoolean("isLogin", true);
                 editor.apply();
-                startActivity(new Intent(getApplication(), MainActivity.class));
+                if(db.getFirst()==0){
+                    startActivity(new Intent(getApplication(), MainActivity.class));
+                }else{
+                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
+                }
                 LoginActivity.this.finish();
-                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+                //overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
             } else {
                 loadingDialog.progressOFF();
             }

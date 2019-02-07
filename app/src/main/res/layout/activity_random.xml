@@ -30,11 +30,11 @@
 
     <Button
         android:id="@+id/btn_ok"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
         android:layout_width="160dp"
         android:layout_height="100dp"
-        android:text="해답보기" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="다음문제" />
 
 
 </RelativeLayout>

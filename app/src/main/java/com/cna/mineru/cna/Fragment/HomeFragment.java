@@ -17,6 +17,7 @@ import android.widget.GridView;
 import com.cna.mineru.cna.AddNote;
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
+import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DTO.HomeData;
 import com.cna.mineru.cna.Adapter.GridAdapter;
 import com.cna.mineru.cna.ModifyHomeItem;
@@ -33,6 +34,7 @@ public class HomeFragment extends Fragment {
     private GridView gv;
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
+    private ImageSQLClass i_db;
     private FloatingActionButton fb;
     private LoadingDialog loadingDialog;
 
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
         fb = (FloatingActionButton)view.findViewById(R.id.fb_add);
         db = new HomeSQLClass(getActivity());
         gp_db = new GraphSQLClass(getActivity());
+        i_db = new ImageSQLClass((getActivity()));
         loadingDialog = new LoadingDialog();
         mAdapater = new GridAdapter(getContext(), R.layout.row, list);
 
@@ -98,6 +101,7 @@ public class HomeFragment extends Fragment {
                                 public void onClick(DialogInterface dialog, int which) {
                                     db.delete_item(list.get(position).id);
                                     gp_db.delete_value(list.get(position).id);
+                                    i_db.delete_item(list.get(position).id);
                                     onResume();
                                 }
                             });

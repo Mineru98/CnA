@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.cna.mineru.cna.Adapter.CustomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentPagerAdapter;
+import com.cna.mineru.cna.DB.ClassSQLClass;
+import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Fragment.GraphFragment;
 import com.cna.mineru.cna.Fragment.HomeFragment;
@@ -61,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
     MenuItem prevMenuItem;
 
     UserSQLClass db;
-
+    TmpSQLClass t_db;
+    ClassSQLClass c_db;
     public static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
 
     @Override
@@ -91,8 +94,11 @@ public class MainActivity extends AppCompatActivity {
                     });
             builder.show();
         }
-
+        Log.d("TAG","Mineru : test");
         db = new UserSQLClass(this);
+        c_db = new ClassSQLClass(this);
+        t_db = new TmpSQLClass(this);
+
         {
             Toast.makeText(this, "환영합니다. "+db.get_Name() +" 학생님.", Toast.LENGTH_SHORT).show();
             TedPermission.with(this)

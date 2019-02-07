@@ -105,7 +105,14 @@ public class ImageSQLClass extends AppCompatActivity {
             String sqlQueryTb2 = "UPDATE Image SET ImageId = "+ id +" WHERE ImageId = 0;";
             sqliteDb.execSQL(sqlQueryTb2);
             System.out.println(sqlQueryTb2);
+        }
+    }
 
+    public void delete_item(int Note_Id){
+        if (sqliteDb != null) {
+            String sqlInsert = "DELETE FROM Image WHERE NoteId = " + Note_Id + ";";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
         }
     }
 }

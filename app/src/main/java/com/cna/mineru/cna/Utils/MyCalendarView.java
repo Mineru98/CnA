@@ -81,6 +81,7 @@ public class MyCalendarView extends DialogFragment {
     public void setDialogResult(OnMyDialogResult dialogResult){
         mDialogResult = dialogResult;
     }
+
     public interface OnMyDialogResult{
         void finish(String result);
     }

@@ -72,10 +72,11 @@ public class RandomExam extends AppCompatActivity {
                 h.postDelayed(new splashHandler(), 1000);
 //                btn_ok.setEnabled(false);
                 count++;
-                Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
-                i.putExtra("id",viewPager.getCurrentItem());
-                i.putExtra("noteId",testArr[viewPager.getCurrentItem()]);
-                startActivityForResult(i,1000);
+                //viewPager.setCurrentItem(getItem(+1), true);
+//                Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+//                i.putExtra("id",viewPager.getCurrentItem());
+//                i.putExtra("noteId",testArr[viewPager.getCurrentItem()]);
+//                startActivityForResult(i,1000);
             }
         });
 

@@ -77,13 +77,11 @@ public class DoExamFragment extends Fragment {
                             settingtime = Long.parseLong(et_sec.getText().toString()) * 1000 + Long.parseLong(et_min.getText().toString()) * 60 * 1000;
                             dialog.setMessage((settingtime / 1000 / 60) % 60 + "분 " + (settingtime / 1000) % 60 + "초간 시험이 진행됩니다.\n이대로 진행 하시겠습니까?");
                         }
-
                         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 boolean test = db.make_Exam();
                                 int[] note_list = h_db.getItemIdEach();
-
                                 if (test) {
                                     dialog.dismiss();
 

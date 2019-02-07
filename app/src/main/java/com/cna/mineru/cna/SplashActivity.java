@@ -33,17 +33,18 @@ public class SplashActivity extends AppCompatActivity {
         animator.start();
         Handler hd = new Handler();
 
-        SharedPreferences pref = getSharedPreferences("isFirst",MODE_PRIVATE);
+        SharedPreferences pref = getSharedPreferences("isFirst", MODE_PRIVATE);
         boolean first = pref.getBoolean("isFirst", false);
         if(!first){
             SharedPreferences.Editor editor = pref.edit();
             editor.putBoolean("isFirst",true);
             editor.apply();
             //Guide Activity 실행
-            db.add_values(0,"게스트",0);
+            // user 추가 시 테이블 오류 발생
+            db.add_values(1,"게스트",1, 1, 0);
             hd.postDelayed(new splash_handler_Guide(), 1500);
         }else{
-            SharedPreferences pref2 = getSharedPreferences("isLogin",MODE_PRIVATE);
+            SharedPreferences pref2 = getSharedPreferences("isLogin", MODE_PRIVATE);
             boolean login = pref2.getBoolean("isLogin",false);
             if(login==false){
                 //login Activity 실행

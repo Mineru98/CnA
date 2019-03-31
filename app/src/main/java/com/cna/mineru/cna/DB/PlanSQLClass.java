@@ -11,7 +11,11 @@ import com.cna.mineru.cna.DTO.PlanData;
 import java.io.File;
 import java.util.ArrayList;
 
-//PlanSQLClass
+/*
+    공부 계획 관리 DB
+
+*/
+
 public class PlanSQLClass extends AppCompatActivity {
 
     SQLiteDatabase sqliteDb;

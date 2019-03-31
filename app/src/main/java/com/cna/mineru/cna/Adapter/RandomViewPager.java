@@ -8,6 +8,12 @@ import android.view.MotionEvent;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+/*
+    RandomExam에 연결 된 ViewPager
+    RandomExam
+
+ */
+
 public class RandomViewPager extends ViewPager {
     private boolean enabled; //이 것이 스크롤을 막아주는 중요 변수!
 

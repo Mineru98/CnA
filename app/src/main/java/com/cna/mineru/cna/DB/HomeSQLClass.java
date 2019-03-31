@@ -17,7 +17,11 @@ import com.cna.mineru.cna.DTO.HomeData;
 import java.io.File;
 import java.util.ArrayList;
 
-//HomeSQLClass
+/*
+    노트의 로딩, 삽입, 수정, 제거를 관리하기 위한 DB
+
+*/
+
 public class HomeSQLClass extends AppCompatActivity {
     SQLiteDatabase sqliteDb;
     Context context;
@@ -114,30 +118,33 @@ public class HomeSQLClass extends AppCompatActivity {
         }
         return result;
     }
-    public ArrayList<ExamData> getList(){
-        int count = getCount();
-        int[] tmp_arr = new int[count];
-        int index;
+    public ArrayList<ExamData> getList(int exam_count){
+        int count = getCount(); //현재 Note Table에 있는 모든 Note ID의 갯수를 가져옴.
+        int[] tmp_arr = new int[count];//Note ID 갯수만큼 tmp_arr 배열 할당.
         ArrayList<ExamData> list = new ArrayList<ExamData>();
-        int[] rnd = new int[4];
-
-        rnd[0]= 1;
-        rnd[1]= 3;
-        rnd[2]= 4;
-        rnd[3]= 2;
+        int[] rnd = new int[exam_count];
+        Log.d("TAG","Mineru : 1");
 
         if(sqliteDb != null) {
-            for(int i=0;i<4;i++){
-                String sqlQueryTb1 = "SELECT * FROM Note WHERE Id = "+rnd[i]+";";
-                Cursor cursor = null;
-                cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            String sqlQueryTb1 = "SELECT * FROM Note;";
+            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+
+            for(int i=0;i<cursor.getCount();i++) {
                 cursor.moveToNext();
-                int examid = cursor.getInt(0);
-                String title = cursor.getString(1);
-                list.add(new ExamData(title,examid));
+                tmp_arr[i] = cursor.getInt(0);
+            }
+            for(int i=0;i<exam_count;i++){
+                rnd[i]=tmp_arr[i];
+                // tmp_arr에 있는 배열을 무작위로 섞어서 rnd에 exam_count만큼 넣어주는 코드 삽입 요청
+            }
+            for(int i=0;i<exam_count;i++) {
+                String sqlQueryTb2 = "SELECT * FROM Note WHERE Id = " + rnd[i] + ";";
+                cursor = sqliteDb.rawQuery(sqlQueryTb2, null);
+                cursor.moveToNext();
+                rnd[i] = cursor.getInt(0);
+                list.add(new ExamData(cursor.getString(1), rnd[i]));
             }
         }
-
         return list;
     }
     public int getCount(){

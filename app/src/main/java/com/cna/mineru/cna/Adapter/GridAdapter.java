@@ -12,6 +12,12 @@ import com.cna.mineru.cna.R;
 
 import java.util.ArrayList;
 
+/*
+    HomeFragment의 각 Item 요소 표현을 위한 Adapter
+    HomeFragment
+
+ */
+
 public class GridAdapter extends BaseAdapter {
     Context context;
     int layout;

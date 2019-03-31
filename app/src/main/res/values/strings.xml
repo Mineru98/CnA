@@ -1,6 +1,7 @@
 <resources>
     <!--<string name="ip_set">http://122.34.12.104</string>-->
-    <string name="ip_set">http://172.30.1.14:3000</string>
+    <!--<string name="ip_set">http://172.30.1.14:3000</string>-->
+    <string name="ip_set">http://122.34.12.104:6450</string>
     <string name="app_name">CnA</string>
     <string name="title_home">홈</string>
     <string name="title_plan">계획</string>\

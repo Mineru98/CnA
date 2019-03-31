@@ -6,6 +6,11 @@ import android.support.v4.app.FragmentManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    RandomActivity에 연결 된 Adapter
+    RandomExam
+ */
+
 public class FragmentExampleAdapter extends android.support.v4.app.FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();

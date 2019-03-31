@@ -12,6 +12,11 @@ import com.cna.mineru.cna.R;
 
 import java.util.ArrayList;
 
+/*
+    RcExamAdapter의 각 Item 요소 표현을 위한 Adapter
+    ListExamFragment
+ */
+
 public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolder> {
     private ArrayList items;
 

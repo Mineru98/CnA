@@ -8,6 +8,11 @@ import android.view.MotionEvent;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+/*
+    Fragment를 사용하는 Activity들에 연결 된 ViewPager
+    (MainActivity, ExamActivity)
+ */
+
 public class CustomViewPager extends ViewPager {
     private boolean enabled; //이 것이 스크롤을 막아주는 중요 변수!
     

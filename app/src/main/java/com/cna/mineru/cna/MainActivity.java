@@ -3,19 +3,14 @@ package com.cna.mineru.cna;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,24 +25,10 @@ import com.cna.mineru.cna.Fragment.GraphFragment;
 import com.cna.mineru.cna.Fragment.HomeFragment;
 import com.cna.mineru.cna.Fragment.PlanFragment;
 import com.cna.mineru.cna.Fragment.ExamFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -74,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        if(!isOnline()){
+        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 콛
             android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("오류");
             builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
@@ -94,10 +75,9 @@ public class MainActivity extends AppCompatActivity {
                     });
             builder.show();
         }
-        Log.d("TAG","Mineru : test");
-        db = new UserSQLClass(this);
-        c_db = new ClassSQLClass(this);
-        t_db = new TmpSQLClass(this);
+        db = new UserSQLClass(this); // User_Info Table
+        c_db = new ClassSQLClass(this); // Class Table
+        t_db = new TmpSQLClass(this); // Tmp Table
 
         {
             Toast.makeText(this, "환영합니다. "+db.get_Name() +" 학생님.", Toast.LENGTH_SHORT).show();

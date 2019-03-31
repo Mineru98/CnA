@@ -6,6 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.io.File;
 
+/*
+    오프라인일때 서버 통신을 해야할 경우
+    데이터를 쌓아뒀다 한번에 일괄 처리하는 DB
+
+*/
+
 public class TmpSQLClass  {
     TmpSQLClass tmpSQLClass;
     SQLiteDatabase sqliteDb;

@@ -15,6 +15,12 @@ import com.cna.mineru.cna.R;
 
 import java.util.ArrayList;
 
+/*
+    RcAdapter의 각 Item 요소 표현을 위한 Adapter
+    PlanFragment
+
+ */
+
 public class RcAdapter extends  RecyclerView.Adapter<RcAdapter.ViewHolder> {
     private ArrayList items;
 

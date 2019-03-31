@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.cna.mineru.cna.DTO.ExamData;
 
@@ -15,7 +16,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-//TestSQLClass
+/*
+    시험 결과 관리하는 DB
+    This DataBase is used to manage exam results
+
+*/
+
 public class ExamSQLClass extends AppCompatActivity {
 
     HomeSQLClass homeSQLClass;
@@ -48,6 +54,8 @@ public class ExamSQLClass extends AppCompatActivity {
         return db;
     }
 
+    // Exam 테이블 생성 메소드
+    // Methods to create the Exam table
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Exam (" +
@@ -62,6 +70,10 @@ public class ExamSQLClass extends AppCompatActivity {
         }
     }
 
+    // Exam Table에 등록된 시험 결과를 ListView에
+    // 보여주기 위한 Data Loading 메소드
+    // This is a data loading method for
+    // displaying the Exam results registered in the Exam table in the ListView.
     public ArrayList<ExamData> load_values(){
         ArrayList<ExamData> list = new ArrayList<ExamData>();
 
@@ -80,6 +92,9 @@ public class ExamSQLClass extends AppCompatActivity {
         return list;
     }
 
+    // 특정 시험에 대한 데이터 지표를 볼 때
+    // ExamId를 통해 Data Loading을 하는 메소드
+    // Methods for Data Loading via ExamId when viewing data indicators for a particular Exam
     public ArrayList<ExamData> get_point_values(String exam_title){
         ArrayList<ExamData> list = new ArrayList<ExamData>();
 
@@ -97,43 +112,20 @@ public class ExamSQLClass extends AppCompatActivity {
         return list;
     }
 
-    public boolean make_Exam(){
+    // 랜덤으로 문제를 섞어 시험지를 만드는 메소드
+    // Methods for creating exam papers by randomly mixing problems
+    public boolean make_Exam(int exam_count){
         int count = 0;
         if (sqliteDb != null) {
             homeSQLClass = new HomeSQLClass(context);
             count = homeSQLClass.getCount();
-
-            if(count>=4){
-                ArrayList<ExamData> list;
-                list = homeSQLClass.getList();
-                for(int i=0;i<4;i++){
-                    String sqlInsert = "";
-                    if(i==0){
-                        sqlInsert = "INSERT INTO Exam " +
-                                "(ExamId, Tag, Title) VALUES (" +
-                                list.get(i).examid + "," +
-                                "1 ,"+
-                                "'" + list.get(i).title + "'" + ")" ;
-                    }
-                    else{
-                        sqlInsert = "INSERT INTO Exam " +
-                                "(ExamId, Tag, Title) VALUES (" +
-                                list.get(i).examid + "," +
-                                "0 ,"+
-                                "'" + list.get(i).title + "'" + ")" ;
-                    }
-                    System.out.println(sqlInsert) ;
-                    sqliteDb.execSQL(sqlInsert) ;
-                }
-                exam_first_update();
-
-            }else{
+            if (count < 4) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context);
                 dialog.setTitle("알림");
                 dialog.setMessage(
                         "현재 등록 된 노트의 수가 부족합니다.\n" +
-                        "4개 이상의 노트가 등록되어야\n" +
-                        "시험을 볼 수 있습니다.");
+                                "4개 이상의 노트가 등록되어야\n" +
+                                "시험을 볼 수 있습니다.");
                 dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -142,17 +134,56 @@ public class ExamSQLClass extends AppCompatActivity {
                 });
                 dialog.show();
                 return false;
+            } else if (count < exam_count) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                dialog.setTitle("알림");
+                dialog.setMessage(
+                        "현재 등록 된 노트의 수보다 많습니다.\n");
+                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+                return false;
+            } else {
+                ArrayList<ExamData> list;
+                list = homeSQLClass.getList(exam_count);
+                for (int i = 0; i < 4; i++) {
+                    String sqlInsert = "";
+                    if (i == 0) {
+                        sqlInsert = "INSERT INTO Exam " +
+                                "(ExamId, Tag, Title) VALUES (" +
+                                list.get(i).examid + "," +
+                                "1 ," +
+                                "'" + list.get(i).title + "'" + ")";
+                    } else {
+                        sqlInsert = "INSERT INTO Exam " +
+                                "(ExamId, Tag, Title) VALUES (" +
+                                list.get(i).examid + "," +
+                                "0 ," +
+                                "'" + list.get(i).title + "'" + ")";
+                    }
+                    System.out.println(sqlInsert);
+                    sqliteDb.execSQL(sqlInsert);
+                }
+                exam_first_update();
             }
         }
         return true;
     }
 
+    // Random Exam Data를 생성한 다음,
+    // Tag를 통해 테이블을 안정적으로 만들기 위한 메소드
+    // After creating the Random Exam Data,
+    // the method for making the table stable through Tag
     private void exam_first_update(){
         if (sqliteDb != null) {
-            String sql_select = "SELECT Id FROM Exam WHERE Tag = 1;";
+            String sql_select1 = "SELECT Id FROM Exam WHERE Tag = 1;";
             String sql_select2 = "SELECT * FROM Exam WHERE Tag = 3;";
             Cursor cursor = null;
-            cursor = sqliteDb.rawQuery(sql_select, null);
+            cursor = sqliteDb.rawQuery(sql_select1, null);
             cursor.moveToNext();
             int id = cursor.getInt(0);
             int count=0;

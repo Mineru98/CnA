@@ -11,6 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import java.io.File;
 import java.util.ArrayList;
 
+/*
+    등록한 Note의 Image의 Index 관리하는 DB
+
+*/
+
 public class ImageSQLClass extends AppCompatActivity {
 
     ImageSQLClass imageSQLClass;

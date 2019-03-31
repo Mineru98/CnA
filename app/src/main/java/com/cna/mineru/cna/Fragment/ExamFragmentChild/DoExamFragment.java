@@ -80,7 +80,8 @@ public class DoExamFragment extends Fragment {
                         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                boolean test = db.make_Exam();
+                                boolean test = db.make_Exam(4);
+                                Log.d("TAG","Mineru : 1");
                                 int[] note_list = h_db.getItemIdEach();
                                 if (test) {
                                     dialog.dismiss();
@@ -131,7 +132,7 @@ public class DoExamFragment extends Fragment {
                         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                boolean test = db.make_Exam();
+                                boolean test = db.make_Exam(4);
                                 int[] note_list = h_db.getItemIdEach();
 
                                 if (test) {
@@ -183,7 +184,7 @@ public class DoExamFragment extends Fragment {
                         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                boolean test = db.make_Exam();
+                                boolean test = db.make_Exam(4);
                                 int[] note_list = h_db.getItemIdEach();
 
                                 if (test) {
@@ -230,7 +231,7 @@ public class DoExamFragment extends Fragment {
                         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                boolean test = db.make_Exam();
+                                boolean test = db.make_Exam(4);
                                 int[] note_list = h_db.getItemIdEach();
 
                                 if (test) {

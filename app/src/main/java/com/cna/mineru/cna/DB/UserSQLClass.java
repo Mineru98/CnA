@@ -13,7 +13,11 @@ import com.cna.mineru.cna.DTO.PlanData;
 import java.io.File;
 import java.util.ArrayList;
 
-//GraphSQLClass
+/*
+    사용자 정보 관리 DB
+
+*/
+
 public class UserSQLClass extends AppCompatActivity {
 
     SQLiteDatabase sqliteDb;

@@ -6,6 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.io.File;
 
+/*
+    사용자의 학년 변화에 따라
+    보이는 그래프 Type을 변경해주기 위한 DB
+    This DataBase is used to change the graph type according to the user's grade change.
+*/
+
 public class ClassSQLClass {
     ClassSQLClass classSQLClass;
     SQLiteDatabase sqliteDb;
@@ -37,6 +43,9 @@ public class ClassSQLClass {
         return db;
     }
 
+
+    // Class 테이블 생성 메소드
+    // Methods to create the Class table
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Class (" +

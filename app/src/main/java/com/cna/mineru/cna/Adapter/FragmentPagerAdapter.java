@@ -6,6 +6,11 @@ import android.support.v4.app.FragmentManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    MainActivity에 연결 된 Adapter
+    MainActivity, FragmentExamActivity, ExamFragment
+
+ */
 
 public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();

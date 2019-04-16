@@ -97,7 +97,7 @@ public class ModifyHomeItem extends AppCompatActivity {
             count = 0;
             for(int i=0;i<image_arr.size();i++){
                 image_t = image_merge.get(i);
-                if(i==image_arr.size()-btn_1mid){
+                if(i==image_arr.size()-1){
                     for(int j = i * 1048349;j<image_arr.get(i).length + i * 1048349;j++){
                         result[count] = image_t.get(j);
                         count++;
@@ -111,9 +111,9 @@ public class ModifyHomeItem extends AppCompatActivity {
             }
             if(solve==0){
                 bm = BitmapFactory.decodeByteArray(result,0,result.length);
-                saveBitmaptoJpeg(bm,"btn_1mid");
+                saveBitmaptoJpeg(bm,"1");
                 @SuppressLint("SdCardPath")
-                File photo = new File("/sdcard/CnA/btn_1mid.jpg");
+                File photo = new File("/sdcard/CnA/1.jpg");
                 Uri imageUri = Uri.fromFile(photo);
                 String imagePath = imageUri.getPath();
                 ExifInterface exif = null;

@@ -77,7 +77,7 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
 //        protected String doInBackground(String... params) {
 //            URL url = null;
 //            try {
-//                url = new URL("http://api.dbstore.or.kr:8880/foodinfo/list.do?uid="+ID+"&n=10&p=btn_1mid&c=F3J01&s=food_name&o=u");
+//                url = new URL("http://api.dbstore.or.kr:8880/foodinfo/list.do?uid="+ID+"&n=10&p=1&c=F3J01&s=food_name&o=u");
 //
 //                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 //                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");

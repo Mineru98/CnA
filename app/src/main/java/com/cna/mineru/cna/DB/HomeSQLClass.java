@@ -77,7 +77,7 @@ public class HomeSQLClass extends AppCompatActivity {
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
                 int id = cursor.getInt(0);
-                String title = cursor.getString(1);
+                String title = cursor.getString(btn_1mid);
                 list.add(new HomeData(id, title, 0,null));
             }
         }
@@ -123,7 +123,7 @@ public class HomeSQLClass extends AppCompatActivity {
         int[] tmp_arr = new int[count];//Note ID 갯수만큼 tmp_arr 배열 할당.
         ArrayList<ExamData> list = new ArrayList<ExamData>();
         int[] rnd = new int[exam_count];
-        Log.d("TAG","Mineru : 1");
+        Log.d("TAG","Mineru : btn_1mid");
 
         if(sqliteDb != null) {
             String sqlQueryTb1 = "SELECT * FROM Note;";
@@ -142,7 +142,7 @@ public class HomeSQLClass extends AppCompatActivity {
                 cursor = sqliteDb.rawQuery(sqlQueryTb2, null);
                 cursor.moveToNext();
                 rnd[i] = cursor.getInt(0);
-                list.add(new ExamData(cursor.getString(1), rnd[i]));
+                list.add(new ExamData(cursor.getString(btn_1mid), rnd[i]));
             }
         }
         return list;
@@ -177,7 +177,7 @@ public class HomeSQLClass extends AppCompatActivity {
             image_curs.moveToNext();
 
             id = cursor.getInt(0);
-            String title = cursor.getString(1);
+            String title = cursor.getString(btn_1mid);
             int tag = cursor.getInt(2);
             byte[] image = null;
 
@@ -219,7 +219,7 @@ public class HomeSQLClass extends AppCompatActivity {
     public void add_values(String title, int tag){
         if (sqliteDb != null) {
             SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Title, Tag) VALUES (?,?);");
-            p.bindString(1, title);
+            p.bindString(btn_1mid, title);
             p.bindLong(2, tag);
             System.out.println(p);
             p.execute();

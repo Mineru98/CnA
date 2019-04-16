@@ -97,7 +97,7 @@ public class UserSQLClass extends AppCompatActivity {
             System.out.println(sqlQueryTb1);
         }
 
-        return isWifiSync == 1;
+        return isWifiSync == btn_1mid;
 
     }
 
@@ -161,7 +161,7 @@ public class UserSQLClass extends AppCompatActivity {
             cursor.moveToNext();
             isGoogle = cursor.getInt(0);
         }
-        if(isGoogle==1){
+        if(isGoogle==btn_1mid){
             return true;
         }else{
             return false;

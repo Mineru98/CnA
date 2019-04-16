@@ -45,7 +45,7 @@ public class MakeHtml extends AppCompatActivity {
         mWebView.loadUrl("file:///sdcard/CnA/"+mTime+".html");
     }
     private void createHtml() throws IOException {
-        int count = 1;
+        int count = btn_1mid;
         File f = new File("sdcard/CnA");
         if (!f.exists()) {
             f.mkdir();
@@ -66,7 +66,7 @@ public class MakeHtml extends AppCompatActivity {
             sBuff.append("<style>");
             sBuff.append("body { margin: 0; padding: 0;background-color: grey; font: 12pt \"Tahoma;\"}");
             sBuff.append(" * {box-sizing: border-box;-moz-box-sizing: border-box;}");
-            sBuff.append(".page {margin: 1cm auto;width: 21cm;min-height: 29.7cm;padding-top: 10px;padding-bottom: : 10px;padding-left: 20px;padding-right: 20px;background: white;box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);}");
+            sBuff.append(".page {margin: 1cm auto;width: 21cm;min-height: 29.7cm;padding-top: 10px;padding-bottom: : 10px;padding-left: 20px;padding-right: 20px;background: white;box-shadow: 0 0 5px rgba(0, 0, 0, 0.btn_1mid);}");
             sBuff.append(".subpage {margin-top: 50px;height: 256mm;line-height:1em;vertical-align: middle;}");
             sBuff.append("@page {size: A4 landscape;margin: 0;}");
             sBuff.append("@media print {.page {margin: 0;border: initial;border-radius: initial;width: initial;min-height: initial;box-shadow: initial;background: initial;page-break-after:always;}}");
@@ -91,26 +91,26 @@ public class MakeHtml extends AppCompatActivity {
             sBuff.append("<div id =\"left\">");
             sBuff.append("<div id=\"_1\">");
             //첫번째 문제
-            sBuff.append("<h4>1. 두벡터 a = (1, -2) b = (-1, 4)에 대하여</h4>");
+            sBuff.append("<h4>btn_1mid. 두벡터 a = (btn_1mid, -2) b = (-btn_1mid, 4)에 대하여</h4>");
             sBuff.append("</div>");
             sBuff.append("<div id=\"_2\">");
             //두번째 문제
-            sBuff.append("<h4>2. 두벡터 a = (1, -2) b = (-1, 4)에 대하여</h4>");
+            sBuff.append("<h4>2. 두벡터 a = (btn_1mid, -2) b = (-btn_1mid, 4)에 대하여</h4>");
             sBuff.append("</div>");
             sBuff.append("</div>");
 
             sBuff.append("<div style=\"float: left; width: 10%; margin-top: -18px;\">");
-            sBuff.append("<hr width=\"1\" size=\"950\" color=\"black\">");
+            sBuff.append("<hr width=\"btn_1mid\" size=\"950\" color=\"black\">");
             sBuff.append("</div>");
 
             sBuff.append("<div id=\"right\">");
             sBuff.append("<div id=\"_3\">");
             //세번째 문제
-            sBuff.append("<h4>3. 두벡터 a = (1, -2) b = (-1, 4)에 대하여</h4>");
+            sBuff.append("<h4>3. 두벡터 a = (btn_1mid, -2) b = (-btn_1mid, 4)에 대하여</h4>");
             sBuff.append("</div>");
             sBuff.append("<div id=\"_4\">");
             //네번째 문제
-            sBuff.append("<h4>4. 두벡터 a = (1, -2) b = (-1, 4)에 대하여</h4>");
+            sBuff.append("<h4>4. 두벡터 a = (btn_1mid, -2) b = (-btn_1mid, 4)에 대하여</h4>");
             sBuff.append("</div>");
             sBuff.append("</div>");
 

@@ -4,7 +4,6 @@
     android:layout_width="175dp"
     android:layout_height="200dp"
     android:layout_margin="50dp"
-    android:padding="30dp"
     android:orientation="horizontal">
 
 
@@ -15,7 +14,7 @@
         android:layout_height="175dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/memo"
+        android:src="@mipmap/ic_memo"
         android:contentDescription="@null" />
 
 
@@ -35,9 +34,9 @@
         android:layout_alignTop="@+id/img_view"
         android:layout_alignBottom="@+id/img_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="50dp"
         android:layout_marginBottom="8dp"
         android:textSize="15dp"
         android:text="@string/title_test"

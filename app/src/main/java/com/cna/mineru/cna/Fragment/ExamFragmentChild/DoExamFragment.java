@@ -41,12 +41,11 @@ public class DoExamFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         db = new ExamSQLClass(getActivity());
         h_db = new HomeSQLClass(getActivity());
-
         view = inflater.inflate(R.layout.fragment_do_exam, container, false);
+
         TextView tv_time = (TextView) view.findViewById(R.id.tv_time);
         TextView tv_1 = (TextView) view.findViewById(R.id.tv_1);
         TextView tv_2 = (TextView) view.findViewById(R.id.tv_2);
@@ -59,7 +58,6 @@ public class DoExamFragment extends Fragment {
         et_sec.setText("00");
 
         Button btn_start = (Button) view.findViewById(R.id.btn_start);
-
         btn_start.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShowToast")
             @Override
@@ -81,7 +79,6 @@ public class DoExamFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 boolean test = db.make_Exam(4);
-                                Log.d("TAG","Mineru : 1");
                                 int[] note_list = h_db.getItemIdEach();
                                 if (test) {
                                     dialog.dismiss();
@@ -106,6 +103,7 @@ public class DoExamFragment extends Fragment {
                                     Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
                                     i.putExtra("time", settingtime);
                                     i.putExtra("randomArr", result);
+                                    i.putExtra("ExamNum",4);
                                     startActivity(i);
                                     //startActivityForResult(i, 2000);
                                 } else
@@ -158,6 +156,7 @@ public class DoExamFragment extends Fragment {
                                     Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
                                     i.putExtra("time", settingtime);
                                     i.putExtra("randomArr", result);
+                                    i.putExtra("ExamNum",4);
                                     startActivity(i);
                                     //startActivityForResult(i, 2000);
                                 } else
@@ -210,6 +209,7 @@ public class DoExamFragment extends Fragment {
                                     Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
                                     i.putExtra("time", settingtime);
                                     i.putExtra("randomArr", result);
+                                    i.putExtra("ExamNum",4);
                                     startActivity(i);
                                     //startActivityForResult(i, 2000);
                                 } else
@@ -257,6 +257,7 @@ public class DoExamFragment extends Fragment {
                                     Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
                                     i.putExtra("time", settingtime);
                                     i.putExtra("isOkay", 0);
+                                    i.putExtra("ExamNum",4);
                                     startActivity(i);
                                     //startActivityForResult(i, 2000);
                                 } else

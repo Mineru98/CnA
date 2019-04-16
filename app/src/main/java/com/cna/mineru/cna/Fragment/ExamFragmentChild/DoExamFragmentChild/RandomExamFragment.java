@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.R;
@@ -40,7 +41,6 @@ public class RandomExamFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_random_exam, container, false);
         PhotoView imageView = view.findViewById(R.id.imageView);
-
 
         ImageSQLClass db = new ImageSQLClass(getContext());
         int count = db.getCount(id, 0);

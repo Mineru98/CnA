@@ -14,8 +14,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
@@ -55,7 +58,6 @@ public class SettingActivity extends AppCompatActivity {
         db = new UserSQLClass(this);
         isLogin = getIntent().getBooleanExtra("isLogin",true);
         loadingDialog = new LoadingDialog();
-
         btn_back = (ImageView) findViewById(R.id.btn_back);
         TextView tv_ver = (TextView) findViewById(R.id.tv_ver);
         TextView tv_str_ver = (TextView) findViewById(R.id.tv_str_ver);
@@ -83,6 +85,19 @@ public class SettingActivity extends AppCompatActivity {
         content = new SpannableString("Account                                                                                                    ");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tv_account.setText(content);
+
+        TextView tv_setting = (TextView) findViewById(R.id.tv_setting);
+        TextView tv_wifisync = (TextView) findViewById(R.id.tv_wifisync);
+        Switch sw_wifisync = (Switch) findViewById(R.id.sw_wifisync);
+        content = new SpannableString("Setting                                                                                                   ");
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        tv_setting.setText(content);
+
+        if(!db.getWifiSync()){
+            sw_wifisync.setChecked(true);
+        }else{
+            sw_wifisync.setChecked(false);
+        }
 
         tv_terms.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,6 +203,17 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+            }
+        });
+
+        sw_wifisync.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    db.update_isWifiSync(0);
+                }else{
+                    db.update_isWifiSync(1);
+                }
             }
         });
     }

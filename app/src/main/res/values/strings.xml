@@ -33,6 +33,7 @@
     <string name="str_ver"><u>Application</u></string>
     <string name="str_abouts"><u>Abouts</u></string>
     <string name="str_account"><u>Account</u></string>
+    <string name="str_setting"><u>Setting</u></string>
     <string name="setting">설정</string>
     <string name="item_1">버전정보</string>
     <string name="item_2">공지사항</string>

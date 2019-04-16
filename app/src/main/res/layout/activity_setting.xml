@@ -120,4 +120,42 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="0dp"
         android:text="회원탈퇴" />
+
+    <TextView
+        android:id="@+id/tv_setting"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tv_signout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/str_setting"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_wifisync"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tv_setting"
+        android:layout_alignStart="@+id/sw_wifisync"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/sw_wifisync"
+        android:text="Wifi가 연결 되어 있을 때만 동기화하기" />
+
+    <Switch
+        android:id="@+id/sw_wifisync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:switchMinWidth="55dp"
+        android:layout_below="@+id/tv_setting"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="0dp"
+        android:checked="false"/>
 </RelativeLayout>

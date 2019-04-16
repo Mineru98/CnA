@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="단원명"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/boundary2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/title1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="19dp"
+                android:background="#50808080"/>
+
+            <GridView
+                android:id="@+id/btn_box"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/boundary2"
+                android:columnWidth="65dp"
+                android:gravity="center"
+                android:horizontalSpacing="10dp"
+                android:numColumns="4"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="30dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/test2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/test1">
+
+            <View
+                android:id="@+id/title2_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:background="#50808080"/>
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/title2_line"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="문항수"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_sub_double"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2_line"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@+id/title2"
+                android:text="-2" />
+            <Button
+                android:id="@+id/btn_sub"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2_line"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@+id/btn_sub_double"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2_line"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@+id/btn_sub"
+                android:gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:hint="문항수"
+                android:inputType="number"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2_line"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@+id/tv_count"
+                android:text="+"/>
+            <Button
+                android:id="@+id/btn_add_double"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2_line"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@+id/btn_add"
+                android:text="+2"/>
+
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="시험시간"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_sub_double_time"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_toEndOf="@+id/title2"
+                android:text="-4" />
+
+            <Button
+                android:id="@+id/btn_sub_time"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_toEndOf="@+id/btn_sub_double_time"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="75dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_toEndOf="@+id/btn_sub_time"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:hint="시간"
+                android:inputType="number"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/btn_add_time"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_toEndOf="@+id/tv_time"
+                android:text="+"/>
+            <Button
+                android:id="@+id/btn_add_double_time"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/title2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_toEndOf="@+id/btn_add_time"
+                android:text="+4"/>
+
+        </RelativeLayout>
+        <View
+            android:id="@+id/boundary1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/btn_test"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#50808080" />
+        <TextView
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:text="시험 시작" />
+    </RelativeLayout>
+</RelativeLayout>
+

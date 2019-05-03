@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +17,7 @@ import android.media.ExifInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
@@ -34,13 +36,27 @@ import android.widget.Toast;
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
+import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.NetworkService;
+import com.cna.mineru.cna.Utils.NormalNetworkService;
 import com.cna.mineru.cna.Utils.PhotoDialog;
+import com.google.firebase.iid.FirebaseInstanceId;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -69,7 +85,9 @@ public class AddNote extends AppCompatActivity {
     private HomeSQLClass db;
     private ImageSQLClass img_db;
     private GraphSQLClass gp_db;
+    private UserSQLClass user_db;
     private boolean isLeft;
+    private boolean isPremium;
     private LoadingDialog loadingDialog;
     private EditText et_title;
     private TextView tv_1;
@@ -78,9 +96,12 @@ public class AddNote extends AppCompatActivity {
     private TextView btn_ok;
     private TextView btn_cancel;
     private ImageView btn_back;
+    private ImageView imageView;
+    private ImageView imageView2;
 
     String getServerURL;
     String getImgURL="";
+    String note_id="";
 
     private int divide_t;
 
@@ -88,7 +109,6 @@ public class AddNote extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
-        getServerURL = getString(R.string.ip_set)+"/api/file/upload/";
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
@@ -96,10 +116,18 @@ public class AddNote extends AppCompatActivity {
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
         img_db = new ImageSQLClass(this);
-
+        user_db = new UserSQLClass(this);
         isLeft = true;
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        if(!user_db.getPremium()){
+            getServerURL = getString(R.string.ip_set) + "/api/file/p/upload/";
+            isPremium=true;
+        }else{
+            getServerURL = getString(R.string.ip_set) + "/api/file/n/upload/";
+            isPremium=false;
+        }
+
+        imageView = (ImageView) findViewById(R.id.imageView);
         et_title = (EditText) findViewById(R.id.et_title);
         RelativeLayout set_image = (RelativeLayout) findViewById(R.id.set_image);
         RelativeLayout set_image2 = (RelativeLayout) findViewById(R.id.set_image2);
@@ -110,6 +138,7 @@ public class AddNote extends AppCompatActivity {
         btn_ok = (TextView) findViewById(R.id.btn_save);
         btn_cancel = (TextView) findViewById(R.id.btn_cancel);
         btn_back = (ImageView) findViewById(R.id.btn_back);
+        imageView2 = (ImageView)findViewById(R.id.imageView2);
 
         set_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,6 +282,7 @@ public class AddNote extends AppCompatActivity {
                         }
                     }
                     img_db.add_value2();
+                    new JSONNote().execute(getString(R.string.ip_set)+"/api/note/update");
                     finish();
                 }
             }
@@ -321,9 +351,7 @@ public class AddNote extends AppCompatActivity {
                 try {
                     loadingDialog.progressON(AddNote.this,"Loading...");
                     Uri selectedImageUri = data.getData();
-                    Bitmap image_bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
                     if(isLeft){
-                        ImageView imageView = (ImageView)findViewById(R.id.imageView);
                         try
                         {
                             // 비트맵 이미지로 가져온다
@@ -342,19 +370,18 @@ public class AddNote extends AppCompatActivity {
                         }
                         tv_1.setVisibility(View.INVISIBLE);
                     }else{
-                        loadingDialog.progressOFF();
-                        ImageView imageView = (ImageView)findViewById(R.id.imageView2);
                         try
                         {
                             // 비트맵 이미지로 가져온다
                             String imagePath = getPath(selectedImageUri);
+                            getImgURL = imagePath;
                             Bitmap image = BitmapFactory.decodeFile(imagePath);
                             ExifInterface exif = new ExifInterface(imagePath);
                             int exifOrientation = exif.getAttributeInt(
                                     ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
                             int exifDegree = exifOrientationToDegrees(exifOrientation);
                             image = rotate(image, exifDegree);
-                            imageView.setImageBitmap(image);
+                            imageView2.setImageBitmap(image);
                         }
                         catch(Exception e) {
                             Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
@@ -392,6 +419,31 @@ public class AddNote extends AppCompatActivity {
                 uploadFile(getImgURL);
             }
         }
+        else{
+            if("NONE".equals(getWhatKindOfNetwork(this))) {
+                loadingDialog.progressOFF();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("오류");
+                builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+                builder.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentConfirm = new Intent();
+                                intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                                startActivity(intentConfirm);
+                            }
+                        });
+                builder.setNegativeButton("아니요",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+                builder.show();
+            }else{
+                uploadFile(getImgURL);
+            }
+        }
     }
 
     private void uploadFile(String ImgURL) {
@@ -401,36 +453,273 @@ public class AddNote extends AppCompatActivity {
                 .baseUrl(url)
                 .build();
 
-        NetworkService service = retrofit.create(NetworkService.class);
+        if(isPremium){
+            NetworkService service = retrofit.create(NetworkService.class);
+            File photo = new File(ImgURL);
+            RequestBody photoBody = RequestBody.create(MediaType.parse("multipart/form-data"), photo);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
+            String descriptionString = "userfile";
 
-        File photo = new File(ImgURL);
-        RequestBody photoBody = RequestBody.create(MediaType.parse("multipart/form-data"), photo);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
-        String descriptionString = "userfile";
+            RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
 
-        RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
+            Call<ResponseBody> call = service.upload(description, body);
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    String jsonString = "";
+                    try {
+                        jsonString = response.body().string();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    note_id = jsonString;
+//                    et_title.setText(jsonString);
+                    loadingDialog.progressOFF();
+                    //서버에 다시 요청해서 사진 데이터 받아오기.
+                    new JSONTask().execute(getString(R.string.ip_set)+"/api/file/img");
+                }
 
-        Call<ResponseBody> call = service.upload(description, body);
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String jsonString = "";
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    t.printStackTrace();
+                    loadingDialog.progressOFF();
+                }
+            });
+        }else{
+            NormalNetworkService service = retrofit.create(NormalNetworkService.class);
+            File photo = new File(ImgURL);
+            RequestBody photoBody = RequestBody.create(MediaType.parse("multipart/form-data"), photo);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
+            String descriptionString = "userfile";
+
+            RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
+
+            Call<ResponseBody> call = service.upload(description, body);
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    String jsonString = "";
+                    try {
+                        jsonString = response.body().string();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    note_id = jsonString;
+//                    et_title.setText(jsonString);
+                    loadingDialog.progressOFF();
+                    //서버에 다시 요청해서 사진 데이터 받아오기.
+                    new JSONTask().execute(getString(R.string.ip_set)+"/api/file/img");
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    t.printStackTrace();
+                    loadingDialog.progressOFF();
+                }
+            });
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class JSONTask extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("id", note_id);
+                jsonObject.accumulate("isLeft", isLeft);
+                jsonObject.accumulate("isPremium", isPremium);
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+                URL url = new URL(urls[0]);
                 try {
-                    jsonString = response.body().string();
+                    con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("POST");//POST방식으로 보냄
+                    con.setRequestProperty("Connection", "Keep-Alive");
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setRequestProperty("Accept-Charset", "UTF-8");
+                    con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    OutputStream outStream = con.getOutputStream();
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();
+
+                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
+
+                    reader = new BufferedReader(stream);
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+
+                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
+                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
+                    }
+                    line = buffer.toString();
+                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
                 } catch (IOException e) {
                     e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-                //int note_id = jsonString
-                et_title.setText(jsonString);
-                loadingDialog.progressOFF();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return null;
+        }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                t.printStackTrace();
-                loadingDialog.progressOFF();
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            String prob = "";
+            String solv = "";
+            String data = "";
+            int error = 0;
+            JSONObject jObject = null;
+            try {
+                jObject = new JSONObject(result);
+                error = jObject.optInt("error");
+                if(error==2){
+
+                }else {
+                    if(isPremium){
+                        prob = jObject.getString("prob");
+                        byte[] bytePlainOrg = Base64.decode(prob, 0);
+                        ByteArrayInputStream inStream = new ByteArrayInputStream(bytePlainOrg);
+                        Bitmap bm = BitmapFactory.decodeStream(inStream);
+                        imageView.setImageBitmap(bm);
+
+                        tv_2.setVisibility(View.INVISIBLE);
+                        solv = jObject.getString("solv");
+                        bytePlainOrg = Base64.decode(solv, 0);
+                        inStream = new ByteArrayInputStream(bytePlainOrg);
+                        bm = BitmapFactory.decodeStream(inStream);
+                        imageView2.setImageBitmap(bm);
+                    }
+                    else{
+                        if(isLeft) {
+                            data = jObject.getString("data");
+                            byte[] bytePlainOrg = Base64.decode(data, 0);
+                            ByteArrayInputStream inStream = new ByteArrayInputStream(bytePlainOrg);
+                            Bitmap bm = BitmapFactory.decodeStream(inStream);
+                            imageView.setImageBitmap(bm);
+                        }
+                        else{
+                            data = jObject.getString("data");
+                            byte[] bytePlainOrg = Base64.decode(data, 0);
+                            ByteArrayInputStream inStream = new ByteArrayInputStream(bytePlainOrg);
+                            Bitmap bm = BitmapFactory.decodeStream(inStream);
+                            imageView2.setImageBitmap(bm);
+                        }
+                    }
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+            loadingDialog.progressOFF();
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class JSONNote extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                Log.d("TAG", "Mineru note_id : " +note_id);
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("id", note_id.toString());
+                jsonObject.accumulate("note_type", et_class.getText().toString());
+                jsonObject.accumulate("title", et_title.getText().toString());
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+                URL url = new URL(urls[0]);
+                try {
+                    con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("PUT");//PUT방식으로 보냄
+                    con.setRequestProperty("Connection", "Keep-Alive");
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setRequestProperty("Accept-Charset", "UTF-8");
+                    con.setDoOutput(true);//Outstream으로 PUT 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    OutputStream outStream = con.getOutputStream();
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();
+
+                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
+
+                    reader = new BufferedReader(stream);
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+
+                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
+                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
+                    }
+                    line = buffer.toString();
+                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            int error = 0;
+            JSONObject jObject = null;
+            try {
+                jObject = new JSONObject(result);
+                error = jObject.optInt("error");
+                if(error==2){
+
+                }else {
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            loadingDialog.progressOFF();
+        }
     }
 
 

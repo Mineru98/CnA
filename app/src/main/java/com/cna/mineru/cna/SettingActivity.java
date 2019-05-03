@@ -80,6 +80,8 @@ public class SettingActivity extends AppCompatActivity {
         tv_abouts.setText(content);
 
         TextView tv_account = (TextView) findViewById(R.id.tv_account);
+        TextView tv_profile = (TextView) findViewById(R.id.tv_profile);
+        Switch sw_profile = (Switch) findViewById(R.id.sw_profile);
         TextView tv_logout = (TextView) findViewById(R.id.tv_logout);
         TextView tv_signout = (TextView) findViewById(R.id.tv_signout);
         content = new SpannableString("Account                                                                                                    ");
@@ -99,6 +101,12 @@ public class SettingActivity extends AppCompatActivity {
             sw_wifisync.setChecked(false);
         }
 
+        if(!db.getPremium()){
+            sw_profile.setChecked(true);
+        }else{
+            sw_profile.setChecked(false);
+        }
+
         tv_terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +122,17 @@ public class SettingActivity extends AppCompatActivity {
                 Intent i = new Intent(SettingActivity.this,WebViewActivity.class);
                 i.putExtra("value","privacy");
                 startActivity(i);
+            }
+        });
+
+        sw_profile.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    db.update_isPremium(0);
+                }else{
+                    db.update_isPremium(1);
+                }
             }
         });
 

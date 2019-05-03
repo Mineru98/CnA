@@ -56,7 +56,8 @@ public class UserSQLClass extends AppCompatActivity {
                     "Class "        + "INTEGER NOT NULL DEFAULT 1, " +
                     "isFirst "      + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isGoogle "     + "BOOLEAN NOT NULL DEFAULT 0, " +
-                    "isWifiSync "   + "BOOLEAN NOT NULL DEFAULT 1)";
+                    "isWifiSync "   + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "isPremium "    + "BOOLEAN NOT NULL DEFAULT 1)";
             System.out.println(sqlCreateTb);
 
             sqliteDb.execSQL(sqlCreateTb);
@@ -96,9 +97,19 @@ public class UserSQLClass extends AppCompatActivity {
             isWifiSync = cursor.getInt(0);
             System.out.println(sqlQueryTb1);
         }
-
         return isWifiSync == 1;
+    }
 
+    public boolean getPremium(){
+        int isPremium = 0;
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "SELECT isPremium FROM User_Info;";
+            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            isPremium = cursor.getInt(0);
+            System.out.println(sqlQueryTb1);
+        }
+        return isPremium == 1;
     }
 
     public String get_Name(){
@@ -143,6 +154,16 @@ public class UserSQLClass extends AppCompatActivity {
             sqliteDb.execSQL(sqlQueryTb1);
         }
     }
+
+    public void update_isPremium(int isPremium){
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "UPDATE User_Info SET isPremium = " + isPremium + ";";
+            System.out.println(sqlQueryTb1);
+            sqliteDb.execSQL(sqlQueryTb1);
+        }
+    }
+
+
     public void update_isGoogle(boolean isGoogle, String name, int User_Id){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE User_Info SET isGoogle = '" +  isGoogle + "', Name = '"+ name + "', User_Id = " + User_Id + ";";

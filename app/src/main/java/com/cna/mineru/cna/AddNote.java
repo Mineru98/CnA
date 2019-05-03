@@ -420,6 +420,7 @@ public class AddNote extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                //int note_id = jsonString
                 et_title.setText(jsonString);
                 loadingDialog.progressOFF();
             }

@@ -1,9 +1,9 @@
 <resources>
-    <string name="ip_set">http://175.215.90.55:8080</string>
-    <!--<string name="ip_set">http://122.34.12.104:6450</string>-->
+    <!--<string name="ip_set">http://175.215.90.55:8080</string>-->
+    <string name="ip_set">http://122.34.12.104:6450</string>
     <string name="app_name">CnA</string>
     <string name="title_home">홈</string>
-    <string name="title_plan">계획</string>\
+    <string name="title_plan">계획</string>
     <string name="title_graph">분석</string>
     <string name="title_test">시험</string>
     <string name="title_test_1">시험</string>
@@ -14,7 +14,7 @@
     <string name="btn_cancel">취소</string>
     <string name="btn_add">추가</string>
     <string name="et_title">내용</string>
-    <string name="et_content">결과는 여기에 적힙니다.</string>
+    <string name="et_content">내용을 간략하게 적어주세요.</string>
     <string name="et_form">목표</string>
     <string name="et_form_1">~</string>
     <string name="et_form_2">p</string>

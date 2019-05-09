@@ -184,6 +184,7 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_cancel.setEnabled(false);
+                new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                 finish();
             }
         });
@@ -194,6 +195,7 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_back.setEnabled(false);
+                new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                 finish();
             }
         });
@@ -217,7 +219,7 @@ public class AddNote extends AppCompatActivity {
                     builder.show();
                 }else{
                     int tag = Integer.parseInt(et_class.getText().toString());
-                    db.add_values(et_title.getText().toString(), tag);
+                    db.add_values(note_id, et_title.getText().toString(), tag);
                     int id = db.getId();
                     gp_db.add_values(id, tag);
 
@@ -642,9 +644,8 @@ public class AddNote extends AppCompatActivity {
         @Override
         protected String doInBackground(String... urls) {
             try {
-                Log.d("TAG", "Mineru note_id : " +note_id);
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("id", note_id.toString());
+                jsonObject.accumulate("id", note_id);
                 jsonObject.accumulate("note_type", et_class.getText().toString());
                 jsonObject.accumulate("title", et_title.getText().toString());
                 HttpURLConnection con = null;
@@ -653,6 +654,88 @@ public class AddNote extends AppCompatActivity {
                 try {
                     con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("PUT");//PUT방식으로 보냄
+                    con.setRequestProperty("Connection", "Keep-Alive");
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setRequestProperty("Accept-Charset", "UTF-8");
+                    con.setDoOutput(true);//Outstream으로 PUT 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    OutputStream outStream = con.getOutputStream();
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();
+
+                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
+
+                    reader = new BufferedReader(stream);
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+
+                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
+                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
+                    }
+                    line = buffer.toString();
+                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            int error = 0;
+            JSONObject jObject = null;
+            try {
+                jObject = new JSONObject(result);
+                error = jObject.optInt("error");
+                if(error==2){
+
+                }else {
+                    jObject.getBoolean("Success");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            loadingDialog.progressOFF();
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class DelNote extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("id", note_id);
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+                URL url = new URL(urls[0]);
+                try {
+                    con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("DELETE");//DELETE 방식으로 보냄
                     con.setRequestProperty("Connection", "Keep-Alive");
                     con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
                     con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송

@@ -1,198 +1,213 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.ExifInterface;
-import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.cna.mineru.cna.DB.ImageSQLClass;
-import com.github.chrisbanes.photoview.PhotoView;
+import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
+import com.cna.mineru.cna.Adapter.RandomViewPager;
+import com.cna.mineru.cna.DB.ExamSQLClass;
+import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamSolveFragment;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 public class RandomExamSolve extends AppCompatActivity {
 
     private Button btn_no;
     private Button btn_ok;
-    private ImageView btn_cancel;
-    private int id;
-    private int noteId;
-    private Intent intent;
+    private ViewPager viewPager;
+    private TextView tv_count;
+    private TextView tv_time;
+    private TextView tv_title;
 
+    private boolean[] Result;
+    private int[] ExamIdArr;
+    private long[] ResultExamArr;
+    public int ExamNum;
+    public int CurrentViewId;
+
+    private int count = 0;
+    private int RoomId = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_solve);
-        ImageSQLClass db = new ImageSQLClass(RandomExamSolve.this);
-        intent = new Intent();
-        Intent getIntent = getIntent();
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        ArrayList<Integer> i_list = new ArrayList<>();
+        ArrayList<Integer> b_list = new ArrayList<>();
+        ExamSQLClass db = new ExamSQLClass(this);
 
-        id = getIntent.getIntExtra("id",0);
-        noteId = getIntent.getIntExtra("noteId",1);
-
-        PhotoView imageView = (PhotoView) findViewById(R.id.imageView);
+        viewPager = (RandomViewPager) findViewById(R.id.view_pager);
         btn_ok = (Button) findViewById(R.id.btn_ok);
         btn_no = (Button) findViewById(R.id.btn_no);
-        btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
+        tv_count = (TextView) findViewById(R.id.tv_count);
+        tv_time = (TextView) findViewById(R.id.tv_time);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+
+        ExamIdArr = getIntent().getIntArrayExtra("randomArr");
+        ExamNum = getIntent().getIntExtra("ExamNum",0);
+        Result = new boolean[ExamNum];
+        ResultExamArr = new long[ExamNum];
+        ResultExamArr = getIntent().getLongArrayExtra("ResultArr");
+        CurrentViewId = 0;
+
+        @SuppressLint("DefaultLocale")
+        String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[0]/1000 / 60, (ResultExamArr[0]/1000)%60,(ResultExamArr[0]%1000)/10);
+        tv_time.setText(easy_outTime);
+
+        for(int i=0;i<ExamNum;i++) {
+            i_list.add(ExamIdArr[i]);
+            b_list.add(0);
+            Result[i]=false;
+        }
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("result",1);
-                intent.putExtra("id",id);
-                setResult(RESULT_OK,intent);
-                finish();
+                if(CurrentViewId==ExamNum-1){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
+                    builder.setTitle("시험종료");
+                    builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
+                    builder.setPositiveButton("예",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent i = new Intent(RandomExamSolve.this,RandomExamSolve.class);
+                                    i.putExtra("randomArr", ExamIdArr);
+                                    i.putExtra("ExamNum",ExamNum);
+                                    startActivity(i);
+                                    finish();
+                                }
+                            });
+                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
+                Handler h = new Handler();
+                h.postDelayed(new splashHandler(), 1000);
+                count++;
+                Result[CurrentViewId]=true;
             }
         });
 
         btn_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("result",0);
-                intent.putExtra("id",id);
-                setResult(RESULT_OK,intent);
-                finish();
+                if(CurrentViewId==ExamNum-1){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
+                    builder.setTitle("시험종료");
+                    builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
+                    builder.setPositiveButton("예",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent i = new Intent(RandomExamSolve.this,RandomExamSolve.class);
+                                    i.putExtra("randomArr", ExamIdArr);
+                                    i.putExtra("ExamNum",ExamNum);
+                                    startActivity(i);
+                                    finish();
+                                }
+                            });
+                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
+                Handler h = new Handler();
+                h.postDelayed(new splashHandler(), 1000);
+                count++;
+                Result[CurrentViewId]=false;
             }
         });
 
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onClick(View v) {
-                intent.putExtra("result",0);
-                intent.putExtra("id",id);
-                setResult(RESULT_OK,intent);
-                finish();
+            public void onPageScrolled(int i, float v, int i1) {
             }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onPageSelected(int i) {
+                int text_count = i + 1;
+                @SuppressLint("DefaultLocale")
+                String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[i]/1000 / 60, (ResultExamArr[i]/1000)%60,(ResultExamArr[i]%1000)/10);
+                tv_count.setText("A" + text_count);
+                tv_time.setText(easy_outTime);
+                for (int t = 0; t < ExamNum; t++) {
+                    if (t == ExamNum - 1) {
+                        CurrentViewId = i;
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+            }
+
+
         });
-
-        int count = db.getCount(noteId, 1);
-
-        ArrayList<ArrayList<Byte>> image_merge = new ArrayList<>();
-        ArrayList<Byte> image_t;
-        ArrayList<byte[]> image_arr = db.getImg(noteId, 1);
-
-        int size = 0;
-        for (int i = 0; i < count; i++)
-            size += image_arr.get(i).length;
-
-        byte[] result = new byte[size];
-
-        ArrayList<Byte> tmp = new ArrayList<>();
-        ByteBuffer buf;
-
-        for (int i = 0; i < image_arr.size(); i++) {
-            buf = ByteBuffer.wrap(image_arr.get(i));
-            for (int j = 0; j < image_arr.get(i).length; j++) {
-                tmp.add(buf.get(j));
-            }
-            buf.clear();
-            image_merge.add(tmp);
-        }
-        count = 0;
-        for (int i = 0; i < image_arr.size(); i++) {
-            image_t = image_merge.get(i);
-            if (i == image_arr.size() - 1) {
-                for (int j = i * 1048349; j < image_arr.get(i).length + i * 1048349; j++) {
-                    result[count] = image_t.get(j);
-                    count++;
-                }
-            } else {
-                for (int j = i * 1048349; j < 1048349 + i * 1048349; j++) {
-                    result[count] = image_t.get(j);
-                    count++;
-                }
-            }
-        }
-
-        Bitmap bm = BitmapFactory.decodeByteArray(result, 0, result.length);
-        saveBitmaptoJpeg(bm, ""+id);
-        @SuppressLint("SdCardPath")
-        File photo = new File("/sdcard/CnA/"+id+".jpg");
-        Uri imageUri = Uri.fromFile(photo);
-        String imagePath = imageUri.getPath();
-        ExifInterface exif = null;
-        try {
-            exif = new ExifInterface(imagePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        int exifOrientation = exif.getAttributeInt(
-                ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-        int exifDegree = exifOrientationToDegrees(exifOrientation);
-        bm = rotate(bm, exifDegree);
-        imageView.setImageBitmap(bm);
-        photo.delete();
+        setupViewPager(viewPager);
     }
 
-    public int exifOrientationToDegrees(int exifOrientation) {
-        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
-            return 90;
-        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
-            return 180;
-        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
-            return 270;
+    private void setupViewPager(ViewPager viewPager) {
+        FragmentExampleAdapter adapter = new FragmentExampleAdapter(getSupportFragmentManager());
+        for(int i = 0; i< ExamNum; i++){
+            RandomExamSolveFragment RandomexamSolveFragment = new RandomExamSolveFragment(ExamIdArr[i]);
+            adapter.addFragment(RandomexamSolveFragment);
         }
-        return 0;
+        viewPager.setAdapter(adapter);
     }
 
-    public Bitmap rotate(Bitmap bitmap, int degrees)
-    {
-        if(degrees != 0 && bitmap != null)
-        {
-            Matrix m = new Matrix();
-            m.setRotate(degrees, (float) bitmap.getWidth() / 2,
-                    (float) bitmap.getHeight() / 2);
-
-            try
-            {
-                Bitmap converted = Bitmap.createBitmap(bitmap, 0, 0,
-                        bitmap.getWidth(), bitmap.getHeight(), m, true);
-                if(bitmap != converted)
-                {
-                    bitmap.recycle();
-                    bitmap = converted;
-                }
-            }
-            catch(OutOfMemoryError ex)
-            {
-                // 메모리가 부족하여 회전을 시키지 못할 경우 그냥 원본을 반환합니다.
-            }
-        }
-        return bitmap;
+    private int getItem(int i) {
+        return viewPager.getCurrentItem() + i;
     }
 
-    public static void saveBitmaptoJpeg(Bitmap bitmap, String name){
-        String file_name = name+".jpg";
-        @SuppressLint("SdCardPath")
-        String string_path = "/sdcard/CnA/";
-
-        @SuppressLint("SdCardPath")
-        File file_path = new File("/sdcard/CnA");
-        try{
-            if(!file_path.isDirectory()){
-                file_path.mkdir();
-            }
-            FileOutputStream out = new FileOutputStream(string_path+file_name);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.close();
-        }catch(FileNotFoundException exception){
-            Log.e("FileNotFoundException", exception.getMessage());
-        }catch(IOException exception){
-            Log.e("IOException", exception.getMessage());
+    private class splashHandler implements Runnable{
+        public void run()	{
+            btn_ok.setEnabled(true); // 클릭 유효화
+            viewPager.setCurrentItem(getItem(+1), true);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(RandomExamSolve.this)
+                .setTitle("종료")
+                .setMessage("이대로 종료하시면 정답을 매기지 않는 모든 문제는 오답처리가 됩니다.\n그래도 종료하시겠습니까?")
+                .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+
+                    }
+                })
+                .show();
     }
 }

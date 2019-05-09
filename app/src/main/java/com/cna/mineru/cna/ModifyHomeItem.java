@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
@@ -26,10 +27,20 @@ import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.github.chrisbanes.photoview.PhotoView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
@@ -41,6 +52,7 @@ public class ModifyHomeItem extends AppCompatActivity {
     private GraphSQLClass gp_db;
     private int tag;
     private int id;
+    private int note_id=0;
     private Bitmap bm;
     private Bitmap bm2;
 
@@ -56,6 +68,7 @@ public class ModifyHomeItem extends AppCompatActivity {
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
         ImageSQLClass img_db = new ImageSQLClass(this);
+        note_id = db.getId();
 
         TextView btn_ok = (TextView) findViewById(R.id.btn_save);
         TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
@@ -174,6 +187,7 @@ public class ModifyHomeItem extends AppCompatActivity {
                 tag = Integer.parseInt(et_class.getText().toString());
                 db.update_item(id, et_title.getText().toString(), tag);
                 gp_db.update_value(id, tag);
+                new JSONNote().execute(getString(R.string.ip_set)+"/api/note/update");
                 finish();
             }
         });
@@ -272,6 +286,89 @@ public class ModifyHomeItem extends AppCompatActivity {
             Log.e("FileNotFoundException", exception.getMessage());
         }catch(IOException exception){
             Log.e("IOException", exception.getMessage());
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class JSONNote extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("id", note_id);
+                jsonObject.accumulate("note_type", et_class.getText().toString());
+                jsonObject.accumulate("title", et_title.getText().toString());
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+                URL url = new URL(urls[0]);
+                try {
+                    con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("PUT");//PUT방식으로 보냄
+                    con.setRequestProperty("Connection", "Keep-Alive");
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setRequestProperty("Accept-Charset", "UTF-8");
+                    con.setDoOutput(true);//Outstream으로 PUT 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    OutputStream outStream = con.getOutputStream();
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();
+
+                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
+
+                    reader = new BufferedReader(stream);
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+
+                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
+                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
+                    }
+                    line = buffer.toString();
+                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            int error = 0;
+            JSONObject jObject = null;
+            try {
+                jObject = new JSONObject(result);
+                error = jObject.optInt("error");
+                if(error==2){
+
+                }else {
+                    jObject.getBoolean("Success");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 

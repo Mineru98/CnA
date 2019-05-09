@@ -54,7 +54,7 @@ public class GraphSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Graph (" +
                     "Id "       + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "Note_Id "  + "INTEFER,"+
-                    "Home_Tag " + "INTEGER" + ")";
+                    "Note_Type " + "INTEGER" + ")";
 
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
@@ -66,7 +66,7 @@ public class GraphSQLClass extends AppCompatActivity {
     //
 
     public ArrayList<GraphData> load_values(){
-        ArrayList<GraphData> list = new ArrayList<GraphData>();
+        ArrayList<GraphData> list = new ArrayList<>();
 
         if(sqliteDb != null){
             String sqlQueryTb1 = "SELECT * FROM Graph ORDER BY Id ASC";
@@ -76,8 +76,8 @@ public class GraphSQLClass extends AppCompatActivity {
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
                 int id = cursor.getInt(0);
-                int tag = cursor.getInt(2);
-                list.add(new GraphData(id,tag));
+                int note_type = cursor.getInt(2);
+                list.add(new GraphData(id,note_type));
             }
         }
         return list;
@@ -86,13 +86,13 @@ public class GraphSQLClass extends AppCompatActivity {
     // Note와 같은 내용의 Graph 데이터를
     // Indexing을 하기 위한 메소드
     //
-    public void add_values(int Note_Id, int Home_Tag){
+    public void add_values(int Note_Id, int Note_Type){
         if (sqliteDb != null) {
 
             String sqlInsert = "INSERT INTO Graph " +
-                    "(Note_Id, Home_Tag) VALUES (" +
+                    "(Note_Id, Note_Type) VALUES (" +
                     Note_Id + ", " +
-                    Home_Tag + ");" ;
+                    Note_Type + ");" ;
 
             System.out.println(sqlInsert) ;
 
@@ -103,10 +103,10 @@ public class GraphSQLClass extends AppCompatActivity {
     // Note의 내용이 변경 되었을 때,
     // 그래프의 성질을 변경하기 위한 메소드
     //
-    public void update_value(int Note_Id, int Home_Tag){
+    public void update_value(int Note_Id, int Note_Type){
         if (sqliteDb != null) {
 
-            String sqlInsert = "UPDATE Graph SET Home_Tag = " + Home_Tag
+            String sqlInsert = "UPDATE Graph SET Note_Type = " + Note_Type
                     +" WHERE Note_Id = " + Note_Id + ";";
             System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;

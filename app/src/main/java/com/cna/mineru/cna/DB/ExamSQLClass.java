@@ -1,5 +1,6 @@
 package com.cna.mineru.cna.DB;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -36,18 +37,14 @@ public class ExamSQLClass extends AppCompatActivity {
 
     private SQLiteDatabase init_database(Context context){
         SQLiteDatabase db = null;
-
         File file = new File(context.getFilesDir(), "CnA.db");
-
         System.out.println("PATH : " + file.toString());
-
         try{
             db = SQLiteDatabase.openOrCreateDatabase(file,null);
         }
         catch (SQLException e){
             e.printStackTrace();
         }
-
         if( db == null){
             System.out.println("DB createion failed. " + file.getAbsolutePath() );
         }
@@ -59,12 +56,14 @@ public class ExamSQLClass extends AppCompatActivity {
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Exam (" +
-                    "Id "        + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "ExamId "    + "INTEGER DEFAULT 0," +
-                    "ExamRoomId "+ "INTEGER DEFAULT 0," +
-                    "Title "     + "TEXT," +
-                    "Tag "       + "INTEGER DEFAULT 0," +
-                    "ExamTitle " + "TEXT DEFAULT '');";
+                    "Id "          + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "ExamId "      + "INTEGER DEFAULT 0," +
+                    "ExamRoomId "  + "INTEGER DEFAULT 0," +
+                    "Title "       + "TEXT," +
+                    "Tag "         + "INTEGER DEFAULT 0," +
+                    "TimeToSolve " + "INTEGER," +
+                    "isSolved "    + "BOOLEAN DEFAULT 0," +
+                    "ExamTitle "   + "TEXT DEFAULT '');";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
@@ -74,8 +73,9 @@ public class ExamSQLClass extends AppCompatActivity {
     // 보여주기 위한 Data Loading 메소드
     // This is a data loading method for
     // displaying the Exam results registered in the Exam table in the ListView.
+    @SuppressLint("Recycle")
     public ArrayList<ExamData> load_values(){
-        ArrayList<ExamData> list = new ArrayList<ExamData>();
+        ArrayList<ExamData> list = new ArrayList<>();
 
         if(sqliteDb != null){
             String sqlQueryTb1 = "SELECT * FROM Exam WHERE TAG = 3 ORDER BY Id DESC";
@@ -92,9 +92,23 @@ public class ExamSQLClass extends AppCompatActivity {
         return list;
     }
 
+    @SuppressLint("Recycle")
+    public int get_Exam_RoomId(){
+        int RoodId=0;
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "select ExamRoomId from Exam ORDER BY Id DESC limit 1;";
+            Cursor cursor = null;
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            RoodId = cursor.getInt(0);
+        }
+        return RoodId;
+    }
+
     // 특정 시험에 대한 데이터 지표를 볼 때
     // ExamId를 통해 Data Loading을 하는 메소드
     // Methods for Data Loading via ExamId when viewing data indicators for a particular Exam
+    @SuppressLint("Recycle")
     public ArrayList<ExamData> get_point_values(String exam_title){
         ArrayList<ExamData> list = new ArrayList<ExamData>();
 
@@ -178,6 +192,7 @@ public class ExamSQLClass extends AppCompatActivity {
     // Tag를 통해 테이블을 안정적으로 만들기 위한 메소드
     // After creating the Random Exam Data,
     // the method for making the table stable through Tag
+    @SuppressLint("Recycle")
     private void exam_first_update(){
         if (sqliteDb != null) {
             String sql_select1 = "SELECT Id FROM Exam WHERE Tag = 1;";
@@ -195,11 +210,20 @@ public class ExamSQLClass extends AppCompatActivity {
             count++;
 
             String sql_update1 = "UPDATE Exam SET ExamRoomId = " + id + ",Tag = 2  WHERE Tag = 0;";
+            @SuppressLint("SimpleDateFormat")
             String sql_update2 = "UPDATE Exam SET ExamRoomId = " + id + ",Tag = 3, ExamTitle = '" +
                     new SimpleDateFormat("yyyy년_MM월_dd일").format(new Date(System.currentTimeMillis())) +
                     "_"+ count +"' WHERE Tag = 1;";
             sqliteDb.execSQL(sql_update1);
             sqliteDb.execSQL(sql_update2);
+        }
+    }
+
+    public void delete_exam(int id){
+        if(sqliteDb != null) {
+            String sqlQueryTb1 = "DELETE FROM Exam WHERE id =" + id + ";";
+            System.out.println(sqlQueryTb1);
+            sqliteDb.execSQL(sqlQueryTb1);
         }
     }
 }

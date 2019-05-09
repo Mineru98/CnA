@@ -1,8 +1,10 @@
 package com.cna.mineru.cna.Fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -24,6 +26,17 @@ import com.cna.mineru.cna.ModifyHomeItem;
 import com.cna.mineru.cna.R;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -37,7 +50,7 @@ public class HomeFragment extends Fragment {
     private ImageSQLClass i_db;
     private FloatingActionButton fb;
     private LoadingDialog loadingDialog;
-
+    private int note_id = 0;
     public HomeFragment(){
 
     }
@@ -102,6 +115,8 @@ public class HomeFragment extends Fragment {
                                     db.delete_item(list.get(position).id);
                                     gp_db.delete_value(list.get(position).id);
                                     i_db.delete_item(list.get(position).id);
+                                    note_id = list.get(position).id;
+                                    new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                                     onResume();
                                 }
                             });
@@ -119,6 +134,88 @@ public class HomeFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class DelNote extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            try {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.accumulate("id", note_id);
+                HttpURLConnection con = null;
+                BufferedReader reader = null;
+                URL url = new URL(urls[0]);
+                try {
+                    con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("DELETE");//DELETE 방식으로 보냄
+                    con.setRequestProperty("Connection", "Keep-Alive");
+                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
+                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+                    con.setRequestProperty("Accept-Charset", "UTF-8");
+                    con.setDoOutput(true);//Outstream으로 PUT 데이터를 넘겨주겠다는 의미
+                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
+                    con.connect();
+
+                    OutputStream outStream = con.getOutputStream();
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
+                    writer.write(jsonObject.toString());
+                    writer.flush();
+                    writer.close();
+
+                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
+
+                    reader = new BufferedReader(stream);
+
+                    StringBuffer buffer = new StringBuffer();
+
+                    String line = "";
+
+                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
+                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
+                    }
+                    line = buffer.toString();
+                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            int error = 0;
+            JSONObject jObject = null;
+            try {
+                jObject = new JSONObject(result);
+                error = jObject.optInt("error");
+                if(error==2){
+
+                }else {
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            loadingDialog.progressOFF();
+        }
     }
 
     private class splashHandler implements Runnable{

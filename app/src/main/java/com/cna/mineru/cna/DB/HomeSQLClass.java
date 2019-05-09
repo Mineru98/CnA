@@ -54,18 +54,18 @@ public class HomeSQLClass extends AppCompatActivity {
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Note (" +
-                    "Id "         + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "Title "      + "TEXT," +
-                    "Image "      + "BLOB DEFAULT ''," +
-                    "ImageIndex " + "INTEGER DEFAULT 0," +
-                    "Tag "        + "INTEGER" + ");";
+                    "Id "           + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "Title "        + "TEXT," +
+                    "Image "        + "BLOB DEFAULT ''," +
+                    "Note_Current " + "INTEGER DEFAULT 100," +
+                    "Note_Type "          + "INTEGER" + ");";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
     }
 
     public ArrayList<HomeData> load_values(){
-        ArrayList<HomeData> list = new ArrayList<HomeData>();
+        ArrayList<HomeData> list = new ArrayList<>();
 
         if(sqliteDb != null){
             String sqlQueryTb1 = "SELECT Id, Title FROM Note ORDER BY Id DESC";
@@ -84,10 +84,10 @@ public class HomeSQLClass extends AppCompatActivity {
         return list;
     }
 
-    public void update_item(int id, String title, int tag){
+    public void update_item(int id, String title, int note_type){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE Note SET Title = '" +  title + "', " +
-                    "Tag = "+ tag + " WHERE Id = " + id + ";";
+                    "Note_Type = "+ note_type + " WHERE Id = " + id + ";";
 
             System.out.println(sqlQueryTb1);
 
@@ -166,7 +166,7 @@ public class HomeSQLClass extends AppCompatActivity {
         HomeData data;
 
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT Id, Title, Tag FROM Note WHERE id = " + id + ";";
+            String sqlQueryTb1 = "SELECT Id, Title, Note_Type FROM Note WHERE id = " + id + ";";
             String sqlQueryTb2 = "SELECT Image FROM Note WHERE id = " + id + ";";
             Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             Cursor image_curs = sqliteDb.rawQuery(sqlQueryTb2, null);
@@ -201,26 +201,14 @@ public class HomeSQLClass extends AppCompatActivity {
         return id;
     }
 
-    public byte[] getImg(int id){
-        byte[] data = null;
-        if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT Image FROM Note WHERE id = " + id + ";";
-            Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
-            System.out.println(sqlQueryTb1);
-            cursor.moveToNext();
-            data = cursor.getBlob(0);
-        }
-        else{
-            return null;
-        }
-        return data;
-    }
 
-    public void add_values(String title, int tag){
+    public void add_values(String note_id, String title, int note_type){
+        int id = Integer.parseInt(note_id);
         if (sqliteDb != null) {
-            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Title, Tag) VALUES (?,?);");
-            p.bindString(1, title);
-            p.bindLong(2, tag);
+            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Id, Title, Note_Type) VALUES (?,?,?);");
+            p.bindLong(1, id);
+            p.bindString(2, title);
+            p.bindLong(3, note_type);
             System.out.println(p);
             p.execute();
         }

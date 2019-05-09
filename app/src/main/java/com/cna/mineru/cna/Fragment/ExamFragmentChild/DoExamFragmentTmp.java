@@ -160,9 +160,10 @@ public class DoExamFragmentTmp extends Fragment {
                 dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        boolean test = db.make_Exam(count);
+                        boolean make = db.make_Exam(count);
+                        int roomId = db.get_Exam_RoomId();
                         int[] note_list = h_db.getItemIdEach();
-                        if (test) {
+                        if (make) {
                             dialog.dismiss();
 
                             int[] tmp = new int[count];
@@ -185,6 +186,7 @@ public class DoExamFragmentTmp extends Fragment {
                             i.putExtra("time", time * 60 * 1000);
                             i.putExtra("randomArr", result);
                             i.putExtra("ExamNum", count);
+                            i.putExtra("RoodId", roomId);
                             startActivity(i);
                             //startActivityForResult(i, 2000);
                         } else

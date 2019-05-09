@@ -52,7 +52,7 @@ public class ImageSQLClass extends AppCompatActivity {
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Image (" +
                     "Id "        + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "NoteId "   + "INTEGER DEFAULT 0," +
+                    "NoteId "    + "INTEGER DEFAULT 0," +
                     "ImageId "   + "INTEGER DEFAULT 0," +
                     "isSolve "   + "BOOLEAN DEFAULT 0," +
                     "Image "     + "BLOB DEFAULT '');";

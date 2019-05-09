@@ -59,31 +59,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be93391c-859c-48f7-a434-a013115f8d77" name="Default Changelist" comment="1. Note 삭제 시 DB가 꼬이는 문제 해결&#10;(Fixed a DB error when removing notes)&#10;2. DB Class에 주석 삽입&#10;(Inserting comments into DB Class)">
-      <change afterPath="$PROJECT_DIR$/CnA_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Utils/NormalNetworkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CnA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentChild/RandomExamSolveFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_exam.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_exam_solve.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customtabs_27_1_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_chrisbanes_PhotoView_2_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_chrisbanes_PhotoView_2_1_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__me_zhanghai_android_materialprogressbar_library_1_4_2_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CnA.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CnA_test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/AddNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/AddNote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/UserSQLClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/UserSQLClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/SettingActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Utils/NetworkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Utils/NetworkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ExamSQLClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ExamSQLClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/GraphSQLClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/GraphSQLClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/HomeSQLClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/HomeSQLClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ImageSQLClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ImageSQLClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DTO/GraphData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DTO/GraphData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentTmp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentTmp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/GraphFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/GraphFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/ModifyHomeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/ModifyHomeItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExamSolve.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExamSolve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_random.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_random.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_solve.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_random_solve.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/navigation.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,28 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>memo</find>
-      <find>isSolve</find>
-      <find>Log.d(</find>
-      <find>getList</find>
-      <find>CustomViewPager</find>
-      <find>FragmentPagerAdapter</find>
-      <find>GridAdapter</find>
-      <find>RandomViewPager</find>
-      <find>FragmentExampleAdapter</find>
-      <find>RcAdapter</find>
-      <find>RcExamAdapter</find>
-      <find>Toast</find>
-      <find>count</find>
-      <find>4</find>
-      <find>testArr</find>
-      <find>getTimeOut</find>
-      <find>eachTimer.removeMessages(0);</find>
-      <find>5dp</find>
-      <find>findViewById</find>
-      <find>et_count</find>
-      <find>getText().toString()</find>
-      <find>setting_time</find>
       <find>boundary1</find>
       <find>isNext</find>
       <find>Timer</find>
@@ -192,6 +179,28 @@
       <find>btn</find>
       <find>:</find>
       <find>upload</find>
+      <find>length</find>
+      <find>NetworkService</find>
+      <find>JSONTask</find>
+      <find>service</find>
+      <find>JSONNote</find>
+      <find>JSONObject</find>
+      <find>jObject</find>
+      <find>db</find>
+      <find>viewPager</find>
+      <find>randomArr</find>
+      <find>result</find>
+      <find>getEachTimeOut</find>
+      <find>btn_back</find>
+      <find>eachCount</find>
+      <find>desc</find>
+      <find>Tag</find>
+      <find>ImageIndex</find>
+      <find>btn_ok</find>
+      <find>add_values</find>
+      <find>note_id</find>
+      <find>GridAdapter</find>
+      <find>setAdapter</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -218,36 +227,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/ModifyHomeItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/anim/anim_slide_in_left.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/splash_page.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/CustomViewPager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/RandomViewPager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/FragmentPagerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/FragmentExampleAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/GridAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/RcAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Adapter/RcExamAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ImageSQLClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/PlanSQLClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/TmpSQLClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ClassSQLClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/GraphSQLClass.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/HomeSQLClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentChild/RandomExamFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_random.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_do_exam_tmp.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ExamSQLClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentTmp.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExam.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_1.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_1fin.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_1mid.xml" />
@@ -265,16 +254,36 @@
         <option value="$PROJECT_DIR$/local.properties" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/UserSQLClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Utils/NetworkService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/AddNote.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/SettingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentChild/RandomExamSolveFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_examSolve.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_random.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_random_solve.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_exam.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_exam_solve.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/UserSQLClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentTmp.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExamSolve.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExam.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/GraphSQLClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DTO/GraphData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ExamSQLClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ImageSQLClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/ModifyHomeItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/AddNote.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/HomeSQLClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/GraphFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DefaultInputActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="97" />
-    <option name="y" value="243" />
+    <option name="x" value="-7" />
+    <option name="y" value="-7" />
     <option name="width" value="2579" />
     <option name="height" value="1409" />
   </component>
@@ -288,6 +297,28 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CnA" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="CnA" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="CnA" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,38 +335,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CnA_test" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="CnA_test" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="CnA_test" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="cna" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CnA_test" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="LMV409N00e4a41b" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ExamApp" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -343,9 +348,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild" />
       <recent name="com.cna.mineru.cna.Utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SourceCode\CnA\app\src\main\res\layout" />
       <recent name="C:\iks\CnA\app\src\main\res\drawable" />
     </key>
   </component>
@@ -513,8 +520,8 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Resources Explorer" order="8" weight="0.32927653" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.45467836" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49932432" weight="0.5117647" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.45417926" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49932432" weight="0.51158106" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32941177" />
@@ -522,9 +529,9 @@
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.34441087" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32941177" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.5088235" side_tool="true" weight="0.32972974" />
-      <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.50810015" side_tool="true" weight="0.32972974" />
+      <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.50810015" side_tool="true" weight="0.32967034" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Gradle" order="3" sideWeight="0.49117646" weight="0.32927653" />
       <window_info anchor="right" id="Theme Preview" order="4" />
@@ -534,31 +541,32 @@
     </layout>
     <layout-to-restore>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24189189" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2022977" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.45588234" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49932432" weight="0.5117647" />
+      <window_info id="Resources Explorer" order="8" weight="0.32927653" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.45417926" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49932432" weight="0.51158106" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32941177" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5006757" side_tool="true" weight="0.41826215" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.35" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.34441087" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32941177" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.5088235" side_tool="true" weight="0.32972974" />
-      <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.50810015" side_tool="true" weight="0.32972974" />
+      <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.50810015" side_tool="true" weight="0.32967034" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="Gradle" order="3" sideWeight="0.49117646" weight="0.32972974" />
+      <window_info anchor="right" id="Gradle" order="3" sideWeight="0.49117646" weight="0.32927653" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Assistant" order="6" weight="0.32972974" />
-      <window_info anchor="right" id="Preview" order="7" visible="true" weight="0.3006757" />
+      <window_info anchor="right" id="Assistant" order="6" weight="0.32927653" />
+      <window_info anchor="right" id="Preview" order="7" weight="0.3001998" />
     </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
@@ -566,162 +574,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="1. Note 삭제 시 DB가 꼬이는 문제 해결&#10;(Fixed a DB error when removing notes)&#10;2. DB Class에 주석 삽입&#10;(Inserting comments into DB Class)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/HomeSQLClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3894">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ExamSQLClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3894">
-          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-760">
-          <caret line="13" column="70" selection-start-line="13" selection-start-column="70" selection-end-line="13" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_do_exam_tmp.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="203" column="38" selection-start-line="203" selection-start-column="29" selection-end-line="203" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="156" column="66" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="79" column="50" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/5d62731e536d984915a4fd5bd1883034/jars/classes.jar!/android/support/v4/view/ViewPager.class" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentTmp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExamSolve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_random_solve.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/memo.jpg" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="239" selection-start-line="239" selection-end-line="239" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/memo1.png" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_test_icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="64" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_normal.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_check_ok.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_1.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_1fin.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_1mid.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_2.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_all.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_7.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_6.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_2fin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/2.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/5.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/3.xml" />
@@ -754,25 +606,10 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_test.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Utils/NetworkService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="3982">
-          <caret line="181" column="17" selection-start-line="181" selection-start-column="17" selection-end-line="181" selection-end-column="17" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="85" column="71" selection-start-line="85" selection-start-column="71" selection-end-line="85" selection-end-column="71" />
+        <state relative-caret-position="110">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -783,24 +620,319 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Utils/NetworkService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_exam.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_do_exam.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentChild/RandomExamSolveFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="264">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="e#995#996#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentChild/RandomExamFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="31" />
+          <folding>
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_do_exam_tmp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="196" column="48" lean-forward="true" selection-start-line="196" selection-start-column="48" selection-end-line="196" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117" />
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="3982">
+          <caret line="181" column="17" selection-start-line="181" selection-start-column="17" selection-end-line="181" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_examSolve.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_note.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_random_solve.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_random.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_note.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_exam_solve.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar_exam.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/UserSQLClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        <state relative-caret-position="-2159">
+          <caret line="56" column="70" lean-forward="true" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="233" column="61" selection-start-line="233" selection-start-column="61" selection-end-line="233" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/ExamFragmentChild/DoExamFragmentTmp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1172">
+          <caret line="188" column="57" lean-forward="true" selection-start-line="188" selection-start-column="57" selection-end-line="188" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExamSolve.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3831#3832#0" expanded="true" />
+            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#5396#5397#0" expanded="true" />
+            <element signature="e#5468#5469#0" expanded="true" />
+            <element signature="e#3444#3445#0" expanded="true" />
+            <element signature="e#3497#3498#0" expanded="true" />
+            <element signature="e#7809#7810#0" expanded="true" />
+            <element signature="e#7865#7866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/navigation.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DTO/GraphData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/PlanSQLClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ExamSQLClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+          <folding>
+            <element signature="e#5244#5245#0" expanded="true" />
+            <element signature="e#5308#5309#0" expanded="true" />
+            <element signature="e#5833#5834#0" expanded="true" />
+            <element signature="e#5897#5898#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/RandomExam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2241">
+          <caret line="306" column="33" selection-start-line="306" selection-start-column="33" selection-end-line="306" selection-end-column="33" />
+          <folding>
+            <element signature="e#6468#7876#0" expanded="true" />
+            <element signature="e#7875#7876#0" expanded="true" />
+            <element signature="e#7936#8057#0" expanded="true" />
+            <element signature="e#8056#8057#0" expanded="true" />
+            <element signature="e#9398#9399#0" expanded="true" />
+            <element signature="e#9451#9452#0" expanded="true" />
+            <element signature="e#10931#10932#0" expanded="true" />
+            <element signature="e#11003#11004#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/ModifyHomeItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#7088#7114#0" expanded="true" />
+            <element signature="e#7904#7905#0" expanded="true" />
+            <element signature="e#7968#7969#0" expanded="true" />
+            <element signature="e#8734#8735#0" expanded="true" />
+            <element signature="e#8798#8799#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/GuideActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="85" column="71" selection-start-line="85" selection-start-column="71" selection-end-line="85" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DefaultInputActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="51" column="6" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/GraphFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/GraphSQLClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/ImageSQLClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/AddNote.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1919">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        <state relative-caret-position="305">
+          <caret line="221" column="34" selection-start-line="221" selection-start-column="34" selection-end-line="221" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/DB/HomeSQLClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="179" column="47" selection-start-line="179" selection-start-column="47" selection-end-line="179" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="155" column="38" selection-start-line="155" selection-start-column="38" selection-end-line="155" selection-end-column="38" />
+          <folding>
+            <element signature="e#8148#8149#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8925#8926#0" expanded="true" />
+            <element signature="e#8963#8964#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cna/mineru/cna/Fragment/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="233" column="21" selection-start-line="233" selection-start-column="11" selection-end-line="233" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
         </state>
       </provider>
     </entry>

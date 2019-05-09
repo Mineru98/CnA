@@ -34,19 +34,24 @@ public class GraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_graph, container, false);
         chart = view.findViewById(R.id.chartView);
+        list = new ArrayList<>();
 
         db =  new GraphSQLClass(getActivity());
+        drawGraph();
 
-        ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
-        list = new ArrayList<GraphData>();
+        return view;
+    }
 
+    private void drawGraph(){
+        ArrayList<PieEntry> yValues = new ArrayList<>();
+        list.clear();
         list = db.load_values();
 
         int total = list.size();
         float[] select = {0f,0f,0f,0f,0f,0f,0f,0f};
 
         for(int i=0;i<total;i++){
-            switch (list.get(i).tag){
+            switch (list.get(i).note_type){
                 case 1:
                     select[0]+=1;
                     break;
@@ -77,7 +82,7 @@ public class GraphFragment extends Fragment {
         chart.setExtraOffsets(0,0,0,0);
 
         chart.setDragDecelerationFrictionCoef(0.95f);
-
+        chart.setTouchEnabled(false);
         chart.setDrawHoleEnabled(false);
         chart.setHoleColor(Color.RED);
         chart.setEntryLabelColor(Color.BLACK);
@@ -138,13 +143,12 @@ public class GraphFragment extends Fragment {
         data.setValueTextColor(Color.BLACK);
 
         chart.setData(data);
-        return view;
     }
 
     @Override
     public void onResume(){
         super.onResume();
-
+        drawGraph();
     }
 
 }

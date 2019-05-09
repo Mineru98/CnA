@@ -11,6 +11,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,37 +34,45 @@ public class RandomExam extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TextView time_out;
+    private TextView tv_count;
     private Button btn_ok;
 
     private int setting_time;
 
     private int[] ExamIdArr;
+    private long[] ResultExamArr;
     private long myBaseTime;
     private int count = 0;
+    private int RoomId = 0;
     private boolean timeOut = false;
-    private ArrayList<Integer> i_list;
-    private ArrayList<Integer> b_list;
     public int ExamNum;
+    private ExamSQLClass db;
 
+    private ArrayList<Integer> b_list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
-        i_list = new ArrayList<Integer>();
-        b_list = new ArrayList<Integer>();
-        ExamSQLClass db = new ExamSQLClass(this);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        ArrayList<Integer> i_list = new ArrayList<>();
+        b_list = new ArrayList<>();
+        db = new ExamSQLClass(this);
 
         viewPager = (RandomViewPager) findViewById(R.id.view_pager);
         time_out = (TextView) findViewById(R.id.time_out);
         btn_ok = (Button) findViewById(R.id.btn_ok);
+        tv_count = (TextView) findViewById(R.id.tv_count);
 
         setting_time = getIntent().getIntExtra("time",0);
         ExamIdArr = getIntent().getIntArrayExtra("randomArr");
         ExamNum = getIntent().getIntExtra("ExamNum",0);
+        RoomId= getIntent().getIntExtra("RoomId",0);
 
         eachCount = new int[ExamNum];
         eachBaseTime = new long[ExamNum];
         eachPauseTime = new long[ExamNum];
+        ResultExamArr = new long[ExamNum];
         CurrentViewId = 0;
 
         for(int i=0;i<ExamNum;i++) {
@@ -94,12 +103,15 @@ public class RandomExam extends AppCompatActivity {
                                     myTimer.removeMessages(0);
                                     eachTimer.removeMessages(0);
                                     for(int i = 0;i<ExamNum;i++){
-                                        long outTime = eachPauseTime[i] - eachBaseTime[i];
+                                        ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
                                         @SuppressLint("DefaultLocale")
-                                        String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
+                                        String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[i]/1000 / 60, (ResultExamArr[i]/1000)%60,(ResultExamArr[i]%1000)/10);
                                         Log.d("TAG","Mineru : "+i+") " + easy_outTime);
                                     }
                                     Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+                                    i.putExtra("randomArr", ExamIdArr);
+                                    i.putExtra("ExamNum", ExamNum);
+                                    i.putExtra("ResultArr", ResultExamArr);
                                     startActivity(i);
                                     finish();
                                 }
@@ -115,13 +127,7 @@ public class RandomExam extends AppCompatActivity {
                 }
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
-//                btn_ok.setEnabled(false);
                 count++;
-                //viewPager.setCurrentItem(getItem(+1), true);
-//                Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
-//                i.putExtra("id",viewPager.getCurrentItem());
-//                i.putExtra("noteId",ExamIdArr[viewPager.getCurrentItem()]);
-//                startActivityForResult(i,1000);
             }
         });
 
@@ -131,33 +137,36 @@ public class RandomExam extends AppCompatActivity {
             public void onPageScrolled(int i, float v, int i1) {
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onPageSelected(int i) {
+                int text_count = i + 1;
+                tv_count.setText("Q" + text_count);
                 Log.d("TAG", "Mineru : selected id : " + i + ", " + ExamIdArr[i]);
-                if(i==ExamNum-1){
+                if (i == ExamNum - 1) {
                     btn_ok.setText("시험종료");
-                }else{
+                } else {
                     btn_ok.setText("다음문제");
                 }
                 for (int t = 0; t < ExamNum; t++) {
-                    if(t==0)
+                    if (t == 0)
                         eachTimer.removeMessages(0);//핸들러 메세지 제거
 
                     if (t == i) {
                         //현재 화면의 Index의 타이머만 run 상태로
-                        if(eachBaseTime[t]!=0){
+                        if (eachBaseTime[t] != 0) {
                             long now = SystemClock.elapsedRealtime();
                             myTimer.sendEmptyMessage(0);
                             eachBaseTime[t] += (now - eachPauseTime[t]);
-                        }else{
+                        } else {
                             eachBaseTime[t] = SystemClock.elapsedRealtime();
                         }
-                    } else if(t==CurrentViewId) {
+                    } else if (t == CurrentViewId) {
                         //현재 화면의 Index가 아닌 타이머는 Pause 상태로
                         eachPauseTime[t] = SystemClock.elapsedRealtime();
                     }
 
-                    if(t==ExamNum-1){
+                    if (t == ExamNum - 1) {
                         eachTimer.sendEmptyMessage(0);
                         CurrentViewId = i;
                     }
@@ -225,14 +234,14 @@ public class RandomExam extends AppCompatActivity {
         }
         return easy_outTime;
     }
-
-    String getEachTimeOut(int i){
-        long now = SystemClock.elapsedRealtime();
-        long outTime = now - eachBaseTime[i];
-        @SuppressLint("DefaultLocale")
-        String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
-        return easy_outTime;
-    }
+//
+//    String getEachTimeOut(int i){
+//        long now = SystemClock.elapsedRealtime();
+//        long outTime = now - eachBaseTime[i];
+//        @SuppressLint("DefaultLocale")
+//        String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
+//        return easy_outTime;
+//    }
 
     private void setupViewPager(ViewPager viewPager) {
         FragmentExampleAdapter adapter = new FragmentExampleAdapter(getSupportFragmentManager());
@@ -294,6 +303,7 @@ public class RandomExam extends AppCompatActivity {
                 .setPositiveButton("네", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        db.delete_exam(RoomId);
                         finish();
                     }
 
@@ -310,6 +320,12 @@ public class RandomExam extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+//        db.delete_exam(RoomId);
     }
 }
 

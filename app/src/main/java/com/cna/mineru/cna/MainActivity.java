@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     HomeFragment homeFragment;
-    PlanFragment planFragment;
+//    PlanFragment planFragment;
     GraphFragment graphFragment;
     ExamFragment examFragment;
     MenuItem prevMenuItem;
@@ -104,14 +104,14 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.navigation_home:
                                 viewPager.setCurrentItem(0,false);
                                 break;
-                            case R.id.navigation_plan:
+//                            case R.id.navigation_plan:
+//                                viewPager.setCurrentItem(1,false);
+//                                break;
+                            case R.id.navigation_graph:
                                 viewPager.setCurrentItem(1,false);
                                 break;
-                            case R.id.navigation_graph:
-                                viewPager.setCurrentItem(2,false);
-                                break;
                             case R.id.navigation_test:
-                                viewPager.setCurrentItem(3,false);
+                                viewPager.setCurrentItem(2,false);
                                 break;
                         }
                         return false;
@@ -135,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
                 prevMenuItem = bottomNavigationView.getMenu().getItem(position);
-
             }
 
             @Override
@@ -149,11 +148,9 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         FragmentPagerAdapter adapter = new FragmentPagerAdapter(getSupportFragmentManager());
         homeFragment = new HomeFragment();
-        planFragment = new PlanFragment();
         graphFragment = new GraphFragment();
         examFragment = new ExamFragment();
         adapter.addFragment(homeFragment);
-        adapter.addFragment(planFragment);
         adapter.addFragment(graphFragment);
         adapter.addFragment(examFragment);
         viewPager.setAdapter(adapter);
@@ -248,13 +245,12 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isOnline() {
         CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
         cc.start();
-        try{
+        try {
             cc.join();
             return cc.isSuccess();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
-
 }

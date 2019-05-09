@@ -20,12 +20,14 @@ import java.util.ArrayList;
 
 public class ListExamFragment extends Fragment {
 
-    public RcExamAdapter mAdapater;
-    private LinearLayoutManager linearLayoutManager;
-    private ArrayList<ExamData> list  = new ArrayList<ExamData>();
     private ExamSQLClass db;
+
     private View view;
     public RecyclerView rv;
+    public RcExamAdapter mAdapater;
+    private LinearLayoutManager linearLayoutManager;
+
+    private ArrayList<ExamData> list  = new ArrayList<>();
 
 
     public ListExamFragment(){
@@ -38,7 +40,6 @@ public class ListExamFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_list_exam, container, false);
         rv = (RecyclerView)view.findViewById(R.id.recyclerView);
         linearLayoutManager = new LinearLayoutManager(getActivity());
-
         rv.addItemDecoration(new DividerItemDecoration(getActivity(),linearLayoutManager.getOrientation()));
         rv.setLayoutManager(linearLayoutManager);
 
@@ -46,6 +47,7 @@ public class ListExamFragment extends Fragment {
         list = db.load_values();
 
         mAdapater = new RcExamAdapter(getContext(), R.layout.item, list);
+
         rv.setAdapter(mAdapater);
         return view;
     }

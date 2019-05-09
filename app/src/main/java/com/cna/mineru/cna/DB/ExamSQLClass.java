@@ -57,7 +57,7 @@ public class ExamSQLClass extends AppCompatActivity {
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Exam (" +
                     "Id "          + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "ExamId "      + "INTEGER DEFAULT 0," +
+                    "NoteId "      + "INTEGER DEFAULT 0," +
                     "ExamRoomId "  + "INTEGER DEFAULT 0," +
                     "Title "       + "TEXT," +
                     "Tag "         + "INTEGER DEFAULT 0," +
@@ -85,7 +85,7 @@ public class ExamSQLClass extends AppCompatActivity {
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
                 int id = cursor.getInt(2);
-                String examtitle = cursor.getString(5);
+                String examtitle = cursor.getString(7);
                 list.add(new ExamData(examtitle,id));
             }
         }
@@ -94,20 +94,32 @@ public class ExamSQLClass extends AppCompatActivity {
 
     @SuppressLint("Recycle")
     public int get_Exam_RoomId(){
-        int RoodId=0;
+        int RoomId=0;
         if(sqliteDb != null){
             String sqlQueryTb1 = "select ExamRoomId from Exam ORDER BY Id DESC limit 1;";
             Cursor cursor = null;
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             cursor.moveToNext();
-            RoodId = cursor.getInt(0);
+            RoomId = cursor.getInt(0);
         }
-        return RoodId;
+        return RoomId;
+    }
+
+    public int get_last_exam(){
+        int RoomId = 0;
+        if(sqliteDb != null) {
+            String sqlQueryTb1 = "SELECT * FROM Exam WHERE TAG = 3 ORDER BY Id DESC limit 1";
+            Cursor cursor = null;
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            RoomId = cursor.getInt(0);
+        }
+        return RoomId;
     }
 
     // 특정 시험에 대한 데이터 지표를 볼 때
-    // ExamId를 통해 Data Loading을 하는 메소드
-    // Methods for Data Loading via ExamId when viewing data indicators for a particular Exam
+    // NoteId를 통해 Data Loading을 하는 메소드
+    // Methods for Data Loading via NoteId when viewing data indicators for a particular Exam
     @SuppressLint("Recycle")
     public ArrayList<ExamData> get_point_values(String exam_title){
         ArrayList<ExamData> list = new ArrayList<ExamData>();
@@ -128,8 +140,9 @@ public class ExamSQLClass extends AppCompatActivity {
 
     // 랜덤으로 문제를 섞어 시험지를 만드는 메소드
     // Methods for creating exam papers by randomly mixing problems
-    public boolean make_Exam(int exam_count){
+    public ArrayList<ExamData> make_Exam(int exam_count){
         int count = 0;
+        ArrayList<ExamData> list = new ArrayList<>();
         if (sqliteDb != null) {
             homeSQLClass = new HomeSQLClass(context);
             count = homeSQLClass.getCount();
@@ -147,7 +160,7 @@ public class ExamSQLClass extends AppCompatActivity {
                     }
                 });
                 dialog.show();
-                return false;
+                return list;
             } else if (count < exam_count) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context);
                 dialog.setTitle("알림");
@@ -160,22 +173,21 @@ public class ExamSQLClass extends AppCompatActivity {
                     }
                 });
                 dialog.show();
-                return false;
+                return list;
             } else {
-                ArrayList<ExamData> list;
                 list = homeSQLClass.getList(exam_count);
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < exam_count; i++) {
                     String sqlInsert = "";
                     if (i == 0) {
                         sqlInsert = "INSERT INTO Exam " +
-                                "(ExamId, Tag, Title) VALUES (" +
-                                list.get(i).examid + "," +
+                                "(NoteId, Tag, Title) VALUES (" +
+                                list.get(i).examId + "," +
                                 "1 ," +
                                 "'" + list.get(i).title + "'" + ")";
                     } else {
                         sqlInsert = "INSERT INTO Exam " +
-                                "(ExamId, Tag, Title) VALUES (" +
-                                list.get(i).examid + "," +
+                                "(NoteId, Tag, Title) VALUES (" +
+                                list.get(i).examId + "," +
                                 "0 ," +
                                 "'" + list.get(i).title + "'" + ")";
                     }
@@ -185,7 +197,7 @@ public class ExamSQLClass extends AppCompatActivity {
                 exam_first_update();
             }
         }
-        return true;
+        return list;
     }
 
     // Random Exam Data를 생성한 다음,
@@ -216,6 +228,16 @@ public class ExamSQLClass extends AppCompatActivity {
                     "_"+ count +"' WHERE Tag = 1;";
             sqliteDb.execSQL(sql_update1);
             sqliteDb.execSQL(sql_update2);
+        }
+    }
+
+    public void update_result(int[] isSolved, long[] TTS, int RoomId, int[] NoteId){
+        if(sqliteDb != null) {
+            for(int i=0;i<isSolved.length; i++){
+                String sqlQueryTb1 = "UPDATE Exam SET TimeToSolve = " + TTS[i] + ",isSolved = " + isSolved[i] +" WHERE ExamRoomId = "+ RoomId + " AND NoteId = " + NoteId[i] +";";
+                System.out.println(sqlQueryTb1);
+                sqliteDb.execSQL(sqlQueryTb1);
+            }
         }
     }
 

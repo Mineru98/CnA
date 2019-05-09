@@ -1,7 +1,9 @@
 package com.cna.mineru.cna;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,31 +38,31 @@ import java.util.regex.Pattern;
 
 
 public class SignupActivity extends AppCompatActivity {
-
-    private static final int RC_SIGN_IN = 900;
-    // 구글api클라이언트
-    private GoogleSignInClient googleSignInClient;
-    // 파이어베이스 인증 객체 생성
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+    private static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$");
+    private static final int RC_SIGN_IN = 900;
 
-    private EditText et_email;
-    private EditText et_pw;
-    private EditText et_pw_again;
-    private ImageView btn_back;
-    private ImageView iv_view;
-    private ImageView iv_check;
+    private FirebaseUser mUser;
+    private GoogleSignInClient googleSignInClient;
+
     private TextView btn_next;
+
+    private EditText et_pw;
+    private EditText et_email;
+    private EditText et_pw_again;
+
     private LoadingDialog loadingDialog;
-    private String token;
+
     private boolean isView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        isView = false;
         loadingDialog = new LoadingDialog();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         et_email = (EditText) findViewById(R.id.et_email);
         et_pw = (EditText) findViewById(R.id.et_pw);
@@ -68,13 +70,9 @@ public class SignupActivity extends AppCompatActivity {
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
         TextView tv_subtitle = (TextView) findViewById(R.id.tv_subtitle);
         btn_next = (TextView) findViewById(R.id.btn_next);
-        btn_back = (ImageView) findViewById(R.id.btn_back);
-        iv_view = (ImageView) findViewById(R.id.iv_view);
-        iv_check = (ImageView) findViewById(R.id.iv_check);
-
-        mAuth = FirebaseAuth.getInstance();
-
-        isView = false;
+        ImageView btn_back = (ImageView) findViewById(R.id.btn_back);
+        ImageView iv_view = (ImageView) findViewById(R.id.iv_view);
+        ImageView iv_check = (ImageView) findViewById(R.id.iv_check);
 
         iv_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +123,27 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+
+        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+            builder.setTitle("오류");
+            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    });
+            builder.setNegativeButton("아니요",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
+        }
     }
 
     private boolean isValidEmail() {
@@ -156,12 +175,13 @@ public class SignupActivity extends AppCompatActivity {
         new JSONTask().execute(getString(R.string.ip_set) + "/api/user/create");
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class JSONTask extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... urls) {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
-                token = FirebaseInstanceId.getInstance().getToken();
+                String token = FirebaseInstanceId.getInstance().getToken();
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("name", "게스트");
                 jsonObject.accumulate("email", et_email.getText().toString());
@@ -244,6 +264,55 @@ public class SignupActivity extends AppCompatActivity {
             }
         }
     }
+
+    private static class CheckConnect extends Thread{
+        private boolean success;
+        private String host;
+
+        CheckConnect(String host){
+            this.host = host;
+        }
+
+        @Override
+        public void run() {
+
+            HttpURLConnection conn = null;
+            try {
+                conn = (HttpURLConnection)new URL(host).openConnection();
+                conn.setRequestProperty("User-Agent","Android");
+                conn.setConnectTimeout(1000);
+                conn.connect();
+                int responseCode = conn.getResponseCode();
+                if(responseCode == 204) success = true;
+                else success = false;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                success = false;
+            }
+            if(conn != null){
+                conn.disconnect();
+            }
+        }
+
+        public boolean isSuccess(){
+            return success;
+        }
+
+    }
+
+    public static boolean isOnline() {
+        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
+        cc.start();
+        try {
+            cc.join();
+            return cc.isSuccess();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     private class splashHandler implements Runnable{
         public void run()	{
             btn_next.setEnabled(true); // 클릭 유효화

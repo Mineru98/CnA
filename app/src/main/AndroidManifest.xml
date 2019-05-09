@@ -130,7 +130,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <service
-            android:name=".Utils.FireBaseMessagingService"
+            android:name=".Utils.Network.FireBaseMessagingService"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
@@ -138,7 +138,7 @@
         </service>
 
         <service
-            android:name=".Utils.FirebaseInstanceIDService"
+            android:name=".Utils.Network.FirebaseInstanceIDService"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>

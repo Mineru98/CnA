@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -25,7 +24,6 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -38,10 +36,9 @@ import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
-import com.cna.mineru.cna.Utils.NetworkService;
-import com.cna.mineru.cna.Utils.NormalNetworkService;
+import com.cna.mineru.cna.Utils.Network.NetworkService;
+import com.cna.mineru.cna.Utils.Network.NormalNetworkService;
 import com.cna.mineru.cna.Utils.PhotoDialog;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,35 +73,44 @@ public class AddNote extends AppCompatActivity {
     public static final String WIFI_STATE = "WIFE";
     public static final String MOBILE_STATE = "MOBILE";
     public static final String NONE_STATE = "NONE";
-
-    private byte[] image;
-    private byte[] image2;
     private static final int PICK_FROM_ALBUM = 1;
     private static final int PICK_FROM_CAMERA = 2;
-    private File tempFile;
+
     private HomeSQLClass db;
     private ImageSQLClass img_db;
     private GraphSQLClass gp_db;
     private UserSQLClass user_db;
-    private boolean isLeft;
-    private boolean isPremium;
-    private LoadingDialog loadingDialog;
-    private EditText et_title;
+
     private TextView tv_1;
     private TextView tv_2;
-    private TextView et_class;
     private TextView btn_ok;
+    private TextView et_class;
     private TextView btn_cancel;
+
+    private EditText et_title;
+
     private ImageView btn_back;
     private ImageView imageView;
     private ImageView imageView2;
 
-    String getServerURL;
-    String getImgURL="";
-    String note_id="";
+    private LoadingDialog loadingDialog;
 
     private int divide_t;
 
+    private boolean isLeft;
+    private boolean isUpload;
+    private boolean isPremium;
+
+    private String getServerURL;
+    private String getImgURL="";
+    private String note_id="";
+
+    private byte[] image;
+    private byte[] image2;
+
+    private File tempFile;
+
+    public static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,11 +119,14 @@ public class AddNote extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         loadingDialog = new LoadingDialog();
+
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
         img_db = new ImageSQLClass(this);
         user_db = new UserSQLClass(this);
+
         isLeft = true;
+        isUpload = false;
 
         if(!user_db.getPremium()){
             getServerURL = getString(R.string.ip_set) + "/api/file/p/upload/";
@@ -139,6 +148,27 @@ public class AddNote extends AppCompatActivity {
         btn_cancel = (TextView) findViewById(R.id.btn_cancel);
         btn_back = (ImageView) findViewById(R.id.btn_back);
         imageView2 = (ImageView)findViewById(R.id.imageView2);
+
+        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
+            android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("오류");
+            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    });
+            builder.setNegativeButton("아니요",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
+        }
 
         set_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,7 +214,8 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_cancel.setEnabled(false);
-                new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
+                if(isUpload)
+                    new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                 finish();
             }
         });
@@ -195,7 +226,8 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_back.setEnabled(false);
-                new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
+                if(isUpload)
+                    new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                 finish();
             }
         });
@@ -450,7 +482,7 @@ public class AddNote extends AppCompatActivity {
 
     private void uploadFile(String ImgURL) {
         String url = getServerURL;
-
+        isUpload = true;
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .build();
@@ -863,5 +895,61 @@ public class AddNote extends AppCompatActivity {
             btn_back.setEnabled(true); // 클릭 유효화
             et_class.setHintTextColor(0xFF505050);
         }
+    }
+
+    private static class CheckConnect extends Thread{
+        private boolean success;
+        private String host;
+
+        CheckConnect(String host){
+            this.host = host;
+        }
+
+        @Override
+        public void run() {
+
+            HttpURLConnection conn = null;
+            try {
+                conn = (HttpURLConnection)new URL(host).openConnection();
+                conn.setRequestProperty("User-Agent","Android");
+                conn.setConnectTimeout(1000);
+                conn.connect();
+                int responseCode = conn.getResponseCode();
+                if(responseCode == 204) success = true;
+                else success = false;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                success = false;
+            }
+            if(conn != null){
+                conn.disconnect();
+            }
+        }
+
+        public boolean isSuccess(){
+            return success;
+        }
+
+    }
+
+    public static boolean isOnline() {
+        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
+        cc.start();
+        try {
+            cc.join();
+            return cc.isSuccess();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(isUpload){
+            new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
+        }
+        finish();
     }
 }

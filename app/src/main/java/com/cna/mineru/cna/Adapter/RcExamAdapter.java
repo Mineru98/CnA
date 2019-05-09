@@ -5,9 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cna.mineru.cna.DTO.ExamData;
+import com.cna.mineru.cna.MainActivity;
 import com.cna.mineru.cna.R;
 
 import java.util.ArrayList;
@@ -22,30 +25,20 @@ public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolde
 
     public RcExamAdapter(Context context, int layout, ArrayList<ExamData> list) {
         items = new ArrayList();
-        items=list;
+        items = list;
         LayoutInflater inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView  title;
+        RelativeLayout layout;
 
         public ViewHolder(View itemView){
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tv_title);
+            layout = (RelativeLayout) itemView.findViewById(R.id.layout);
 
-            itemView.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view){
 
-                }
-            });
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-
-                    return false;
-                }
-            });
         }
     }
 
@@ -70,6 +63,21 @@ public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolde
 
         // 데이터 결합
         holder.title.setText(data.title);
+
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "OK " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.layout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(v.getContext(), "Long OK"+ position, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 
     private void removeItemView(int position) {

@@ -2,10 +2,10 @@ package com.cna.mineru.cna.DTO;
 
 public class ExamData {
     public String title;
-    public int examid;
+    public int examId;
     public String examtitle;
-    public ExamData(String title, int examid){
+    public ExamData(String title, int examId){
         this.title = title;
-        this.examid = examid;
+        this.examId = examId;
     }
 }

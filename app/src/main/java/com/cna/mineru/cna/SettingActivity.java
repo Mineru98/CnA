@@ -18,7 +18,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
@@ -41,12 +40,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class SettingActivity extends AppCompatActivity {
+    private static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
+
     private FirebaseUser mFirebaseUser;
+
     private UserSQLClass db;
-    private boolean isLogin;
+
     private ImageView btn_back;
+
     private LoadingDialog loadingDialog;
+
     private int user_id;
+    private boolean isLogin;
+
 
     @SuppressLint({"SetTextI18n", "SetJavaScriptEnabled"})
     @Override
@@ -61,12 +67,14 @@ public class SettingActivity extends AppCompatActivity {
         btn_back = (ImageView) findViewById(R.id.btn_back);
         TextView tv_ver = (TextView) findViewById(R.id.tv_ver);
         TextView tv_str_ver = (TextView) findViewById(R.id.tv_str_ver);
+
         PackageInfo packageInfo = null;
         try{
             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
         }catch (PackageManager.NameNotFoundException e){
             e.printStackTrace();
         }
+
         tv_str_ver.setText("현재 버전: "+packageInfo.versionName);
         SpannableString content = new SpannableString("Application                                                                                          ");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -105,6 +113,27 @@ public class SettingActivity extends AppCompatActivity {
             sw_profile.setChecked(true);
         }else{
             sw_profile.setChecked(false);
+        }
+
+        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+            builder.setTitle("오류");
+            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    });
+            builder.setNegativeButton("아니요",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
         }
 
         tv_terms.setOnClickListener(new View.OnClickListener() {
@@ -236,6 +265,8 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
     }
+
+    @SuppressLint("StaticFieldLeak")
     public class JSONTask extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -250,7 +281,7 @@ public class SettingActivity extends AppCompatActivity {
                 try {
                     //연결을 함
                     con = (HttpURLConnection) url.openConnection();
-                    con.setRequestMethod("DELETE");//POST방식으로 보냄
+                    con.setRequestMethod("DELETE");//DELETE방식으로 보냄
                     con.setRequestProperty("Connection", "Keep-Alive");
                     con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
                     con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
@@ -313,6 +344,54 @@ public class SettingActivity extends AppCompatActivity {
     public void onDestroy(){
         super.onDestroy();
         loadingDialog.progressOFF();
+    }
+
+    private static class CheckConnect extends Thread{
+        private boolean success;
+        private String host;
+
+        CheckConnect(String host){
+            this.host = host;
+        }
+
+        @Override
+        public void run() {
+
+            HttpURLConnection conn = null;
+            try {
+                conn = (HttpURLConnection)new URL(host).openConnection();
+                conn.setRequestProperty("User-Agent","Android");
+                conn.setConnectTimeout(1000);
+                conn.connect();
+                int responseCode = conn.getResponseCode();
+                if(responseCode == 204) success = true;
+                else success = false;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                success = false;
+            }
+            if(conn != null){
+                conn.disconnect();
+            }
+        }
+
+        public boolean isSuccess(){
+            return success;
+        }
+
+    }
+
+    public static boolean isOnline() {
+        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
+        cc.start();
+        try {
+            cc.join();
+            return cc.isSuccess();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override

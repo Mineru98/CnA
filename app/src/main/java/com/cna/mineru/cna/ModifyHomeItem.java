@@ -1,6 +1,7 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -45,14 +46,18 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 public class ModifyHomeItem extends AppCompatActivity {
+    private static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
+
+    private HomeSQLClass db;
+    private GraphSQLClass gp_db;
 
     private EditText et_title;
     private EditText et_class;
-    private HomeSQLClass db;
-    private GraphSQLClass gp_db;
+
     private int tag;
     private int id;
     private int note_id=0;
+
     private Bitmap bm;
     private Bitmap bm2;
 
@@ -61,14 +66,8 @@ public class ModifyHomeItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifiy_item);
         ScrollView mScrollView = (ScrollView) findViewById(R.id.scrollView);
-
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
-        db = new HomeSQLClass(this);
-        gp_db = new GraphSQLClass(this);
-        ImageSQLClass img_db = new ImageSQLClass(this);
-        note_id = db.getId();
 
         TextView btn_ok = (TextView) findViewById(R.id.btn_save);
         TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
@@ -78,10 +77,16 @@ public class ModifyHomeItem extends AppCompatActivity {
         PhotoView imageView = findViewById(R.id.imageView);
         PhotoView imageView2 = findViewById(R.id.imageView2);
 
+        db = new HomeSQLClass(this);
+        gp_db = new GraphSQLClass(this);
+        ImageSQLClass img_db = new ImageSQLClass(this);
+        note_id = db.getId();
+
         Intent intent = getIntent();
         id = intent.getExtras().getInt("id");
         String title = intent.getExtras().getString("title");
         tag = intent.getExtras().getInt("tag");
+
         int count;
 
         for(int solve=0;solve<2;solve++){
@@ -229,6 +234,27 @@ public class ModifyHomeItem extends AppCompatActivity {
                 });
             }
         });
+
+        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+            builder.setTitle("오류");
+            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    });
+            builder.setNegativeButton("아니요",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
+        }
     }
 
     public int exifOrientationToDegrees(int exifOrientation) {
@@ -370,6 +396,54 @@ public class ModifyHomeItem extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static class CheckConnect extends Thread{
+        private boolean success;
+        private String host;
+
+        CheckConnect(String host){
+            this.host = host;
+        }
+
+        @Override
+        public void run() {
+
+            HttpURLConnection conn = null;
+            try {
+                conn = (HttpURLConnection)new URL(host).openConnection();
+                conn.setRequestProperty("User-Agent","Android");
+                conn.setConnectTimeout(1000);
+                conn.connect();
+                int responseCode = conn.getResponseCode();
+                if(responseCode == 204) success = true;
+                else success = false;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                success = false;
+            }
+            if(conn != null){
+                conn.disconnect();
+            }
+        }
+
+        public boolean isSuccess(){
+            return success;
+        }
+
+    }
+
+    public static boolean isOnline() {
+        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
+        cc.start();
+        try {
+            cc.join();
+            return cc.isSuccess();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override

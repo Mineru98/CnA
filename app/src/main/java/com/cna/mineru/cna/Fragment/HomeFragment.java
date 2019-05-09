@@ -42,15 +42,19 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    private GridAdapter mAdapater;
-    private ArrayList<HomeData> list  = new ArrayList<HomeData>();
-    private GridView gv;
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
     private ImageSQLClass i_db;
+
+    private GridView gv;
+    private GridAdapter mAdapater;
     private FloatingActionButton fb;
     private LoadingDialog loadingDialog;
+
     private int note_id = 0;
+
+    private ArrayList<HomeData> list  = new ArrayList<>();
+
     public HomeFragment(){
 
     }

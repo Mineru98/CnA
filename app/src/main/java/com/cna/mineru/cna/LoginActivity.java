@@ -1,6 +1,7 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -51,26 +52,31 @@ import java.util.regex.Pattern;
 
 
 public class LoginActivity extends AppCompatActivity {
-
-    private EditText et_email;
-    private EditText et_pw;
-    private Button btn_login_email;
-    private Button btn_signup;
-    private ImageView iv_view;
-    LoadingDialog loadingDialog;
-    String token;
+    private static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$");
     private static final int RC_SIGN_IN = 900;
-    private GoogleSignInClient googleSignInClient;
+
+    private UserSQLClass db;
+
+    private EditText et_pw;
+    private EditText et_email;
+
+    private Button btn_signup;
+    private Button btn_login_email;
+
+    private LoadingDialog loadingDialog;
+
     private FirebaseAuth mAuth;
     private SignInButton btn_login_google;
+    private GoogleSignInClient googleSignInClient;
 
     private boolean isView;
-    private UserSQLClass db;
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$");
-    String name ="게스트";
-    boolean isVerified = false;
-    String google_email = "";
-    String google_name = "게스트";
+    private boolean isVerified;
+
+    private String token = "";
+    private String name ="게스트";
+    private String google_email = "";
+    private String google_name = "게스트";
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -78,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         db = new UserSQLClass(LoginActivity.this);
-        loadingDialog = new LoadingDialog();
+
         et_email = (EditText) findViewById(R.id.et_email);
         et_pw = (EditText) findViewById(R.id.et_pw);
         TextView tv_lose_pw = (TextView) findViewById(R.id.tv_lose_pw);
@@ -86,9 +92,15 @@ public class LoginActivity extends AppCompatActivity {
         btn_login_email = (Button) findViewById(R.id.btn_login_email);
         btn_login_google = (SignInButton) findViewById(R.id.btn_login_google);
         btn_signup = (Button) findViewById(R.id.btn_signup);
-        iv_view = (ImageView) findViewById(R.id.iv_view);
+        ImageView iv_view = (ImageView) findViewById(R.id.iv_view);
         ImageView imageView = (ImageView) findViewById(R.id.img_view);
+
+        isVerified = false;
         isView = false;
+        loadingDialog = new LoadingDialog();
+        mAuth = FirebaseAuth.getInstance();
+        SpannableString content = new SpannableString("비밀번호를 잃어버리셨나요?");
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0); tv_lose_pw.setText(content);
 
         iv_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,11 +115,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-        SpannableString content = new SpannableString("비밀번호를 잃어버리셨나요?");
-        content.setSpan(new UnderlineSpan(), 0, content.length(), 0); tv_lose_pw.setText(content);
-
-        mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -168,13 +175,36 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
             }
         });
+
+        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+            builder.setTitle("오류");
+            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+            builder.setPositiveButton("확인",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    });
+            builder.setNegativeButton("아니요",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+            builder.show();
+        }
     }
+
     private boolean isValidEmail() {
         if (et_email.getText().toString().isEmpty()) {
             // 이메일 공백
             return false;
         } else return Patterns.EMAIL_ADDRESS.matcher(et_email.getText()).matches();
     }
+
     private boolean isValidPasswd() {
         if (et_pw.getText().toString().isEmpty()) {
             // 비밀번호 공백
@@ -187,8 +217,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void loginUser()
-    {
+    private void loginUser() {
         new JSONTask().execute(getString(R.string.ip_set)+"/api/user/signin");
     }
 
@@ -201,6 +230,7 @@ public class LoginActivity extends AppCompatActivity {
             et_pw.setHintTextColor(0xFF505050);
         }
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -217,6 +247,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -453,5 +484,53 @@ public class LoginActivity extends AppCompatActivity {
                 loadingDialog.progressOFF();
             }
         }
+    }
+
+    private static class CheckConnect extends Thread{
+        private boolean success;
+        private String host;
+
+        CheckConnect(String host){
+            this.host = host;
+        }
+
+        @Override
+        public void run() {
+
+            HttpURLConnection conn = null;
+            try {
+                conn = (HttpURLConnection)new URL(host).openConnection();
+                conn.setRequestProperty("User-Agent","Android");
+                conn.setConnectTimeout(1000);
+                conn.connect();
+                int responseCode = conn.getResponseCode();
+                if(responseCode == 204) success = true;
+                else success = false;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                success = false;
+            }
+            if(conn != null){
+                conn.disconnect();
+            }
+        }
+
+        public boolean isSuccess(){
+            return success;
+        }
+
+    }
+
+    public static boolean isOnline() {
+        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
+        cc.start();
+        try {
+            cc.join();
+            return cc.isSuccess();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

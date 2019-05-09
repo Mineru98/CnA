@@ -102,16 +102,13 @@ public class RandomExam extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     myTimer.removeMessages(0);
                                     eachTimer.removeMessages(0);
-                                    for(int i = 0;i<ExamNum;i++){
+                                    for(int i = 0;i<ExamNum;i++)
                                         ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
-                                        @SuppressLint("DefaultLocale")
-                                        String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[i]/1000 / 60, (ResultExamArr[i]/1000)%60,(ResultExamArr[i]%1000)/10);
-                                        Log.d("TAG","Mineru : "+i+") " + easy_outTime);
-                                    }
                                     Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
                                     i.putExtra("randomArr", ExamIdArr);
                                     i.putExtra("ExamNum", ExamNum);
                                     i.putExtra("ResultArr", ResultExamArr);
+                                    i.putExtra("RoomId", RoomId);
                                     startActivity(i);
                                     finish();
                                 }
@@ -222,26 +219,18 @@ public class RandomExam extends AppCompatActivity {
     };
 
     //현재시간을 계속 구해서 출력하는 메소드
-    String getTimeOut(){
+    String getTimeOut() {
         long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간(??)^^;
-        long outTime = (long)setting_time - (now - myBaseTime);
+        long outTime = (long) setting_time - (now - myBaseTime);
         @SuppressLint("DefaultLocale")
-        String easy_outTime = String.format("%02d:%02d:%02d",outTime/1000 / 60 / 60, (outTime/1000 / 60)%60, (outTime/1000)%60);
-        if(easy_outTime.toString().equals("00:00:00")){
+        String easy_outTime = String.format("%02d:%02d:%02d", outTime / 1000 / 60 / 60, (outTime / 1000 / 60) % 60, (outTime / 1000) % 60);
+        if (easy_outTime.toString().equals("00:00:00")) {
             myTimer.removeCallbacksAndMessages(0);
             myTimer.removeMessages(0);
             timeOut = true;
         }
         return easy_outTime;
     }
-//
-//    String getEachTimeOut(int i){
-//        long now = SystemClock.elapsedRealtime();
-//        long outTime = now - eachBaseTime[i];
-//        @SuppressLint("DefaultLocale")
-//        String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
-//        return easy_outTime;
-//    }
 
     private void setupViewPager(ViewPager viewPager) {
         FragmentExampleAdapter adapter = new FragmentExampleAdapter(getSupportFragmentManager());
@@ -268,10 +257,11 @@ public class RandomExam extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case 1000:
+                    myTimer.removeMessages(0);
+                    eachTimer.removeMessages(0);
                     int result = data.getIntExtra("result",0);
                     int id = data.getIntExtra("id",0);
                     b_list.set(viewPager.getCurrentItem()-1,result);
-                    Toast.makeText(RandomExam.this, ""+result, Toast.LENGTH_SHORT).show();
                     if(id==3) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
                         builder.setTitle("시험종료");
@@ -279,6 +269,14 @@ public class RandomExam extends AppCompatActivity {
                         builder.setPositiveButton("확인",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
+                                        for(int i = 0;i<ExamNum;i++)
+                                            ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
+                                        Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+                                        i.putExtra("randomArr", ExamIdArr);
+                                        i.putExtra("ExamNum", ExamNum);
+                                        i.putExtra("ResultArr", ResultExamArr);
+                                        i.putExtra("RoomId", RoomId);
+                                        startActivity(i);
                                         finish();
                                     }
                                 });

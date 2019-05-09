@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,31 +21,34 @@ import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomE
 import java.util.ArrayList;
 
 public class RandomExamSolve extends AppCompatActivity {
+    private ExamSQLClass db;
+
+    private ViewPager viewPager;
 
     private Button btn_no;
     private Button btn_ok;
-    private ViewPager viewPager;
-    private TextView tv_count;
+
+
     private TextView tv_time;
     private TextView tv_title;
+    private TextView tv_count;
 
-    private boolean[] Result;
+    private int count;
+    private int RoomId;
+    private int ExamNum;
     private int[] ExamIdArr;
-    private long[] ResultExamArr;
-    public int ExamNum;
-    public int CurrentViewId;
+    private int CurrentViewId;
 
-    private int count = 0;
-    private int RoomId = 0;
+    private int[] Result;
+
+    private long[] ResultExamArr;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_solve);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        ArrayList<Integer> i_list = new ArrayList<>();
-        ArrayList<Integer> b_list = new ArrayList<>();
-        ExamSQLClass db = new ExamSQLClass(this);
 
         viewPager = (RandomViewPager) findViewById(R.id.view_pager);
         btn_ok = (Button) findViewById(R.id.btn_ok);
@@ -55,37 +57,42 @@ public class RandomExamSolve extends AppCompatActivity {
         tv_time = (TextView) findViewById(R.id.tv_time);
         tv_title = (TextView) findViewById(R.id.tv_title);
 
+        ArrayList<Integer> i_list = new ArrayList<>();
+        ArrayList<Integer> b_list = new ArrayList<>();
+        db = new ExamSQLClass(this);
+
         ExamIdArr = getIntent().getIntArrayExtra("randomArr");
-        ExamNum = getIntent().getIntExtra("ExamNum",0);
-        Result = new boolean[ExamNum];
+        ExamNum = getIntent().getIntExtra("ExamNum", 0);
+        RoomId= getIntent().getIntExtra("RoomId",0);
+        Result = new int[ExamNum];
         ResultExamArr = new long[ExamNum];
         ResultExamArr = getIntent().getLongArrayExtra("ResultArr");
+
+        count = 0;
         CurrentViewId = 0;
 
         @SuppressLint("DefaultLocale")
-        String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[0]/1000 / 60, (ResultExamArr[0]/1000)%60,(ResultExamArr[0]%1000)/10);
+        String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[0] / 1000 / 60 / 60, (ResultExamArr[0] / 1000 / 60) % 60, (ResultExamArr[0] / 1000) % 60);
         tv_time.setText(easy_outTime);
 
-        for(int i=0;i<ExamNum;i++) {
+        for (int i = 0; i < ExamNum; i++) {
             i_list.add(ExamIdArr[i]);
             b_list.add(0);
-            Result[i]=false;
+            Result[i] = 0;
         }
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CurrentViewId==ExamNum-1){
+                if (CurrentViewId == ExamNum - 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
                     builder.setTitle("시험종료");
                     builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
                     builder.setPositiveButton("예",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent i = new Intent(RandomExamSolve.this,RandomExamSolve.class);
-                                    i.putExtra("randomArr", ExamIdArr);
-                                    i.putExtra("ExamNum",ExamNum);
-                                    startActivity(i);
+                                    //시험 결과 저장
+                                    db.update_result(Result, ResultExamArr, RoomId, ExamIdArr);
                                     finish();
                                 }
                             });
@@ -100,24 +107,22 @@ public class RandomExamSolve extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
                 count++;
-                Result[CurrentViewId]=true;
+                Result[CurrentViewId] = 1;
             }
         });
 
         btn_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CurrentViewId==ExamNum-1){
+                if (CurrentViewId == ExamNum - 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
                     builder.setTitle("시험종료");
                     builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
                     builder.setPositiveButton("예",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent i = new Intent(RandomExamSolve.this,RandomExamSolve.class);
-                                    i.putExtra("randomArr", ExamIdArr);
-                                    i.putExtra("ExamNum",ExamNum);
-                                    startActivity(i);
+                                    //시험 결과 저장
+                                    db.update_result(Result, ResultExamArr, RoomId, ExamIdArr);
                                     finish();
                                 }
                             });
@@ -132,13 +137,14 @@ public class RandomExamSolve extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
                 count++;
-                Result[CurrentViewId]=false;
+                Result[CurrentViewId] = 0;
             }
         });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
+
             }
 
             @SuppressLint("SetTextI18n")
@@ -146,9 +152,9 @@ public class RandomExamSolve extends AppCompatActivity {
             public void onPageSelected(int i) {
                 int text_count = i + 1;
                 @SuppressLint("DefaultLocale")
-                String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[i]/1000 / 60, (ResultExamArr[i]/1000)%60,(ResultExamArr[i]%1000)/10);
+                String easy_outTime_each = String.format("%02d:%02d:%02d", ResultExamArr[i] / 1000 / 60 / 60, (ResultExamArr[i] / 1000 / 60) % 60, (ResultExamArr[i] / 1000) % 60);
                 tv_count.setText("A" + text_count);
-                tv_time.setText(easy_outTime);
+                tv_time.setText(easy_outTime_each);
                 for (int t = 0; t < ExamNum; t++) {
                     if (t == ExamNum - 1) {
                         CurrentViewId = i;
@@ -158,8 +164,8 @@ public class RandomExamSolve extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int i) {
-            }
 
+            }
 
         });
         setupViewPager(viewPager);
@@ -167,7 +173,7 @@ public class RandomExamSolve extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         FragmentExampleAdapter adapter = new FragmentExampleAdapter(getSupportFragmentManager());
-        for(int i = 0; i< ExamNum; i++){
+        for (int i = 0; i < ExamNum; i++) {
             RandomExamSolveFragment RandomexamSolveFragment = new RandomExamSolveFragment(ExamIdArr[i]);
             adapter.addFragment(RandomexamSolveFragment);
         }

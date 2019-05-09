@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.cna.mineru.cna.Adapter.CustomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentPagerAdapter;
-import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentTmp;
+import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment;
 import com.cna.mineru.cna.Fragment.ExamFragmentChild.ListExamFragment;
 import com.cna.mineru.cna.R;
 
@@ -60,7 +60,7 @@ public class ExamFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         FragmentPagerAdapter viewPagerAdapter = new FragmentPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.addFragment(new DoExamFragmentTmp(), getString(R.string.title_test_1));
+        viewPagerAdapter.addFragment(new DoExamFragment(), getString(R.string.title_test_1));
         viewPager.setAdapter(viewPagerAdapter);
         viewPagerAdapter.addFragment(new ListExamFragment(), getString(R.string.title_test_2));
         viewPager.setAdapter(viewPagerAdapter);

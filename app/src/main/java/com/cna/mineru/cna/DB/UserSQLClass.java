@@ -5,13 +5,9 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import com.cna.mineru.cna.DTO.GraphData;
-import com.cna.mineru.cna.DTO.PlanData;
 
 import java.io.File;
-import java.util.ArrayList;
 
 /*
     사용자 정보 관리 DB

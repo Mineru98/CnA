@@ -10,7 +10,6 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,12 +19,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
-import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import org.json.JSONException;
@@ -45,9 +42,9 @@ import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
-public class ModifyHomeItem extends AppCompatActivity {
-    private static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
+import static com.cna.mineru.cna.Utils.Network.getWhatKindOfNetwork.getWhatKindOfNetwork;
 
+public class ModifyHomeItem extends AppCompatActivity {
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
 
@@ -235,7 +232,7 @@ public class ModifyHomeItem extends AppCompatActivity {
             }
         });
 
-        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
+        if("NONE".equals(getWhatKindOfNetwork(this))) {
             android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
             builder.setTitle("오류");
             builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
@@ -250,7 +247,7 @@ public class ModifyHomeItem extends AppCompatActivity {
             builder.setNegativeButton("아니요",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
+                            finish();
                         }
                     });
             builder.show();
@@ -396,54 +393,6 @@ public class ModifyHomeItem extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
-
-    private static class CheckConnect extends Thread{
-        private boolean success;
-        private String host;
-
-        CheckConnect(String host){
-            this.host = host;
-        }
-
-        @Override
-        public void run() {
-
-            HttpURLConnection conn = null;
-            try {
-                conn = (HttpURLConnection)new URL(host).openConnection();
-                conn.setRequestProperty("User-Agent","Android");
-                conn.setConnectTimeout(1000);
-                conn.connect();
-                int responseCode = conn.getResponseCode();
-                if(responseCode == 204) success = true;
-                else success = false;
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                success = false;
-            }
-            if(conn != null){
-                conn.disconnect();
-            }
-        }
-
-        public boolean isSuccess(){
-            return success;
-        }
-
-    }
-
-    public static boolean isOnline() {
-        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
-        cc.start();
-        try {
-            cc.join();
-            return cc.isSuccess();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.cna.mineru.cna.DB.UserSQLClass;
@@ -20,19 +21,16 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_page);
         db = new UserSQLClass(SplashActivity.this);
-        final LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
-        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(4000);
-
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                animationView.setProgress((Float) animation.getAnimatedValue());
-            }
-        });
-
-        animator.start();
+//        final LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+//        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(4000);
+//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                animationView.setProgress((Float) animation.getAnimatedValue());
+//            }
+//        });
+//        animator.start();
         Handler hd = new Handler();
-
         SharedPreferences pref = getSharedPreferences("isFirst", MODE_PRIVATE);
         boolean first = pref.getBoolean("isFirst", false);
         if(!first){
@@ -65,7 +63,8 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
-                    startActivity(new Intent(getApplication(), LoginActivity.class));
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(i);
                     SplashActivity.this.finish();
                 }
             });
@@ -75,15 +74,17 @@ public class SplashActivity extends AppCompatActivity {
 
     private class splash_handler_Login implements Runnable{
         public void run(){
-            startActivity(new Intent(getApplication(), LoginActivity.class));
-            SplashActivity.this.finish();
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+            finish();
         }
     }
 
     private class splash_handler_Main implements Runnable{
         public void run(){
-            startActivity(new Intent(getApplication(), MainActivity.class));
-            SplashActivity.this.finish();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            finish();
         }
     }
     @Override

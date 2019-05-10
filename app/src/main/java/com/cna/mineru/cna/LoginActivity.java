@@ -1,9 +1,13 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -52,8 +56,10 @@ import java.util.regex.Pattern;
 
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$");
+    public static final String WIFI_STATE = "WIFE";
+    public static final String MOBILE_STATE = "MOBILE";
+    public static final String NONE_STATE = "NONE";
     private static final int RC_SIGN_IN = 900;
 
     private UserSQLClass db;
@@ -176,8 +182,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        if(!isOnline()){ //인터넷 연결 상태에 따라 오프라인 모드, 온라인 모드로 전환하기 위한 코드
-            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        if("NONE".equals(getWhatKindOfNetwork(this))) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("오류");
             builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
             builder.setPositiveButton("확인",
@@ -191,7 +197,6 @@ public class LoginActivity extends AppCompatActivity {
             builder.setNegativeButton("아니요",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                         }
                     });
             builder.show();
@@ -397,6 +402,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 HttpURLConnection con = null;
                 BufferedReader reader = null;
+                Log.d("TAG", "Mineru url : " + urls[0]);
                 URL url = new URL(urls[0]);
                 try {
                     //연결을 함
@@ -486,51 +492,16 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private static class CheckConnect extends Thread{
-        private boolean success;
-        private String host;
-
-        CheckConnect(String host){
-            this.host = host;
-        }
-
-        @Override
-        public void run() {
-
-            HttpURLConnection conn = null;
-            try {
-                conn = (HttpURLConnection)new URL(host).openConnection();
-                conn.setRequestProperty("User-Agent","Android");
-                conn.setConnectTimeout(1000);
-                conn.connect();
-                int responseCode = conn.getResponseCode();
-                if(responseCode == 204) success = true;
-                else success = false;
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-                success = false;
-            }
-            if(conn != null){
-                conn.disconnect();
+    public static String getWhatKindOfNetwork(Context context){
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                return WIFI_STATE;
+            } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                return MOBILE_STATE;
             }
         }
-
-        public boolean isSuccess(){
-            return success;
-        }
-
-    }
-
-    public static boolean isOnline() {
-        CheckConnect cc = new CheckConnect(CONNECTION_CONFIRM_CLIENT_URL);
-        cc.start();
-        try {
-            cc.join();
-            return cc.isSuccess();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        return NONE_STATE;
     }
 }

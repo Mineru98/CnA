@@ -75,3 +75,4 @@ Server
  - App & DB 동기화 코드
  - Main Page Content 수정
  - 관리자 전용 Page에서 ERP 시스템 
+ - Push를 위한 DB테이블 구조 변경 필요

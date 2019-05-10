@@ -17,6 +17,7 @@ import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
 import com.cna.mineru.cna.Adapter.RandomViewPager;
 import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamSolveFragment;
+import com.cna.mineru.cna.Utils.SignDialog;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class RandomExamSolve extends AppCompatActivity {
         ArrayList<Integer> i_list = new ArrayList<>();
         ArrayList<Integer> b_list = new ArrayList<>();
         db = new ExamSQLClass(this);
+        final SignDialog dialog = new SignDialog(RandomExamSolve.this);
 
         ExamIdArr = getIntent().getIntArrayExtra("randomArr");
         ExamNum = getIntent().getIntExtra("ExamNum", 0);
@@ -84,6 +86,7 @@ public class RandomExamSolve extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.call_btn_ok();
                 if (CurrentViewId == ExamNum - 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
                     builder.setTitle("시험종료");
@@ -114,6 +117,7 @@ public class RandomExamSolve extends AppCompatActivity {
         btn_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.call_btn_x();
                 if (CurrentViewId == ExamNum - 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
                     builder.setTitle("시험종료");

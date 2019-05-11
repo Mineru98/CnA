@@ -21,15 +21,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_page);
         db = new UserSQLClass(SplashActivity.this);
-//        final LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
-//        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(4000);
-//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animation) {
-//                animationView.setProgress((Float) animation.getAnimatedValue());
-//            }
-//        });
-//        animator.start();
+        final LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(2000);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                animationView.setProgress((Float) animation.getAnimatedValue());
+            }
+        });
+        animator.start();
         Handler hd = new Handler();
         SharedPreferences pref = getSharedPreferences("isFirst", MODE_PRIVATE);
         boolean first = pref.getBoolean("isFirst", false);

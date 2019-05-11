@@ -402,7 +402,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 HttpURLConnection con = null;
                 BufferedReader reader = null;
-                Log.d("TAG", "Mineru url : " + urls[0]);
                 URL url = new URL(urls[0]);
                 try {
                     //연결을 함

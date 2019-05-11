@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -67,7 +68,6 @@ public class RandomExamSolve extends AppCompatActivity {
         ExamNum = getIntent().getIntExtra("ExamNum", 0);
         RoomId= getIntent().getIntExtra("RoomId",0);
         Result = new int[ExamNum];
-        ResultExamArr = new long[ExamNum];
         ResultExamArr = getIntent().getLongArrayExtra("ResultArr");
 
         count = 0;
@@ -86,7 +86,6 @@ public class RandomExamSolve extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.call_btn_ok();
                 if (CurrentViewId == ExamNum - 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
                     builder.setTitle("시험종료");
@@ -107,6 +106,9 @@ public class RandomExamSolve extends AppCompatActivity {
                     });
                     builder.show();
                 }
+                else{
+                    dialog.call_btn_ok();
+                }
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
                 count++;
@@ -117,7 +119,6 @@ public class RandomExamSolve extends AppCompatActivity {
         btn_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.call_btn_x();
                 if (CurrentViewId == ExamNum - 1) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
                     builder.setTitle("시험종료");
@@ -137,6 +138,8 @@ public class RandomExamSolve extends AppCompatActivity {
                         }
                     });
                     builder.show();
+                }else{
+                    dialog.call_btn_x();
                 }
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);

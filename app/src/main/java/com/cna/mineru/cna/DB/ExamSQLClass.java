@@ -94,7 +94,7 @@ public class ExamSQLClass extends AppCompatActivity {
 
     @SuppressLint("Recycle")
     public int get_Exam_RoomId(){
-        int RoomId=0;
+        int RoomId = 0;
         if(sqliteDb != null){
             String sqlQueryTb1 = "select ExamRoomId from Exam ORDER BY Id DESC limit 1;";
             Cursor cursor = null;

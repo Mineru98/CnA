@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,6 +163,7 @@ public class DoExamFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         ArrayList<ExamData> make = db.make_Exam(count);
                         int roomId = db.get_Exam_RoomId();
+                        Log.d("TAG","Mineru DoFragment" + roomId);
                         if (make.size() > 0) {
                             dialog.dismiss();
                             int[] result = new int[count];
@@ -172,7 +174,7 @@ public class DoExamFragment extends Fragment {
                             i.putExtra("time", time * 60 * 1000);
                             i.putExtra("randomArr", result);
                             i.putExtra("ExamNum", count);
-                            i.putExtra("RoodId", roomId);
+                            i.putExtra("RoomId", roomId);
                             startActivity(i);
                         } else
                             dialog.dismiss();

@@ -53,7 +53,7 @@ if(추가 된 문제가 10문제 이상일 때){
 ## ToDoList
 
 App
- - 로그인 시 DefaultInputActivity로 이동하는 Bug 수정 바람.
+ - ~~로그인 시 DefaultInputActivity로 이동하는 Bug 수정 바람.~~ 해결
  - DB와 ExamResult 결과 Sharing. 
  - Note 및 Exam 결과에 대한 Graph를 View에 그리기.
  - App 내에서 NoteCode 입력 Dialog 구현.(쿠폰 유효기간 보여주기, 유효기간 남은 상태에서 코드 입력 시 쿠폰의 기간만큼 연장 되고. 유효기간이 끝난 상태에서 입력 시 새로운 유효기간 보여줌.)

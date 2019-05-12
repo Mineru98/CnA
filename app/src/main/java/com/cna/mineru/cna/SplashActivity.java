@@ -14,61 +14,45 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.cna.mineru.cna.DB.UserSQLClass;
 
 public class SplashActivity extends AppCompatActivity {
-    private UserSQLClass db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_page);
-        db = new UserSQLClass(SplashActivity.this);
+
+        UserSQLClass db = new UserSQLClass(SplashActivity.this);
+
         final LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
-        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(2000);
+        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1600);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 animationView.setProgress((Float) animation.getAnimatedValue());
             }
         });
+
         animator.start();
+
         Handler hd = new Handler();
         SharedPreferences pref = getSharedPreferences("isFirst", MODE_PRIVATE);
         boolean first = pref.getBoolean("isFirst", false);
         if(!first){
             SharedPreferences.Editor editor = pref.edit();
-            editor.putBoolean("isFirst",true);
+            editor.putBoolean("isFirst", true);
             editor.apply();
-            //Guide Activity 실행
             // user 추가 시 테이블 오류 발생
             db.add_values(1,"게스트",1, 1, 0);
-            hd.postDelayed(new splash_handler_Guide(), 1500);
+            hd.postDelayed(new splash_handler_Login(), 1100);
         }else{
             SharedPreferences pref2 = getSharedPreferences("isLogin", MODE_PRIVATE);
             boolean login = pref2.getBoolean("isLogin",false);
-            if(login==false){
+            if(!login){
                 //login Activity 실행
-                hd.postDelayed(new splash_handler_Login(), 1500);
+                hd.postDelayed(new splash_handler_Login(), 1100);
             }else{
                 //MainActivity 실행
-                hd.postDelayed(new splash_handler_Main(), 1500);
+                hd.postDelayed(new splash_handler_Main(), 1100);
             }
-        }
-    }
-
-    private class splash_handler_Guide implements Runnable{
-        public void run(){
-            AlertDialog.Builder dialog = new AlertDialog.Builder(SplashActivity.this);
-            dialog.setTitle("서비스 중비중...");
-            dialog.setMessage("가이드는 현재 준비중임으로 로그인으로 바로 넘어갑니다.");
-            dialog.setPositiveButton("취소", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(i);
-                    SplashActivity.this.finish();
-                }
-            });
-            dialog.show();
         }
     }
 
@@ -87,6 +71,7 @@ public class SplashActivity extends AppCompatActivity {
             finish();
         }
     }
+
     @Override
     public void onBackPressed() {
 

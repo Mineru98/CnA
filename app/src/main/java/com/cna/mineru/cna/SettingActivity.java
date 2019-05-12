@@ -157,7 +157,7 @@ public class SettingActivity extends AppCompatActivity {
         sw_profile.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if(!isChecked){
                     db.update_isPremium(0);
                 }else{
                     db.update_isPremium(1);
@@ -257,7 +257,7 @@ public class SettingActivity extends AppCompatActivity {
         sw_wifisync.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if(!isChecked){
                     db.update_isWifiSync(0);
                 }else{
                     db.update_isWifiSync(1);

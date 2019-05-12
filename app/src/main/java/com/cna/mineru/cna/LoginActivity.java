@@ -374,7 +374,8 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplication(), MainActivity.class));
                 }else{
                     Log.d("TAG","Mineru OK test2");
-                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
+                    startActivity(new Intent(getApplication(), MainActivity.class));
+//                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
                 }
                 LoginActivity.this.finish();
                 //overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
@@ -481,7 +482,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(db.getFirst()==0){
                     startActivity(new Intent(getApplication(), MainActivity.class));
                 }else{
-                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
+                    startActivity(new Intent(getApplication(), MainActivity.class));
+//                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
                 }
                 LoginActivity.this.finish();
                 //overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);

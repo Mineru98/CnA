@@ -5,12 +5,14 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,12 +20,12 @@ import android.widget.Toast;
 
 import com.cna.mineru.cna.Adapter.CustomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentPagerAdapter;
-import com.cna.mineru.cna.DB.ClassSQLClass;
 import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Fragment.GraphFragment;
 import com.cna.mineru.cna.Fragment.HomeFragment;
 import com.cna.mineru.cna.Fragment.ExamFragment;
+import com.cna.mineru.cna.Utils.DefaultInputDialog;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import java.io.File;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private CustomViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
 
+    private UserSQLClass db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
             builder.show();
         }
 
-        UserSQLClass db = new UserSQLClass(this); // User_Info Table
-        ClassSQLClass c_db = new ClassSQLClass(this); // Class Table
+        db = new UserSQLClass(this); // User_Info Table
         TmpSQLClass t_db = new TmpSQLClass(this); // Tmp Table
 
         {
@@ -94,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.navigation_home:
                                 viewPager.setCurrentItem(0,false);
                                 break;
-//                            case R.id.navigation_plan:
-//                                viewPager.setCurrentItem(1,false);
-//                                break;
                             case R.id.navigation_graph:
                                 viewPager.setCurrentItem(1,false);
                                 break;
@@ -157,10 +156,28 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent i = new Intent(this,SettingActivity.class);
-                startActivityForResult(i,3000);
-                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
-                i.putExtra("isLogin",true);
+                if(!db.isClassChecked()){
+                    DefaultInputDialog d = new DefaultInputDialog();
+                    d.show(getSupportFragmentManager(),"setting");
+                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int _class) {
+                            DefaultInputDialog d2 = new DefaultInputDialog();
+                            d2.show(getSupportFragmentManager(),"setting2");
+                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
+                                @Override
+                                public void finish(int _class) {
+
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    Intent i = new Intent(this,SettingActivity.class);
+                    startActivityForResult(i,3000);
+                    overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+                    i.putExtra("isLogin",true);
+                }
                 return true;
 
             default:

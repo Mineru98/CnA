@@ -37,8 +37,6 @@ public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolde
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tv_title);
             layout = (RelativeLayout) itemView.findViewById(R.id.layout);
-
-
         }
     }
 

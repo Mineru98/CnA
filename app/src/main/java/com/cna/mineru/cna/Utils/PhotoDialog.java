@@ -10,10 +10,9 @@ import android.widget.TextView;
 
 import com.cna.mineru.cna.R;
 
-
-
 public class PhotoDialog extends DialogFragment {
     private OnMyDialogResult mDialogResult;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

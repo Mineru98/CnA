@@ -47,17 +47,44 @@ public class UserSQLClass extends AppCompatActivity {
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS User_Info (" +
-                    "User_Id "      + "INTEGER NOT NULL PRIMARY KEY DEFAULT 1," +
-                    "Name "         + "TEXT ," +
-                    "Class "        + "INTEGER NOT NULL DEFAULT 1, " +
-                    "isFirst "      + "BOOLEAN NOT NULL DEFAULT 0, " +
-                    "isGoogle "     + "BOOLEAN NOT NULL DEFAULT 0, " +
-                    "isWifiSync "   + "BOOLEAN NOT NULL DEFAULT 0, " +
-                    "isPremium "    + "BOOLEAN NOT NULL DEFAULT 1)";
+                    "User_Id "        + "INTEGER NOT NULL PRIMARY KEY DEFAULT 1," +
+                    "Name "           + "TEXT DEFAULT '게스트'," +
+                    "Class "          + "INTEGER NOT NULL DEFAULT 1, " +
+                    "isFirst "        + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "isGoogle "       + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "isWifiSync "     + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "isPremium "      + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "isClassChecked " + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "ClassId "        + "INTEGER DEFAULT 0," +
+                    "ClassText "      + "TEXT DEFAULT '학년 설정 없음');";
             System.out.println(sqlCreateTb);
 
             sqliteDb.execSQL(sqlCreateTb);
         }
+    }
+
+    public boolean isClassChecked(){
+        int result = 1;
+        if(sqliteDb != null){
+            Cursor cursor = null;
+            String sqlQueryTb1 = "SELECT isClassChecked FROM User_Info;";
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            result = cursor.getInt(0);
+        }
+        return result == 1;
+    }
+
+    public String getUserClass(){
+        String ClassText = "";
+        if(sqliteDb != null){
+            Cursor cursor = null;
+            String sqlQueryTb1 = "SELECT ClassText FROM User_Info;";
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            ClassText = cursor.getString(0);
+        }
+        return ClassText;
     }
 
     public int getUserId(){
@@ -93,7 +120,7 @@ public class UserSQLClass extends AppCompatActivity {
             isWifiSync = cursor.getInt(0);
             System.out.println(sqlQueryTb1);
         }
-        return isWifiSync == 1;
+        return isWifiSync != 1;
     }
 
     public boolean getPremium(){
@@ -105,7 +132,7 @@ public class UserSQLClass extends AppCompatActivity {
             isPremium = cursor.getInt(0);
             System.out.println(sqlQueryTb1);
         }
-        return isPremium == 1;
+        return isPremium != 1;
     }
 
     public String get_Name(){
@@ -123,23 +150,22 @@ public class UserSQLClass extends AppCompatActivity {
         return name;
     }
 
-    public void update_isFirst(){
-        if(sqliteDb != null){
-            String sqlQueryTb1 = "UPDATE User_Info SET isFirst = 1;";
-            System.out.println(sqlQueryTb1);
-            sqliteDb.execSQL(sqlQueryTb1);
-        }
-    }
-
     public void add_values(int User_Id, String name, int Class, int isFirst, int isGoogle){
         if (sqliteDb != null) {
-
             String sqlInsert = "INSERT INTO User_Info " +
                     "(User_Id, Name, Class, isFirst, isGoogle) VALUES (" +
                     User_Id + ", '"+ name +"', " + Class + ", " + isFirst + ", " + isGoogle + ")" ;
             sqliteDb.execSQL(sqlInsert) ;
             System.out.println(sqlInsert) ;
 
+        }
+    }
+
+    public void setClassId(int ClassId, String ClassText){
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "UPDATE User_Info SET ClassId = " + ClassId + ", ClassText = '" + ClassText+ "', isClassChecked = 1;";
+            System.out.println(sqlQueryTb1);
+            sqliteDb.execSQL(sqlQueryTb1);
         }
     }
 
@@ -159,6 +185,13 @@ public class UserSQLClass extends AppCompatActivity {
         }
     }
 
+    public void update_isFirst(){
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "UPDATE User_Info SET isFirst = 1;";
+            System.out.println(sqlQueryTb1);
+            sqliteDb.execSQL(sqlQueryTb1);
+        }
+    }
 
     public void update_isGoogle(boolean isGoogle, String name, int User_Id){
         if(sqliteDb != null){

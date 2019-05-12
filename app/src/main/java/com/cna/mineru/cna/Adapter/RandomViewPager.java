@@ -21,6 +21,7 @@ public class RandomViewPager extends ViewPager {
         super(context, attrs);
         this.enabled = true;
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         try {

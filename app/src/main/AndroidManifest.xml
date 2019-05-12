@@ -31,7 +31,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
         <meta-data
             android:name="firebase_messaging_auto_init_enabled"
@@ -39,6 +38,9 @@
         <meta-data
             android:name="firebase_analytics_collection_enabled"
             android:value="false"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -131,9 +133,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-
         <service
-            android:name=".Utils.Network.FirebaseInstanceIDService"
+            android:name=".Utils.Network.FirebaseInstanceIDService" android:exported="true"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>

@@ -16,11 +16,19 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/btn_back"
             android:textSize="10pt"
             android:text="Q1"
             android:textColor="#ffffff" />
-
+        <TextView
+            android:id="@+id/time_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="00:00:00"
+            android:textColor="#777777"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </android.support.v7.widget.Toolbar>

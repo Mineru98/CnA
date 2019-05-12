@@ -22,6 +22,10 @@ import com.cna.mineru.cna.Adapter.RandomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
 import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -36,6 +40,7 @@ public class RandomExam extends AppCompatActivity {
     private TextView time_out;
     private TextView tv_count;
     private Button btn_ok;
+    private AdView mAdView;
 
     private int setting_time;
 
@@ -59,10 +64,15 @@ public class RandomExam extends AppCompatActivity {
         b_list = new ArrayList<>();
         db = new ExamSQLClass(this);
 
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = findViewById(R.id.adView);
         viewPager = (RandomViewPager) findViewById(R.id.view_pager);
         time_out = (TextView) findViewById(R.id.time_out);
         btn_ok = (Button) findViewById(R.id.btn_ok);
         tv_count = (TextView) findViewById(R.id.tv_count);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         setting_time = getIntent().getIntExtra("time",0);
         ExamIdArr = getIntent().getIntArrayExtra("randomArr");
@@ -176,6 +186,41 @@ public class RandomExam extends AppCompatActivity {
 
 
         });
+
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
+
         setupViewPager(viewPager);
     }
 

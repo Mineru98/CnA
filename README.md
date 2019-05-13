@@ -58,10 +58,10 @@ App
  - ~~로그아웃 시 SQLiteDB 초기화.~~ 구현완료
  - ~~App 내에서 NoteCode 입력 Dialog 구현.(쿠폰 유효기간 보여주기, 유효기간 남은 상태에서 코드 입력 시 쿠폰의 기간만큼 연장 되고. 유효기간이 끝난 상태에서 입력 시 새로운 유효기간 보여줌.)~~ 구현완료
  - DB와 ExamResult 결과 Sharing. 
-  - 회원가입 후 바로 로그인이 아닌 경우가 아닌 경우 DB와 동기화.
+   * 회원가입 후 바로 로그인이 아닌 경우가 아닌 경우 DB와 동기화.
  - 단원명 GridView를 더 Custom 해야함.(각각이 CheckBox처럼 동작하도록)
  - ExamResultAcitivity 구현.
-  - Note 및 Exam 결과에 대한 Graph를 View에 그리기.
+   * Note 및 Exam 결과에 대한 Graph를 View에 그리기.
  - (중요!)문제 출현 빈도 Algorith 구현.
  - if Internet Off 상태라면 DB와 동기화 하지 않지 않고 TmpTable에 쌓아뒀다가 Internet On 상태일때 일괄 Server와 동기화 처리(일부 기능 제외)
  - AddNote에서 단원을 입력할 때, 폴더 구조로 (대단원, 소단원으로) 클릭으로 선택 지정.

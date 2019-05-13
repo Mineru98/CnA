@@ -22,7 +22,7 @@ import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class DefaultInputDialog extends DialogFragment{
+public class DefaultInputDialog extends DialogFragment {
     private OnMyDialogResult mDialogResult;
     private ListView lv;
     private DefaultInputAdapter mAdapater;

@@ -38,4 +38,6 @@
     <string name="item_2">공지사항</string>
     <string name="tv_title_dialog_1">학년을 선택해 주세요.</string>
     <string name="tv_title_dialog_2">자동으로 학년별 단원 업데이트가 가능해요 !</string>
+    <string name="tv_title_dialog_3">쿠폰 코드 입력</string>
+    <string name="et_code_dialog">쿠폰 번호 입력</string>
 </resources>

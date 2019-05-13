@@ -21,7 +21,6 @@ public class PhotoDialog extends DialogFragment {
         TextView btn_camera = (TextView)dialog.findViewById(R.id.btn_camera);
         TextView btn_gallery = (TextView)dialog.findViewById(R.id.btn_gallery);
 
-
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

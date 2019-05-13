@@ -180,6 +180,7 @@ public class RandomExam extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int i) {
+
             }
 
 

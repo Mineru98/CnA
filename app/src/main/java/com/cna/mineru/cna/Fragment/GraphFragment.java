@@ -3,10 +3,13 @@ package com.cna.mineru.cna.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cna.mineru.cna.DB.GraphDataSQLClass;
+import com.cna.mineru.cna.DB.UserSQLClass;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -18,12 +21,16 @@ import com.cna.mineru.cna.DTO.GraphData;
 import com.cna.mineru.cna.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class GraphFragment extends Fragment {
     View view;
+    UserSQLClass u_db;
     GraphSQLClass db;
+    GraphDataSQLClass d_db;
     ArrayList<GraphData> list;
+    ArrayList<String> s_list;
     private PieChart chart;
 
     public GraphFragment(){
@@ -34,21 +41,30 @@ public class GraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_graph, container, false);
         chart = view.findViewById(R.id.chartView);
+//        Calendar cal = Calendar.getInstance();
+//        int year = cal.get(cal.YEAR);
+//        int month = cal.get(cal.MONTH) + 1;
+//        int date = cal.get(cal.DATE);
+
         list = new ArrayList<>();
+        s_list = new ArrayList<>();
 
-        db =  new GraphSQLClass(getActivity());
+        db = new GraphSQLClass(getActivity());
+        u_db = new UserSQLClass(getActivity());
+        d_db = new GraphDataSQLClass(getActivity());
         drawGraph();
-
         return view;
     }
 
     private void drawGraph(){
         ArrayList<PieEntry> yValues = new ArrayList<>();
         list.clear();
+        s_list.clear();
         list = db.load_values();
+        s_list = d_db.get_title(u_db.getClassId());
 
         int total = list.size();
-        float[] select = {0f,0f,0f,0f,0f,0f,0f,0f};
+        float[] select = {0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f};
 
         for(int i=0;i<total;i++){
             switch (list.get(i).note_type){
@@ -76,8 +92,33 @@ public class GraphFragment extends Fragment {
                 case 8:
                     select[7]+=1;
                     break;
+                case 9:
+                    select[8]+=1;
+                    break;
+                case 10:
+                    select[9]+=1;
+                    break;
+                case 11:
+                    select[10]+=1;
+                    break;
+                case 12:
+                    select[11]+=1;
+                    break;
+                case 13:
+                    select[12]+=1;
+                    break;
+                case 14:
+                    select[13]+=1;
+                    break;
+                case 15:
+                    select[14]+=1;
+                    break;
+                case 16:
+                    select[15]+=1;
+                    break;
             }
         }
+
         chart.getDescription().setEnabled(false);
         chart.setExtraOffsets(0,0,0,0);
 
@@ -89,27 +130,20 @@ public class GraphFragment extends Fragment {
         chart.setTransparentCircleRadius(61f);
         chart.animateX(1500);
 
-        for(int i=0;i<8;i++){
-            if(i==0&&select[i]>0)
-                yValues.add(new PieEntry(select[0]/total*100f,"자연수의 성질"));
-            else if(i==1&&select[i]>0)
-                yValues.add(new PieEntry(select[1]/total*100f,"정수와 유리수"));
-            else if(i==2&&select[i]>0)
-                yValues.add(new PieEntry(select[2]/total*100f,"문자와 식"));
-            else if(i==3&&select[i]>0)
-                yValues.add(new PieEntry(select[3]/total*100f,"함수"));
-            else if(i==4&&select[i]>0)
-                yValues.add(new PieEntry(select[4]/total*100f,"기본도형"));
-            else if(i==5&&select[i]>0)
-                yValues.add(new PieEntry(select[5]/total*100f,"평면도형"));
-            else if(i==6&&select[i]>0)
-                yValues.add(new PieEntry(select[6]/total*100f,"입체도형"));
-            else if(i==7&&select[i]>0)
-                yValues.add(new PieEntry(select[7]/total*100f,"통계"));
+        for(int i=0;i<16;i++) {
+            if (select[i] > 0)
+                yValues.add(new PieEntry(select[i] / total * 100f, s_list.get(i)));
         }
 
         Description description = new Description();
-        description.setText("중학교 수학과정"); //라벨
+        if(10<u_db.getClassId()&&u_db.getClassId()<14)
+            description.setText("초등학교 수학과정");
+        else if(20<u_db.getClassId()&&u_db.getClassId()<24)
+            description.setText("중학교 수학과정");
+        else if(30<u_db.getClassId()&&u_db.getClassId()<40)
+            description.setText("고등학교 수학과정");
+        else
+            description.setText("수학과정");
         description.setTextSize(15);
         chart.setDescription(description);
 
@@ -136,6 +170,7 @@ public class GraphFragment extends Fragment {
                 Color.rgb(0xd5, 0x00, 0xf9),
                 Color.rgb(0xf5, 0x00, 0x57),
                 Color.rgb(0xff, 0x17, 0x44),
+                Color.rgb(0x00, 0xe6, 0x76)
         };
         dataSet.setColors(COLOR_);
         PieData data = new PieData((dataSet));

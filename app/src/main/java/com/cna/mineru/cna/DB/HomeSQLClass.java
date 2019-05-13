@@ -52,7 +52,8 @@ public class HomeSQLClass extends AppCompatActivity {
                     "Id "           + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "Title "        + "TEXT," +
                     "Note_Current " + "INTEGER DEFAULT 100," +
-                    "Note_Type "          + "INTEGER" + ");";
+                    "ClassId "      + "INTEGER DEFAULT 1," +
+                    "Note_Type "    + "INTEGER" + ");";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
@@ -183,12 +184,15 @@ public class HomeSQLClass extends AppCompatActivity {
 
 
     public void add_values(String note_id, String title, int note_type){
+        UserSQLClass db = new UserSQLClass(this);
         int id = Integer.parseInt(note_id);
+        int ClassId = db.getClassId();
         if (sqliteDb != null) {
-            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Id, Title, Note_Type) VALUES (?,?,?);");
+            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Id, Title, Note_Type, ClassId) VALUES (?,?,?,?);");
             p.bindLong(1, id);
             p.bindString(2, title);
             p.bindLong(3, note_type);
+            p.bindLong(4,ClassId);
             System.out.println(p);
             p.execute();
         }

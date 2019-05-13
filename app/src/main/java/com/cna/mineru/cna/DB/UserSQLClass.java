@@ -49,13 +49,12 @@ public class UserSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS User_Info (" +
                     "User_Id "        + "INTEGER NOT NULL PRIMARY KEY DEFAULT 1," +
                     "Name "           + "TEXT DEFAULT '게스트'," +
-                    "Class "          + "INTEGER NOT NULL DEFAULT 1, " +
                     "isFirst "        + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isGoogle "       + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isWifiSync "     + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isPremium "      + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isClassChecked " + "BOOLEAN NOT NULL DEFAULT 0, " +
-                    "ClassId "        + "INTEGER DEFAULT 0," +
+                    "ClassId "        + "INTEGER DEFAULT 11," +
                     "ClassText "      + "TEXT DEFAULT '학년 설정 없음',"+
                     "isCoupon "       + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "CouponCode "     + "TEXT DEFAULT '',"+
@@ -100,6 +99,18 @@ public class UserSQLClass extends AppCompatActivity {
             ClassText = cursor.getString(0);
         }
         return ClassText;
+    }
+
+    public int getClassId(){
+        int ClassId = 1;
+        if(sqliteDb != null){
+            Cursor cursor = null;
+            String sqlQueryTb1 = "SELECT ClassId FROM User_Info;";
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            ClassId = cursor.getInt(0);
+        }
+        return ClassId;
     }
 
     public int getUserId(){
@@ -191,11 +202,11 @@ public class UserSQLClass extends AppCompatActivity {
         return CouponDate;
     }
 
-    public void add_values(int User_Id, String name, int Class, int isFirst, int isGoogle){
+    public void add_values(int User_Id, String name, int isFirst, int isGoogle){
         if (sqliteDb != null) {
             String sqlInsert = "INSERT INTO User_Info " +
-                    "(User_Id, Name, Class, isFirst, isGoogle) VALUES (" +
-                    User_Id + ", '"+ name +"', " + Class + ", " + isFirst + ", " + isGoogle + ")" ;
+                    "(User_Id, Name, isFirst, isGoogle) VALUES (" +
+                    User_Id + ", '"+ name +"', " + isFirst + ", " + isGoogle + ")" ;
             sqliteDb.execSQL(sqlInsert) ;
             System.out.println(sqlInsert) ;
 
@@ -260,7 +271,7 @@ public class UserSQLClass extends AppCompatActivity {
 
     public void reset_app(){
         if (sqliteDb != null) {
-            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', Class = 1, isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 0, ClassText = '학년 설정 없음';";
+            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 11, ClassText = '학년 설정 없음';";
             System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;
         }

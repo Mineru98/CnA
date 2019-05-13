@@ -162,8 +162,8 @@ public class DoExamFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         ArrayList<ExamData> make = db.make_Exam(ExamNum);
-                        int RoomId = db.get_Exam_RoomId();
                         if (make.size() > 0) {
+                            int RoomId = db.get_Exam_RoomId();
                             dialog.dismiss();
                             int[] ExamIdArr = new int[ExamNum];
                             for (int k = 0; k < ExamNum; k++)

@@ -70,8 +70,17 @@ public class RandomExamSolve extends AppCompatActivity {
 
         CurrentViewId = 0;
 
+
+        //시간 계산을 한지 얼마 되지 않은 상태에선 시간 측정이
+        //제대로 이루어지지 않는 버그로 인해서 10초 미만 동안 문제를 푼 경우엔
+        //그냥 10초 고정.
+        for(int i=0;i<ExamNum;i++){
+            if(ResultExamArr[i]<0)
+                ResultExamArr[i]=10000;
+        }
+
         @SuppressLint("DefaultLocale")
-        String easy_outTime = String.format("%02d:%02d:%02d", ResultExamArr[0] / 1000 / 60 / 60, (ResultExamArr[0] / 1000 / 60) % 60, (ResultExamArr[0] / 1000) % 60);
+        String easy_outTime = String.format("%02d:%02d", (ResultExamArr[0] / 1000 / 60) % 60, (ResultExamArr[0] / 1000) % 60);
         tv_time.setText(easy_outTime);
 
         for (int i = 0; i < ExamNum; i++) {
@@ -93,10 +102,6 @@ public class RandomExamSolve extends AppCompatActivity {
                                     //시험 결과 저장
                                     db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
                                     Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
-//                                    i.putExtra("ExamIdArr", ExamIdArr);
-//                                    i.putExtra("ExamNum", ExamNum);
-//                                    i.putExtra("ResultExamArr", ResultExamArr);
-//                                    i.putExtra("ResultCheckList",ResultCheckList);
                                     i.putExtra("RoomId", RoomId);
                                     startActivity(i);
                                     finish();
@@ -161,7 +166,7 @@ public class RandomExamSolve extends AppCompatActivity {
             public void onPageSelected(int i) {
                 int text_count = i + 1;
                 @SuppressLint("DefaultLocale")
-                String easy_outTime_each = String.format("%02d:%02d:%02d", ResultExamArr[i] / 1000 / 60 / 60, (ResultExamArr[i] / 1000 / 60) % 60, (ResultExamArr[i] / 1000) % 60);
+                String easy_outTime_each = String.format("%02d:%02d", (ResultExamArr[i] / 1000 / 60) % 60, (ResultExamArr[i] / 1000) % 60);
                 tv_count.setText("A" + text_count);
                 tv_time.setText(easy_outTime_each);
                 for (int t = 0; t < ExamNum; t++) {

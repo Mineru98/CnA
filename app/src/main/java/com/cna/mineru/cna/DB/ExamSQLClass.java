@@ -78,15 +78,15 @@ public class ExamSQLClass extends AppCompatActivity {
         ArrayList<ExamData> list = new ArrayList<>();
 
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT * FROM Exam WHERE TAG = 3 ORDER BY Id DESC";
+            String sqlQueryTb1 = "SELECT Id, ExamTitle, ExamRoomId FROM Exam WHERE TAG = 3 ORDER BY Id DESC";
             Cursor cursor = null;
 
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
-                int id = cursor.getInt(2);
-                String examtitle = cursor.getString(7);
-                list.add(new ExamData(examtitle,id));
+                int RoomId = cursor.getInt(0);
+                String examtitle = cursor.getString(1);
+                list.add(new ExamData(examtitle,RoomId));
             }
         }
         return list;
@@ -121,18 +121,19 @@ public class ExamSQLClass extends AppCompatActivity {
     // NoteId를 통해 Data Loading을 하는 메소드
     // Methods for Data Loading via NoteId when viewing data indicators for a particular Exam
     @SuppressLint("Recycle")
-    public ArrayList<ExamData> get_point_values(String exam_title){
+    public ArrayList<ExamData> get_point_values(int RoomId){
         ArrayList<ExamData> list = new ArrayList<ExamData>();
-
         if(sqliteDb != null){
-            String sqlQueryTb1 = "select * from Exam where ExamRoomId=(select ExamRoomId from Exam where ExamTitle='"+exam_title+"');";
+            String sqlQueryTb1 = "select NoteId, Title, TimeToSolve, isSolved from Exam where ExamRoomId = " + RoomId + ";";
             Cursor cursor = null;
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
-                int id = cursor.getInt(2);
-                String examtitle = cursor.getString(5);
-                list.add(new ExamData(examtitle,id));
+                int NoteId = cursor.getInt(0);
+                String Title = cursor.getString(1);
+                long TTS = cursor.getLong(2);
+                int isSolved = cursor.getInt(3);
+                list.add(new ExamData(NoteId,Title,TTS,isSolved));
             }
         }
         return list;
@@ -181,15 +182,15 @@ public class ExamSQLClass extends AppCompatActivity {
                     if (i == 0) {
                         sqlInsert = "INSERT INTO Exam " +
                                 "(NoteId, Tag, Title) VALUES (" +
-                                list.get(i).examId + "," +
+                                list.get(i).RoomId + "," +
                                 "1 ," +
-                                "'" + list.get(i).title + "'" + ")";
+                                "'" + list.get(i).Title + "'" + ")";
                     } else {
                         sqlInsert = "INSERT INTO Exam " +
                                 "(NoteId, Tag, Title) VALUES (" +
-                                list.get(i).examId + "," +
+                                list.get(i).RoomId + "," +
                                 "0 ," +
-                                "'" + list.get(i).title + "'" + ")";
+                                "'" + list.get(i).Title + "'" + ")";
                     }
                     System.out.println(sqlInsert);
                     sqliteDb.execSQL(sqlInsert);
@@ -246,6 +247,14 @@ public class ExamSQLClass extends AppCompatActivity {
             String sqlQueryTb1 = "DELETE FROM Exam WHERE id =" + id + ";";
             System.out.println(sqlQueryTb1);
             sqliteDb.execSQL(sqlQueryTb1);
+        }
+    }
+
+    public void reset_app(){
+        if (sqliteDb != null) {
+            String sqlInsert = "DELETE FROM Exam;";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
         }
     }
 }

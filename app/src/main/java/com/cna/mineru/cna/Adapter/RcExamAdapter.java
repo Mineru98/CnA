@@ -1,6 +1,7 @@
 package com.cna.mineru.cna.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cna.mineru.cna.DTO.ExamData;
+import com.cna.mineru.cna.ExamResultActivity;
 import com.cna.mineru.cna.MainActivity;
 import com.cna.mineru.cna.R;
 
@@ -60,11 +62,13 @@ public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolde
         ExamData data = (ExamData) items.get(position);
 
         // 데이터 결합
-        holder.title.setText(data.title);
-
+        holder.title.setText(data.ExamTitle);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ExamResultActivity.class);
+                i.putExtra("RoomId",data.RoomId);
+                v.getContext().startActivity(i);
                 Toast.makeText(v.getContext(), "OK " + position, Toast.LENGTH_SHORT).show();
             }
         });

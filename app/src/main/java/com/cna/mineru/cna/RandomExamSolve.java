@@ -35,14 +35,12 @@ public class RandomExamSolve extends AppCompatActivity {
     private TextView tv_title;
     private TextView tv_count;
 
-    private int count;
     private int RoomId;
     private int ExamNum;
     private int[] ExamIdArr;
     private int CurrentViewId;
 
-    private int[] Result;
-
+    private int[] ResultCheckList;
     private long[] ResultExamArr;
 
     @Override
@@ -64,13 +62,12 @@ public class RandomExamSolve extends AppCompatActivity {
         db = new ExamSQLClass(this);
         final SignDialog dialog = new SignDialog(RandomExamSolve.this);
 
-        ExamIdArr = getIntent().getIntArrayExtra("randomArr");
+        ExamIdArr = getIntent().getIntArrayExtra("ExamIdArr");
         ExamNum = getIntent().getIntExtra("ExamNum", 0);
         RoomId= getIntent().getIntExtra("RoomId",0);
-        Result = new int[ExamNum];
-        ResultExamArr = getIntent().getLongArrayExtra("ResultArr");
+        ResultCheckList = new int[ExamNum];
+        ResultExamArr = getIntent().getLongArrayExtra("ResultExamArr");
 
-        count = 0;
         CurrentViewId = 0;
 
         @SuppressLint("DefaultLocale")
@@ -80,7 +77,7 @@ public class RandomExamSolve extends AppCompatActivity {
         for (int i = 0; i < ExamNum; i++) {
             i_list.add(ExamIdArr[i]);
             b_list.add(0);
-            Result[i] = 0;
+            ResultCheckList[i] = 0;
         }
 
         btn_ok.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +91,14 @@ public class RandomExamSolve extends AppCompatActivity {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     //시험 결과 저장
-                                    db.update_result(Result, ResultExamArr, RoomId, ExamIdArr);
+                                    db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
+                                    Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
+//                                    i.putExtra("ExamIdArr", ExamIdArr);
+//                                    i.putExtra("ExamNum", ExamNum);
+//                                    i.putExtra("ResultExamArr", ResultExamArr);
+//                                    i.putExtra("ResultCheckList",ResultCheckList);
+                                    i.putExtra("RoomId", RoomId);
+                                    startActivity(i);
                                     finish();
                                 }
                             });
@@ -111,8 +115,7 @@ public class RandomExamSolve extends AppCompatActivity {
                 }
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
-                count++;
-                Result[CurrentViewId] = 1;
+                ResultCheckList[CurrentViewId] = 1;
             }
         });
 
@@ -127,7 +130,7 @@ public class RandomExamSolve extends AppCompatActivity {
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     //시험 결과 저장
-                                    db.update_result(Result, ResultExamArr, RoomId, ExamIdArr);
+                                    db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
                                     finish();
                                 }
                             });
@@ -143,8 +146,7 @@ public class RandomExamSolve extends AppCompatActivity {
                 }
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
-                count++;
-                Result[CurrentViewId] = 0;
+                ResultCheckList[CurrentViewId] = 0;
             }
         });
 

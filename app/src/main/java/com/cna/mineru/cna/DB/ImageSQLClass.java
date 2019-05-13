@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class ImageSQLClass extends AppCompatActivity {
 
-    ImageSQLClass imageSQLClass;
     SQLiteDatabase sqliteDb;
     Context context;
 
@@ -116,6 +115,14 @@ public class ImageSQLClass extends AppCompatActivity {
     public void delete_item(int Note_Id){
         if (sqliteDb != null) {
             String sqlInsert = "DELETE FROM Image WHERE NoteId = " + Note_Id + ";";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
+
+    public void reset_app(){
+        if (sqliteDb != null) {
+            String sqlInsert = "DELETE FROM Image;";
             System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;
         }

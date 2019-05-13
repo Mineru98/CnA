@@ -51,7 +51,6 @@ public class HomeSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Note (" +
                     "Id "           + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "Title "        + "TEXT," +
-//                    "Image "        + "BLOB DEFAULT ''," +
                     "Note_Current " + "INTEGER DEFAULT 100," +
                     "Note_Type "          + "INTEGER" + ");";
             System.out.println(sqlCreateTb);
@@ -186,12 +185,20 @@ public class HomeSQLClass extends AppCompatActivity {
     public void add_values(String note_id, String title, int note_type){
         int id = Integer.parseInt(note_id);
         if (sqliteDb != null) {
-            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO NOTE (Id, Title, Note_Type) VALUES (?,?,?);");
+            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Id, Title, Note_Type) VALUES (?,?,?);");
             p.bindLong(1, id);
             p.bindString(2, title);
             p.bindLong(3, note_type);
             System.out.println(p);
             p.execute();
+        }
+    }
+
+    public void reset_app(){
+        if (sqliteDb != null) {
+            String sqlInsert = "DELETE FROM Note;";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
         }
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,6 +20,11 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.cna.mineru.cna.DB.ExamSQLClass;
+import com.cna.mineru.cna.DB.GraphSQLClass;
+import com.cna.mineru.cna.DB.HomeSQLClass;
+import com.cna.mineru.cna.DB.ImageSQLClass;
+import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.WebViewActivity;
@@ -176,10 +182,11 @@ public class SettingActivity extends AppCompatActivity {
                         dialog.dismiss();
                         loadingDialog.progressON(SettingActivity.this,"Loading...");
                         isLogin=false;
-                        SharedPreferences pref = getSharedPreferences("isLogin",MODE_PRIVATE);
+                        SharedPreferences pref = getSharedPreferences("isLogin", MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
                         editor.putBoolean("isLogin",false);
                         editor.apply();
+                        reset_app();
                         FirebaseAuth.getInstance().signOut();
                         Intent resultIntent = new Intent();
                         resultIntent.putExtra("isLogin",isLogin);
@@ -213,6 +220,7 @@ public class SettingActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = pref.edit();
                         editor.putBoolean("isLogin",false);
                         editor.apply();
+                        reset_app();
                         FirebaseAuth.getInstance().signOut();
                         boolean isGoogle;
                         isGoogle = db.delete_User();
@@ -338,6 +346,22 @@ public class SettingActivity extends AppCompatActivity {
             super.onPostExecute(result);
             loadingDialog.progressOFF();
         }
+    }
+
+    private void reset_app(){
+        TmpSQLClass db1 = new TmpSQLClass(this);
+        UserSQLClass db2 = new UserSQLClass(this);
+        ExamSQLClass db3 = new ExamSQLClass(this);
+        HomeSQLClass db4 = new HomeSQLClass(this);
+        GraphSQLClass db5 = new GraphSQLClass(this);
+        ImageSQLClass db6 = new ImageSQLClass(this);
+
+        db1.reset_app();
+        db2.reset_app();
+        db3.reset_app();
+        db4.reset_app();
+        db5.reset_app();
+        db6.reset_app();
     }
 
     @Override

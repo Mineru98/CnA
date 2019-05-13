@@ -89,6 +89,12 @@
             android:theme="@style/AppTheme.Default">
         </activity>
         <activity
+            android:name=".ExamResultActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme.Default">
+        </activity>
+        <activity
             android:name=".SignupActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"

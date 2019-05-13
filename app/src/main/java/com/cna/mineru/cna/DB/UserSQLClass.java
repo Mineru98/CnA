@@ -58,7 +58,6 @@ public class UserSQLClass extends AppCompatActivity {
                     "ClassId "        + "INTEGER DEFAULT 0," +
                     "ClassText "      + "TEXT DEFAULT '학년 설정 없음');";
             System.out.println(sqlCreateTb);
-
             sqliteDb.execSQL(sqlCreateTb);
         }
     }
@@ -91,7 +90,7 @@ public class UserSQLClass extends AppCompatActivity {
         int id =0;
         if(sqliteDb != null){
             Cursor cursor = null;
-            String sqlQueryTb1 = "SELECT * FROM User_Info;";
+            String sqlQueryTb1 = "SELECT Id FROM User_Info;";
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             cursor.moveToNext();
             id = cursor.getInt(0);
@@ -185,14 +184,6 @@ public class UserSQLClass extends AppCompatActivity {
         }
     }
 
-    public void update_isFirst(){
-        if(sqliteDb != null){
-            String sqlQueryTb1 = "UPDATE User_Info SET isFirst = 1;";
-            System.out.println(sqlQueryTb1);
-            sqliteDb.execSQL(sqlQueryTb1);
-        }
-    }
-
     public void update_isGoogle(boolean isGoogle, String name, int User_Id){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE User_Info SET isGoogle = '" +  isGoogle + "', Name = '"+ name + "', User_Id = " + User_Id + ";";
@@ -201,9 +192,16 @@ public class UserSQLClass extends AppCompatActivity {
         }
     }
 
+    public void reset_app(){
+        if (sqliteDb != null) {
+            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', Class = 1, isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 0, ClassText = '학년 설정 없음';";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
+
     public boolean delete_User() {
         int isGoogle = 0;
-
         if(sqliteDb != null){
             Cursor cursor = null;
             String sqlQueryTb1 = "SELECT isGoogle FROM User_Info;";

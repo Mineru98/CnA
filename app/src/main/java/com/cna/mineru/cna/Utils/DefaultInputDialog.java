@@ -113,7 +113,7 @@ public class DefaultInputDialog extends DialogFragment{
                             break;
                     }
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putInt("isClassConfig", 4);
+                    editor.putInt("isClassConfig", 0);
                     editor.apply();
                     DefaultInputDialog.this.getDialog().cancel();
                 }else if(mode==2){
@@ -132,7 +132,7 @@ public class DefaultInputDialog extends DialogFragment{
                             break;
                     }
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putInt("isClassConfig", 4);
+                    editor.putInt("isClassConfig", 0);
                     editor.apply();
                     DefaultInputDialog.this.getDialog().cancel();
                 }else if(mode==3){
@@ -151,7 +151,7 @@ public class DefaultInputDialog extends DialogFragment{
                             break;
                     }
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putInt("isClassConfig", 4);
+                    editor.putInt("isClassConfig", 0);
                     editor.apply();
                     DefaultInputDialog.this.getDialog().cancel();
                 }

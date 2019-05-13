@@ -46,13 +46,21 @@ public class TmpSQLClass  {
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Tmp (" +
-                    "Id "           + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "ExecuteNumber "    + "INTEGER DEFAULT 1," +
-                    "ExecuteId "    + "INTEGER DEFAULT 0);";
+                    "Id "            + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "ExecuteNumber " + "INTEGER DEFAULT 1," +
+                    "ExecuteId "     + "INTEGER DEFAULT 0);";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
     }
     //ExecuteNumber가 1이면 Note 추가에 대한 임시 테이블
     //ExecuteId에는 실행해야할 열의 id값을 저장해 둔다.
+
+    public void reset_app(){
+        if (sqliteDb != null) {
+            String sqlInsert = "DELETE FROM Tmp;";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
 }

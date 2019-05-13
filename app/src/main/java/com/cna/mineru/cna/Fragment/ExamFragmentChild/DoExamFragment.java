@@ -154,27 +154,26 @@ public class DoExamFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int time = Integer.parseInt(tv_time.getText().toString().substring(0,tv_time.getText().toString().length()-2));
-                int count = Integer.parseInt(tv_count.getText().toString().substring(0,tv_count.getText().toString().length()-3));
+                int ExamNum = Integer.parseInt(tv_count.getText().toString().substring(0,tv_count.getText().toString().length()-3));
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                 dialog.setTitle("알림");
                 dialog.setMessage(time + "분간 시험이 진행됩니다.\n이대로 진행 하시겠습니까?");
                 dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ArrayList<ExamData> make = db.make_Exam(count);
-                        int roomId = db.get_Exam_RoomId();
-                        Log.d("TAG","Mineru DoFragment" + roomId);
+                        ArrayList<ExamData> make = db.make_Exam(ExamNum);
+                        int RoomId = db.get_Exam_RoomId();
                         if (make.size() > 0) {
                             dialog.dismiss();
-                            int[] result = new int[count];
-                            for (int k = 0; k < count; k++)
-                                result[k] = make.get(k).examId;
+                            int[] ExamIdArr = new int[ExamNum];
+                            for (int k = 0; k < ExamNum; k++)
+                                ExamIdArr[k] = make.get(k).RoomId;
 
                             Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
                             i.putExtra("time", time * 60 * 1000);
-                            i.putExtra("randomArr", result);
-                            i.putExtra("ExamNum", count);
-                            i.putExtra("RoomId", roomId);
+                            i.putExtra("ExamIdArr", ExamIdArr);
+                            i.putExtra("ExamNum", ExamNum);
+                            i.putExtra("RoomId", RoomId);
                             startActivity(i);
                         } else
                             dialog.dismiss();

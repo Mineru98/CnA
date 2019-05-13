@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cna.mineru.cna.Adapter.RandomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
@@ -75,7 +74,7 @@ public class RandomExam extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         setting_time = getIntent().getIntExtra("time",0);
-        ExamIdArr = getIntent().getIntArrayExtra("randomArr");
+        ExamIdArr = getIntent().getIntArrayExtra("ExamIdArr");
         ExamNum = getIntent().getIntExtra("ExamNum",0);
         RoomId= getIntent().getIntExtra("RoomId",0);
 
@@ -115,9 +114,9 @@ public class RandomExam extends AppCompatActivity {
                                     for(int i = 0;i<ExamNum;i++)
                                         ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
                                     Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
-                                    i.putExtra("randomArr", ExamIdArr);
+                                    i.putExtra("ExamIdArr", ExamIdArr);
                                     i.putExtra("ExamNum", ExamNum);
-                                    i.putExtra("ResultArr", ResultExamArr);
+                                    i.putExtra("ResultExamArr", ResultExamArr);
                                     i.putExtra("RoomId", RoomId);
                                     startActivity(i);
                                     finish();
@@ -149,7 +148,6 @@ public class RandomExam extends AppCompatActivity {
             public void onPageSelected(int i) {
                 int text_count = i + 1;
                 tv_count.setText("Q" + text_count);
-                Log.d("TAG", "Mineru : selected id : " + i + ", " + ExamIdArr[i]);
                 if (i == ExamNum - 1) {
                     btn_ok.setText("시험종료");
                 } else {

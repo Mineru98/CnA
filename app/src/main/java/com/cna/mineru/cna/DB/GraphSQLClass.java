@@ -52,8 +52,8 @@ public class GraphSQLClass extends AppCompatActivity {
     private void init_Tables(){
         if(sqliteDb != null){
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Graph (" +
-                    "Id "       + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "Note_Id "  + "INTEFER,"+
+                    "Id "        + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "Note_Id "   + "INTEFER,"+
                     "Note_Type " + "INTEGER" + ")";
 
             System.out.println(sqlCreateTb);
@@ -119,8 +119,15 @@ public class GraphSQLClass extends AppCompatActivity {
 
     public void delete_value(int Note_Id){
         if (sqliteDb != null) {
-
             String sqlInsert = "DELETE FROM Graph WHERE Note_Id = " + Note_Id + ";";
+            System.out.println(sqlInsert) ;
+            sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
+
+    public void reset_app(){
+        if (sqliteDb != null) {
+            String sqlInsert = "DELETE FROM Graph;";
             System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;
         }

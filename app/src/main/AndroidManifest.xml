@@ -31,6 +31,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
         <meta-data
             android:name="firebase_messaging_auto_init_enabled"
@@ -108,6 +109,12 @@
         </activity>
         <activity
             android:name=".ModifyHomeItem"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme.Default">
+        </activity>
+        <activity
+            android:name=".NotificationActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"
             android:theme="@style/AppTheme.Default">

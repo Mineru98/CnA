@@ -86,17 +86,14 @@ public class DefaultInputDialog extends DialogFragment {
                         case 0:
                             mDialogResult.finish(1);
                             db.setClassId(11, "초등학교 1학년");
-                            Log.d("TAG","Mineru 초 1학년");
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 1:
                             db.setClassId(12, "초등학교 2학년");
-                            Log.d("TAG","Mineru 초 2학년");
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 2:
                             db.setClassId(13, "초등학교 3학년");
-                            Log.d("TAG","Mineru 초 3학년");
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 3:

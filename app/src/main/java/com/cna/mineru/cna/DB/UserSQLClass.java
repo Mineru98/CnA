@@ -56,7 +56,11 @@ public class UserSQLClass extends AppCompatActivity {
                     "isPremium "      + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isClassChecked " + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "ClassId "        + "INTEGER DEFAULT 0," +
-                    "ClassText "      + "TEXT DEFAULT '학년 설정 없음');";
+                    "ClassText "      + "TEXT DEFAULT '학년 설정 없음',"+
+                    "isCoupon "       + "BOOLEAN NOT NULL DEFAULT 0, " +
+                    "CouponCode "     + "TEXT DEFAULT '',"+
+                    "CouponTag "      + "INTEGER DEFAULT 1,"+
+                    "CouponDate "     + "DATE DEFAULT '');";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
@@ -67,6 +71,18 @@ public class UserSQLClass extends AppCompatActivity {
         if(sqliteDb != null){
             Cursor cursor = null;
             String sqlQueryTb1 = "SELECT isClassChecked FROM User_Info;";
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            result = cursor.getInt(0);
+        }
+        return result == 1;
+    }
+
+    public boolean isCoupon(){
+        int result = 1;
+        if(sqliteDb != null){
+            Cursor cursor = null;
+            String sqlQueryTb1 = "SELECT isCoupon FROM User_Info;";
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             cursor.moveToNext();
             result = cursor.getInt(0);
@@ -149,6 +165,32 @@ public class UserSQLClass extends AppCompatActivity {
         return name;
     }
 
+    public String get_Code(){
+        Cursor cursor = null;
+        String Code="";
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "SELECT CouponCode FROM User_Info;";
+            System.out.println(sqlQueryTb1);
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            Code = cursor.getString(0);
+        }
+        return Code;
+    }
+
+    public String get_CouponDate(){
+        Cursor cursor = null;
+        String CouponDate="";
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "SELECT CouponDate FROM User_Info;";
+            System.out.println(sqlQueryTb1);
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            CouponDate = cursor.getString(0);
+        }
+        return CouponDate;
+    }
+
     public void add_values(int User_Id, String name, int Class, int isFirst, int isGoogle){
         if (sqliteDb != null) {
             String sqlInsert = "INSERT INTO User_Info " +
@@ -160,11 +202,35 @@ public class UserSQLClass extends AppCompatActivity {
         }
     }
 
+    public void setCouponCode(String couponCode){
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "UPDATE User_Info SET CouponCode = " + couponCode + ", CouponDate = date('now','+9 hours'), isCoupon = 1;";
+            System.out.println(sqlQueryTb1);
+            sqliteDb.execSQL(sqlQueryTb1);
+        }
+    }
+
     public void setClassId(int ClassId, String ClassText){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE User_Info SET ClassId = " + ClassId + ", ClassText = '" + ClassText+ "', isClassChecked = 1;";
             System.out.println(sqlQueryTb1);
             sqliteDb.execSQL(sqlQueryTb1);
+        }
+    }
+
+    public void addCoupon(int tag){
+        Cursor cursor = null;
+        String CouponDate = "";
+        tag *= 30;
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "SELECT CouponDate FROM User_Info;";
+            System.out.println(sqlQueryTb1);
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            CouponDate = cursor.getString(0);
+            String sqlQueryTb2 = "UPDATE User_Info SET CouponDate = date('"+ CouponDate +"','+" + tag +" days');";
+            System.out.println(sqlQueryTb2);
+            sqliteDb.execSQL(sqlQueryTb2);
         }
     }
 

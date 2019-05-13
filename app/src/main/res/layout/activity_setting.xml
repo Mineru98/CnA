@@ -6,26 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:padding="10dp"
-        app:srcCompat="@drawable/ic_back_black"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="32dp" />
-
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/include_toolbar_setting"/>
     <TextView
         android:id="@+id/tv_ver"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_below="@+id/btn_back"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
@@ -45,7 +35,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="현재 버전 : " />
+        android:text="@string/tv_str_ver" />
 
     <TextView
         android:id="@+id/tv_abouts"
@@ -71,7 +61,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="0dp"
-        android:text="이용약관" />
+        android:text="@string/tv_terms" />
 
     <TextView
         android:id="@+id/tv_privacy"
@@ -83,7 +73,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="0dp"
-        android:text="개인정보처리방침" />
+        android:text="@string/tv_privacy" />
 
     <TextView
         android:id="@+id/tv_account"
@@ -108,7 +98,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="0dp"
-        android:text="프로필" />
+        android:text="@string/tv_profile" />
     <Switch
         android:id="@+id/sw_profile"
         android:layout_width="wrap_content"
@@ -120,7 +110,7 @@
         android:layout_marginTop="0dp"
         android:checked="false"/>
     <TextView
-        android:id="@+id/tv_logout"
+        android:id="@+id/tv_insert_code"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/tv_profile"
@@ -129,7 +119,18 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="0dp"
-        android:text="로그아웃" />
+        android:text="@string/et_code_dialog" />
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tv_insert_code"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/tv_logout" />
     <TextView
         android:id="@+id/tv_signout"
         android:layout_width="match_parent"
@@ -140,7 +141,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="0dp"
-        android:text="회원탈퇴" />
+        android:text="@string/tv_signout" />
 
     <TextView
         android:id="@+id/tv_setting"
@@ -167,7 +168,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/sw_wifisync"
-        android:text="Wifi가 연결 되어 있을 때만 동기화하기" />
+        android:text="@string/tv_wifisync" />
 
     <Switch
         android:id="@+id/sw_wifisync"

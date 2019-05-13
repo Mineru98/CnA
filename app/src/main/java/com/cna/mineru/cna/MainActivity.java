@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.cna.mineru.cna.Adapter.CustomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentPagerAdapter;
+import com.cna.mineru.cna.DB.NotiSQLClass;
 import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Fragment.GraphFragment;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         db = new UserSQLClass(this); // User_Info Table
         TmpSQLClass t_db = new TmpSQLClass(this); // Tmp Table
+        NotiSQLClass n_db = new NotiSQLClass(this);// Notificaiton Table
 
         {
             Toast.makeText(this, "환영합니다. "+ db.get_Name() +" 학생님.", Toast.LENGTH_SHORT).show();
@@ -179,7 +181,10 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("isLogin",true);
                 }
                 return true;
-
+            case R.id.action_notifications:
+                Intent i = new Intent(this,NotificationActivity.class);
+                startActivityForResult(i,3000);
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
             default:
                 return super.onOptionsItemSelected(item);
 

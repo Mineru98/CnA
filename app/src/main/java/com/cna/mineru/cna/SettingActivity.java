@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.media.Image;
+import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
@@ -19,6 +19,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.DB.GraphSQLClass;
@@ -26,6 +27,7 @@ import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
+import com.cna.mineru.cna.Utils.InsertCodeDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.WebViewActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,6 +67,8 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         db = new UserSQLClass(this);
@@ -82,30 +86,31 @@ public class SettingActivity extends AppCompatActivity {
         }
 
         tv_str_ver.setText("현재 버전: "+packageInfo.versionName);
-        SpannableString content = new SpannableString("Application                                                                                          ");
+        SpannableString content = new SpannableString("Application");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tv_ver.setText(content);
 
         TextView tv_abouts = (TextView) findViewById(R.id.tv_abouts);
         TextView tv_terms = (TextView) findViewById(R.id.tv_terms);
         TextView tv_privacy = (TextView) findViewById(R.id.tv_privacy);
-        content = new SpannableString("Abouts                                                                                                     ");
+        content = new SpannableString("Abouts");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tv_abouts.setText(content);
 
         TextView tv_account = (TextView) findViewById(R.id.tv_account);
         TextView tv_profile = (TextView) findViewById(R.id.tv_profile);
         Switch sw_profile = (Switch) findViewById(R.id.sw_profile);
+        TextView tv_insert_code = (TextView) findViewById(R.id.tv_insert_code);
         TextView tv_logout = (TextView) findViewById(R.id.tv_logout);
         TextView tv_signout = (TextView) findViewById(R.id.tv_signout);
-        content = new SpannableString("Account                                                                                                    ");
+        content = new SpannableString("Account");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tv_account.setText(content);
 
         TextView tv_setting = (TextView) findViewById(R.id.tv_setting);
         TextView tv_wifisync = (TextView) findViewById(R.id.tv_wifisync);
         Switch sw_wifisync = (Switch) findViewById(R.id.sw_wifisync);
-        content = new SpannableString("Setting                                                                                                   ");
+        content = new SpannableString("Setting");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         tv_setting.setText(content);
 
@@ -154,9 +159,31 @@ public class SettingActivity extends AppCompatActivity {
         tv_privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SettingActivity.this,WebViewActivity.class);
+                Intent i = new Intent(SettingActivity.this, WebViewActivity.class);
                 i.putExtra("value","privacy");
                 startActivity(i);
+            }
+        });
+
+        tv_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!db.getPremium()){
+                    String Code = "";
+                    String Date = "";
+                    Code = db.get_Code();
+                    Date = db.get_CouponDate();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
+                    builder.setTitle("쿠폰 내역");
+                    builder.setMessage("쿠폰 코드 : " + Code + "\n기간 : " + Date);
+                    builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
             }
         });
 
@@ -168,6 +195,66 @@ public class SettingActivity extends AppCompatActivity {
                 }else{
                     db.update_isPremium(1);
                 }
+            }
+        });
+
+        tv_insert_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(db.isCoupon()){
+                    AlertDialog.Builder d = new AlertDialog.Builder(SettingActivity.this);
+                    d.setMessage("쿠폰 추가 등록");
+                    d.setMessage("이미 등록 된 쿠폰이 있습니다.\n그래도 등록하시겠습니까?");
+                    d.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog_d, int which) {
+                            dialog_d.dismiss();
+                            InsertCodeDialog dialog = new InsertCodeDialog();
+                            dialog.show(getSupportFragmentManager(),"insert code");
+                            dialog.setDialogResult(new InsertCodeDialog.OnMyDialogResult() {
+                                @Override
+                                public void finish(int _class, String code, int tag) {
+                                    if(_class==1){
+                                        Toast.makeText(SettingActivity.this, "인증되었습니다.", Toast.LENGTH_SHORT).show();
+                                        db.update_isPremium(1);
+                                        db.addCoupon(tag);
+                                        SettingActivity.this.finish();
+                                        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+                                    }
+                                    else{
+                                        Toast.makeText(SettingActivity.this, "코드가 일치하지 않습니다..", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    d.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog_d, int which) {
+                            dialog_d.dismiss();
+                        }
+                    });
+                    d.show();
+                }else{
+                    InsertCodeDialog dialog = new InsertCodeDialog();
+                    dialog.show(getSupportFragmentManager(),"insert code");
+                    dialog.setDialogResult(new InsertCodeDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int _class, String code, int tag) {
+                            if(_class==1){
+                                Toast.makeText(SettingActivity.this, "인증되었습니다.", Toast.LENGTH_SHORT).show();
+                                db.update_isPremium(1);
+                                db.setCouponCode(code);
+                                SettingActivity.this.finish();
+                                overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+                            }
+                            else{
+                                Toast.makeText(SettingActivity.this, "코드가 일치하지 않습니다..", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+
             }
         });
 
@@ -192,6 +279,7 @@ public class SettingActivity extends AppCompatActivity {
                         resultIntent.putExtra("isLogin",isLogin);
                         setResult(RESULT_OK,resultIntent);
                         finish();
+                        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
                     }
                 });
                 dialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
@@ -241,6 +329,7 @@ public class SettingActivity extends AppCompatActivity {
                         resultIntent.putExtra("isLogin",isLogin);
                         setResult(RESULT_OK,resultIntent);
                         finish();
+                        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
                     }
                 });
                 dialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {

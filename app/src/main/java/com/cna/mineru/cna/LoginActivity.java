@@ -33,12 +33,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -107,6 +109,13 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         SpannableString content = new SpannableString("비밀번호를 잃어버리셨나요?");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0); tv_lose_pw.setText(content);
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(LoginActivity.this, new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                token = instanceIdResult.getToken();
+            }
+        });
 
         iv_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -280,7 +289,6 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                token = FirebaseInstanceId.getInstance().getToken();
                 jsonObject.accumulate("email", et_email.getText().toString());
                 jsonObject.accumulate("password", et_pw.getText().toString());
                 jsonObject.accumulate("uuid", token);
@@ -370,10 +378,8 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putBoolean("isLogin", true);
                 editor.apply();
                 if(db.getFirst()==0){
-                    Log.d("TAG","Mineru OK test1");
                     startActivity(new Intent(getApplication(), MainActivity.class));
                 }else{
-                    Log.d("TAG","Mineru OK test2");
                     startActivity(new Intent(getApplication(), MainActivity.class));
 //                    startActivity(new Intent(getApplication(), DefaultInputActivity.class));
                 }
@@ -393,7 +399,6 @@ public class LoginActivity extends AppCompatActivity {
         protected String doInBackground(String... urls) {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
-                token = FirebaseInstanceId.getInstance().getToken();
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("email",google_email);
                 jsonObject.accumulate("name",google_name);

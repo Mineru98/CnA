@@ -136,6 +136,9 @@ public class RandomExamSolve extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     //시험 결과 저장
                                     db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
+                                    Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
+                                    i.putExtra("RoomId", RoomId);
+                                    startActivity(i);
                                     finish();
                                 }
                             });

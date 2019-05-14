@@ -32,7 +32,7 @@ public class SignDialog {
         dlg.setContentView(R.layout.custom_dialog);
         dlg.show();
         final LottieAnimationView animationView = (LottieAnimationView) dlg.findViewById(R.id.animation_view);
-        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(5500);
+        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1800);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -53,7 +53,7 @@ public class SignDialog {
         dlg.setContentView(R.layout.custom_dialog_x);
         dlg.show();
         final LottieAnimationView animationView = (LottieAnimationView) dlg.findViewById(R.id.animation_view);
-        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(4000);
+        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

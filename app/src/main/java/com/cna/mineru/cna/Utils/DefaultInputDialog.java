@@ -85,27 +85,27 @@ public class DefaultInputDialog extends DialogFragment {
                     switch (position){
                         case 0:
                             mDialogResult.finish(1);
-                            db.setClassId(11, "초등학교 1학년");
+                            db.setClassId(11);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 1:
-                            db.setClassId(12, "초등학교 2학년");
+                            db.setClassId(12);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 2:
-                            db.setClassId(13, "초등학교 3학년");
+                            db.setClassId(13);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 3:
-                            db.setClassId(14, "초등학교 4학년");
+                            db.setClassId(14);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 4:
-                            db.setClassId(15, "초등학교 6학년");
+                            db.setClassId(15);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 5:
-                            db.setClassId(16, "초등학교 6학년");
+                            db.setClassId(16);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                     }
@@ -116,15 +116,15 @@ public class DefaultInputDialog extends DialogFragment {
                 }else if(mode==2){
                     switch (position){
                         case 0:
-                            db.setClassId(21, "중학교 1학년");
+                            db.setClassId(21);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 1:
-                            db.setClassId(22, "중학교 2학년");
+                            db.setClassId(22);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 2:
-                            db.setClassId(23, "중학교 3학년");
+                            db.setClassId(23);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                     }
@@ -135,15 +135,15 @@ public class DefaultInputDialog extends DialogFragment {
                 }else if(mode==3){
                     switch (position){
                         case 0:
-                            db.setClassId(31, "고등학교 1학년");
+                            db.setClassId(31);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 1:
-                            db.setClassId(32, "고등학교 2학년");
+                            db.setClassId(32);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                         case 2:
-                            db.setClassId(33, "고등학교 3학년");
+                            db.setClassId(33);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
                     }

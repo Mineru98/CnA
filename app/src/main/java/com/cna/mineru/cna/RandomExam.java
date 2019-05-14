@@ -238,7 +238,6 @@ public class RandomExam extends AppCompatActivity {
                     long outTime = eachPauseTime[i] - eachBaseTime[i];
                     @SuppressLint("DefaultLocale")
                     String easy_outTime = String.format("%02d:%02d:%02d", outTime / 1000 / 60, (outTime / 1000) % 60, (outTime % 1000) / 10);
-                    Log.d("TAG", "Mineru : " + i + ") " + easy_outTime);
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
                 builder.setTitle("시간초과");

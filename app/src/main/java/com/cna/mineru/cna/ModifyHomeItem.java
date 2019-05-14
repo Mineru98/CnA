@@ -1,8 +1,10 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -10,6 +12,8 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,10 +23,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
+import com.cna.mineru.cna.Utils.LoadingDialog;
+import com.cna.mineru.cna.Utils.PhotoDialog;
+import com.cna.mineru.cna.Utils.PhotoDialog2;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import org.json.JSONException;
@@ -40,23 +48,43 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static com.cna.mineru.cna.Utils.Network.getWhatKindOfNetwork.getWhatKindOfNetwork;
 
 public class ModifyHomeItem extends AppCompatActivity {
+    private static final int PICK_FROM_ALBUM = 1;
+    private static final int PICK_FROM_CAMERA = 2;
+    
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
 
     private EditText et_title;
     private EditText et_class;
 
+    private PhotoView imageView;
+    private PhotoView imageView2;
+
     private int tag;
     private int id;
     private int note_id=0;
+    private boolean isLeft;
 
     private Bitmap bm;
     private Bitmap bm2;
+
+    private LoadingDialog loadingDialog;
+
+    private String getServerURL;
+    private String getImgURL="";
+
+    private byte[] image;
+    private byte[] image2;
+
+    private File tempFile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -71,11 +99,12 @@ public class ModifyHomeItem extends AppCompatActivity {
         ImageView btn_back = (ImageView) findViewById(R.id.btn_back);
         et_title = (EditText) findViewById(R.id.et_title);
         et_class = (EditText) findViewById(R.id.et_class);
-        PhotoView imageView = findViewById(R.id.imageView);
-        PhotoView imageView2 = findViewById(R.id.imageView2);
+        imageView = findViewById(R.id.imageView);
+        imageView2 = findViewById(R.id.imageView2);
 
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
+        loadingDialog= new LoadingDialog();
         ImageSQLClass img_db = new ImageSQLClass(this);
         note_id = db.getId();
 
@@ -213,6 +242,28 @@ public class ModifyHomeItem extends AppCompatActivity {
             }
         });
 
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PhotoDialog2 myCalendarView = new PhotoDialog2();
+                myCalendarView.show(getSupportFragmentManager(),"photo_dialog2");
+                myCalendarView.setDialogResult(new PhotoDialog2.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        isLeft = true;
+                        if(result==1){
+                            takePhoto();
+                        }else if(result==2) {
+                            goToAlbum();
+                        }else if(result==3){
+                            Toast.makeText(v.getContext(), "기능 준비중...", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -229,6 +280,28 @@ public class ModifyHomeItem extends AppCompatActivity {
                         mDialog.cancel();
                     }
                 });
+            }
+        });
+
+        imageView2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PhotoDialog2 myCalendarView = new PhotoDialog2();
+                myCalendarView.show(getSupportFragmentManager(),"photo_dialog2");
+                myCalendarView.setDialogResult(new PhotoDialog2.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        isLeft = false;
+                        if(result==1){
+                            takePhoto();
+                        }else if(result==2) {
+                            goToAlbum();
+                        }else if(result==3){
+                            Toast.makeText(v.getContext(), "기능 준비중...", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                return false;
             }
         });
 
@@ -252,6 +325,60 @@ public class ModifyHomeItem extends AppCompatActivity {
                     });
             builder.show();
         }
+    }
+
+    @SuppressLint("IntentReset")
+    private void goToAlbum() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, PICK_FROM_ALBUM);
+    }
+
+    private void takePhoto() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        try {
+            tempFile = createImageFile();
+        } catch (IOException e) {
+            Toast.makeText(this, "이미지 처리 오류! 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+            finish();
+            e.printStackTrace();
+        }
+        if (tempFile != null) {
+            Uri photoUri = FileProvider.getUriForFile(this,"com.cna.mineru.cna.ModifyHomeItem",tempFile);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+            startActivityForResult(intent, PICK_FROM_CAMERA);
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        @SuppressLint("SimpleDateFormat")
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_kkmmss").format(new Date());
+        String imageFileName = "CnA_" + timeStamp + "";
+        File storageDir = new File("sdcard/CnA/Img");
+        if (!storageDir.exists()){
+            storageDir.mkdirs();
+        }
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+        return image;
+    }
+
+    public String getPath(Uri uri) {
+        // uri가 null일경우 null반환
+        if( uri == null ) {
+            return null;
+        }
+        // 미디어스토어에서 유저가 선택한 사진의 URI를 받아온다.
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        if( cursor != null ){
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        }
+        // URI경로를 반환한다.
+        return uri.getPath();
     }
 
     public int exifOrientationToDegrees(int exifOrientation) {
@@ -309,6 +436,109 @@ public class ModifyHomeItem extends AppCompatActivity {
             Log.e("FileNotFoundException", exception.getMessage());
         }catch(IOException exception){
             Log.e("IOException", exception.getMessage());
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == PICK_FROM_ALBUM)
+        {
+            if(resultCode== Activity.RESULT_OK)
+            {
+                try {
+                    loadingDialog.progressON(ModifyHomeItem.this,"Loading...");
+                    Uri selectedImageUri = data.getData();
+                    if(isLeft){
+                        try
+                        {
+                            // 비트맵 이미지로 가져온다
+                            String imagePath = getPath(selectedImageUri);
+                            getImgURL = imagePath;
+                            Bitmap image = BitmapFactory.decodeFile(imagePath);
+                            ExifInterface exif = new ExifInterface(imagePath);
+                            int exifOrientation = exif.getAttributeInt(
+                                    ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                            int exifDegree = exifOrientationToDegrees(exifOrientation);
+                            image = rotate(image, exifDegree);
+                            imageView.setImageBitmap(image);
+                        }
+                        catch(Exception e) {
+                            Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }else{
+                        try
+                        {
+                            // 비트맵 이미지로 가져온다
+                            String imagePath = getPath(selectedImageUri);
+                            getImgURL = imagePath;
+                            Bitmap image = BitmapFactory.decodeFile(imagePath);
+                            ExifInterface exif = new ExifInterface(imagePath);
+                            int exifOrientation = exif.getAttributeInt(
+                                    ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                            int exifDegree = exifOrientationToDegrees(exifOrientation);
+                            image = rotate(image, exifDegree);
+                            imageView2.setImageBitmap(image);
+                        }
+                        catch(Exception e) {
+                            Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        if(isLeft){
+            if("NONE".equals(getWhatKindOfNetwork(this))) {
+                loadingDialog.progressOFF();
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+                builder.setTitle("오류");
+                builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+                builder.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentConfirm = new Intent();
+                                intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                                startActivity(intentConfirm);
+                            }
+                        });
+                builder.setNegativeButton("아니요",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                builder.show();
+            }else{
+                //Upload
+                //uploadFile(getImgURL);
+            }
+        }
+        else{
+            if("NONE".equals(getWhatKindOfNetwork(this))) {
+                loadingDialog.progressOFF();
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+                builder.setTitle("오류");
+                builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
+                builder.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentConfirm = new Intent();
+                                intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                                startActivity(intentConfirm);
+                            }
+                        });
+                builder.setNegativeButton("아니요",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                builder.show();
+            }else{
+                //Upload
+                //uploadFile(getImgURL);
+            }
         }
     }
 

@@ -7,7 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 
 
+import com.cna.mineru.cna.DTO.UserData;
+
 import java.io.File;
+import java.util.ArrayList;
 
 /*
     사용자 정보 관리 DB
@@ -49,13 +52,12 @@ public class UserSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS User_Info (" +
                     "User_Id "        + "INTEGER NOT NULL PRIMARY KEY DEFAULT 1," +
                     "Name "           + "TEXT DEFAULT '게스트'," +
+                    "ClassId "        + "INTEGER DEFAULT 11," +
                     "isFirst "        + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isGoogle "       + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isWifiSync "     + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isPremium "      + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isClassChecked " + "BOOLEAN NOT NULL DEFAULT 0, " +
-                    "ClassId "        + "INTEGER DEFAULT 11," +
-                    "ClassText "      + "TEXT DEFAULT '학년 설정 없음',"+
                     "isCoupon "       + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "CouponCode "     + "TEXT DEFAULT '',"+
                     "CouponTag "      + "INTEGER DEFAULT 1,"+
@@ -87,18 +89,6 @@ public class UserSQLClass extends AppCompatActivity {
             result = cursor.getInt(0);
         }
         return result == 1;
-    }
-
-    public String getUserClass(){
-        String ClassText = "";
-        if(sqliteDb != null){
-            Cursor cursor = null;
-            String sqlQueryTb1 = "SELECT ClassText FROM User_Info;";
-            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
-            cursor.moveToNext();
-            ClassText = cursor.getString(0);
-        }
-        return ClassText;
     }
 
     public int getClassId(){
@@ -221,9 +211,9 @@ public class UserSQLClass extends AppCompatActivity {
         }
     }
 
-    public void setClassId(int ClassId, String ClassText){
+    public void setClassId(int ClassId){
         if(sqliteDb != null){
-            String sqlQueryTb1 = "UPDATE User_Info SET ClassId = " + ClassId + ", ClassText = '" + ClassText+ "', isClassChecked = 1;";
+            String sqlQueryTb1 = "UPDATE User_Info SET ClassId = " + ClassId + ", isClassChecked = 1;";
             System.out.println(sqlQueryTb1);
             sqliteDb.execSQL(sqlQueryTb1);
         }
@@ -271,9 +261,30 @@ public class UserSQLClass extends AppCompatActivity {
 
     public void reset_app(){
         if (sqliteDb != null) {
-            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 11, ClassText = '학년 설정 없음';";
+            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 11;";
             System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;
+        }
+    }
+
+    public void syncDate(ArrayList<UserData> list){
+        ArrayList<UserData> user_list = list;
+        if (sqliteDb != null) {
+            String sqlInsert = "UPDATE User_Info SET" +
+                    " User_Id = "+ user_list.get(0).User_Id +
+                    ", Name = '" + user_list.get(0).Name + "'" +
+                    ", ClassId = "+user_list.get(0).ClassId+
+                    ", isFirst = " + user_list.get(0).isFirst +
+                    ", isGoogle = " + user_list.get(0).isGoogle +
+                    ", isWifiSync = "+ user_list.get(0).isWifiSync +
+                    ", isPremium = " + user_list.get(0).isPremium +
+                    ", isClassChecked = " + user_list.get(0).isClassChecked +
+                    ", isCounpon = " + user_list.get(0).isCounpon +
+                    ", CounponCode = '" + user_list.get(0).CounponCode + "'" +
+                    ", CouponTag = " + user_list.get(0).CouponTag +
+                    ", CouponDate = '"+user_list.get(0).CouponDate+"';";
+            System.out.println(sqlInsert);
+            sqliteDb.execSQL(sqlInsert);
         }
     }
 

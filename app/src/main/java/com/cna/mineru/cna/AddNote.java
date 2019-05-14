@@ -24,6 +24,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -228,7 +229,8 @@ public class AddNote extends AppCompatActivity {
                     builder.show();
                 }else{
                     int tag = Integer.parseInt(et_class.getText().toString());
-                    db.add_values(note_id, et_title.getText().toString(), tag);
+                    int ClassId = user_db.getClassId();
+                    db.add_values(note_id, et_title.getText().toString(), tag, ClassId);
                     int id = db.getId();
                     gp_db.add_values(id, tag);
 

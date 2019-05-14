@@ -69,14 +69,12 @@ public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolde
                 Intent i = new Intent(v.getContext(), ExamResultActivity.class);
                 i.putExtra("RoomId",data.RoomId);
                 v.getContext().startActivity(i);
-                Toast.makeText(v.getContext(), "OK " + position, Toast.LENGTH_SHORT).show();
             }
         });
 
         holder.layout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(v.getContext(), "Long OK"+ position, Toast.LENGTH_SHORT).show();
                 return false;
             }
         });

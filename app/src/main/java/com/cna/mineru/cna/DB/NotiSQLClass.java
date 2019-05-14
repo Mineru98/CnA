@@ -66,7 +66,7 @@ public class NotiSQLClass extends AppCompatActivity {
     public ArrayList<NotiData> load_value(){
         ArrayList<NotiData> list = new ArrayList<>();
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT * FROM Notificaiton ORDER BY Id DESC";
+            String sqlQueryTb1 = "SELECT Id, NotiTag, Title, SubTitle FROM Notificaiton ORDER BY Id DESC";
             Cursor cursor = null;
             System.out.println(sqlQueryTb1);
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);

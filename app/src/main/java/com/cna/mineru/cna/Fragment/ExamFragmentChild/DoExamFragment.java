@@ -167,7 +167,7 @@ public class DoExamFragment extends Fragment {
                             dialog.dismiss();
                             int[] ExamIdArr = new int[ExamNum];
                             for (int k = 0; k < ExamNum; k++)
-                                ExamIdArr[k] = make.get(k).RoomId;
+                                ExamIdArr[k] = make.get(k).NoteId;
 
                             Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
                             i.putExtra("time", time * 60 * 1000);

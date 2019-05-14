@@ -69,14 +69,14 @@ public class GraphSQLClass extends AppCompatActivity {
         ArrayList<GraphData> list = new ArrayList<>();
 
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT * FROM Graph ORDER BY Id ASC";
+            String sqlQueryTb1 = "SELECT Id, Note_Type FROM Graph ORDER BY Id ASC";
             Cursor cursor = null;
 
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
                 int id = cursor.getInt(0);
-                int note_type = cursor.getInt(2);
+                int note_type = cursor.getInt(1);
                 list.add(new GraphData(id,note_type));
             }
         }

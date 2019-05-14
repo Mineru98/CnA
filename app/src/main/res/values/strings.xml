@@ -1,6 +1,7 @@
 <resources>
     <!--<string name="ip_set">http://175.215.90.55:8080</string>-->
-    <string name="ip_set">http://122.34.12.104:6450</string>
+    <!--<string name="ip_set">http://122.34.12.104:6450</string>-->
+    <string name="ip_set">http://122.34.12.104</string>
     <string name="app_name">CnA</string>
     <string name="title_home">홈</string>
     <string name="title_plan">계획</string>
@@ -50,5 +51,8 @@
     <string name="tv_str_ver">현재 버전 : </string>
     <string name="btn_ok">확인</string>
     <string name="btn_close">닫기</string>
+    <string name="btn_editor">편집</string>
+    <string name="btn_camera">카메라</string>
+    <string name="btn_gallery">갤러리</string>
 
 </resources>

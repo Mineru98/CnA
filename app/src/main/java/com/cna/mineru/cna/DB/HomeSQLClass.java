@@ -6,6 +6,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.cna.mineru.cna.DTO.ExamData;
 import com.cna.mineru.cna.DTO.HomeData;
@@ -51,10 +52,11 @@ public class HomeSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Note (" +
                     "Id "           + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "Title "        + "TEXT," +
+                    "Note_Type "    + "INTEGER, " +
                     "Note_Current " + "INTEGER DEFAULT 100," +
-                    "ClassId "      + "INTEGER DEFAULT 1," +
-                    "Note_Type "    + "INTEGER" + ");";
-            System.out.println(sqlCreateTb);
+                    "ClassId "      + "INTEGER DEFAULT 1);";
+
+                    System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
     }
@@ -130,11 +132,12 @@ public class HomeSQLClass extends AppCompatActivity {
                 rnd[k] = tmp_arr[tmp[k]];
 
             for(int i=0;i<exam_count;i++) {
-                String sqlQueryTb2 = "SELECT * FROM Note WHERE Id = " + rnd[i] + ";";
+                String sqlQueryTb2 = "SELECT Id, Title FROM Note WHERE Id = " + rnd[i] + ";";
                 cursor = sqliteDb.rawQuery(sqlQueryTb2, null);
                 cursor.moveToNext();
-                rnd[i] = cursor.getInt(0);
-                list.add(new ExamData(cursor.getString(1), rnd[i]));
+                Log.d("TAG","Mineru Id : " + cursor.getInt(0));
+                Log.d("TAG","Mineru Title : " + cursor.getString(1));
+                list.add(new ExamData(cursor.getInt(0),cursor.getString(1)));
             }
         }
         return list;
@@ -183,10 +186,8 @@ public class HomeSQLClass extends AppCompatActivity {
     }
 
 
-    public void add_values(String note_id, String title, int note_type){
-        UserSQLClass db = new UserSQLClass(this);
+    public void add_values(String note_id, String title, int note_type, int ClassId){
         int id = Integer.parseInt(note_id);
-        int ClassId = db.getClassId();
         if (sqliteDb != null) {
             SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Id, Title, Note_Type, ClassId) VALUES (?,?,?,?);");
             p.bindLong(1, id);

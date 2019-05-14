@@ -63,7 +63,8 @@ public class ExamSQLClass extends AppCompatActivity {
                     "Tag "         + "INTEGER DEFAULT 0," +
                     "TimeToSolve " + "INTEGER," +
                     "isSolved "    + "BOOLEAN DEFAULT 0," +
-                    "ExamTitle "   + "TEXT DEFAULT '');";
+                    "ExamTitle "   + "TEXT DEFAULT ''," +
+                    "CreateDate "  + "DATE);";
             System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
@@ -108,7 +109,7 @@ public class ExamSQLClass extends AppCompatActivity {
     public int get_last_exam(){
         int RoomId = 0;
         if(sqliteDb != null) {
-            String sqlQueryTb1 = "SELECT * FROM Exam WHERE TAG = 3 ORDER BY Id DESC limit 1";
+            String sqlQueryTb1 = "SELECT Id FROM Exam WHERE TAG = 3 ORDER BY Id DESC limit 1";
             Cursor cursor = null;
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             cursor.moveToNext();
@@ -124,16 +125,17 @@ public class ExamSQLClass extends AppCompatActivity {
     public ArrayList<ExamData> get_point_values(int RoomId){
         ArrayList<ExamData> list = new ArrayList<ExamData>();
         if(sqliteDb != null){
-            String sqlQueryTb1 = "select NoteId, Title, TimeToSolve, isSolved from Exam where ExamRoomId = " + RoomId + ";";
+            String sqlQueryTb1 = "select Id, NoteId, Title, TimeToSolve, isSolved from Exam where ExamRoomId = " + RoomId + ";";
             Cursor cursor = null;
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             for(int i=0;i<cursor.getCount();i++){
                 cursor.moveToNext();
-                int NoteId = cursor.getInt(0);
-                String Title = cursor.getString(1);
-                long TTS = cursor.getLong(2);
-                int isSolved = cursor.getInt(3);
-                list.add(new ExamData(NoteId,Title,TTS,isSolved));
+                int Id = cursor.getInt(0);
+                int NoteId = cursor.getInt(1);
+                String Title = cursor.getString(2);
+                long TTS = cursor.getLong(3);
+                int isSolved = cursor.getInt(4);
+                list.add(new ExamData(Id,NoteId,Title,TTS,isSolved));
             }
         }
         return list;
@@ -178,17 +180,19 @@ public class ExamSQLClass extends AppCompatActivity {
             } else {
                 list = homeSQLClass.getList(exam_count);
                 for (int i = 0; i < exam_count; i++) {
+                    Log.d("TAG","Mineru NoteId " + i + " : " + list.get(i).NoteId);
+                    Log.d("TAG","Mineru Title " + i + " : "  + list.get(i).Title);
                     String sqlInsert = "";
                     if (i == 0) {
                         sqlInsert = "INSERT INTO Exam " +
                                 "(NoteId, Tag, Title) VALUES (" +
-                                list.get(i).RoomId + "," +
+                                list.get(i).NoteId + "," +
                                 "1 ," +
                                 "'" + list.get(i).Title + "'" + ")";
                     } else {
                         sqlInsert = "INSERT INTO Exam " +
                                 "(NoteId, Tag, Title) VALUES (" +
-                                list.get(i).RoomId + "," +
+                                list.get(i).NoteId + "," +
                                 "0 ," +
                                 "'" + list.get(i).Title + "'" + ")";
                     }
@@ -209,7 +213,7 @@ public class ExamSQLClass extends AppCompatActivity {
     private void exam_first_update(){
         if (sqliteDb != null) {
             String sql_select1 = "SELECT Id FROM Exam WHERE Tag = 1;";
-            String sql_select2 = "SELECT * FROM Exam WHERE Tag = 3;";
+            String sql_select2 = "SELECT Id FROM Exam WHERE Tag = 3;";
             Cursor cursor = null;
             cursor = sqliteDb.rawQuery(sql_select1, null);
             cursor.moveToNext();
@@ -225,8 +229,8 @@ public class ExamSQLClass extends AppCompatActivity {
             String sql_update1 = "UPDATE Exam SET ExamRoomId = " + id + ",Tag = 2  WHERE Tag = 0;";
             @SuppressLint("SimpleDateFormat")
             String sql_update2 = "UPDATE Exam SET ExamRoomId = " + id + ",Tag = 3, ExamTitle = '" +
-                    new SimpleDateFormat("yyyy년_MM월_dd일").format(new Date(System.currentTimeMillis())) +
-                    "_"+ count +"' WHERE Tag = 1;";
+                    new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date(System.currentTimeMillis())) +
+                    "_"+ count +"회차' WHERE Tag = 1;";
             sqliteDb.execSQL(sql_update1);
             sqliteDb.execSQL(sql_update2);
         }
@@ -235,7 +239,7 @@ public class ExamSQLClass extends AppCompatActivity {
     public void update_result(int[] isSolved, long[] TTS, int RoomId, int[] NoteId){
         if(sqliteDb != null) {
             for(int i=0;i<isSolved.length; i++){
-                String sqlQueryTb1 = "UPDATE Exam SET TimeToSolve = " + TTS[i] + ",isSolved = " + isSolved[i] +" WHERE ExamRoomId = "+ RoomId + " AND NoteId = " + NoteId[i] +";";
+                String sqlQueryTb1 = "UPDATE Exam SET TimeToSolve = " + TTS[i] + ",isSolved = " + isSolved[i] +", CreateDate = (SELECT DATE('now','+9 hours')) WHERE ExamRoomId = "+ RoomId + " AND NoteId = " + NoteId[i] +";";
                 System.out.println(sqlQueryTb1);
                 sqliteDb.execSQL(sqlQueryTb1);
             }

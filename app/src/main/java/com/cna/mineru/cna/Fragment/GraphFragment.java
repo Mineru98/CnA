@@ -147,7 +147,7 @@ public class GraphFragment extends Fragment {
         description.setTextSize(15);
         chart.setDescription(description);
 
-        chart.animateY(2000, Easing.EasingOption.EaseInOutCubic);
+        chart.animateY(2000);
 
         PieDataSet dataSet = new PieDataSet(yValues,"");
         dataSet.setSliceSpace(3f);

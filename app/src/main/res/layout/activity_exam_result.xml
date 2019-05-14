@@ -9,6 +9,18 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/include_toolbar_exam_result"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chartView"
+            android:layout_width="350dp"
+            android:layout_height="550dp"
+            android:background="#cdcdcd"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"/>
+
     </RelativeLayout>
 
 </ScrollView>

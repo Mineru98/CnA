@@ -28,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="0dp"
             android:textSize="10pt"
-            android:text="취소"
+            android:text="@string/btn_cancel"
             android:textColor="#ffffff" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_marginEnd="10dp"
             android:layout_toStartOf="@+id/btn_cancel"
             android:textSize="10pt"
-            android:text="완료"
+            android:text="@string/btn_complete"
             android:textColor="#ffffff" />
     </RelativeLayout>
 

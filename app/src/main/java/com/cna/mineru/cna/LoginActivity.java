@@ -140,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_lose_pw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingDialog.progressON(LoginActivity.this,"Loaing...");
+//                loadingDialog.progressON(LoginActivity.this,"Loaing...");
                 Toast.makeText(LoginActivity.this, "비밀번호 재설정을 위하여 이메일을 보냈습니다.", Toast.LENGTH_SHORT).show();
             }
         });

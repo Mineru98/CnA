@@ -19,3 +19,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Begin: Release Proguard rules
+
+# -ignorewarnings {}
+# -dontwarn {packageName}
+
+# End: Debug Release rules

@@ -89,7 +89,6 @@ public class AddNote extends AppCompatActivity {
 
     private EditText et_title;
 
-    private ImageView btn_back;
     private ImageView imageView;
     private ImageView imageView2;
 
@@ -145,7 +144,6 @@ public class AddNote extends AppCompatActivity {
 
         btn_ok = (TextView) findViewById(R.id.btn_save);
         btn_cancel = (TextView) findViewById(R.id.btn_cancel);
-        btn_back = (ImageView) findViewById(R.id.btn_back);
         imageView2 = (ImageView)findViewById(R.id.imageView2);
 
         set_image.setOnClickListener(new View.OnClickListener() {
@@ -192,18 +190,6 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_cancel.setEnabled(false);
-                if(isUpload)
-                    new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
-                finish();
-            }
-        });
-
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Handler h = new Handler();
-                h.postDelayed(new splashHandler(), 2000);
-                btn_back.setEnabled(false);
                 if(isUpload)
                     new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                 finish();
@@ -870,7 +856,6 @@ public class AddNote extends AppCompatActivity {
         public void run()	{
             btn_ok.setEnabled(true); // 클릭 유효화
             btn_cancel.setEnabled(true); // 클릭 유효화
-            btn_back.setEnabled(true); // 클릭 유효화
             et_class.setHintTextColor(0xFF505050);
         }
     }

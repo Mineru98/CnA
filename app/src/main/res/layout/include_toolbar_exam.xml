@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="0dp"
             android:textSize="10pt"
             android:text="Q1"
             android:textColor="#ffffff" />
@@ -24,10 +24,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center"
-            android:text="00:00:00"
-            android:textColor="#777777"
+            android:text="@string/tv_time_out"
+            android:textColor="#ffffff"
             android:textSize="20sp" />
     </RelativeLayout>
 

@@ -30,14 +30,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="정답" />
+            android:text="@string/btn_prob_ok" />
 
         <Button
             android:id="@+id/btn_no"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="오답" />
+            android:text="@string/btn_prob_x" />
 
 
     </LinearLayout>

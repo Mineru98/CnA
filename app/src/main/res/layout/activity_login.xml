@@ -2,7 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -36,13 +35,12 @@
         android:layout_marginRight="40dp"
         android:ems="10"
         android:shadowColor="@color/white"
-        android:hint="이메일"
+        android:hint="@string/et_hint_email"
         android:textColor="@color/white"
         android:inputType="textEmailAddress"
         android:layout_centerInParent="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animation_view" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <EditText
         android:id="@+id/et_pw"
@@ -52,7 +50,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:ems="10"
-        android:hint="비밀번호"
+        android:hint="@string/et_hint_pw"
         android:textColor="@color/white"
         android:inputType="textPassword"
         android:shadowColor="@color/white"
@@ -73,9 +71,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:text="@string/lose_pw"
-        android:textSize="10sp"
+        android:textSize="4pt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pw" />
+        app:layout_constraintTop_toBottomOf="@+id/et_pw"/>
 
     <Button
         android:id="@+id/btn_login_email"
@@ -138,7 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_email"
-        android:layout_marginVertical="5dp"
+        android:layout_marginTop="5dp"
         android:layout_alignEnd="@+id/et_email"
         app:srcCompat="@drawable/ic_view" />
 

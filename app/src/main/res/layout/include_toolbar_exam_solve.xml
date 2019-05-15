@@ -15,7 +15,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/btn_back"
             android:textSize="10pt"
             android:text="A1"
             android:textColor="#ffffff" />
@@ -29,8 +28,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:textSize="10pt"
-            android:gravity="center"
-            android:text="00:00:00"
+            android:gravity="center|right"
+            android:text="@string/tv_time_out"
             android:textColor="#ffffff" />
 
         <TextView

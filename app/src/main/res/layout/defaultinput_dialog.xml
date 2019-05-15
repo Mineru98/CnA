@@ -44,5 +44,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/listview1"
-        android:text="취소"/>
+        android:text="@string/btn_cancel"/>
 </RelativeLayout>

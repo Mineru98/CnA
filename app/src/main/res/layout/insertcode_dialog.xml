@@ -39,7 +39,7 @@
             android:layout_toStartOf="@+id/btn_cancel"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:text="확인"/>
+            android:text="@string/btn_ok"/>
         <TextView
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:text="취소"/>
+            android:text="@string/btn_cancel"/>
     </RelativeLayout>
 
 </LinearLayout>

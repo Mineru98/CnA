@@ -9,26 +9,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/btn_back"
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:src="@drawable/ic_back" />
-
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/btn_back"
+            android:layout_marginStart="0dp"
             android:textSize="10pt"
-            android:text="오답노트"
+            android:text="@string/tv_title_addnote"
             android:textColor="#ffffff" />
 
         <TextView
@@ -38,6 +26,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
             android:textSize="10pt"
             android:text="취소"
             android:textColor="#ffffff" />
@@ -48,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="10dp"
             android:layout_toStartOf="@+id/btn_cancel"
             android:textSize="10pt"
             android:text="완료"

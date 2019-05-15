@@ -1,5 +1,6 @@
 package com.cna.mineru.cna.Utils;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -8,6 +9,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.cna.mineru.cna.R;
 
 public class LoadingDialog {
@@ -27,12 +29,20 @@ public class LoadingDialog {
             progressDialog.show();
         }
 
-        final ImageView img_loading_frame = (ImageView) progressDialog.findViewById(R.id.img_view);
-        final AnimationDrawable frameAnimation = (AnimationDrawable) img_loading_frame.getBackground();
-        img_loading_frame.post(new Runnable() {
+//        final ImageView img_loading_frame = (ImageView) progressDialog.findViewById(R.id.img_view);
+//        final AnimationDrawable frameAnimation = (AnimationDrawable) img_loading_frame.getBackground();
+//        img_loading_frame.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                frameAnimation.start();
+//            }
+//        });
+        final LottieAnimationView animationView = (LottieAnimationView) progressDialog.findViewById(R.id.animation_view);
+        final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1600);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void run() {
-                frameAnimation.start();
+            public void onAnimationUpdate(ValueAnimator animation) {
+                animationView.setProgress((Float) animation.getAnimatedValue());
             }
         });
 
@@ -42,7 +52,7 @@ public class LoadingDialog {
         }
     }
 
-    public void progressSET(String message) {
+    private void progressSET(String message) {
         if (progressDialog == null || !progressDialog.isShowing()) {
             return;
         }

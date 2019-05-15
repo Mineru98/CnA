@@ -54,7 +54,7 @@ public class SettingActivity extends AppCompatActivity {
 
     private UserSQLClass db;
 
-    private ImageView btn_back;
+    private TextView btn_cancel;
 
     private LoadingDialog loadingDialog;
 
@@ -74,7 +74,7 @@ public class SettingActivity extends AppCompatActivity {
         db = new UserSQLClass(this);
         isLogin = getIntent().getBooleanExtra("isLogin",true);
         loadingDialog = new LoadingDialog();
-        btn_back = (ImageView) findViewById(R.id.btn_back);
+        btn_cancel = (TextView) findViewById(R.id.btn_cancel);
         TextView tv_ver = (TextView) findViewById(R.id.tv_ver);
         TextView tv_str_ver = (TextView) findViewById(R.id.tv_str_ver);
 
@@ -343,7 +343,7 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

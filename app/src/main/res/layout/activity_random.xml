@@ -27,7 +27,7 @@
             android:layout_above="@+id/adView"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="다음문제" />
+            android:text="@string/btn_next_prob"/>
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"

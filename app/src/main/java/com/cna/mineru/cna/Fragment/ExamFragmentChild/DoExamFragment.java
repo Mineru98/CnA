@@ -34,7 +34,7 @@ public class DoExamFragment extends Fragment {
     private TextView tv_count;
     private TextView title2;
     private TextView title3;
-    private TextView btn_next;
+    private TextView btn_start;
     private Button btn_add;
     private Button btn_add_double;
     private Button btn_sub;
@@ -64,7 +64,7 @@ public class DoExamFragment extends Fragment {
         View boundary1 = (View) view.findViewById(R.id.boundary1);
         View boundary2 = (View) view.findViewById(R.id.boundary2);
         TextView title1 = (TextView) view.findViewById(R.id.title1);
-        btn_next = (TextView) view.findViewById(R.id.btn_test);
+        btn_start = (TextView) view.findViewById(R.id.btn_start);
         title2 = (TextView) view.findViewById(R.id.title2);
         title3 = (TextView) view.findViewById(R.id.title3);
         tv_time = (TextView) view.findViewById(R.id.tv_time);
@@ -83,7 +83,7 @@ public class DoExamFragment extends Fragment {
         title3.setVisibility(View.INVISIBLE);
         tv_time.setVisibility(View.INVISIBLE);
         tv_count.setVisibility(View.INVISIBLE);
-        btn_next.setVisibility(View.INVISIBLE);
+        btn_start.setVisibility(View.INVISIBLE);
         btn_add.setVisibility(View.INVISIBLE);
         btn_add_double.setVisibility(View.INVISIBLE);
         btn_sub.setVisibility(View.INVISIBLE);
@@ -111,7 +111,7 @@ public class DoExamFragment extends Fragment {
                     title3.setVisibility(View.VISIBLE);
                     tv_time.setVisibility(View.VISIBLE);
                     tv_count.setVisibility(View.VISIBLE);
-                    btn_next.setVisibility(View.VISIBLE);
+                    btn_start.setVisibility(View.VISIBLE);
                     btn_add.setVisibility(View.VISIBLE);
                     btn_add_double.setVisibility(View.VISIBLE);
                     btn_sub.setVisibility(View.VISIBLE);
@@ -126,7 +126,7 @@ public class DoExamFragment extends Fragment {
                     title3.setAnimation(animation);
                     tv_time.setAnimation(animation);
                     tv_count.setAnimation(animation);
-                    btn_next.setAnimation(animation);
+                    btn_start.setAnimation(animation);
                     btn_add.setAnimation(animation);
                     btn_add_double.setAnimation(animation);
                     btn_sub.setAnimation(animation);
@@ -150,7 +150,7 @@ public class DoExamFragment extends Fragment {
             }
         });
 
-        btn_next.setOnClickListener(new View.OnClickListener() {
+        btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int time = Integer.parseInt(tv_time.getText().toString().substring(0,tv_time.getText().toString().length()-2));

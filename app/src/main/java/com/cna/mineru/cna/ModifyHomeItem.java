@@ -96,7 +96,6 @@ public class ModifyHomeItem extends AppCompatActivity {
 
         TextView btn_ok = (TextView) findViewById(R.id.btn_save);
         TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
-        ImageView btn_back = (ImageView) findViewById(R.id.btn_back);
         et_title = (EditText) findViewById(R.id.et_title);
         et_class = (EditText) findViewById(R.id.et_class);
         imageView = findViewById(R.id.imageView);
@@ -205,13 +204,6 @@ public class ModifyHomeItem extends AppCompatActivity {
             }
         });
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
-            }
-        });
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

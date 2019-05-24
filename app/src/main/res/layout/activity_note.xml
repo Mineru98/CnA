@@ -17,16 +17,17 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="#9E9E9E"
+                android:background="#ffffff"
                 android:gravity="center">
+
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_camera" />
+                    android:src="@drawable/ic_prob" />
                 <TextView
                     android:id="@+id/tv_1"
+                    android:layout_centerHorizontal="true"
                     android:layout_below="@id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -41,14 +42,14 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="#BDBDBD"
+                android:background="#ffffff"
                 android:gravity="center">
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_camera" />
+                    android:src="@drawable/ic_solv" />
                 <TextView
                     android:id="@+id/tv_2"
                     android:layout_below="@id/imageView2"

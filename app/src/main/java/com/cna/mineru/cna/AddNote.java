@@ -1,7 +1,6 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,15 +15,13 @@ import android.media.ExifInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,37 +34,15 @@ import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
-import com.cna.mineru.cna.Utils.Network.NetworkService;
-import com.cna.mineru.cna.Utils.Network.NormalNetworkService;
 import com.cna.mineru.cna.Utils.PhotoDialog;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class AddNote extends AppCompatActivity {
     public static final String WIFI_STATE = "WIFE";
@@ -97,17 +72,11 @@ public class AddNote extends AppCompatActivity {
     private int divide_t;
 
     private boolean isLeft;
-    private boolean isUpload;
-    private boolean isPremium;
-
-    private String getServerURL;
-    private String getImgURL="";
-    private String note_id="";
 
     private byte[] image;
     private byte[] image2;
 
-    private File tempFile;
+    private String mCurrentPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,23 +85,14 @@ public class AddNote extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        loadingDialog = new LoadingDialog();
 
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
         img_db = new ImageSQLClass(this);
         user_db = new UserSQLClass(this);
+        loadingDialog = new LoadingDialog();
 
         isLeft = true;
-        isUpload = false;
-
-        if(!user_db.getPremium()){
-            getServerURL = getString(R.string.ip_set) + "/api/file/p/upload/";
-            isPremium=true;
-        }else{
-            getServerURL = getString(R.string.ip_set) + "/api/file/n/upload/";
-            isPremium=false;
-        }
 
         imageView = (ImageView) findViewById(R.id.imageView);
         et_title = (EditText) findViewById(R.id.et_title);
@@ -190,8 +150,6 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_cancel.setEnabled(false);
-                if(isUpload)
-                    new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
                 finish();
             }
         });
@@ -216,7 +174,7 @@ public class AddNote extends AppCompatActivity {
                 }else{
                     int tag = Integer.parseInt(et_class.getText().toString());
                     int ClassId = user_db.getClassId();
-                    db.add_values(note_id, et_title.getText().toString(), tag, ClassId);
+                    db.add_values(et_title.getText().toString(), tag, ClassId);
                     int id = db.getId();
                     gp_db.add_values(id, tag);
 
@@ -281,7 +239,6 @@ public class AddNote extends AppCompatActivity {
                         }
                     }
                     img_db.add_value2();
-                    new JSONNote().execute(getString(R.string.ip_set)+"/api/note/update");
                     finish();
                 }
             }
@@ -297,30 +254,33 @@ public class AddNote extends AppCompatActivity {
     }
 
     private void takePhoto() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        try {
-            tempFile = createImageFile();
-        } catch (IOException e) {
-            Toast.makeText(this, "이미지 처리 오류! 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
-            finish();
-            e.printStackTrace();
-        }
-        if (tempFile != null) {
-            Uri photoUri = FileProvider.getUriForFile(this,"com.cna.mineru.cna.AddNote",tempFile);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-            startActivityForResult(intent, PICK_FROM_CAMERA);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ignored) {
+            }
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, "com.cna.mineru.cna.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, PICK_FROM_CAMERA);
+            }
         }
     }
 
     private File createImageFile() throws IOException {
         @SuppressLint("SimpleDateFormat")
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_kkmmss").format(new Date());
-        String imageFileName = "CnA_" + timeStamp + "";
-        File storageDir = new File("sdcard/CnA/Img");
-        if (!storageDir.exists()){
-            storageDir.mkdirs();
-        }
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
 
@@ -343,460 +303,120 @@ public class AddNote extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == PICK_FROM_ALBUM)
-        {
-            if(resultCode== Activity.RESULT_OK)
-            {
-                try {
-                    loadingDialog.progressON(AddNote.this,"Loading...");
-                    Uri selectedImageUri = data.getData();
-                    if(isLeft){
-                        try
-                        {
-                            // 비트맵 이미지로 가져온다
-                            String imagePath = getPath(selectedImageUri);
-                            getImgURL = imagePath;
-                            Bitmap image = BitmapFactory.decodeFile(imagePath);
-                            ExifInterface exif = new ExifInterface(imagePath);
-                            int exifOrientation = exif.getAttributeInt(
-                                    ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-                            int exifDegree = exifOrientationToDegrees(exifOrientation);
-                            image = rotate(image, exifDegree);
-                            imageView.setImageBitmap(image);
+        loadingDialog.progressON(this,"Loading...");
+        if (requestCode == PICK_FROM_ALBUM && resultCode == RESULT_OK) {
+            try {
+                Uri selectedImageUri = data.getData();
+                String getImgURL = "";
+                if (isLeft) {
+                    try {
+                        // 비트맵 이미지로 가져온다
+                        String imagePath = getPath(selectedImageUri);
+                        getImgURL = imagePath;
+                        Bitmap image = BitmapFactory.decodeFile(imagePath);
+                        ExifInterface exif = new ExifInterface(imagePath);
+                        int exifOrientation = exif.getAttributeInt(
+                                ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                        int exifDegree = exifOrientationToDegrees(exifOrientation);
+                        image = rotate(image, exifDegree);
+                        imageView.setImageBitmap(image);
+                    } catch (Exception e) {
+                        Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    }
+                    tv_1.setVisibility(View.INVISIBLE);
+                } else {
+                    try {
+                        // 비트맵 이미지로 가져온다
+                        String imagePath = getPath(selectedImageUri);
+                        getImgURL = imagePath;
+                        Bitmap image = BitmapFactory.decodeFile(imagePath);
+                        ExifInterface exif = new ExifInterface(imagePath);
+                        int exifOrientation = exif.getAttributeInt(
+                                ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                        int exifDegree = exifOrientationToDegrees(exifOrientation);
+                        image = rotate(image, exifDegree);
+                        imageView2.setImageBitmap(image);
+                    } catch (Exception e) {
+                        Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    }
+                    tv_2.setVisibility(View.INVISIBLE);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            loadingDialog.progressOFF();
+        } else if (requestCode == PICK_FROM_CAMERA && resultCode == RESULT_OK) {
+            if (isLeft) {
+                try{
+                    File file = new File(mCurrentPhotoPath);
+                    Bitmap bitmap = MediaStore.Images.Media
+                            .getBitmap(getContentResolver(), Uri.fromFile(file));
+                    if (bitmap != null) {
+                        ExifInterface ei = new ExifInterface(mCurrentPhotoPath);
+                        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                                ExifInterface.ORIENTATION_UNDEFINED);
+
+                        Bitmap rotatedBitmap = null;
+                        switch(orientation) {
+
+                            case ExifInterface.ORIENTATION_ROTATE_90:
+                                rotatedBitmap = rotateImage(bitmap, 90);
+                                break;
+
+                            case ExifInterface.ORIENTATION_ROTATE_180:
+                                rotatedBitmap = rotateImage(bitmap, 180);
+                                break;
+
+                            case ExifInterface.ORIENTATION_ROTATE_270:
+                                rotatedBitmap = rotateImage(bitmap, 270);
+                                break;
+
+                            case ExifInterface.ORIENTATION_NORMAL:
+                            default:
+                                rotatedBitmap = bitmap;
                         }
-                        catch(Exception e) {
-                            Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                        }
+                        imageView.setImageBitmap(rotatedBitmap);
                         tv_1.setVisibility(View.INVISIBLE);
-                    }else{
-                        try
-                        {
-                            // 비트맵 이미지로 가져온다
-                            String imagePath = getPath(selectedImageUri);
-                            getImgURL = imagePath;
-                            Bitmap image = BitmapFactory.decodeFile(imagePath);
-                            ExifInterface exif = new ExifInterface(imagePath);
-                            int exifOrientation = exif.getAttributeInt(
-                                    ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-                            int exifDegree = exifOrientationToDegrees(exifOrientation);
-                            image = rotate(image, exifDegree);
-                            imageView2.setImageBitmap(image);
+                    }
+                }catch (Exception error){
+                    error.printStackTrace();
+                }
+
+            } else{
+                try{
+                    File file = new File(mCurrentPhotoPath);
+                    Bitmap bitmap = MediaStore.Images.Media
+                            .getBitmap(getContentResolver(), Uri.fromFile(file));
+                    if (bitmap != null) {
+                        ExifInterface ei = new ExifInterface(mCurrentPhotoPath);
+                        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                                ExifInterface.ORIENTATION_UNDEFINED);
+
+                        Bitmap rotatedBitmap = null;
+                        switch(orientation) {
+
+                            case ExifInterface.ORIENTATION_ROTATE_90:
+                                rotatedBitmap = rotateImage(bitmap, 90);
+                                break;
+
+                            case ExifInterface.ORIENTATION_ROTATE_180:
+                                rotatedBitmap = rotateImage(bitmap, 180);
+                                break;
+
+                            case ExifInterface.ORIENTATION_ROTATE_270:
+                                rotatedBitmap = rotateImage(bitmap, 270);
+                                break;
+
+                            case ExifInterface.ORIENTATION_NORMAL:
+                            default:
+                                rotatedBitmap = bitmap;
                         }
-                        catch(Exception e) {
-                            Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                        }
+                        imageView2.setImageBitmap(rotatedBitmap);
                         tv_2.setVisibility(View.INVISIBLE);
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                }catch (Exception error){
+                    error.printStackTrace();
                 }
-            }
-        }
-
-        if(isLeft){
-            if("NONE".equals(getWhatKindOfNetwork(this))) {
-                loadingDialog.progressOFF();
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-            builder.show();
-            }else{
-                uploadFile(getImgURL);
-            }
-        }
-        else{
-            if("NONE".equals(getWhatKindOfNetwork(this))) {
-                loadingDialog.progressOFF();
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-            builder.show();
-            }else{
-                uploadFile(getImgURL);
-            }
-        }
-    }
-
-    private void uploadFile(String ImgURL) {
-        String url = getServerURL;
-        isUpload = true;
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .build();
-
-        if(isPremium){
-            NetworkService service = retrofit.create(NetworkService.class);
-            File photo = new File(ImgURL);
-            RequestBody photoBody = RequestBody.create(MediaType.parse("multipart/form-data"), photo);
-            MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
-            String descriptionString = "userfile";
-
-            RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
-
-            Call<ResponseBody> call = service.upload(description, body);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    String jsonString = "";
-                    try {
-                        jsonString = response.body().string();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    note_id = jsonString;
-//                    et_title.setText(jsonString);
-                    loadingDialog.progressOFF();
-                    //서버에 다시 요청해서 사진 데이터 받아오기.
-                    new JSONTask().execute(getString(R.string.ip_set)+"/api/file/img");
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    t.printStackTrace();
-                    loadingDialog.progressOFF();
-                }
-            });
-        }else{
-            NormalNetworkService service = retrofit.create(NormalNetworkService.class);
-            File photo = new File(ImgURL);
-            RequestBody photoBody = RequestBody.create(MediaType.parse("multipart/form-data"), photo);
-            MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
-            String descriptionString = "userfile";
-
-            RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
-
-            Call<ResponseBody> call = service.upload(description, body);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    String jsonString = "";
-                    try {
-                        jsonString = response.body().string();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    note_id = jsonString;
-//                    et_title.setText(jsonString);
-                    loadingDialog.progressOFF();
-                    //서버에 다시 요청해서 사진 데이터 받아오기.
-                    new JSONTask().execute(getString(R.string.ip_set)+"/api/file/img");
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    t.printStackTrace();
-                    loadingDialog.progressOFF();
-                }
-            });
-        }
-    }
-
-    @SuppressLint("StaticFieldLeak")
-    public class JSONTask extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("id", note_id);
-                jsonObject.accumulate("isLeft", isLeft);
-                jsonObject.accumulate("isPremium", isPremium);
-                HttpURLConnection con = null;
-                BufferedReader reader = null;
-                URL url = new URL(urls[0]);
-                try {
-                    con = (HttpURLConnection) url.openConnection();
-                    con.setRequestMethod("POST");//POST방식으로 보냄
-                    con.setRequestProperty("Connection", "Keep-Alive");
-                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
-                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
-                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
-                    con.setRequestProperty("Accept-Charset", "UTF-8");
-                    con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미
-                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
-                    con.connect();
-
-                    OutputStream outStream = con.getOutputStream();
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
-                    writer.write(jsonObject.toString());
-                    writer.flush();
-                    writer.close();
-
-                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
-
-                    reader = new BufferedReader(stream);
-
-                    StringBuffer buffer = new StringBuffer();
-
-                    String line = "";
-
-                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
-                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
-                    }
-                    line = buffer.toString();
-                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    if (con != null) {
-                        con.disconnect();
-                    }
-                    try {
-                        if (reader != null) {
-                            reader.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            String prob = "";
-            String solv = "";
-            String data = "";
-            int error = 0;
-            JSONObject jObject = null;
-            try {
-                jObject = new JSONObject(result);
-                error = jObject.optInt("error");
-                if(error==2){
-
-                }else {
-                    if(isPremium){
-                        prob = jObject.getString("prob");
-                        byte[] bytePlainOrg = Base64.decode(prob, 0);
-                        ByteArrayInputStream inStream = new ByteArrayInputStream(bytePlainOrg);
-                        Bitmap bm = BitmapFactory.decodeStream(inStream);
-                        imageView.setImageBitmap(bm);
-
-                        tv_2.setVisibility(View.INVISIBLE);
-                        solv = jObject.getString("solv");
-                        bytePlainOrg = Base64.decode(solv, 0);
-                        inStream = new ByteArrayInputStream(bytePlainOrg);
-                        bm = BitmapFactory.decodeStream(inStream);
-                        imageView2.setImageBitmap(bm);
-                    }
-                    else{
-                        if(isLeft) {
-                            data = jObject.getString("data");
-                            byte[] bytePlainOrg = Base64.decode(data, 0);
-                            ByteArrayInputStream inStream = new ByteArrayInputStream(bytePlainOrg);
-                            Bitmap bm = BitmapFactory.decodeStream(inStream);
-                            imageView.setImageBitmap(bm);
-                        }
-                        else{
-                            data = jObject.getString("data");
-                            byte[] bytePlainOrg = Base64.decode(data, 0);
-                            ByteArrayInputStream inStream = new ByteArrayInputStream(bytePlainOrg);
-                            Bitmap bm = BitmapFactory.decodeStream(inStream);
-                            imageView2.setImageBitmap(bm);
-                        }
-                    }
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            loadingDialog.progressOFF();
-        }
-    }
-
-    @SuppressLint("StaticFieldLeak")
-    public class JSONNote extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("id", note_id);
-                jsonObject.accumulate("note_type", et_class.getText().toString());
-                jsonObject.accumulate("title", et_title.getText().toString());
-                HttpURLConnection con = null;
-                BufferedReader reader = null;
-                URL url = new URL(urls[0]);
-                try {
-                    con = (HttpURLConnection) url.openConnection();
-                    con.setRequestMethod("PUT");//PUT방식으로 보냄
-                    con.setRequestProperty("Connection", "Keep-Alive");
-                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
-                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
-                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
-                    con.setRequestProperty("Accept-Charset", "UTF-8");
-                    con.setDoOutput(true);//Outstream으로 PUT 데이터를 넘겨주겠다는 의미
-                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
-                    con.connect();
-
-                    OutputStream outStream = con.getOutputStream();
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
-                    writer.write(jsonObject.toString());
-                    writer.flush();
-                    writer.close();
-
-                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
-
-                    reader = new BufferedReader(stream);
-
-                    StringBuffer buffer = new StringBuffer();
-
-                    String line = "";
-
-                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
-                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
-                    }
-                    line = buffer.toString();
-                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    if (con != null) {
-                        con.disconnect();
-                    }
-                    try {
-                        if (reader != null) {
-                            reader.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            int error = 0;
-            JSONObject jObject = null;
-            try {
-                jObject = new JSONObject(result);
-                error = jObject.optInt("error");
-                if(error==2){
-
-                }else {
-                    jObject.getBoolean("Success");
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            loadingDialog.progressOFF();
-        }
-    }
-
-    @SuppressLint("StaticFieldLeak")
-    public class DelNote extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("id", note_id);
-                HttpURLConnection con = null;
-                BufferedReader reader = null;
-                URL url = new URL(urls[0]);
-                try {
-                    con = (HttpURLConnection) url.openConnection();
-                    con.setRequestMethod("DELETE");//DELETE 방식으로 보냄
-                    con.setRequestProperty("Connection", "Keep-Alive");
-                    con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
-                    con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
-                    con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
-                    con.setRequestProperty("Accept-Charset", "UTF-8");
-                    con.setDoOutput(true);//Outstream으로 PUT 데이터를 넘겨주겠다는 의미
-                    con.setDoInput(true);//Inputstream으로 서버로부터 응답을 받겠다는 의미
-                    con.connect();
-
-                    OutputStream outStream = con.getOutputStream();
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outStream));
-                    writer.write(jsonObject.toString());
-                    writer.flush();
-                    writer.close();
-
-                    InputStreamReader stream = new InputStreamReader(con.getInputStream(), "UTF-8");
-
-                    reader = new BufferedReader(stream);
-
-                    StringBuffer buffer = new StringBuffer();
-
-                    String line = "";
-
-                    while ((line = reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
-                        buffer.append(line + "\n"); //읽어준 스트링값을 더해준다.
-                    }
-                    line = buffer.toString();
-                    return line;//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    if (con != null) {
-                        con.disconnect();
-                    }
-                    try {
-                        if (reader != null) {
-                            reader.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            int error = 0;
-            JSONObject jObject = null;
-            try {
-                jObject = new JSONObject(result);
-                error = jObject.optInt("error");
-                if(error==2){
-
-                }else {
-
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
             loadingDialog.progressOFF();
         }
@@ -841,6 +461,13 @@ public class AddNote extends AppCompatActivity {
         return bitmap;
     }
 
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
+                matrix, true);
+    }
+
     public int exifOrientationToDegrees(int exifOrientation) {
         if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
             return 90;
@@ -862,9 +489,6 @@ public class AddNote extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(isUpload){
-            new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
-        }
         finish();
     }
 }

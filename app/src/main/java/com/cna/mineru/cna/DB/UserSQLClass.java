@@ -107,7 +107,7 @@ public class UserSQLClass extends AppCompatActivity {
         int id =0;
         if(sqliteDb != null){
             Cursor cursor = null;
-            String sqlQueryTb1 = "SELECT Id FROM User_Info;";
+            String sqlQueryTb1 = "SELECT User_Id FROM User_Info;";
             cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             cursor.moveToNext();
             id = cursor.getInt(0);

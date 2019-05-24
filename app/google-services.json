@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "1064577095287-kbvm4nokc1h219vb8qvicm5uqut6mesa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cna.mineru.cna",
+            "certificate_hash": "623daab4684189ac76a8a63704b9aff004ce7d1d"
+          }
+        },
+        {
+          "client_id": "1064577095287-i9tk95cog0o8jrc524880sg97l2h1dkt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cna.mineru.cna",
+            "certificate_hash": "b08f95cc6c4d6f8f4d93c926a2344d18cf6ab671"
+          }
+        },
+        {
           "client_id": "1064577095287-3kt4u9v8l4jnan83rsfbemjkkafqikaj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -41,7 +57,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-2774747966830250~5467102140"
     }
   ],
   "configuration_version": "1"

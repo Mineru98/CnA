@@ -6,6 +6,7 @@
     <string name="title_home">홈</string>
     <string name="title_graph">분석</string>
     <string name="title_test">시험</string>
+    <string name="title_profile">설정</string>
     <string name="title_test_1">시험</string>
     <string name="title_test_2">결과</string>
     <string name="noti_activity_title">알림</string>
@@ -57,4 +58,5 @@
     <string name="btn_start">시험 시작</string>
     <string name="tv_class">학년</string>
     <string name="tv_loading">Loading..</string>
+    <string name="tv_test">Wrong Answer Notes</string>
 </resources>

@@ -1,5 +1,5 @@
 # compiler: R8
-# compiler_version: 1.4.77
+# compiler_version: 1.4.94
 # min_api: 21
 android.arch.core.executor.ArchTaskExecutor -> android.arch.core.executor.ArchTaskExecutor:
     42:50:void <clinit>() -> <clinit>

@@ -186,14 +186,12 @@ public class HomeSQLClass extends AppCompatActivity {
     }
 
 
-    public void add_values(String note_id, String title, int note_type, int ClassId){
-        int id = Integer.parseInt(note_id);
+    public void add_values(String title, int note_type, int ClassId){
         if (sqliteDb != null) {
-            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Id, Title, Note_Type, ClassId) VALUES (?,?,?,?);");
-            p.bindLong(1, id);
-            p.bindString(2, title);
-            p.bindLong(3, note_type);
-            p.bindLong(4,ClassId);
+            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Title, Note_Type, ClassId) VALUES (?,?,?);");
+            p.bindString(1, title);
+            p.bindLong(2, note_type);
+            p.bindLong(3,ClassId);
             System.out.println(p);
             p.execute();
         }

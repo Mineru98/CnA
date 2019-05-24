@@ -4,9 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/include_toolbar_setting"/>
     <TextView
         android:id="@+id/tv_ver"
         android:textColor="@color/colorPrimary"

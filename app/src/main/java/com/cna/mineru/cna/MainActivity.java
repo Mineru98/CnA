@@ -27,6 +27,7 @@ import com.cna.mineru.cna.Fragment.GraphFragment;
 import com.cna.mineru.cna.Fragment.HomeFragment;
 import com.cna.mineru.cna.Fragment.ExamFragment;
 import com.cna.mineru.cna.Fragment.ProfileFragment;
+import com.cna.mineru.cna.Utils.BottomNavigationViewHelper;
 import com.cna.mineru.cna.Utils.DefaultInputDialog;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = (CustomViewPager) findViewById(R.id.view_pager);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
         if("NONE".equals(getWhatKindOfNetwork(this))) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -96,83 +98,15 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.navigation_home:
-                                if(!db.isClassChecked()){
-                                    DefaultInputDialog d = new DefaultInputDialog();
-                                    d.show(getSupportFragmentManager(),"setting");
-                                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                        @Override
-                                        public void finish(int _class) {
-                                            DefaultInputDialog d2 = new DefaultInputDialog();
-                                            d2.show(getSupportFragmentManager(),"setting2");
-                                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                                @Override
-                                                public void finish(int _class) {
-
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
                                 viewPager.setCurrentItem(0,false);
                                 break;
                             case R.id.navigation_graph:
-                                if(!db.isClassChecked()){
-                                    DefaultInputDialog d = new DefaultInputDialog();
-                                    d.show(getSupportFragmentManager(),"setting");
-                                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                        @Override
-                                        public void finish(int _class) {
-                                            DefaultInputDialog d2 = new DefaultInputDialog();
-                                            d2.show(getSupportFragmentManager(),"setting2");
-                                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                                @Override
-                                                public void finish(int _class) {
-
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
                                 viewPager.setCurrentItem(1,false);
                                 break;
                             case R.id.navigation_test:
-                                if(!db.isClassChecked()){
-                                    DefaultInputDialog d = new DefaultInputDialog();
-                                    d.show(getSupportFragmentManager(),"setting");
-                                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                        @Override
-                                        public void finish(int _class) {
-                                            DefaultInputDialog d2 = new DefaultInputDialog();
-                                            d2.show(getSupportFragmentManager(),"setting2");
-                                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                                @Override
-                                                public void finish(int _class) {
-
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
                                 viewPager.setCurrentItem(2,false);
                                 break;
                             case R.id.navigation_profile:
-                                if(!db.isClassChecked()){
-                                    DefaultInputDialog d = new DefaultInputDialog();
-                                    d.show(getSupportFragmentManager(),"setting");
-                                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                        @Override
-                                        public void finish(int _class) {
-                                            DefaultInputDialog d2 = new DefaultInputDialog();
-                                            d2.show(getSupportFragmentManager(),"setting2");
-                                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
-                                                @Override
-                                                public void finish(int _class) {
-
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
                                 viewPager.setCurrentItem(3,false);
                                 break;
                         }

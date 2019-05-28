@@ -45,10 +45,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="F:\ic_solv.png" />
-                                      <entry key="outputName" value="ic_solv" />
+                                      <entry key="imageAsset" value="F:\ic_noti.png" />
+                                      <entry key="outputName" value="ic_noti.png" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="7a9dd3" />
+                                      <entry key="themeColor" value="58595b" />
                                     </map>
                                   </option>
                                 </PersistentState>

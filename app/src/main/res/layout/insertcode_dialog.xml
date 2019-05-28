@@ -14,6 +14,7 @@
         android:textColor="#000000"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/tv_title_dialog_3" />
     <EditText
         android:id="@+id/et_code"
@@ -24,6 +25,7 @@
         android:layout_marginEnd="10dp"
         android:padding="10dp"
         android:inputType="textPersonName"
+        android:fontFamily="@font/nanum_gothic"
         android:hint="@string/et_code_dialog"
         android:textStyle="normal"
         android:textSize="15sp"/>
@@ -39,6 +41,7 @@
             android:layout_toStartOf="@+id/btn_cancel"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
+            android:fontFamily="@font/nanum_gothic"
             android:text="@string/btn_ok"/>
         <TextView
             android:id="@+id/btn_cancel"
@@ -47,6 +50,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
+            android:fontFamily="@font/nanum_gothic"
             android:text="@string/btn_cancel"/>
     </RelativeLayout>
 

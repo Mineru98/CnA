@@ -15,6 +15,7 @@
         android:gravity="left"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/tv_title_camera" />
     <TextView
         android:id="@+id/btn_editor"
@@ -25,6 +26,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:padding="5dp"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/btn_editor"
         android:gravity="left|center"
         android:textColor="#000000"
@@ -39,6 +41,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:padding="5dp"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/btn_gallery"
         android:gravity="left|center"
         android:textColor="#000000"
@@ -54,6 +57,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/btn_camera"
         android:gravity="left|center"
         android:textColor="#000000"

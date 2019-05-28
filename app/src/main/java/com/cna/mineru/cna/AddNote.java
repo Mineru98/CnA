@@ -36,6 +36,8 @@ import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.PhotoDialog;
 
+import org.w3c.dom.Text;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -57,15 +59,19 @@ public class AddNote extends AppCompatActivity {
     private UserSQLClass user_db;
 
     private TextView tv_1;
+    private TextView tv_1_2;
+
     private TextView tv_2;
+    private TextView tv_2_2;
+
     private TextView btn_ok;
     private TextView et_class;
-    private TextView btn_cancel;
 
     private EditText et_title;
 
     private ImageView imageView;
     private ImageView imageView2;
+    private ImageView btn_cancel;
 
     private LoadingDialog loadingDialog;
 
@@ -85,7 +91,6 @@ public class AddNote extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
         img_db = new ImageSQLClass(this);
@@ -100,11 +105,19 @@ public class AddNote extends AppCompatActivity {
         RelativeLayout set_image2 = (RelativeLayout) findViewById(R.id.set_image2);
         tv_1 = (TextView) findViewById(R.id.tv_1);
         tv_2 = (TextView) findViewById(R.id.tv_2);
+        tv_1_2 = (TextView) findViewById(R.id.tv_1_2);
+        tv_2_2 = (TextView) findViewById(R.id.tv_2_2);
+        TextView tv_title_1 = (TextView) findViewById(R.id.tv_title_1);
+        TextView tv_title_2 = (TextView) findViewById(R.id.tv_title_2);
+        TextView tv_title_3 = (TextView) findViewById(R.id.tv_title_3);
+
         et_class = (EditText) findViewById(R.id.et_class);
 
         btn_ok = (TextView) findViewById(R.id.btn_save);
-        btn_cancel = (TextView) findViewById(R.id.btn_cancel);
+        btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
         imageView2 = (ImageView)findViewById(R.id.imageView2);
+
+        ImageView iv_main = (ImageView) findViewById(R.id.iv_main);
 
         set_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -324,6 +337,7 @@ public class AddNote extends AppCompatActivity {
                         Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                     }
                     tv_1.setVisibility(View.INVISIBLE);
+                    tv_1_2.setVisibility(View.INVISIBLE);
                 } else {
                     try {
                         // 비트맵 이미지로 가져온다
@@ -340,6 +354,7 @@ public class AddNote extends AppCompatActivity {
                         Toast.makeText(this, "오류발생: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                     }
                     tv_2.setVisibility(View.INVISIBLE);
+                    tv_2_2.setVisibility(View.INVISIBLE);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -377,6 +392,7 @@ public class AddNote extends AppCompatActivity {
                         }
                         imageView.setImageBitmap(rotatedBitmap);
                         tv_1.setVisibility(View.INVISIBLE);
+                        tv_1_2.setVisibility(View.INVISIBLE);
                     }
                 }catch (Exception error){
                     error.printStackTrace();
@@ -413,6 +429,7 @@ public class AddNote extends AppCompatActivity {
                         }
                         imageView2.setImageBitmap(rotatedBitmap);
                         tv_2.setVisibility(View.INVISIBLE);
+                        tv_2_2.setVisibility(View.INVISIBLE);
                     }
                 }catch (Exception error){
                     error.printStackTrace();

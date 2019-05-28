@@ -95,7 +95,7 @@ public class ModifyHomeItem extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         TextView btn_ok = (TextView) findViewById(R.id.btn_save);
-        TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
+        ImageView btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
         et_title = (EditText) findViewById(R.id.et_title);
         et_class = (EditText) findViewById(R.id.et_class);
         imageView = findViewById(R.id.imageView);

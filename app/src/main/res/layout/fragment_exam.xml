@@ -13,10 +13,12 @@
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanum_gothic"
             android:text="@string/title_test_1"/>
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanum_gothic"
             android:text="@string/title_test_2"/>
     </android.support.design.widget.TabLayout>
 

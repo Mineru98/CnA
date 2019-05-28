@@ -15,6 +15,7 @@
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/tv_title_dialog_1" />
 
     <TextView
@@ -27,6 +28,7 @@
         android:layout_alignParentEnd="true"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/tv_title_dialog_2" />
 
     <ListView
@@ -44,5 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/listview1"
+        android:fontFamily="@font/nanum_gothic"
         android:text="@string/btn_cancel"/>
 </RelativeLayout>

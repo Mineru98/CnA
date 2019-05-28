@@ -103,6 +103,7 @@ android.support.v7.view.menu.ActionMenuItem
     private static final int HIDDEN
     private static final int ENABLED
 com.google.android.gms.internal.ads.zzaes
+com.cna.mineru.cna.SettingActivity$7$3
 com.google.android.gms.common.api.internal.TaskApiCall
     public void <init>()
 okhttp3.Connection
@@ -720,6 +721,7 @@ com.google.android.gms.common.api.Api$Client
     public abstract com.google.android.gms.common.Feature[] getRequiredFeatures()
 com.google.android.gms.internal.firebase_auth.zzbp
 android.support.customview.R
+com.cna.mineru.cna.SettingActivity$11
 android.support.customtabs.CustomTabsCallback
 com.google.android.gms.internal.firebase_auth.zzp$zzp
 com.google.firebase.auth.api.internal.zzem
@@ -743,6 +745,7 @@ android.support.v4.util.ArraySet
     private static final int CACHE_SIZE
 android.support.v4.media.MediaDescriptionCompatApi21$Builder
     private void <init>()
+com.cna.mineru.cna.SettingActivity$7$2
 com.google.android.gms.common.internal.ApiExceptionUtil
     public void <init>()
 com.google.android.gms.internal.firebase_auth.zzcb
@@ -932,6 +935,8 @@ android.support.v7.view.menu.MenuView
     public abstract int getWindowAnimations()
 okhttp3.CipherSuite
     public java.lang.String javaName()
+com.cna.mineru.cna.Utils.BottomNavigationViewHelper
+    public void <init>()
 android.support.constraint.ConstraintSet$Constraint
     static final int UNSET
 com.google.android.gms.ads_base.R
@@ -1024,6 +1029,7 @@ okio.BufferedSource
     public abstract java.lang.String readUtf8(long)
     public abstract java.lang.String readUtf8Line()
     public abstract int readUtf8CodePoint()
+    public abstract java.lang.String readString(java.nio.charset.Charset)
     public abstract java.lang.String readString(long,java.nio.charset.Charset)
     public abstract long indexOf(byte,long)
     public abstract long indexOf(byte,long,long)
@@ -1491,6 +1497,7 @@ com.google.android.gms.internal.firebase_auth.zzbm
 com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks
     public static final int CAUSE_SERVICE_DISCONNECTED
     public static final int CAUSE_NETWORK_LOST
+com.cna.mineru.cna.SettingActivity$7$1
 com.google.android.gms.common.api.internal.zabp
     public final void zaa(com.google.android.gms.common.api.internal.zacm)
 com.google.android.gms.common.internal.service.Common
@@ -2737,6 +2744,7 @@ com.google.android.gms.common.api.internal.ListenerHolder$ListenerKey
 android.support.v4.app.NotificationCompat$DecoratedCustomViewStyle
 com.google.android.gms.common.images.zaa
 com.cna.mineru.cna.AddNote
+    public static java.lang.String getWhatKindOfNetwork(android.content.Context)
     public static final java.lang.String WIFI_STATE
     public static final java.lang.String MOBILE_STATE
     public static final java.lang.String NONE_STATE
@@ -2782,6 +2790,7 @@ okio.Buffer
     public int select(okio.Options)
     int selectPrefix(okio.Options)
     public void readFully(okio.Buffer,long)
+    public java.lang.String readString(java.nio.charset.Charset)
     public java.lang.String readUtf8Line()
     public int readUtf8CodePoint()
     public int read(byte[])
@@ -3871,6 +3880,7 @@ com.google.firebase.messaging.RemoteMessage$Builder
 okhttp3.MultipartBody$Part
     public static okhttp3.MultipartBody$Part create(okhttp3.RequestBody)
     public static okhttp3.MultipartBody$Part createFormData(java.lang.String,java.lang.String)
+    public static okhttp3.MultipartBody$Part createFormData(java.lang.String,java.lang.String,okhttp3.RequestBody)
     public okhttp3.Headers headers()
     public okhttp3.RequestBody body()
 com.airbnb.lottie.parser.AnimatablePathValueParser
@@ -4791,6 +4801,7 @@ android.support.v4.media.session.IMediaSession$Stub
     static final int TRANSACTION_sendCustomAction
 com.google.android.gms.measurement.internal.zzan
     public static final com.google.android.gms.measurement.internal.zzan zzc(android.os.Bundle)
+com.cna.mineru.cna.SettingActivity$7$1$1
 com.google.android.gms.internal.firebase_auth.zzbt
 com.google.firebase.auth.OAuthProvider
 android.support.transition.Styleable$VisibilityTransition
@@ -4868,6 +4879,7 @@ com.google.android.gms.common.api.Response
     protected void <init>(com.google.android.gms.common.api.Result)
 com.firebase.ui.auth.data.remote.ProfileMerger
     private static final java.lang.String TAG
+com.cna.mineru.cna.SettingActivity$9$2
 android.support.v7.view.menu.MenuWrapperFactory
     private void <init>()
 com.google.android.gms.measurement.api.AppMeasurementSdk$ConditionalUserProperty
@@ -5207,6 +5219,7 @@ com.google.android.gms.internal.measurement.zztv$zzc
 com.firebase.ui.auth.util.data.PrivacyDisclosureUtils
     public void <init>()
     private static final int NO_TOS_OR_PP
+com.cna.mineru.cna.SettingActivity$8
 android.support.v4.media.session.MediaSessionCompat$Token
     void <init>(java.lang.Object,android.support.v4.media.session.IMediaSession)
     public static android.support.v4.media.session.MediaSessionCompat$Token fromToken(java.lang.Object)
@@ -5289,6 +5302,7 @@ com.google.android.gms.common.ConnectionResult
     public static final int SERVICE_MISSING_PERMISSION
     public static final int RESTRICTED_PROFILE
     public static final int DRIVE_EXTERNAL_STORAGE_REQUIRED
+com.cna.mineru.cna.SettingActivity$9$1
 android.support.v4.view.NestedScrollingParentHelper
     public void onStopNestedScroll(android.view.View)
 com.google.android.gms.internal.ads.zzdsh
@@ -5633,6 +5647,7 @@ android.support.v7.recyclerview.R$styleable
     private void <init>()
 okhttp3.MediaType
     public java.lang.String subtype()
+    public java.nio.charset.Charset charset()
     private static final java.lang.String TOKEN
     private static final java.lang.String QUOTED
 com.github.mikephil.charting.data.BarEntry
@@ -5955,6 +5970,7 @@ okio.RealBufferedSink
     public okio.BufferedSink writeUtf8CodePoint(int)
     public okio.BufferedSink writeString(java.lang.String,java.nio.charset.Charset)
     public okio.BufferedSink writeString(java.lang.String,int,int,java.nio.charset.Charset)
+    public long writeAll(okio.Source)
     public okio.BufferedSink write(okio.Source,long)
     public okio.BufferedSink writeShortLe(int)
     public okio.BufferedSink writeIntLe(int)
@@ -5981,6 +5997,7 @@ android.support.annotation.StringRes
 androidx.annotation.NavigationRes
 com.google.android.gms.internal.firebase_auth.zziw
 com.google.android.gms.internal.firebase_auth.zzp$zzo$zza
+com.cna.mineru.cna.SettingActivity$JSONTask
 com.google.android.gms.common.data.FreezableUtils
 android.arch.lifecycle.extensions.R
 android.support.customtabs.CustomTabsClient$2
@@ -6041,6 +6058,7 @@ okhttp3.internal.http1.Http1Codec$ChunkedSource
     private static final long NO_CHUNK_YET
 okhttp3.Cache$1
 com.google.android.gms.internal.ads.zzbp$zzc
+com.cna.mineru.cna.SettingActivity$9
 com.google.android.gms.internal.auth.zzd
 com.google.firebase.components.EventBus
     public synchronized void unsubscribe(java.lang.Class,com.google.firebase.events.EventHandler)
@@ -6592,6 +6610,7 @@ android.support.v4.widget.SwipeRefreshLayout$6
 android.support.compat.R$style
 com.google.android.gms.internal.firebase_auth.zzp$zzi$zza
 com.google.android.gms.internal.ads.zzaiw
+com.cna.mineru.cna.SettingActivity$6
 com.google.android.gms.common.util.DataUtils
 android.support.v4.media.session.MediaSessionCompat$MediaSessionImplApi19
 okhttp3.internal.http2.Http2Connection$ReaderRunnable
@@ -6796,6 +6815,7 @@ okhttp3.ResponseBody
     public static okhttp3.ResponseBody create(okhttp3.MediaType,java.lang.String)
     public final java.io.InputStream byteStream()
     public final byte[] bytes()
+    public final java.lang.String string()
 com.google.firebase.analytics.connector.AnalyticsConnector
     public abstract java.util.Map getUserProperties(boolean)
     public abstract com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorHandle registerAnalyticsConnectorListener(java.lang.String,com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorListener)
@@ -7430,6 +7450,7 @@ okio.RealBufferedSource
     public void readFully(okio.Buffer,long)
     public java.lang.String readUtf8()
     public java.lang.String readUtf8(long)
+    public java.lang.String readString(java.nio.charset.Charset)
     public java.lang.String readString(long,java.nio.charset.Charset)
     public java.lang.String readUtf8Line()
     public int readUtf8CodePoint()
@@ -7545,6 +7566,7 @@ android.support.v4.widget.DirectedAcyclicGraph
     int size()
 android.support.v4.app.NotificationCompat$Action$SemanticAction
 com.github.mikephil.charting.renderer.BubbleChartRenderer
+com.cna.mineru.cna.SettingActivity$7
 com.google.android.gms.common.api.internal.zaby
 android.support.v4.media.MediaBrowserServiceCompatApi26
 android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper
@@ -8142,6 +8164,7 @@ android.support.v4.net.DatagramSocketWrapper
 android.support.customtabs.R$dimen
     private void <init>()
 com.google.android.gms.internal.ads.zzdry$zzb$zze
+com.cna.mineru.cna.SettingActivity$4
 android.support.v7.appcompat.R$style
     private void <init>()
 com.google.android.gms.internal.firebase_auth.zzp$zzk
@@ -8309,6 +8332,7 @@ android.support.design.widget.BottomSheetBehavior$BottomSheetCallback
 android.support.annotation.NavigationRes
 okio.Okio
     public static okio.Sink sink(java.io.OutputStream)
+    public static okio.Source source(java.io.File)
     public static varargs okio.Source source(java.nio.file.Path,java.nio.file.OpenOption[])
     public static okio.Sink sink(java.io.File)
     public static okio.Sink appendingSink(java.io.File)
@@ -8321,6 +8345,7 @@ com.google.android.gms.base.R$string
     private void <init>()
 com.google.android.gms.internal.ads.zzanx
 okhttp3.MultipartBody
+    static java.lang.StringBuilder appendQuotedString(java.lang.StringBuilder,java.lang.String)
     public okhttp3.MediaType type()
     public java.lang.String boundary()
     public int size()
@@ -8719,6 +8744,7 @@ okhttp3.Cookie
     public boolean matches(okhttp3.HttpUrl)
 android.support.v7.widget.helper.ItemTouchHelper$Callback$2
 com.google.android.gms.internal.ads.zzdry$zzb$zzd
+com.cna.mineru.cna.SettingActivity$5
 com.google.android.gms.internal.measurement.zzdx
 android.support.v4.content.AsyncTaskLoader
     public void setUpdateThrottle(long)
@@ -9221,6 +9247,7 @@ com.google.android.gms.internal.ads.zzanw
 com.google.android.gms.internal.firebase_auth.zzkp
 android.support.v4.app.ActivityOptionsCompat$ActivityOptionsCompatImpl
 android.support.v4.util.CircularIntArray
+com.cna.mineru.cna.SettingActivity$8$2
 android.support.customtabs.CustomTabsClient$2$3
 android.support.v4.R$style
 com.google.firebase.R$id
@@ -9385,6 +9412,7 @@ android.support.v4.widget.ResourceCursorAdapter
     public void setViewResource(int)
     public void setDropDownViewResource(int)
 android.support.design.bottomappbar.BottomAppBar$FabAlignmentMode
+com.cna.mineru.cna.SettingActivity$8$1
 com.github.mikephil.charting.data.RadarData
     public void <init>(java.util.List)
     public varargs void <init>(com.github.mikephil.charting.interfaces.datasets.IRadarDataSet[])
@@ -9637,6 +9665,7 @@ com.google.android.gms.internal.firebase_auth.zzcn
     public final java.lang.String zzcp()
     public final com.google.firebase.auth.PhoneAuthCredential zzdi()
 com.google.android.gms.internal.auth.zzag
+com.cna.mineru.cna.SettingActivity$2
 android.support.v4.widget.SwipeRefreshLayout$2
 com.github.mikephil.charting.highlight.CombinedHighlighter
 android.support.v4.app.NotificationCompat$NotificationVisibility
@@ -10235,6 +10264,7 @@ okhttp3.internal.http.HttpMethod
     private void <init>()
 android.support.transition.ViewUtilsApi19
     private static final java.lang.String TAG
+com.cna.mineru.cna.SettingActivity$3
 com.google.android.gms.internal.auth.zzaf
 android.support.v4.widget.SwipeRefreshLayout$1
 android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$4
@@ -10708,6 +10738,7 @@ android.support.v7.widget.util.SortedListAdapterCallback
 android.support.design.widget.CoordinatorLayout$LayoutParams
     public void setAnchorId(int)
     void invalidateAnchor()
+com.cna.mineru.cna.SettingActivity$9$1$1
 android.support.v4.media.MediaSessionManager
 android.support.v7.widget.RecyclerView$LayoutParams
     public boolean viewNeedsUpdate()
@@ -10831,6 +10862,7 @@ com.google.android.gms.internal.ads.zzxk
     public final void zza(com.google.android.gms.internal.ads.zzdro)
     protected final int zzor()
 android.support.v7.app.ActionBarDrawerToggle$Delegate
+okhttp3.RequestBody$3
 com.google.android.gms.common.internal.ICancelToken$Stub$zza
 android.support.design.widget.BottomSheetBehavior$1
 android.support.swiperefreshlayout.R$color
@@ -10920,6 +10952,7 @@ com.google.android.gms.internal.ads.zzdnh$zzc
 com.google.auto.value.AutoValue$Builder
 com.google.android.gms.common.internal.safeparcel.SafeParcelable$Param
 android.support.v4.media.MediaSessionManagerImplApi21
+com.cna.mineru.cna.SettingActivity$10
 com.google.android.gms.ads.rewarded.ServerSideVerificationOptions
 android.support.v7.app.ActionBar$NavigationMode
 androidx.annotation.DrawableRes
@@ -11131,6 +11164,7 @@ retrofit2.Call
     public abstract boolean isExecuted()
     public abstract void cancel()
     public abstract okhttp3.Request request()
+com.cna.mineru.cna.SettingActivity$5$1
 android.support.cursoradapter.R
 com.google.android.gms.auth.api.credentials.Credential
     static synthetic java.lang.String zzc(com.google.android.gms.auth.api.credentials.Credential)
@@ -11158,6 +11192,7 @@ android.support.design.circularreveal.cardview.CircularRevealCardView
     public void <init>(android.content.Context,android.util.AttributeSet)
     public void actualDraw(android.graphics.Canvas)
     public boolean actualIsOpaque()
+com.cna.mineru.cna.SettingActivity
 com.airbnb.lottie.parser.FontCharacterParser
     private void <init>()
 android.support.v4.widget.FocusStrategy$CollectionAdapter
@@ -11492,6 +11527,9 @@ com.airbnb.lottie.parser.FontParser
     private void <init>()
 android.support.v4.widget.SlidingPaneLayout$LayoutParams
 android.support.v7.recyclerview.R
+okhttp3.RequestBody
+    public static okhttp3.RequestBody create(okhttp3.MediaType,java.lang.String)
+    public static okhttp3.RequestBody create(okhttp3.MediaType,java.io.File)
 android.support.v13.view.DragStartHelper$OnDragStartListener
 android.support.transition.GhostViewApi14$1
 com.google.android.gms.auth.api.proxy.ProxyApi$SpatulaHeaderResult
@@ -11612,6 +11650,7 @@ android.support.v7.app.ResourcesFlusher
     private void <init>()
     private static final java.lang.String TAG
 android.support.v4.content.pm.PermissionInfoCompat
+com.cna.mineru.cna.SettingActivity$1
 android.arch.lifecycle.livedata.core.R
 android.support.design.internal.NavigationMenuPresenter$NavigationMenuTextItem
 android.support.v4.media.AudioAttributesImpl
@@ -11869,6 +11908,7 @@ com.firebase.ui.auth.util.ExtraConstants
 com.google.android.gms.internal.auth-api-phone.zzd
 com.google.firebase.FirebaseError
 okio.BufferedSink
+    public abstract long writeAll(okio.Source)
     public abstract okio.BufferedSink write(okio.Source,long)
     public abstract okio.BufferedSink writeUtf8(java.lang.String,int,int)
     public abstract okio.BufferedSink writeUtf8CodePoint(int)
@@ -12568,6 +12608,7 @@ com.google.firebase.auth.GithubAuthCredential
     public java.lang.String getSignInMethod()
 com.google.android.gms.internal.ads.zzdrn
     public abstract void zza(int,com.google.android.gms.internal.ads.zzdpc,java.util.Map)
+retrofit2.http.Multipart
 retrofit2.http.Url
 com.google.android.gms.internal.measurement.zzxs
     public final int zzyw()

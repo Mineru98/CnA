@@ -12,5 +12,5 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="50dp"
-        android:text="TextView"/>
+        android:fontFamily="@font/nanum_gothic" />
 </RelativeLayout>

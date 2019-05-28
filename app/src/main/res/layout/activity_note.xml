@@ -5,107 +5,192 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <RelativeLayout
             android:id="@+id/Top"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="50dp"
             android:layout_below="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_title_1"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/tv_title_addnote2"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/nanum_gothic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_title_2"
+                android:layout_centerHorizontal="true"
+                android:text="@string/tv_test"
+                android:textSize="15sp"
+                android:layout_below="@id/tv_title_1"
+                android:fontFamily="@font/nanum_gothic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/iv_main"
+                android:src="@drawable/ic_main"
+                android:layout_below="@id/tv_title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_title_3"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:layout_below="@id/iv_main"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="15sp"
+                android:text="@string/tv_take_photo"
+                android:fontFamily="@font/nanum_gothic"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/Top2"
+            android:layout_below="@+id/Top"
             android:layout_alignParentStart="true"
+            android:paddingBottom="40dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content"
+            android:gravity="center">
             <RelativeLayout
                 android:id="@+id/set_image"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#ffffff"
-                android:gravity="center">
-
+                android:elevation="5dp"
+                android:layout_margin="10dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/round">
                 <ImageView
                     android:id="@+id/imageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/round"
                     android:src="@drawable/ic_prob" />
                 <TextView
                     android:id="@+id/tv_1"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/imageView"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:textColor="#000000"
+                    android:text="@string/prob_2"/>
+                <TextView
+                    android:id="@+id/tv_1_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/tv_1"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:textColor="#000000"
                     android:text="@string/prob"/>
             </RelativeLayout>
-            <LinearLayout
-                android:background="#000000"
-                android:layout_width="2dp"
-                android:layout_height="match_parent"/>
+
             <RelativeLayout
                 android:id="@+id/set_image2"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#ffffff"
-                android:gravity="center">
+                android:elevation="5dp"
+                android:layout_margin="10dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_toEndOf="@+id/set_image"
+                android:background="@drawable/round">
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/round"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_solv" />
                 <TextView
                     android:id="@+id/tv_2"
+                    android:layout_centerHorizontal="true"
                     android:layout_below="@id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:textColor="#000000"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/solv_2"/>
+                <TextView
+                    android:id="@+id/tv_2_2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/tv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:textColor="#000000"
                     android:text="@string/solv"/>
             </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
 
         <include
             android:id="@+id/toolbar"
             layout="@layout/include_toolbar_note"/>
-        <LinearLayout
-            android:id="@+id/linear"
-            android:layout_below="@+id/Top"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_below="@+id/Top2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/tv_title_modify"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <EditText
-                android:id="@+id/et_class"
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/tv_title_modify"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <EditText
+                    android:id="@+id/et_class"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/et_insert"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:inputType="number"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:hint="@string/et_insert"
-                android:inputType="number"
-                android:textSize="20sp"/>
-        </LinearLayout>
+                android:gravity="left|top"
+                android:hint="@string/et_content"
+                android:fontFamily="@font/nanum_gothic"
+                android:inputType="textMultiLine"
+                android:lines="15"
+                android:maxLines="15"
+                android:minLines="1"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-
-        <EditText
-            android:id="@+id/et_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="left|top"
-            android:hint="@string/et_content"
-            android:inputType="textMultiLine"
-            android:lines="15"
-            android:maxLines="15"
-            android:minLines="1"
-            android:textSize="20sp" />
     </RelativeLayout>
 </ScrollView>

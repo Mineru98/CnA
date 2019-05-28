@@ -36,6 +36,7 @@
         android:ems="10"
         android:shadowColor="@color/white"
         android:hint="@string/et_hint_email"
+        android:fontFamily="@font/nanum_gothic"
         android:textColor="@color/white"
         android:inputType="textEmailAddress"
         android:layout_centerInParent="true"
@@ -51,6 +52,7 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:hint="@string/et_hint_pw"
+        android:fontFamily="@font/nanum_gothic"
         android:textColor="@color/white"
         android:inputType="textPassword"
         android:shadowColor="@color/white"
@@ -71,6 +73,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:text="@string/lose_pw"
+        android:fontFamily="@font/nanum_gothic"
         android:textSize="4pt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pw"/>
@@ -86,6 +89,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:text="@string/login_email"
+        android:fontFamily="@font/nanum_gothic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_lose_pw" />
@@ -100,6 +104,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/nanum_gothic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_or"/>
@@ -116,6 +121,7 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="15dp"
         android:text="@string/signup_msg"
+        android:fontFamily="@font/nanum_gothic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login_google" />
@@ -126,6 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_login_email"
         android:text="or"
+        android:fontFamily="@font/nanum_gothic"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:layout_centerInParent="true"

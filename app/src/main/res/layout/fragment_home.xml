@@ -33,5 +33,6 @@
         android:layout_marginBottom="30dp"
         android:clickable="true"
         app:srcCompat="@mipmap/ic_add"
+        app:backgroundTint="#bebebe"
         tools:ignore="KeyboardInaccessibleWidget" />
 </RelativeLayout>

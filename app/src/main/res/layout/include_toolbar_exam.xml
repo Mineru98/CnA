@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:layout_alignParentTop="true">
@@ -17,8 +16,9 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="0dp"
             android:textSize="10pt"
+            android:fontFamily="@font/nanum_gothic"
             android:text="Q1"
-            android:textColor="#ffffff" />
+            android:textColor="@color/textColor" />
         <TextView
             android:id="@+id/time_out"
             android:layout_width="wrap_content"
@@ -26,8 +26,9 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:gravity="center"
+            android:fontFamily="@font/nanum_gothic"
             android:text="@string/tv_time_out"
-            android:textColor="#ffffff"
+            android:textColor="@color/textColor"
             android:textSize="20sp" />
     </RelativeLayout>
 

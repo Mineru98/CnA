@@ -38,7 +38,8 @@
     <string name="btn_editor">편집</string>
     <string name="btn_camera">카메라</string>
     <string name="btn_gallery">갤러리</string>
-    <string name="tv_title_addnote">오답노트</string>
+    <string name="tv_title_addnote">CnA+</string>
+    <string name="tv_title_addnote2">오답노트</string>
     <string name="tv_time_out">00:00:00</string>
     <string name="et_hint_email">이메일</string>
     <string name="et_hint_pw">비밀번호</string>
@@ -46,7 +47,9 @@
     <string name="tv_title_modify">단원</string>
     <string name="et_insert">입력</string>
     <string name="prob">문제</string>
+    <string name="prob_2">A Problem</string>
     <string name="solv">해설</string>
+    <string name="solv_2">A Solution</string>
     <string name="btn_next_prob">다음문제</string>
     <string name="btn_prob_ok">정답</string>
     <string name="btn_prob_x">오답</string>
@@ -59,4 +62,5 @@
     <string name="tv_class">학년</string>
     <string name="tv_loading">Loading..</string>
     <string name="tv_test">Wrong Answer Notes</string>
+    <string name="tv_take_photo">촬영을 선택하세요!</string>
 </resources>

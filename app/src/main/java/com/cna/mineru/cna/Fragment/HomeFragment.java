@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +19,12 @@ import com.cna.mineru.cna.AddNote;
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
+import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.DTO.HomeData;
 import com.cna.mineru.cna.Adapter.GridAdapter;
 import com.cna.mineru.cna.ModifyHomeItem;
 import com.cna.mineru.cna.R;
+import com.cna.mineru.cna.Utils.DefaultInputDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 
 import org.json.JSONException;
@@ -45,6 +46,7 @@ public class HomeFragment extends Fragment {
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
     private ImageSQLClass i_db;
+    private UserSQLClass u_db;
 
     private GridView gv;
     private GridAdapter mAdapater;
@@ -65,6 +67,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         fb = (FloatingActionButton)view.findViewById(R.id.fb_add);
         db = new HomeSQLClass(getActivity());
+        u_db= new UserSQLClass(getActivity());
         gp_db = new GraphSQLClass(getActivity());
         i_db = new ImageSQLClass((getActivity()));
         loadingDialog = new LoadingDialog();
@@ -78,12 +81,30 @@ public class HomeFragment extends Fragment {
         fb.setOnClickListener(new View.OnClickListener(){
             @Override
             public void  onClick(View v){
-                list.clear();
-                fb.setEnabled(false);
-                Handler h = new Handler();
-                h.postDelayed(new splashHandler(), 1000);
-                Intent i =new Intent(getActivity(),AddNote.class);
-                startActivity(i);
+                if(!u_db.isClassChecked()){
+                    DefaultInputDialog d = new DefaultInputDialog();
+                    d.show(getActivity().getSupportFragmentManager(),"setting");
+                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int _class) {
+                            DefaultInputDialog d2 = new DefaultInputDialog();
+                            d2.show(getActivity().getSupportFragmentManager(),"setting2");
+                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
+                                @Override
+                                public void finish(int _class) {
+
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    list.clear();
+                    fb.setEnabled(false);
+                    Handler h = new Handler();
+                    h.postDelayed(new splashHandler(), 1000);
+                    Intent i =new Intent(getActivity(),AddNote.class);
+                    startActivity(i);
+                }
             }
         });
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingDefaultResource">
-    <color name="colorPrimary">#A5DFF9</color>
-    <color name="colorPrimaryDark">#A5DFF9</color>
-    <color name="colorAccent">#A5DFF9</color>
+    <color name="colorPrimary">#8F8F8F</color>
+    <color name="colorPrimaryDark">#F0F0F0</color>
+    <color name="colorAccent">#8F8F8F</color>
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
+    <color name="textColor">#58595B</color>
 </resources>

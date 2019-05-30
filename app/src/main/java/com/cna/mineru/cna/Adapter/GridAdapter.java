@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cna.mineru.cna.DTO.HomeData;
@@ -55,7 +57,10 @@ public class GridAdapter extends BaseAdapter {
 
         if (convertView==null)
             convertView = inf.inflate(layout, null);
-        TextView tv = (TextView)convertView.findViewById(R.id.titleText);
+        TextView tv = (TextView) convertView.findViewById(R.id.titleText);
+        RelativeLayout btn_count = (RelativeLayout) convertView.findViewById(R.id.btn_count);
+        ImageView iv_count = (ImageView) convertView.findViewById(R.id.iv_count);
+        TextView tv_count = (TextView) convertView.findViewById(R.id.tv_count);
         HomeData item = items.get(position);
         tv.setText(item.title_text);
 

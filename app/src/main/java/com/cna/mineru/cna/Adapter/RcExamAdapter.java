@@ -8,11 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cna.mineru.cna.DTO.ExamData;
 import com.cna.mineru.cna.ExamResultActivity;
-import com.cna.mineru.cna.MainActivity;
 import com.cna.mineru.cna.R;
 
 import java.util.ArrayList;
@@ -22,7 +20,7 @@ import java.util.ArrayList;
     ListExamFragment
  */
 
-public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolder> {
+public class RcExamAdapter extends RecyclerView.Adapter<RcExamAdapter.ViewHolder> {
     private ArrayList items;
 
     public RcExamAdapter(Context context, int layout, ArrayList<ExamData> list) {
@@ -43,7 +41,7 @@ public class RcExamAdapter extends  RecyclerView.Adapter<RcExamAdapter.ViewHolde
     }
 
     public RcExamAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exam_list_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

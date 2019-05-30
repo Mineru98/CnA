@@ -195,6 +195,7 @@ com.google.gson.JsonSerializationContext
     public abstract com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
 com.google.android.gms.internal.firebase_auth.zzit
 android.support.v7.widget.CardView$1
+com.xw.repo.bubbleseekbar.R$drawable
 com.gun0912.tedpermission.R$styleable
 com.google.android.gms.internal.firebase_auth.zzp$zzn$zza
 com.google.android.gms.internal.firebase_auth.zzx
@@ -268,7 +269,6 @@ android.support.annotation.Nullable
 com.google.firebase.auth.api.internal.zzbv
 android.support.coordinatorlayout.R$attr
     private void <init>()
-android.support.v4.widget.ExploreByTouchHelper$2
 com.google.android.gms.common.SignInButton
     public final void setStyle(int,int,com.google.android.gms.common.api.Scope[])
     public static final int SIZE_STANDARD
@@ -495,6 +495,10 @@ com.google.android.gms.ads.formats.NativeCustomTemplateAd
     public static final java.lang.String ASSET_NAME_VIDEO
 androidx.annotation.RestrictTo$Scope
 android.support.design.resources.TextAppearance
+    private static final java.lang.String TAG
+    private static final int TYPEFACE_SANS
+    private static final int TYPEFACE_SERIF
+    private static final int TYPEFACE_MONOSPACE
 com.cna.mineru.cna.DTO.NotiData
 android.support.swiperefreshlayout.R$dimen
 com.google.android.gms.ads.formats.NativeContentAdView
@@ -535,7 +539,6 @@ com.google.gson.internal.$Gson$Types
 android.support.v7.widget.PagerSnapHelper
 android.support.swiperefreshlayout.R$attr
 android.support.coreui.R$id
-android.support.v4.widget.FocusStrategy$SequentialComparator
 android.support.v7.widget.DecorContentParent
     public abstract java.lang.CharSequence getTitle()
     public abstract void setUiOptions(int)
@@ -591,11 +594,6 @@ com.google.firebase.auth.UserInfo
     public abstract java.lang.String getPhoneNumber()
     public abstract boolean isEmailVerified()
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompat
-    public void <init>()
-    public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int)
-    public boolean performAction(int,int,android.os.Bundle)
-    public java.util.List findAccessibilityNodeInfosByText(java.lang.String,int)
-    public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat findFocus(int)
     public static final int HOST_VIEW_ID
 com.firebase.ui.auth.R$integer
     private void <init>()
@@ -638,8 +636,8 @@ okhttp3.OkHttpClient$Builder
     public okhttp3.OkHttpClient$Builder eventListener(okhttp3.EventListener)
     public okhttp3.OkHttpClient$Builder eventListenerFactory(okhttp3.EventListener$Factory)
     public okhttp3.OkHttpClient build()
-com.google.android.gms.auth.UserRecoverableAuthException
 com.google.android.gms.auth.api.R
+com.google.android.gms.auth.UserRecoverableAuthException
 android.support.coordinatorlayout.R$dimen
 com.google.android.gms.stats.WakeLock
 android.support.v4.provider.FontsContractCompat$4$9
@@ -946,7 +944,6 @@ com.github.mikephil.charting.buffer.AbstractBuffer
     public abstract void feed(java.lang.Object)
 com.google.firebase.auth.api.internal.zzbu
 com.google.android.gms.auth.api.accounttransfer.zza
-android.support.v4.widget.ExploreByTouchHelper$1
 android.support.v4.media.session.MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
 okhttp3.internal.http.HttpCodec
     public static final int DISCARD_STREAM_TIMEOUT_MILLIS
@@ -1013,6 +1010,8 @@ com.airbnb.lottie.PerformanceTracker
     public java.util.List getSortedRenderTimes()
 android.support.design.widget.AppBarLayout$LayoutParams$ScrollFlags
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat
+    public int getId()
+    public java.lang.CharSequence getLabel()
 com.google.android.gms.internal.ads.zzwr$zzp$zzb
 okio.BufferedSource
     public abstract boolean request(long)
@@ -1041,6 +1040,7 @@ okio.BufferedSource
 android.support.v4.media.MediaBrowserCompat$MediaBrowserImpl
 android.support.transition.ViewGroupUtils
     private void <init>()
+com.xw.repo.bubbleseekbar.R$integer
 android.support.v4.app.FragmentTabHost$SavedState
 android.support.v4.view.GestureDetectorCompat$GestureDetectorCompatImplJellybeanMr2
 com.google.android.gms.flags.zze
@@ -1667,7 +1667,6 @@ android.support.v4.view.accessibility.AccessibilityRecordCompat
     public void <init>(java.lang.Object)
     public static android.support.v4.view.accessibility.AccessibilityRecordCompat obtain(android.support.v4.view.accessibility.AccessibilityRecordCompat)
     public static android.support.v4.view.accessibility.AccessibilityRecordCompat obtain()
-    public static void setSource(android.view.accessibility.AccessibilityRecord,android.view.View,int)
     public static int getMaxScrollX(android.view.accessibility.AccessibilityRecord)
     public static int getMaxScrollY(android.view.accessibility.AccessibilityRecord)
     public java.lang.Object getImpl()
@@ -1748,6 +1747,7 @@ com.airbnb.lottie.model.content.GradientFill
     com.airbnb.lottie.model.animatable.AnimatableFloatValue getHighlightAngle()
 android.support.loader.R$layout
 com.google.firebase.auth.api.internal.zzaq
+com.xw.repo.bubbleseekbar.R$id
 com.firebase.ui.auth.ui.email.CheckEmailFragment
     public static final java.lang.String TAG
 android.support.design.widget.BottomSheetDialog$2
@@ -1917,7 +1917,6 @@ com.google.android.gms.internal.ads.zzdgz
 com.firebase.ui.auth.util.GoogleApiUtils
     private void <init>()
 android.support.v4.media.MediaBrowserCompat$MediaBrowserImplApi21
-android.support.design.chip.Chip$1
 com.google.gson.internal.bind.TypeAdapters$31
 android.support.v4.media.session.IMediaSession$Stub$Proxy
     public java.lang.String getInterfaceDescriptor()
@@ -2033,6 +2032,9 @@ com.google.android.gms.internal.firebase_auth.zziq
 com.google.android.gms.common.internal.SignInButtonImpl
     public final void configure(android.content.res.Resources,com.google.android.gms.common.internal.SignInButtonConfig)
 android.support.v4.provider.FontsContractCompat$FontRequestCallback$FontRequestFailReason
+com.xw.repo.BubbleUtils
+    void <init>()
+    private static final java.lang.String KEY_MIUI_MANE
 com.gun0912.tedpermission.TedPermissionResult
 com.cna.mineru.cna.R$styleable
 com.google.android.gms.measurement.api.AppMeasurementSdk$OnEventListener
@@ -3074,6 +3076,7 @@ android.support.v7.widget.AppCompatTextViewAutoSizeHelper
     private static final int DEFAULT_AUTO_SIZE_GRANULARITY_IN_PX
     static final float UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE
     private static final int VERY_WIDE
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment
 android.support.v7.widget.ListPopupWindow$1
 android.support.compat.R$attr
     private void <init>()
@@ -3088,7 +3091,6 @@ com.github.mikephil.charting.formatter.IValueFormatter
     public abstract java.lang.String getFormattedValue(float,com.github.mikephil.charting.data.Entry,int,com.github.mikephil.charting.utils.ViewPortHandler)
 android.support.v4.view.ViewParentCompat
     private void <init>()
-    public static boolean requestSendAccessibilityEvent(android.view.ViewParent,android.view.View,android.view.accessibility.AccessibilityEvent)
     public static boolean onStartNestedScroll(android.view.ViewParent,android.view.View,android.view.View,int)
     public static void onNestedScrollAccepted(android.view.ViewParent,android.view.View,android.view.View,int)
     public static void onStopNestedScroll(android.view.ViewParent,android.view.View)
@@ -3138,6 +3140,7 @@ com.github.mikephil.charting.charts.ScatterChart
 android.support.v4.media.MediaSessionManager$RemoteUserInfo
 androidx.annotation.ColorInt
 android.support.v4.provider.FontsContractCompat$4$7
+com.xw.repo.BubbleSeekBar$TextPosition
 com.google.android.gms.internal.firebase_auth.zzfi
 com.google.android.gms.internal.ads.zzagj
     public final com.google.android.gms.internal.ads.zzael zzb(android.content.Context,android.widget.FrameLayout,android.widget.FrameLayout)
@@ -3193,6 +3196,7 @@ android.support.v7.app.ActionBar$LayoutParams
 android.support.v4.util.ContainerHelpers
     private void <init>()
 com.google.android.gms.internal.base.zah
+com.xw.repo.bubbleseekbar.R$string
 com.google.android.gms.internal.firebase_auth.zzgl
 android.support.v4.media.MediaBrowserCompat$MediaBrowserImplBase$MediaServiceConnection$1
 com.google.firebase.iid.zzax
@@ -3228,9 +3232,12 @@ android.support.v4.app.SupportActivity$ExtraData
 android.support.v13.view.DragStartHelper
 android.support.design.shape.RoundedCornerTreatment
 android.support.design.resources.TextAppearanceConfig
+    public void <init>()
+    public static void setShouldLoadFontSynchronously(boolean)
 com.google.android.gms.common.config.zzc
 android.support.v4.view.PagerTabStrip$1
 android.support.v4.text.BidiFormatter$DirectionalityEstimator
+    private static final int DIR_TYPE_CACHE_SIZE
 android.support.v7.widget.ViewBoundsCheck$Callback
     public abstract int getChildCount()
     public abstract android.view.View getParent()
@@ -3275,6 +3282,7 @@ android.support.v4.graphics.TypefaceCompatBaseImpl
     private static final java.lang.String TAG
     private static final java.lang.String CACHE_FILE_PREFIX
 android.support.customview.R$color
+com.xw.repo.bubbleseekbar.BuildConfig
 com.github.mikephil.charting.components.YAxis
     public void <init>()
     public void setMinWidth(float)
@@ -3730,6 +3738,7 @@ okhttp3.internal.http2.Settings
     static final int COUNT
 android.support.v4.provider.FontsContractCompat$4$4
 com.google.firebase.analytics.zza
+com.xw.repo.bubbleseekbar.R$dimen
 androidx.browser.browseractions.BrowserActionsIntent$1
 android.support.constraint.solver.widgets.ResolutionNode
     public void invalidateAnchors()
@@ -3885,6 +3894,7 @@ okhttp3.MultipartBody$Part
     public okhttp3.RequestBody body()
 com.airbnb.lottie.parser.AnimatablePathValueParser
     private void <init>()
+com.xw.repo.bubbleseekbar.R$bool
 com.google.android.gms.internal.ads.zzaun
     public void <init>(com.google.android.gms.ads.rewarded.ServerSideVerificationOptions)
 okio.SegmentedByteString
@@ -4129,6 +4139,7 @@ android.support.v4.media.MediaMetadataCompat
     static final int METADATA_TYPE_RATING
 android.support.v4.widget.PopupMenuCompat
 android.support.transition.R$layout
+com.xw.repo.bubbleseekbar.R$attr
 com.google.android.gms.internal.firebase_auth.zziy
 com.google.android.gms.common.util.NumberUtils
 com.github.mikephil.charting.listener.BarLineChartTouchListener
@@ -4172,8 +4183,6 @@ android.support.v4.content.res.ResourcesCompat
     public static android.graphics.drawable.Drawable getDrawableForDensity(android.content.res.Resources,int,int,android.content.res.Resources$Theme)
     public static int getColor(android.content.res.Resources,int,android.content.res.Resources$Theme)
     public static android.content.res.ColorStateList getColorStateList(android.content.res.Resources,int,android.content.res.Resources$Theme)
-    public static android.graphics.Typeface getFont(android.content.Context,int)
-    public static void getFont(android.content.Context,int,android.support.v4.content.res.ResourcesCompat$FontCallback,android.os.Handler)
     private void <init>()
     private static final java.lang.String TAG
 android.arch.lifecycle.ViewModelStores
@@ -4256,7 +4265,6 @@ androidx.annotation.TransitionRes
 android.support.fragment.R$color
 com.gun0912.tedpermission.R$style
     private void <init>()
-android.support.design.chip.ChipDrawable$1
 android.support.graphics.drawable.AndroidResources
     private void <init>()
     static final int STYLEABLE_VECTOR_DRAWABLE_ALPHA
@@ -4386,6 +4394,16 @@ android.support.v4.text.TextDirectionHeuristicsCompat
     private static final int STATE_UNKNOWN
 android.support.v7.widget.LinearLayoutCompat$OrientationMode
 android.support.design.chip.Chip
+    public boolean isChipIconVisible()
+    public boolean isChipIconEnabled()
+    public boolean isCloseIconVisible()
+    public boolean isCloseIconEnabled()
+    public boolean isCheckable()
+    public boolean isCheckedIconVisible()
+    public boolean isCheckedIconEnabled()
+    private static final java.lang.String TAG
+    private static final int CLOSE_ICON_VIRTUAL_ID
+    private static final java.lang.String NAMESPACE_ANDROID
 android.support.v7.widget.TintTypedArray
     public int length()
     public int getIndexCount()
@@ -4573,6 +4591,22 @@ android.support.v4.widget.DrawerLayout$1
 com.cna.mineru.cna.R$interpolator
 android.support.design.widget.BaseTransientBottomBar$3
 android.support.design.chip.ChipDrawable
+    public static android.support.design.chip.ChipDrawable createFromResource(android.content.Context,int)
+    public boolean getUseCompatRipple()
+    public void getChipTouchBounds(android.graphics.RectF)
+    public void setTextResource(int)
+    public boolean isChipIconEnabled()
+    public void setChipIconEnabledResource(int)
+    public void setChipIconEnabled(boolean)
+    public boolean isCloseIconEnabled()
+    public void setCloseIconEnabledResource(int)
+    public void setCloseIconEnabled(boolean)
+    public boolean isCheckedIconEnabled()
+    public void setCheckedIconEnabledResource(int)
+    public void setCheckedIconEnabled(boolean)
+    public int getMaxWidth()
+    private static final boolean DEBUG
+    private static final java.lang.String NAMESPACE_APP
 okhttp3.internal.http2.Http2Stream
     public okhttp3.internal.http2.Http2Connection getConnection()
     public java.util.List getRequestHeaders()
@@ -4951,7 +4985,6 @@ okhttp3.OkHttpClient$1
     public okhttp3.internal.connection.StreamAllocation streamAllocation(okhttp3.Call)
     public okhttp3.Call newWebSocketCall(okhttp3.OkHttpClient,okhttp3.Request)
 com.google.android.gms.auth.api.accounttransfer.AccountTransferClient$zza
-android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16
 com.google.android.gms.ads.search.DynamicHeightSearchAdRequest
 com.google.android.gms.internal.firebase_auth.zzan
 com.google.firebase.auth.ActionCodeResult
@@ -5102,6 +5135,10 @@ com.google.android.gms.internal.firebase_auth.zziv
 okio.Utf8
 okhttp3.internal.ws.RealWebSocket$CancelRunnable
 android.support.v4.text.BidiFormatter$Builder
+    public void <init>(boolean)
+    public void <init>(java.util.Locale)
+    public android.support.v4.text.BidiFormatter$Builder stereoReset(boolean)
+    public android.support.v4.text.BidiFormatter$Builder setTextDirectionHeuristic(android.support.v4.text.TextDirectionHeuristicCompat)
 android.support.design.chip.ChipGroup$OnCheckedChangeListener
 com.google.android.gms.common.internal.safeparcel.SafeParcelWriter
     private void <init>()
@@ -5275,6 +5312,28 @@ android.support.v4.app.SupportActivity
     public void putExtraData(android.support.v4.app.SupportActivity$ExtraData)
     public android.support.v4.app.SupportActivity$ExtraData getExtraData(java.lang.Class)
 android.support.v4.text.BidiFormatter
+    public static android.support.v4.text.BidiFormatter getInstance(boolean)
+    public static android.support.v4.text.BidiFormatter getInstance(java.util.Locale)
+    public boolean isRtlContext()
+    public boolean isRtl(java.lang.String)
+    public boolean isRtl(java.lang.CharSequence)
+    public java.lang.String unicodeWrap(java.lang.String,android.support.v4.text.TextDirectionHeuristicCompat,boolean)
+    public java.lang.String unicodeWrap(java.lang.String,android.support.v4.text.TextDirectionHeuristicCompat)
+    public java.lang.CharSequence unicodeWrap(java.lang.CharSequence,android.support.v4.text.TextDirectionHeuristicCompat)
+    public java.lang.String unicodeWrap(java.lang.String,boolean)
+    public java.lang.CharSequence unicodeWrap(java.lang.CharSequence,boolean)
+    public java.lang.String unicodeWrap(java.lang.String)
+    private static final char LRE
+    private static final char RLE
+    private static final char PDF
+    private static final char LRM
+    private static final char RLM
+    private static final java.lang.String EMPTY_STRING
+    private static final int FLAG_STEREO_RESET
+    private static final int DEFAULT_FLAGS
+    private static final int DIR_LTR
+    private static final int DIR_UNKNOWN
+    private static final int DIR_RTL
 com.google.android.gms.internal.firebase_auth.zzcc
 com.firebase.ui.auth.AuthUI$IdpConfig$GitHubBuilder
 com.google.android.gms.internal.ads.zzaup
@@ -5403,6 +5462,7 @@ android.support.v4.app.ServiceCompat
 androidx.versionedparcelable.ParcelImpl
     public void <init>(androidx.versionedparcelable.VersionedParcelable)
     public androidx.versionedparcelable.VersionedParcelable getVersionedParcel()
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$1
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat
 com.google.android.gms.internal.auth.zzaa
 com.google.android.gms.gass.R
@@ -5424,24 +5484,17 @@ android.arch.lifecycle.LiveData$AlwaysActiveObserver
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
     static android.support.v4.view.accessibility.AccessibilityNodeInfoCompat wrapNonNullInstance(java.lang.Object)
     public void <init>(java.lang.Object)
-    public static android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain(android.view.View)
     public static android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain(android.view.View,int)
-    public static android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain()
-    public static android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat)
     private boolean getBooleanProperty(int)
     public java.lang.Object getInfo()
     public void setSource(android.view.View)
-    public void setSource(android.view.View,int)
     public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat findFocus(int)
     public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat focusSearch(int)
     public int getWindowId()
-    public int getChildCount()
     public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat getChild(int)
     public void addChild(android.view.View)
-    public void addChild(android.view.View,int)
     public boolean removeChild(android.view.View)
     public boolean removeChild(android.view.View,int)
-    public void addAction(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat)
     public boolean removeAction(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat)
     public boolean performAction(int)
     public boolean performAction(int,android.os.Bundle)
@@ -5449,26 +5502,14 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
     public int getMovementGranularities()
     public java.util.List findAccessibilityNodeInfosByText(java.lang.String)
     public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat getParent()
-    public void setParent(android.view.View)
-    public void setParent(android.view.View,int)
-    public void setBoundsInParent(android.graphics.Rect)
-    public void setBoundsInScreen(android.graphics.Rect)
-    public void setFocusable(boolean)
-    public void setFocused(boolean)
     public boolean isVisibleToUser()
-    public void setVisibleToUser(boolean)
     public boolean isAccessibilityFocused()
-    public void setAccessibilityFocused(boolean)
     public void setSelected(boolean)
     public void setClickable(boolean)
     public void setLongClickable(boolean)
-    public void setEnabled(boolean)
     public void setPassword(boolean)
     public boolean isImportantForAccessibility()
     public void setImportantForAccessibility(boolean)
-    public void setPackageName(java.lang.CharSequence)
-    public void setContentDescription(java.lang.CharSequence)
-    public void recycle()
     public void setViewIdResourceName(java.lang.String)
     public int getLiveRegion()
     public void setLiveRegion(int)
@@ -5990,7 +6031,7 @@ com.google.android.gms.auth.api.AuthProxy
 com.google.firebase.auth.api.internal.zzac
 com.google.android.gms.internal.ads.zzaep
     public final android.os.IBinder zza(com.google.android.gms.dynamic.IObjectWrapper,com.google.android.gms.dynamic.IObjectWrapper,com.google.android.gms.dynamic.IObjectWrapper,int)
-android.support.design.chip.Chip$ChipTouchHelper
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$1
 com.airbnb.lottie.parser.CircleShapeParser
     private void <init>()
 android.support.annotation.StringRes
@@ -6053,7 +6094,6 @@ com.google.android.gms.internal.firebase_auth.zzej
 android.support.v7.app.AppCompatDialogFragment
 android.support.customtabs.CustomTabsServiceConnection
 com.github.mikephil.charting.data.LineDataSet
-android.support.v4.widget.ExploreByTouchHelper$MyNodeProvider
 okhttp3.internal.http1.Http1Codec$ChunkedSource
     private static final long NO_CHUNK_YET
 okhttp3.Cache$1
@@ -6182,6 +6222,8 @@ okhttp3.internal.http2.Hpack$Writer
     private static final int SETTINGS_HEADER_TABLE_SIZE
     private static final int SETTINGS_HEADER_TABLE_SIZE_LIMIT
 android.support.design.canvas.CanvasCompat
+    private void <init>()
+    public static int saveLayerAlpha(android.graphics.Canvas,android.graphics.RectF,int)
 com.google.android.gms.common.api.internal.zaag
     public boolean hasConnectedApi(com.google.android.gms.common.api.Api)
     public com.google.android.gms.common.ConnectionResult getConnectionResult(com.google.android.gms.common.api.Api)
@@ -6236,7 +6278,6 @@ com.google.android.gms.internal.ads.zzbp$zzc$zza
 com.airbnb.lottie.animation.content.PolystarContent
     private static final float POLYSTAR_MAGIC_NUMBER
     private static final float POLYGON_MAGIC_NUMBER
-android.support.design.chip.ChipDrawable$Delegate
 com.google.android.gms.internal.ads.zzwr$zzo
 android.support.constraint.Barrier
     public static final int LEFT
@@ -6306,6 +6347,7 @@ com.google.android.gms.internal.ads.zzdh
     public final android.net.Uri zza(android.net.Uri,android.content.Context)
 android.support.v7.util.SortedList$Callback
 android.support.v7.app.ActionBarDrawerToggleHoneycomb$SetIndicatorInfo
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$2
 com.google.android.gms.internal.common.zzc
     public static void zzb(android.os.Parcel,android.os.Parcelable)
 android.support.v4.media.MediaMetadataCompat$BitmapKey
@@ -6692,7 +6734,6 @@ com.google.android.gms.internal.firebase_auth.zzdm
 com.google.android.gms.measurement.internal.zzdl
 com.google.android.gms.internal.ads.zzaui
 com.airbnb.lottie.animation.keyframe.package-info
-android.support.v4.widget.FocusStrategy$BoundsAdapter
 com.google.android.gms.internal.firebase_auth.zzlg$zzb$zza
 com.google.android.gms.internal.firebase_auth.zzp$zzs$zza
 com.google.android.gms.common.internal.Objects
@@ -6707,6 +6748,7 @@ okhttp3.internal.Internal
 android.support.v4.media.MediaBrowserServiceCompatApi26$ResultWrapper
 com.google.android.gms.internal.auth-api-phone.zza
 com.google.android.gms.flags.R
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2
 android.support.v4.text.TextUtilsCompat
     public static java.lang.String htmlEncode(java.lang.String)
     private void <init>()
@@ -7152,6 +7194,8 @@ android.support.transition.GhostViewImpl
 com.google.firebase.auth.internal.zzm
     public static com.google.firebase.auth.FirebaseUser zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser)
     public boolean isEmailVerified()
+com.xw.repo.BubbleSeekBar
+    static final int NONE
 com.google.firebase.measurement.R
 androidx.annotation.HalfFloat
 okio.Okio$3
@@ -7333,6 +7377,7 @@ com.google.android.gms.internal.ads.zzauh
 com.google.android.gms.ads.mediation.MediationInterstitialAdCallback
 com.google.android.gms.internal.auth-api-phone.zzb
 androidx.annotation.Nullable
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$3
 com.firebase.ui.auth.data.model.User
     public java.lang.String getPhoneNumber()
 android.support.v4.media.session.MediaSessionCompat$MediaSessionImplApi18
@@ -7412,6 +7457,7 @@ android.support.v4.os.LocaleListCompat$LocaleListCompatBaseImpl
 okio.Pipe$PipeSink
 com.google.firebase.auth.api.internal.zze
 com.google.android.gms.common.api.BooleanResult
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$ImageAdapter
 android.support.customtabs.CustomTabsSessionToken
 android.support.v7.viewpager.R$integer
 com.google.android.gms.ads.rewarded.RewardItem
@@ -8010,6 +8056,7 @@ com.firebase.ui.auth.R$drawable
 android.support.design.internal.BottomNavigationPresenter
     public android.support.v7.view.menu.MenuView getMenuView(android.view.ViewGroup)
     public void setCallback(android.support.v7.view.menu.MenuPresenter$Callback)
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4
 com.google.firebase.auth.api.internal.zzh
 android.support.transition.ObjectAnimatorUtils
     private void <init>()
@@ -8171,6 +8218,7 @@ com.google.android.gms.internal.firebase_auth.zzp$zzk
 com.google.android.gms.internal.firebase_auth.zzfq
 android.support.v7.widget.PopupMenu$OnDismissListener
 android.support.v4.widget.FocusStrategy
+    private void <init>()
 okio.Pipe$PipeSource
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$2
 com.google.android.gms.common.util.JsonUtils
@@ -8202,7 +8250,8 @@ com.firebase.ui.auth.ui.phone.SubmitConfirmationCodeFragment
 com.google.android.gms.internal.ads.zzags
 androidx.versionedparcelable.VersionedParcel$ParcelException
 android.support.design.widget.BaseTransientBottomBar$Duration
-android.support.design.resources.TextAppearance$1
+com.xw.repo.bubbleseekbar.R$color
+    private void <init>()
 com.google.android.gms.internal.firebase_auth.zzgt
 android.support.design.R$string
     private void <init>()
@@ -8604,7 +8653,6 @@ android.support.v4.os.LocaleListHelper
 android.support.v7.cardview.R$color
 android.support.v4.widget.SwipeRefreshLayout$7
 android.support.v7.viewpager.R$color
-android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19
 com.google.android.gms.internal.measurement.zzss
 com.google.android.gms.internal.firebase_auth.zzhg
 com.google.android.gms.ads.BaseAdView
@@ -8699,6 +8747,7 @@ com.google.gson.internal.bind.TypeAdapters$27
     private static final java.lang.String HOUR_OF_DAY
     private static final java.lang.String MINUTE
     private static final java.lang.String SECOND
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5
 com.airbnb.lottie.animation.content.ShapeContent
     public java.lang.String getName()
 com.google.gson.internal.LinkedHashTreeMap$1
@@ -9017,6 +9066,8 @@ android.support.v7.widget.SearchView
     static final boolean DBG
     static final java.lang.String LOG_TAG
     private static final java.lang.String IME_OPTION_NO_MICROPHONE
+com.xw.repo.bubbleseekbar.R$styleable
+    private void <init>()
 android.support.v4.media.AudioAttributesCompat
     void <init>(android.support.v4.media.AudioAttributesImpl)
     public static android.support.v4.media.AudioAttributesCompat wrap(java.lang.Object)
@@ -9095,6 +9146,7 @@ android.support.v7.widget.helper.ItemTouchHelper$Callback$1
 com.google.ads.mediation.customevent.CustomEventInterstitialListener
     public abstract void onReceivedAd()
 android.support.v4.media.MediaBrowserCompatApi21$SubscriptionCallbackProxy
+com.xw.repo.bubbleseekbar.R$layout
 android.support.v4.media.app.NotificationCompat$DecoratedMediaCustomViewStyle
 com.google.android.gms.common.internal.safeparcel.SafeParcelableSerializer
     public void <init>()
@@ -9377,6 +9429,7 @@ com.github.mikephil.charting.formatter.DefaultValueFormatter
     public int getDecimalDigits()
 com.google.android.gms.internal.firebase_auth.zzet
 android.support.transition.Styleable$Fade
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$6
 android.support.v7.graphics.drawable.DrawableContainer
     public void setEnterFadeDuration(int)
     public void setExitFadeDuration(int)
@@ -9632,6 +9685,7 @@ android.support.v4.media.session.MediaSessionCompat$Callback$StubApi23
 com.google.android.gms.common.AccountPicker
 android.support.design.internal.NavigationMenuPresenter$1
 android.support.annotation.FractionRes
+com.xw.repo.bubbleseekbar.R
 android.support.v7.appcompat.R
 com.google.android.gms.actions.ReserveIntents
 android.support.graphics.drawable.R$id
@@ -9772,6 +9826,8 @@ android.support.constraint.solver.widgets.Barrier
     public static final int RIGHT
     public static final int TOP
     public static final int BOTTOM
+com.cna.mineru.cna.Adapter.ExamChipAdapter
+    public void addItem(com.cna.mineru.cna.DTO.ChipData)
 com.google.android.gms.internal.auth-api.zzx
     public final void zzc(com.google.android.gms.internal.auth-api.zzu)
 com.google.android.gms.auth.api.accounttransfer.AuthenticatorTransferCompletionStatus
@@ -9859,6 +9915,7 @@ okhttp3.internal.Util
     public static int checkDuration(java.lang.String,long,java.util.concurrent.TimeUnit)
 com.google.android.gms.common.providers.PooledExecutorsProvider
 com.google.android.gms.internal.firebase_auth.zzgz
+com.xw.repo.bubbleseekbar.R$anim
 android.support.v4.view.accessibility.AccessibilityManagerCompat$AccessibilityStateChangeListener
 android.support.v4.media.MediaBrowserCompat$MediaBrowserImplBase$2
 com.google.android.gms.common.data.zaa
@@ -9972,8 +10029,6 @@ com.google.android.gms.common.config.GservicesValue$zza
 com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdListener
     public abstract void onInitializationFailed(com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdAdapter,int)
     public abstract void onAdClicked(com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdAdapter)
-android.support.v7.widget.AppCompatCheckBox
-    public void <init>(android.content.Context)
 com.google.android.gms.internal.ads.zzape
     private final com.google.android.gms.ads.mediation.MediationBannerAdCallback zza(com.google.android.gms.ads.mediation.MediationBannerAd)
     public final synthetic java.lang.Object onSuccess(java.lang.Object)
@@ -10028,6 +10083,7 @@ com.github.mikephil.charting.utils.Transformer
     public android.graphics.Matrix getOffsetMatrix()
     public android.graphics.Matrix getValueToPixelMatrix()
     public android.graphics.Matrix getPixelToValueMatrix()
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$7
 com.google.android.gms.internal.ads.zzdry$zzb$zzi$zza
 com.google.gson.JsonStreamParser
 com.cna.mineru.cna.Adapter.RcExamAdapter
@@ -10155,6 +10211,7 @@ com.google.android.gms.internal.firebase_auth.zzkw
 com.google.firebase.auth.api.internal.zzdw
 android.support.design.widget.BottomSheetDialog
 android.support.design.drawable.DrawableUtils
+    private void <init>()
 androidx.annotation.PluralsRes
 android.support.design.widget.BottomSheetDialogFragment
 com.google.firebase.components.Dependency
@@ -10282,6 +10339,7 @@ com.google.android.gms.internal.ads.zzq
     public void <init>()
 okio.GzipSink
 com.google.android.gms.internal.auth.zzaw
+com.xw.repo.BubbleSeekBar$OnProgressChangedListenerAdapter
 android.support.transition.Scene
     public static android.support.transition.Scene getSceneForLayout(android.view.ViewGroup,int,android.content.Context)
     public void <init>(android.view.ViewGroup)
@@ -10309,7 +10367,6 @@ android.support.v4.util.SparseArrayCompat
     public void putAll(android.support.v4.util.SparseArrayCompat)
     public boolean isEmpty()
     public void setValueAt(int,java.lang.Object)
-    public int indexOfValue(java.lang.Object)
     public boolean containsKey(int)
     public boolean containsValue(java.lang.Object)
 android.support.v4.media.session.MediaSessionCompat$QueueItem
@@ -10355,6 +10412,15 @@ android.support.v4.util.Preconditions
     private void <init>()
 android.support.customtabs.PostMessageService
 android.support.v4.widget.ExploreByTouchHelper
+    public final int getAccessibilityFocusedVirtualViewId()
+    public final int getKeyboardFocusedVirtualViewId()
+    public final void invalidateRoot()
+    public final void invalidateVirtualView(int)
+    public final void invalidateVirtualView(int,int)
+    public int getFocusedVirtualView()
+    public static final int INVALID_ID
+    public static final int HOST_ID
+    private static final java.lang.String DEFAULT_CLASS_NAME
 com.github.mikephil.charting.formatter.PercentFormatter
 com.google.android.gms.common.api.OptionalPendingResult
 android.arch.lifecycle.ComputableLiveData
@@ -10362,7 +10428,6 @@ androidx.versionedparcelable.R
 com.google.gson.internal.LinkedHashTreeMap
 com.google.android.gms.internal.firebase_auth.zzjb
 com.google.android.gms.common.server.response.zaf
-android.support.design.chip.Chip$2
 android.support.v7.widget.RecyclerView$AdapterDataObserver
     public void onChanged()
     public void onItemRangeChanged(int,int)
@@ -10439,12 +10504,10 @@ android.support.v4.view.ViewCompat
     public static void setOverScrollMode(android.view.View,int)
     public static void onPopulateAccessibilityEvent(android.view.View,android.view.accessibility.AccessibilityEvent)
     public static void onInitializeAccessibilityEvent(android.view.View,android.view.accessibility.AccessibilityEvent)
-    public static void onInitializeAccessibilityNodeInfo(android.view.View,android.support.v4.view.accessibility.AccessibilityNodeInfoCompat)
     public static varargs void setAutofillHints(android.view.View,java.lang.String[])
     public static boolean isImportantForAutofill(android.view.View)
     public static void postInvalidateOnAnimation(android.view.View,int,int,int,int)
     public static boolean isImportantForAccessibility(android.view.View)
-    public static boolean performAccessibilityAction(android.view.View,int,android.os.Bundle)
     public static android.support.v4.view.accessibility.AccessibilityNodeProviderCompat getAccessibilityNodeProvider(android.view.View)
     public static float getAlpha(android.view.View)
     public static void setLayerType(android.view.View,int,android.graphics.Paint)
@@ -10791,6 +10854,7 @@ com.google.android.gms.measurement.internal.zzda
     public final void zza(com.google.android.gms.measurement.internal.zzcx)
     public final void zza(com.google.android.gms.measurement.internal.zzcy)
     public final void zzb(com.google.android.gms.measurement.internal.zzcy)
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8
 android.support.design.widget.AppBarLayout$Behavior
     public synthetic bridge void setDragCallback(android.support.design.widget.AppBarLayout$BaseBehavior$BaseDragCallback)
     public synthetic bridge int getLeftAndRightOffset()
@@ -10880,8 +10944,6 @@ com.google.android.gms.internal.firebase_auth.zzp$zzo
 android.support.drawerlayout.R$styleable
 android.support.design.resources.MaterialResources
     private void <init>()
-    public static android.support.design.resources.TextAppearance getTextAppearance(android.content.Context,android.content.res.TypedArray,int)
-    static int getIndexWithValue(android.content.res.TypedArray,int,int)
 android.support.v7.util.TileList$Tile
 com.google.android.gms.tasks.Tasks
     public static com.google.android.gms.tasks.Task forCanceled()
@@ -11109,6 +11171,73 @@ com.google.android.gms.ads.impl.R
 com.google.android.gms.internal.firebase_auth.zzp$zzm$zza
 androidx.browser.browseractions.BrowserActionItem
 android.support.v4.media.MediaSessionManagerImplBase
+com.xw.repo.BubbleConfigBuilder
+    public com.xw.repo.BubbleConfigBuilder progress(float)
+    public com.xw.repo.BubbleConfigBuilder floatType()
+    public com.xw.repo.BubbleConfigBuilder trackSize(int)
+    public com.xw.repo.BubbleConfigBuilder secondTrackSize(int)
+    public com.xw.repo.BubbleConfigBuilder thumbRadius(int)
+    public com.xw.repo.BubbleConfigBuilder thumbRadiusOnDragging(int)
+    public com.xw.repo.BubbleConfigBuilder trackColor(int)
+    public com.xw.repo.BubbleConfigBuilder secondTrackColor(int)
+    public com.xw.repo.BubbleConfigBuilder thumbColor(int)
+    public com.xw.repo.BubbleConfigBuilder sectionCount(int)
+    public com.xw.repo.BubbleConfigBuilder showSectionMark()
+    public com.xw.repo.BubbleConfigBuilder autoAdjustSectionMark()
+    public com.xw.repo.BubbleConfigBuilder showSectionText()
+    public com.xw.repo.BubbleConfigBuilder sectionTextSize(int)
+    public com.xw.repo.BubbleConfigBuilder sectionTextColor(int)
+    public com.xw.repo.BubbleConfigBuilder sectionTextPosition(int)
+    public com.xw.repo.BubbleConfigBuilder sectionTextInterval(int)
+    public com.xw.repo.BubbleConfigBuilder showThumbText()
+    public com.xw.repo.BubbleConfigBuilder thumbTextSize(int)
+    public com.xw.repo.BubbleConfigBuilder thumbTextColor(int)
+    public com.xw.repo.BubbleConfigBuilder showProgressInFloat()
+    public com.xw.repo.BubbleConfigBuilder animDuration(long)
+    public com.xw.repo.BubbleConfigBuilder touchToSeek()
+    public com.xw.repo.BubbleConfigBuilder seekStepSection()
+    public com.xw.repo.BubbleConfigBuilder seekBySection()
+    public com.xw.repo.BubbleConfigBuilder bubbleColor(int)
+    public com.xw.repo.BubbleConfigBuilder bubbleTextSize(int)
+    public com.xw.repo.BubbleConfigBuilder bubbleTextColor(int)
+    public com.xw.repo.BubbleConfigBuilder alwaysShowBubble()
+    public com.xw.repo.BubbleConfigBuilder alwaysShowBubbleDelay(long)
+    public com.xw.repo.BubbleConfigBuilder hideBubble()
+    public com.xw.repo.BubbleConfigBuilder rtl(boolean)
+    public float getMin()
+    public float getMax()
+    public float getProgress()
+    public boolean isFloatType()
+    public int getTrackSize()
+    public int getSecondTrackSize()
+    public int getThumbRadius()
+    public int getThumbRadiusOnDragging()
+    public int getTrackColor()
+    public int getSecondTrackColor()
+    public int getThumbColor()
+    public int getSectionCount()
+    public boolean isShowSectionMark()
+    public boolean isAutoAdjustSectionMark()
+    public boolean isShowSectionText()
+    public int getSectionTextSize()
+    public int getSectionTextColor()
+    public int getSectionTextPosition()
+    public int getSectionTextInterval()
+    public boolean isShowThumbText()
+    public int getThumbTextSize()
+    public int getThumbTextColor()
+    public boolean isShowProgressInFloat()
+    public long getAnimDuration()
+    public boolean isTouchToSeek()
+    public boolean isSeekStepSection()
+    public boolean isSeekBySection()
+    public int getBubbleColor()
+    public int getBubbleTextSize()
+    public int getBubbleTextColor()
+    public boolean isAlwaysShowBubble()
+    public long getAlwaysShowBubbleDelay()
+    public boolean isHideBubble()
+    public boolean isRtl()
 com.gun0912.tedpermission.R$integer
 androidx.annotation.Dimension
 com.github.mikephil.charting.components.LimitLine
@@ -11195,7 +11324,6 @@ android.support.design.circularreveal.cardview.CircularRevealCardView
 com.cna.mineru.cna.SettingActivity
 com.airbnb.lottie.parser.FontCharacterParser
     private void <init>()
-android.support.v4.widget.FocusStrategy$CollectionAdapter
 com.google.gson.JsonIOException
     public void <init>(java.lang.String,java.lang.Throwable)
     private static final long serialVersionUID
@@ -11384,7 +11512,6 @@ com.google.firebase.FirebaseOptions
     private static final java.lang.String STORAGE_BUCKET_RESOURCE_NAME
     private static final java.lang.String PROJECT_ID_RESOURCE_NAME
 android.support.v4.graphics.drawable.DrawableCompat
-    public static android.graphics.drawable.Drawable unwrap(android.graphics.drawable.Drawable)
     private void <init>()
     private static final java.lang.String TAG
 com.google.android.gms.ads.mediation.MediationNativeListener
@@ -11714,6 +11841,7 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelReader
 com.google.android.gms.internal.auth.zzl
 android.support.v4.R$id
 com.google.android.gms.internal.ads.zzaod
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10
 com.google.android.gms.internal.firebase_auth.zzfe
     public final synthetic com.google.android.gms.internal.firebase_auth.zzjc zzeq()
 android.arch.lifecycle.extensions.R$styleable
@@ -12344,6 +12472,7 @@ com.google.android.gms.internal.firebase_auth.zzin
 com.google.android.gms.internal.firebase_auth.zzp$zza$zza
 com.google.android.gms.common.api.internal.PendingResultFacade
 com.google.android.gms.internal.ads.zzaoe
+com.xw.repo.bubbleseekbar.R$style
 android.support.v4.view.PagerTitleStrip$PageListener
 com.google.android.gms.internal.ads.zzaph
     private final com.google.android.gms.ads.mediation.MediationNativeAdCallback zza(com.google.android.gms.ads.mediation.UnifiedNativeAdMapper)
@@ -12431,6 +12560,7 @@ com.google.android.gms.ads.AdRequest
     public static final java.lang.String MAX_AD_CONTENT_RATING_MA
     public static final int MAX_CONTENT_URL_LENGTH
     public static final java.lang.String DEVICE_ID_EMULATOR
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$9
 com.github.mikephil.charting.interfaces.datasets.ICandleDataSet
     public abstract float getBarSpace()
     public abstract boolean getShowCandleBar()

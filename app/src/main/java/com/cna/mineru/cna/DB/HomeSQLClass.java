@@ -142,6 +142,7 @@ public class HomeSQLClass extends AppCompatActivity {
         }
         return list;
     }
+
     public int getCount(){
         int result = 0;
         if(sqliteDb != null) {

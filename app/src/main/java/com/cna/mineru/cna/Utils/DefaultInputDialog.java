@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,7 +45,7 @@ public class DefaultInputDialog extends DialogFragment {
         ArrayList<ListViewBtnItem> items = new ArrayList<>();
         loadItemsFromDB(items);
 
-        mAdapater = new DefaultInputAdapter(dig.getContext(), R.layout.item2, items) ;
+        mAdapater = new DefaultInputAdapter(dig.getContext(), R.layout.default_input_item, items) ;
         lv.setAdapter(mAdapater);
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {

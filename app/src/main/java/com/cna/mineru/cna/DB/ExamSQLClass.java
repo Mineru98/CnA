@@ -180,8 +180,8 @@ public class ExamSQLClass extends AppCompatActivity {
             } else {
                 list = homeSQLClass.getList(exam_count);
                 for (int i = 0; i < exam_count; i++) {
-                    Log.d("TAG","Mineru NoteId " + i + " : " + list.get(i).NoteId);
-                    Log.d("TAG","Mineru Title " + i + " : "  + list.get(i).Title);
+//                    Log.d("TAG","Mineru NoteId " + i + " : " + list.get(i).NoteId);
+//                    Log.d("TAG","Mineru Title " + i + " : "  + list.get(i).Title);
                     String sqlInsert = "";
                     if (i == 0) {
                         sqlInsert = "INSERT INTO Exam " +

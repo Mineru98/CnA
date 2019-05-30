@@ -232,6 +232,9 @@
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_guide.xml:2
 -keep class android.support.constraint.ConstraintLayout { <init>(...); }
 
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\item.xml:6
+-keep class android.support.design.chip.Chip { <init>(...); }
+
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\980d04331ae55538eb57904f2355bf37\res\layout\design_bottom_navigation_item.xml:27
 -keep class android.support.design.internal.BaselineLayout { <init>(...); }
 
@@ -281,6 +284,7 @@
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_check_email_layout.xml:24
 -keep class android.support.design.widget.TextInputLayout { <init>(...); }
 
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam2.xml:2
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\7ceaf6db616f08ded5772f588c0fbeca\res\layout\abc_alert_dialog_material.xml:41
 -keep class android.support.v4.widget.NestedScrollView { <init>(...); }
 
@@ -409,6 +413,9 @@
 
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:97
 -keep class com.google.android.gms.common.SignInButton { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam2.xml:93
+-keep class com.xw.repo.BubbleSeekBar { <init>(...); }
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout-land\fui_auth_method_picker_layout.xml:12
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_welcome_back_password_prompt_layout.xml:10

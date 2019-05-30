@@ -1100,6 +1100,344 @@ android.support.design.button.MaterialButtonHelper -> android.support.design.but
     340:348:void updateStroke() -> updateStroke
     240:246:void updateTintAndTintModeLollipop() -> updateTintAndTintModeLollipop
     206:206:android.graphics.drawable.InsetDrawable wrapDrawableWithInset(android.graphics.drawable.Drawable) -> wrapDrawableWithInset
+android.support.design.canvas.CanvasCompat -> android.support.design.canvas.CanvasCompat:
+    52:55:int saveLayerAlpha(android.graphics.Canvas,float,float,float,float,int) -> saveLayerAlpha
+android.support.design.chip.Chip -> android.support.design.chip.Chip:
+    121:123:void <clinit>() -> <clinit>
+    161:162:void <init>(android.content.Context) -> <init>
+    165:166:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    169:198:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    116:116:android.support.design.chip.ChipDrawable access$000(android.support.design.chip.Chip) -> access$000
+    116:116:boolean access$100(android.support.design.chip.Chip) -> access$100
+    116:116:android.graphics.RectF access$200(android.support.design.chip.Chip) -> access$200
+    116:116:android.graphics.Rect access$300(android.support.design.chip.Chip) -> access$300
+    116:116:android.graphics.Rect access$400() -> access$400
+    327:328:void applyChipDrawable(android.support.design.chip.ChipDrawable) -> applyChipDrawable
+    362:367:float calculateTextOffsetFromStart(android.support.design.chip.ChipDrawable) -> calculateTextOffsetFromStart
+    881:921:int[] createCloseIconDrawableState() -> createCloseIconDrawableState
+    714:714:boolean dispatchHoverEvent(android.view.MotionEvent) -> dispatchHoverEvent
+    721:721:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    867:878:void drawableStateChanged() -> drawableStateChanged
+    818:821:void ensureFocus() -> ensureFocus
+    1460:1460:android.graphics.drawable.Drawable getCheckedIcon() -> getCheckedIcon
+    1029:1029:android.content.res.ColorStateList getChipBackgroundColor() -> getChipBackgroundColor
+    1061:1061:float getChipCornerRadius() -> getChipCornerRadius
+    293:293:android.graphics.drawable.Drawable getChipDrawable() -> getChipDrawable
+    1622:1622:float getChipEndPadding() -> getChipEndPadding
+    1252:1252:android.graphics.drawable.Drawable getChipIcon() -> getChipIcon
+    1298:1298:float getChipIconSize() -> getChipIconSize
+    1270:1270:android.content.res.ColorStateList getChipIconTint() -> getChipIconTint
+    1045:1045:float getChipMinHeight() -> getChipMinHeight
+    1510:1510:float getChipStartPadding() -> getChipStartPadding
+    1078:1078:android.content.res.ColorStateList getChipStrokeColor() -> getChipStrokeColor
+    1094:1094:float getChipStrokeWidth() -> getChipStrokeWidth
+    1134:1134:java.lang.CharSequence getChipText() -> getChipText
+    1349:1349:android.graphics.drawable.Drawable getCloseIcon() -> getCloseIcon
+    1405:1405:java.lang.CharSequence getCloseIconContentDescription() -> getCloseIconContentDescription
+    1606:1606:float getCloseIconEndPadding() -> getCloseIconEndPadding
+    1382:1382:float getCloseIconSize() -> getCloseIconSize
+    1590:1590:float getCloseIconStartPadding() -> getCloseIconStartPadding
+    1366:1366:android.content.res.ColorStateList getCloseIconTint() -> getCloseIconTint
+    929:936:android.graphics.RectF getCloseIconTouchBounds() -> getCloseIconTouchBounds
+    940:942:android.graphics.Rect getCloseIconTouchBoundsInt() -> getCloseIconTouchBoundsInt
+    504:504:android.text.TextUtils$TruncateAt getEllipsize() -> getEllipsize
+    825:830:void getFocusedRect(android.graphics.Rect) -> getFocusedRect
+    1494:1494:android.support.design.animation.MotionSpec getHideMotionSpec() -> getHideMotionSpec
+    1542:1542:float getIconEndPadding() -> getIconEndPadding
+    1526:1526:float getIconStartPadding() -> getIconStartPadding
+    1111:1111:android.content.res.ColorStateList getRippleColor() -> getRippleColor
+    1477:1477:android.support.design.animation.MotionSpec getShowMotionSpec() -> getShowMotionSpec
+    1128:1128:java.lang.CharSequence getText() -> getText
+    1166:1166:android.support.design.resources.TextAppearance getTextAppearance() -> getTextAppearance
+    1574:1574:float getTextEndPadding() -> getTextEndPadding
+    1558:1558:float getTextStartPadding() -> getTextStartPadding
+    682:709:boolean handleAccessibilityExit(android.view.MotionEvent) -> handleAccessibilityExit
+    925:925:boolean hasCloseIcon() -> hasCloseIcon
+    275:289:void initOutlineProvider() -> initOutlineProvider
+    801:814:boolean moveFocus(boolean) -> moveFocus
+    563:568:void onChipDrawableSizeChange() -> onChipDrawableSizeChange
+    332:336:int[] onCreateDrawableState(int) -> onCreateDrawableState
+    341:343:void onDraw(android.graphics.Canvas) -> onDraw
+    726:736:void onFocusChanged(boolean,int,android.graphics.Rect) -> onFocusChanged
+    662:673:boolean onHoverEvent(android.view.MotionEvent) -> onHoverEvent
+    743:796:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    948:951:android.view.PointerIcon onResolvePointerIcon(android.view.MotionEvent,int) -> onResolvePointerIcon
+    626:657:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    609:621:boolean performCloseIconClick() -> performCloseIconClick
+    396:402:void setBackground(android.graphics.drawable.Drawable) -> setBackground
+    384:384:void setBackgroundColor(int) -> setBackgroundColor
+    406:412:void setBackgroundDrawable(android.graphics.drawable.Drawable) -> setBackgroundDrawable
+    390:390:void setBackgroundResource(int) -> setBackgroundResource
+    372:372:void setBackgroundTintList(android.content.res.ColorStateList) -> setBackgroundTintList
+    378:378:void setBackgroundTintMode(android.graphics.PorterDuff$Mode) -> setBackgroundTintMode
+    1419:1422:void setCheckable(boolean) -> setCheckable
+    1413:1416:void setCheckableResource(int) -> setCheckableResource
+    572:585:void setChecked(boolean) -> setChecked
+    1470:1473:void setCheckedIcon(android.graphics.drawable.Drawable) -> setCheckedIcon
+    1455:1456:void setCheckedIconEnabled(boolean) -> setCheckedIconEnabled
+    1449:1450:void setCheckedIconEnabledResource(int) -> setCheckedIconEnabledResource
+    1464:1467:void setCheckedIconResource(int) -> setCheckedIconResource
+    1435:1438:void setCheckedIconVisible(int) -> setCheckedIconVisible
+    1441:1444:void setCheckedIconVisible(boolean) -> setCheckedIconVisible
+    1039:1042:void setChipBackgroundColor(android.content.res.ColorStateList) -> setChipBackgroundColor
+    1033:1036:void setChipBackgroundColorResource(int) -> setChipBackgroundColorResource
+    1071:1074:void setChipCornerRadius(float) -> setChipCornerRadius
+    1065:1068:void setChipCornerRadiusResource(int) -> setChipCornerRadiusResource
+    298:318:void setChipDrawable(android.support.design.chip.ChipDrawable) -> setChipDrawable
+    1632:1635:void setChipEndPadding(float) -> setChipEndPadding
+    1626:1629:void setChipEndPaddingResource(int) -> setChipEndPaddingResource
+    1262:1265:void setChipIcon(android.graphics.drawable.Drawable) -> setChipIcon
+    1247:1248:void setChipIconEnabled(boolean) -> setChipIconEnabled
+    1241:1242:void setChipIconEnabledResource(int) -> setChipIconEnabledResource
+    1256:1259:void setChipIconResource(int) -> setChipIconResource
+    1308:1311:void setChipIconSize(float) -> setChipIconSize
+    1302:1305:void setChipIconSizeResource(int) -> setChipIconSizeResource
+    1292:1295:void setChipIconTint(android.content.res.ColorStateList) -> setChipIconTint
+    1280:1283:void setChipIconTintResource(int) -> setChipIconTintResource
+    1227:1230:void setChipIconVisible(int) -> setChipIconVisible
+    1233:1236:void setChipIconVisible(boolean) -> setChipIconVisible
+    1055:1058:void setChipMinHeight(float) -> setChipMinHeight
+    1049:1052:void setChipMinHeightResource(int) -> setChipMinHeightResource
+    1520:1523:void setChipStartPadding(float) -> setChipStartPadding
+    1514:1517:void setChipStartPaddingResource(int) -> setChipStartPaddingResource
+    1088:1091:void setChipStrokeColor(android.content.res.ColorStateList) -> setChipStrokeColor
+    1082:1085:void setChipStrokeColorResource(int) -> setChipStrokeColorResource
+    1104:1107:void setChipStrokeWidth(float) -> setChipStrokeWidth
+    1098:1101:void setChipStrokeWidthResource(int) -> setChipStrokeWidthResource
+    1161:1162:void setChipText(java.lang.CharSequence) -> setChipText
+    1155:1156:void setChipTextResource(int) -> setChipTextResource
+    1359:1362:void setCloseIcon(android.graphics.drawable.Drawable) -> setCloseIcon
+    1398:1401:void setCloseIconContentDescription(java.lang.CharSequence) -> setCloseIconContentDescription
+    1344:1345:void setCloseIconEnabled(boolean) -> setCloseIconEnabled
+    1338:1339:void setCloseIconEnabledResource(int) -> setCloseIconEnabledResource
+    1616:1619:void setCloseIconEndPadding(float) -> setCloseIconEndPadding
+    1610:1613:void setCloseIconEndPaddingResource(int) -> setCloseIconEndPaddingResource
+    859:863:void setCloseIconFocused(boolean) -> setCloseIconFocused
+    852:856:void setCloseIconHovered(boolean) -> setCloseIconHovered
+    845:849:void setCloseIconPressed(boolean) -> setCloseIconPressed
+    1353:1356:void setCloseIconResource(int) -> setCloseIconResource
+    1392:1395:void setCloseIconSize(float) -> setCloseIconSize
+    1386:1389:void setCloseIconSizeResource(int) -> setCloseIconSizeResource
+    1600:1603:void setCloseIconStartPadding(float) -> setCloseIconStartPadding
+    1594:1597:void setCloseIconStartPaddingResource(int) -> setCloseIconStartPaddingResource
+    1376:1379:void setCloseIconTint(android.content.res.ColorStateList) -> setCloseIconTint
+    1370:1373:void setCloseIconTintResource(int) -> setCloseIconTintResource
+    1324:1327:void setCloseIconVisible(int) -> setCloseIconVisible
+    1330:1333:void setCloseIconVisible(boolean) -> setCloseIconVisible
+    420:421:void setCompoundDrawables(android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable) -> setCompoundDrawables
+    464:465:void setCompoundDrawablesRelative(android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable) -> setCompoundDrawablesRelative
+    477:478:void setCompoundDrawablesRelativeWithIntrinsicBounds(int,int,int,int) -> setCompoundDrawablesRelativeWithIntrinsicBounds
+    493:494:void setCompoundDrawablesRelativeWithIntrinsicBounds(android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable) -> setCompoundDrawablesRelativeWithIntrinsicBounds
+    432:433:void setCompoundDrawablesWithIntrinsicBounds(int,int,int,int) -> setCompoundDrawablesWithIntrinsicBounds
+    448:449:void setCompoundDrawablesWithIntrinsicBounds(android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable,android.graphics.drawable.Drawable) -> setCompoundDrawablesWithIntrinsicBounds
+    509:513:void setEllipsize(android.text.TextUtils$TruncateAt) -> setEllipsize
+    833:842:void setFocusedVirtualView(int) -> setFocusedVirtualView
+    354:359:void setGravity(int) -> setGravity
+    1504:1507:void setHideMotionSpec(android.support.design.animation.MotionSpec) -> setHideMotionSpec
+    1498:1501:void setHideMotionSpecResource(int) -> setHideMotionSpecResource
+    1552:1555:void setIconEndPadding(float) -> setIconEndPadding
+    1546:1549:void setIconEndPaddingResource(int) -> setIconEndPaddingResource
+    1536:1539:void setIconStartPadding(float) -> setIconStartPadding
+    1530:1533:void setIconStartPaddingResource(int) -> setIconStartPaddingResource
+    531:532:void setLines(int) -> setLines
+    547:548:void setMaxLines(int) -> setMaxLines
+    555:559:void setMaxWidth(int) -> setMaxWidth
+    539:540:void setMinLines(int) -> setMinLines
+    592:593:void setOnCheckedChangeListenerInternal(android.widget.CompoundButton$OnCheckedChangeListener) -> setOnCheckedChangeListenerInternal
+    597:598:void setOnCloseIconClickListener(android.view.View$OnClickListener) -> setOnCloseIconClickListener
+    1121:1124:void setRippleColor(android.content.res.ColorStateList) -> setRippleColor
+    1115:1118:void setRippleColorResource(int) -> setRippleColorResource
+    1487:1490:void setShowMotionSpec(android.support.design.animation.MotionSpec) -> setShowMotionSpec
+    1481:1484:void setShowMotionSpecResource(int) -> setShowMotionSpecResource
+    523:524:void setSingleLine(boolean) -> setSingleLine
+    1139:1150:void setText(java.lang.CharSequence,android.widget.TextView$BufferType) -> setText
+    1183:1190:void setTextAppearance(android.support.design.resources.TextAppearance) -> setTextAppearance
+    1194:1202:void setTextAppearance(android.content.Context,int) -> setTextAppearance
+    1206:1214:void setTextAppearance(int) -> setTextAppearance
+    1176:1180:void setTextAppearanceResource(int) -> setTextAppearanceResource
+    1584:1587:void setTextEndPadding(float) -> setTextEndPadding
+    1578:1581:void setTextEndPaddingResource(int) -> setTextEndPaddingResource
+    1568:1571:void setTextStartPadding(float) -> setTextStartPadding
+    1562:1565:void setTextStartPaddingResource(int) -> setTextStartPaddingResource
+    321:324:void unapplyChipDrawable(android.support.design.chip.ChipDrawable) -> unapplyChipDrawable
+    205:206:void updatePaddingInternal() -> updatePaddingInternal
+    1170:1173:void updateTextPaintDrawState(android.support.design.resources.TextAppearance) -> updateTextPaintDrawState
+    241:245:void validateAttributes(android.util.AttributeSet) -> validateAttributes
+android.support.design.chip.Chip$1 -> android.support.design.chip.Chip$1:
+    147:147:void <init>(android.support.design.chip.Chip) -> <init>
+    157:157:void onFontRetrievalFailed(int) -> onFontRetrievalFailed
+    151:154:void onFontRetrieved(android.graphics.Typeface) -> onFontRetrieved
+android.support.design.chip.Chip$2 -> android.support.design.chip.Chip$2:
+    277:277:void <init>(android.support.design.chip.Chip) -> <init>
+    281:286:void getOutline(android.view.View,android.graphics.Outline) -> getOutline
+android.support.design.chip.Chip$ChipTouchHelper -> android.support.design.chip.Chip$ChipTouchHelper:
+    957:959:void <init>(android.support.design.chip.Chip,android.support.design.chip.Chip) -> <init>
+    963:963:int getVirtualViewAt(float,float) -> getVirtualViewAt
+    970:973:void getVisibleVirtualViews(java.util.List) -> getVisibleVirtualViews
+    1017:1021:boolean onPerformActionForVirtualView(int,int,android.os.Bundle) -> onPerformActionForVirtualView
+    1002:1012:void onPopulateNodeForHost(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat) -> onPopulateNodeForHost
+    978:998:void onPopulateNodeForVirtualView(int,android.support.v4.view.accessibility.AccessibilityNodeInfoCompat) -> onPopulateNodeForVirtualView
+android.support.design.chip.ChipDrawable -> android.support.design.chip.ChipDrawable:
+    161:161:void <clinit>() -> <clinit>
+    325:338:void <init>(android.content.Context) -> <init>
+    158:158:boolean access$002(android.support.design.chip.ChipDrawable,boolean) -> access$002
+    1210:1227:void applyChildDrawable(android.graphics.drawable.Drawable) -> applyChildDrawable
+    751:767:void calculateChipIconBounds(android.graphics.Rect,android.graphics.RectF) -> calculateChipIconBounds
+    515:516:float calculateChipIconWidth() -> calculateChipIconWidth
+    858:874:void calculateChipTouchBounds(android.graphics.Rect,android.graphics.RectF) -> calculateChipTouchBounds
+    839:855:void calculateCloseIconBounds(android.graphics.Rect,android.graphics.RectF) -> calculateCloseIconBounds
+    877:898:void calculateCloseIconTouchBounds(android.graphics.Rect,android.graphics.RectF) -> calculateCloseIconTouchBounds
+    545:548:float calculateCloseIconWidth() -> calculateCloseIconWidth
+    813:832:void calculateTextBounds(android.graphics.Rect,android.graphics.RectF) -> calculateTextBounds
+    804:805:float calculateTextCenterFromBaseline() -> calculateTextCenterFromBaseline
+    771:788:android.graphics.Paint$Align calculateTextOriginAndAlignment(android.graphics.Rect,android.graphics.PointF) -> calculateTextOriginAndAlignment
+    533:537:float calculateTextWidth(java.lang.CharSequence) -> calculateTextWidth
+    510:510:boolean canShowCheckedIcon() -> canShowCheckedIcon
+    277:279:android.support.design.chip.ChipDrawable createFromAttributes(android.content.Context,android.util.AttributeSet,int,int) -> createFromAttributes
+    553:555:void draw(android.graphics.Canvas) -> draw
+    648:660:void drawCheckedIcon(android.graphics.Canvas,android.graphics.Rect) -> drawCheckedIcon
+    597:602:void drawChipBackground(android.graphics.Canvas,android.graphics.Rect) -> drawChipBackground
+    633:645:void drawChipIcon(android.graphics.Canvas,android.graphics.Rect) -> drawChipIcon
+    609:623:void drawChipStroke(android.graphics.Canvas,android.graphics.Rect) -> drawChipStroke
+    695:707:void drawCloseIcon(android.graphics.Canvas,android.graphics.Rect) -> drawCloseIcon
+    626:630:void drawCompatRipple(android.graphics.Canvas,android.graphics.Rect) -> drawCompatRipple
+    710:744:void drawDebug(android.graphics.Canvas,android.graphics.Rect) -> drawDebug
+    664:692:void drawText(android.graphics.Canvas,android.graphics.Rect) -> drawText
+    1126:1126:int getAlpha() -> getAlpha
+    1747:1747:android.graphics.drawable.Drawable getCheckedIcon() -> getCheckedIcon
+    1268:1268:android.content.res.ColorStateList getChipBackgroundColor() -> getChipBackgroundColor
+    1299:1299:float getChipCornerRadius() -> getChipCornerRadius
+    1924:1924:float getChipEndPadding() -> getChipEndPadding
+    1466:1466:android.graphics.drawable.Drawable getChipIcon() -> getChipIcon
+    1527:1527:float getChipIconSize() -> getChipIconSize
+    1495:1495:android.content.res.ColorStateList getChipIconTint() -> getChipIconTint
+    1283:1283:float getChipMinHeight() -> getChipMinHeight
+    1798:1798:float getChipStartPadding() -> getChipStartPadding
+    1315:1315:android.content.res.ColorStateList getChipStrokeColor() -> getChipStrokeColor
+    1330:1330:float getChipStrokeWidth() -> getChipStrokeWidth
+    1595:1595:android.graphics.drawable.Drawable getCloseIcon() -> getCloseIcon
+    1671:1671:java.lang.CharSequence getCloseIconContentDescription() -> getCloseIconContentDescription
+    1906:1906:float getCloseIconEndPadding() -> getCloseIconEndPadding
+    1643:1643:float getCloseIconSize() -> getCloseIconSize
+    1888:1888:float getCloseIconStartPadding() -> getCloseIconStartPadding
+    944:944:int[] getCloseIconState() -> getCloseIconState
+    1623:1623:android.content.res.ColorStateList getCloseIconTint() -> getCloseIconTint
+    469:470:void getCloseIconTouchBounds(android.graphics.RectF) -> getCloseIconTouchBounds
+    1140:1140:android.graphics.ColorFilter getColorFilter() -> getColorFilter
+    1411:1411:android.text.TextUtils$TruncateAt getEllipsize() -> getEllipsize
+    1786:1786:android.support.design.animation.MotionSpec getHideMotionSpec() -> getHideMotionSpec
+    1835:1835:float getIconEndPadding() -> getIconEndPadding
+    1814:1814:float getIconStartPadding() -> getIconStartPadding
+    490:490:int getIntrinsicHeight() -> getIntrinsicHeight
+    475:484:int getIntrinsicWidth() -> getIntrinsicWidth
+    1162:1162:int getOpacity() -> getOpacity
+    1168:1176:void getOutline(android.graphics.Outline) -> getOutline
+    1349:1349:android.content.res.ColorStateList getRippleColor() -> getRippleColor
+    1773:1773:android.support.design.animation.MotionSpec getShowMotionSpec() -> getShowMotionSpec
+    1366:1366:java.lang.CharSequence getText() -> getText
+    1389:1389:android.support.design.resources.TextAppearance getTextAppearance() -> getTextAppearance
+    1872:1872:float getTextEndPadding() -> getTextEndPadding
+    1856:1856:float getTextStartPadding() -> getTextStartPadding
+    522:529:float getTextWidth() -> getTextWidth
+    1235:1235:android.graphics.ColorFilter getTintColorFilter() -> getTintColorFilter
+    1245:1254:boolean hasState(int[],int) -> hasState
+    1180:1184:void invalidateDrawable(android.graphics.drawable.Drawable) -> invalidateDrawable
+    1675:1675:boolean isCheckable() -> isCheckable
+    1700:1700:boolean isCheckedIconVisible() -> isCheckedIconVisible
+    1419:1419:boolean isChipIconVisible() -> isChipIconVisible
+    924:924:boolean isCloseIconStateful() -> isCloseIconStateful
+    1548:1548:boolean isCloseIconVisible() -> isCloseIconVisible
+    908:908:boolean isStateful() -> isStateful
+    1038:1038:boolean isStateful(android.content.res.ColorStateList) -> isStateful
+    1042:1042:boolean isStateful(android.graphics.drawable.Drawable) -> isStateful
+    1046:1046:boolean isStateful(android.support.design.resources.TextAppearance) -> isStateful
+    342:427:void loadFromAttributes(android.util.AttributeSet,int,int) -> loadFromAttributes
+    1054:1069:boolean onLayoutDirectionChanged(int) -> onLayoutDirectionChanged
+    1074:1089:boolean onLevelChange(int) -> onLevelChange
+    450:454:void onSizeChange() -> onSizeChange
+    949:949:boolean onStateChange(int[]) -> onStateChange
+    958:1034:boolean onStateChange(int[],int[]) -> onStateChange
+    1188:1192:void scheduleDrawable(android.graphics.drawable.Drawable,java.lang.Runnable,long) -> scheduleDrawable
+    1118:1122:void setAlpha(int) -> setAlpha
+    1683:1697:void setCheckable(boolean) -> setCheckable
+    1679:1680:void setCheckableResource(int) -> setCheckableResource
+    1755:1769:void setCheckedIcon(android.graphics.drawable.Drawable) -> setCheckedIcon
+    1751:1752:void setCheckedIconResource(int) -> setCheckedIconResource
+    1710:1711:void setCheckedIconVisible(int) -> setCheckedIconVisible
+    1714:1731:void setCheckedIconVisible(boolean) -> setCheckedIconVisible
+    1276:1280:void setChipBackgroundColor(android.content.res.ColorStateList) -> setChipBackgroundColor
+    1272:1273:void setChipBackgroundColorResource(int) -> setChipBackgroundColorResource
+    1307:1311:void setChipCornerRadius(float) -> setChipCornerRadius
+    1303:1304:void setChipCornerRadiusResource(int) -> setChipCornerRadiusResource
+    1932:1937:void setChipEndPadding(float) -> setChipEndPadding
+    1928:1929:void setChipEndPaddingResource(int) -> setChipEndPaddingResource
+    1474:1490:void setChipIcon(android.graphics.drawable.Drawable) -> setChipIcon
+    1470:1471:void setChipIconResource(int) -> setChipIconResource
+    1535:1545:void setChipIconSize(float) -> setChipIconSize
+    1531:1532:void setChipIconSizeResource(int) -> setChipIconSizeResource
+    1515:1524:void setChipIconTint(android.content.res.ColorStateList) -> setChipIconTint
+    1505:1506:void setChipIconTintResource(int) -> setChipIconTintResource
+    1429:1430:void setChipIconVisible(int) -> setChipIconVisible
+    1433:1450:void setChipIconVisible(boolean) -> setChipIconVisible
+    1291:1296:void setChipMinHeight(float) -> setChipMinHeight
+    1287:1288:void setChipMinHeightResource(int) -> setChipMinHeightResource
+    1806:1811:void setChipStartPadding(float) -> setChipStartPadding
+    1802:1803:void setChipStartPaddingResource(int) -> setChipStartPaddingResource
+    1323:1327:void setChipStrokeColor(android.content.res.ColorStateList) -> setChipStrokeColor
+    1319:1320:void setChipStrokeColorResource(int) -> setChipStrokeColorResource
+    1338:1345:void setChipStrokeWidth(float) -> setChipStrokeWidth
+    1334:1335:void setChipStrokeWidthResource(int) -> setChipStrokeWidthResource
+    1603:1619:void setCloseIcon(android.graphics.drawable.Drawable) -> setCloseIcon
+    1661:1667:void setCloseIconContentDescription(java.lang.CharSequence) -> setCloseIconContentDescription
+    1914:1921:void setCloseIconEndPadding(float) -> setCloseIconEndPadding
+    1910:1911:void setCloseIconEndPaddingResource(int) -> setCloseIconEndPaddingResource
+    1599:1600:void setCloseIconResource(int) -> setCloseIconResource
+    1651:1658:void setCloseIconSize(float) -> setCloseIconSize
+    1647:1648:void setCloseIconSizeResource(int) -> setCloseIconSizeResource
+    1896:1903:void setCloseIconStartPadding(float) -> setCloseIconStartPadding
+    1892:1893:void setCloseIconStartPaddingResource(int) -> setCloseIconStartPaddingResource
+    932:938:boolean setCloseIconState(int[]) -> setCloseIconState
+    1631:1640:void setCloseIconTint(android.content.res.ColorStateList) -> setCloseIconTint
+    1627:1628:void setCloseIconTintResource(int) -> setCloseIconTintResource
+    1558:1559:void setCloseIconVisible(int) -> setCloseIconVisible
+    1562:1579:void setCloseIconVisible(boolean) -> setCloseIconVisible
+    1131:1135:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    445:446:void setDelegate(android.support.design.chip.ChipDrawable$Delegate) -> setDelegate
+    1415:1416:void setEllipsize(android.text.TextUtils$TruncateAt) -> setEllipsize
+    1794:1795:void setHideMotionSpec(android.support.design.animation.MotionSpec) -> setHideMotionSpec
+    1790:1791:void setHideMotionSpecResource(int) -> setHideMotionSpecResource
+    1843:1853:void setIconEndPadding(float) -> setIconEndPadding
+    1839:1840:void setIconEndPaddingResource(int) -> setIconEndPaddingResource
+    1822:1832:void setIconStartPadding(float) -> setIconStartPadding
+    1818:1819:void setIconStartPaddingResource(int) -> setIconStartPaddingResource
+    1947:1948:void setMaxWidth(int) -> setMaxWidth
+    1357:1362:void setRippleColor(android.content.res.ColorStateList) -> setRippleColor
+    1353:1354:void setRippleColorResource(int) -> setRippleColorResource
+    1961:1962:void setShouldDrawText(boolean) -> setShouldDrawText
+    1781:1782:void setShowMotionSpec(android.support.design.animation.MotionSpec) -> setShowMotionSpec
+    1777:1778:void setShowMotionSpecResource(int) -> setShowMotionSpecResource
+    1374:1385:void setText(java.lang.CharSequence) -> setText
+    1397:1408:void setTextAppearance(android.support.design.resources.TextAppearance) -> setTextAppearance
+    1393:1394:void setTextAppearanceResource(int) -> setTextAppearanceResource
+    1880:1885:void setTextEndPadding(float) -> setTextEndPadding
+    1876:1877:void setTextEndPaddingResource(int) -> setTextEndPaddingResource
+    1864:1869:void setTextStartPadding(float) -> setTextStartPadding
+    1860:1861:void setTextStartPaddingResource(int) -> setTextStartPaddingResource
+    1145:1149:void setTintList(android.content.res.ColorStateList) -> setTintList
+    1153:1158:void setTintMode(android.graphics.PorterDuff$Mode) -> setTintMode
+    431:436:void setUseCompatRipple(boolean) -> setUseCompatRipple
+    1094:1109:boolean setVisible(boolean,boolean) -> setVisible
+    1951:1951:boolean shouldDrawText() -> shouldDrawText
+    500:500:boolean showsCheckedIcon() -> showsCheckedIcon
+    495:495:boolean showsChipIcon() -> showsChipIcon
+    505:505:boolean showsCloseIcon() -> showsCloseIcon
+    1203:1206:void unapplyChildDrawable(android.graphics.drawable.Drawable) -> unapplyChildDrawable
+    1196:1200:void unscheduleDrawable(android.graphics.drawable.Drawable,java.lang.Runnable) -> unscheduleDrawable
+    1239:1241:void updateCompatRippleColor() -> updateCompatRippleColor
+android.support.design.chip.ChipDrawable$1 -> android.support.design.chip.ChipDrawable$1:
+    178:178:void <init>(android.support.design.chip.ChipDrawable) -> <init>
+    187:187:void onFontRetrievalFailed(int) -> onFontRetrievalFailed
+    181:184:void onFontRetrieved(android.graphics.Typeface) -> onFontRetrieved
 android.support.design.circularreveal.CircularRevealCompat -> android.support.design.circularreveal.CircularRevealCompat:
     55:77:android.animation.Animator createCircularReveal(android.support.design.circularreveal.CircularRevealWidget,float,float,float) -> createCircularReveal
     118:118:android.animation.Animator$AnimatorListener createCircularRevealListener(android.support.design.circularreveal.CircularRevealWidget) -> createCircularRevealListener
@@ -1155,6 +1493,8 @@ android.support.design.circularreveal.cardview.CircularRevealCardView -> android
     83:83:void setCircularRevealOverlayDrawable(android.graphics.drawable.Drawable) -> setCircularRevealOverlayDrawable
     67:67:void setCircularRevealScrimColor(int) -> setCircularRevealScrimColor
     56:56:void setRevealInfo(android.support.design.circularreveal.CircularRevealWidget$RevealInfo) -> setRevealInfo
+android.support.design.drawable.DrawableUtils -> android.support.design.drawable.DrawableUtils:
+    38:39:android.graphics.PorterDuffColorFilter updateTintFilter(android.graphics.drawable.Drawable,android.content.res.ColorStateList,android.graphics.PorterDuff$Mode) -> updateTintFilter
 android.support.design.expandable.ExpandableWidgetHelper -> android.support.design.expandable.ExpandableWidgetHelper:
     39:41:void <init>(android.support.design.expandable.ExpandableWidget) -> <init>
     89:93:void dispatchExpandedStateChanged() -> dispatchExpandedStateChanged
@@ -1341,6 +1681,25 @@ android.support.design.internal.ViewUtils -> android.support.design.internal.Vie
 android.support.design.resources.MaterialResources -> android.support.design.resources.MaterialResources:
     43:52:android.content.res.ColorStateList getColorStateList(android.content.Context,android.content.res.TypedArray,int) -> getColorStateList
     64:73:android.graphics.drawable.Drawable getDrawable(android.content.Context,android.content.res.TypedArray,int) -> getDrawable
+    99:102:int getIndexWithValue(android.content.res.TypedArray,int,int) -> getIndexWithValue
+    84:90:android.support.design.resources.TextAppearance getTextAppearance(android.content.Context,android.content.res.TypedArray,int) -> getTextAppearance
+android.support.design.resources.TextAppearance -> android.support.design.resources.TextAppearance:
+    73:104:void <init>(android.content.Context,int) -> <init>
+    45:45:android.graphics.Typeface access$002(android.support.design.resources.TextAppearance,android.graphics.Typeface) -> access$002
+    45:45:boolean access$102(android.support.design.resources.TextAppearance,boolean) -> access$102
+    45:45:void access$200(android.support.design.resources.TextAppearance) -> access$200
+    193:217:void createFallbackTypeface() -> createFallbackTypeface
+    114:134:android.graphics.Typeface getFont(android.content.Context) -> getFont
+    147:189:void getFontAsync(android.content.Context,android.text.TextPaint,android.support.v4.content.res.ResourcesCompat$FontCallback) -> getFontAsync
+    226:239:void updateDrawState(android.content.Context,android.text.TextPaint,android.support.v4.content.res.ResourcesCompat$FontCallback) -> updateDrawState
+    249:258:void updateMeasureState(android.content.Context,android.text.TextPaint,android.support.v4.content.res.ResourcesCompat$FontCallback) -> updateMeasureState
+    267:274:void updateTextPaintMeasureState(android.text.TextPaint,android.graphics.Typeface) -> updateTextPaintMeasureState
+android.support.design.resources.TextAppearance$1 -> android.support.design.resources.TextAppearance$1:
+    167:167:void <init>(android.support.design.resources.TextAppearance,android.text.TextPaint,android.support.v4.content.res.ResourcesCompat$FontCallback) -> <init>
+    178:181:void onFontRetrievalFailed(int) -> onFontRetrievalFailed
+    170:174:void onFontRetrieved(android.graphics.Typeface) -> onFontRetrieved
+android.support.design.resources.TextAppearanceConfig -> android.support.design.resources.TextAppearanceConfig:
+    37:37:boolean shouldLoadFontSynchronously() -> shouldLoadFontSynchronously
 android.support.design.ripple.RippleUtils -> android.support.design.ripple.RippleUtils:
     36:63:void <clinit>() -> <clinit>
     95:167:android.content.res.ColorStateList convertToRippleDrawableColor(android.content.res.ColorStateList) -> convertToRippleDrawableColor
@@ -4420,6 +4779,8 @@ android.support.v4.content.res.GrowingArrayUtils -> android.support.v4.content.r
     189:189:int growSize(int) -> growSize
 android.support.v4.content.res.ResourcesCompat -> android.support.v4.content.res.ResourcesCompat:
     81:84:android.graphics.drawable.Drawable getDrawable(android.content.res.Resources,int,android.content.res.Resources$Theme) -> getDrawable
+    204:207:android.graphics.Typeface getFont(android.content.Context,int) -> getFont
+    295:303:void getFont(android.content.Context,int,android.support.v4.content.res.ResourcesCompat$FontCallback,android.os.Handler) -> getFont
     313:316:android.graphics.Typeface getFont(android.content.Context,int,android.util.TypedValue,int,android.support.v4.content.res.ResourcesCompat$FontCallback) -> getFont
     336:344:android.graphics.Typeface loadFont(android.content.Context,int,android.util.TypedValue,int,android.support.v4.content.res.ResourcesCompat$FontCallback,android.os.Handler,boolean) -> loadFont
     356:358:android.graphics.Typeface loadFont(android.content.Context,android.content.res.Resources,android.util.TypedValue,int,int,android.support.v4.content.res.ResourcesCompat$FontCallback,android.os.Handler,boolean) -> loadFont
@@ -4560,6 +4921,7 @@ android.support.v4.graphics.drawable.DrawableCompat -> android.support.v4.graphi
     135:140:void setTint(android.graphics.drawable.Drawable,int) -> setTint
     149:154:void setTintList(android.graphics.drawable.Drawable,android.content.res.ColorStateList) -> setTintList
     163:168:void setTintMode(android.graphics.drawable.Drawable,android.graphics.PorterDuff$Mode) -> setTintMode
+    334:337:android.graphics.drawable.Drawable unwrap(android.graphics.drawable.Drawable) -> unwrap
     307:318:android.graphics.drawable.Drawable wrap(android.graphics.drawable.Drawable) -> wrap
 android.support.v4.graphics.drawable.IconCompat -> android.support.v4.graphics.drawable.IconCompat:
     176:176:void <clinit>() -> <clinit>
@@ -5040,6 +5402,35 @@ android.support.v4.provider.SelfDestructiveThread$2$1 -> android.support.v4.prov
 android.support.v4.provider.SelfDestructiveThread$3 -> android.support.v4.provider.SelfDestructiveThread$3:
     171:171:void <init>(android.support.v4.provider.SelfDestructiveThread,java.util.concurrent.atomic.AtomicReference,java.util.concurrent.Callable,java.util.concurrent.locks.ReentrantLock,java.util.concurrent.atomic.AtomicBoolean,java.util.concurrent.locks.Condition) -> <init>
     175:184:void run() -> run
+android.support.v4.text.BidiFormatter -> android.support.v4.text.BidiFormatter:
+    85:222:void <clinit>() -> <clinit>
+    262:266:void <init>(boolean,int,android.support.v4.text.TextDirectionHeuristicCompat) -> <init>
+    558:558:int getEntryDir(java.lang.CharSequence) -> getEntryDir
+    541:541:int getExitDir(java.lang.CharSequence) -> getExitDir
+    236:236:android.support.v4.text.BidiFormatter getInstance() -> getInstance
+    280:280:boolean getStereoReset() -> getStereoReset
+    516:516:boolean isRtlLocale(java.util.Locale) -> isRtlLocale
+    300:308:java.lang.String markAfter(java.lang.CharSequence,android.support.v4.text.TextDirectionHeuristicCompat) -> markAfter
+    328:336:java.lang.String markBefore(java.lang.CharSequence,android.support.v4.text.TextDirectionHeuristicCompat) -> markBefore
+    411:429:java.lang.CharSequence unicodeWrap(java.lang.CharSequence,android.support.v4.text.TextDirectionHeuristicCompat,boolean) -> unicodeWrap
+    506:506:java.lang.CharSequence unicodeWrap(java.lang.CharSequence) -> unicodeWrap
+android.support.v4.text.BidiFormatter$Builder -> android.support.v4.text.BidiFormatter$Builder:
+    139:141:void <init>() -> <init>
+    205:209:android.support.v4.text.BidiFormatter build() -> build
+    198:198:android.support.v4.text.BidiFormatter getDefaultInstanceFromContext(boolean) -> getDefaultInstanceFromContext
+    167:170:void initialize(boolean) -> initialize
+android.support.v4.text.BidiFormatter$DirectionalityEstimator -> android.support.v4.text.BidiFormatter$DirectionalityEstimator:
+    584:588:void <clinit>() -> <clinit>
+    628:632:void <init>(java.lang.CharSequence,boolean) -> <init>
+    846:862:byte dirTypeBackward() -> dirTypeBackward
+    816:832:byte dirTypeForward() -> dirTypeForward
+    803:803:byte getCachedDirectionality(char) -> getCachedDirectionality
+    646:728:int getEntryDir() -> getEntryDir
+    744:792:int getExitDir() -> getExitDir
+    944:956:byte skipEntityBackward() -> skipEntityBackward
+    929:930:byte skipEntityForward() -> skipEntityForward
+    901:920:byte skipTagBackward() -> skipTagBackward
+    872:888:byte skipTagForward() -> skipTagForward
 android.support.v4.text.ICUCompat -> android.support.v4.text.ICUCompat:
     35:61:void <clinit>() -> <clinit>
     125:139:java.lang.String addLikelySubtags(java.util.Locale) -> addLikelySubtags
@@ -5349,6 +5740,7 @@ android.support.v4.util.SparseArrayCompat -> android.support.v4.util.SparseArray
     110:110:java.lang.Object get(int) -> get
     119:122:java.lang.Object get(int,java.lang.Object) -> get
     329:333:int indexOfKey(int) -> indexOfKey
+    347:355:int indexOfValue(java.lang.Object) -> indexOfValue
     289:293:int keyAt(int) -> keyAt
     206:250:void put(int,java.lang.Object) -> put
     146:147:void remove(int) -> remove
@@ -5518,6 +5910,8 @@ android.support.v4.view.ViewCompat -> android.support.v4.view.ViewCompat:
     2964:2992:void offsetLeftAndRight(android.view.View,int) -> offsetLeftAndRight
     2916:2944:void offsetTopAndBottom(android.view.View,int) -> offsetTopAndBottom
     2234:2242:android.support.v4.view.WindowInsetsCompat onApplyWindowInsets(android.view.View,android.support.v4.view.WindowInsetsCompat) -> onApplyWindowInsets
+    650:651:void onInitializeAccessibilityNodeInfo(android.view.View,android.support.v4.view.accessibility.AccessibilityNodeInfoCompat) -> onInitializeAccessibilityNodeInfo
+    1099:1102:boolean performAccessibilityAction(android.view.View,int,android.os.Bundle) -> performAccessibilityAction
     915:920:void postInvalidateOnAnimation(android.view.View) -> postInvalidateOnAnimation
     955:960:void postOnAnimation(android.view.View,java.lang.Runnable) -> postOnAnimation
     977:982:void postOnAnimationDelayed(android.view.View,java.lang.Runnable,long) -> postOnAnimationDelayed
@@ -5706,6 +6100,7 @@ android.support.v4.view.ViewParentCompat -> android.support.v4.view.ViewParentCo
     217:235:void onNestedScrollAccepted(android.view.ViewParent,android.view.View,android.view.View,int,int) -> onNestedScrollAccepted
     176:194:boolean onStartNestedScroll(android.view.ViewParent,android.view.View,android.view.View,int,int) -> onStartNestedScroll
     251:267:void onStopNestedScroll(android.view.ViewParent,android.view.View,int) -> onStopNestedScroll
+    63:63:boolean requestSendAccessibilityEvent(android.view.ViewParent,android.view.View,android.view.accessibility.AccessibilityEvent) -> requestSendAccessibilityEvent
 android.support.v4.view.ViewPropertyAnimatorCompat -> android.support.v4.view.ViewPropertyAnimatorCompat:
     37:39:void <init>(android.view.View) -> <init>
     137:140:android.support.v4.view.ViewPropertyAnimatorCompat alpha(float) -> alpha
@@ -5762,11 +6157,14 @@ android.support.v4.view.accessibility.AccessibilityManagerCompat$TouchExploratio
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompat -> android.support.v4.view.accessibility.AccessibilityNodeInfoCompat:
     1319:1321:void <init>(android.view.accessibility.AccessibilityNodeInfo) -> <init>
     1610:1611:void addAction(int) -> addAction
+    1625:1628:void addAction(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat) -> addAction
+    1540:1543:void addChild(android.view.View,int) -> addChild
     3419:3436:boolean equals(java.lang.Object) -> equals
     3500:3502:java.lang.String getActionSymbolicName(int) -> getActionSymbolicName
     1595:1595:int getActions() -> getActions
     1805:1806:void getBoundsInParent(android.graphics.Rect) -> getBoundsInParent
     1829:1830:void getBoundsInScreen(android.graphics.Rect) -> getBoundsInScreen
+    1490:1490:int getChildCount() -> getChildCount
     2212:2212:java.lang.CharSequence getClassName() -> getClassName
     2260:2260:java.lang.CharSequence getContentDescription() -> getContentDescription
     2823:2826:android.os.Bundle getExtras() -> getExtras
@@ -5784,21 +6182,41 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat -> android.sup
     2107:2107:boolean isPassword() -> isPassword
     2131:2131:boolean isScrollable() -> isScrollable
     2011:2011:boolean isSelected() -> isSelected
+    1358:1358:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain(android.view.View) -> obtain
+    1386:1386:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain() -> obtain
+    1397:1397:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtain(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat) -> obtain
+    2286:2287:void recycle() -> recycle
+    2000:2003:void setAccessibilityFocused(boolean) -> setAccessibilityFocused
     3484:3491:void setBooleanProperty(int,boolean) -> setBooleanProperty
+    1820:1821:void setBoundsInParent(android.graphics.Rect) -> setBoundsInParent
+    1844:1845:void setBoundsInScreen(android.graphics.Rect) -> setBoundsInScreen
     1868:1869:void setCheckable(boolean) -> setCheckable
     1892:1893:void setChecked(boolean) -> setChecked
     2227:2228:void setClassName(java.lang.CharSequence) -> setClassName
     2423:2429:void setCollectionInfo(java.lang.Object) -> setCollectionInfo
     2432:2437:void setCollectionItemInfo(java.lang.Object) -> setCollectionItemInfo
+    2275:2276:void setContentDescription(java.lang.CharSequence) -> setContentDescription
     2522:2525:void setContentInvalid(boolean) -> setContentInvalid
+    2098:2099:void setEnabled(boolean) -> setEnabled
     2620:2623:void setError(java.lang.CharSequence) -> setError
+    1916:1917:void setFocusable(boolean) -> setFocusable
+    1940:1941:void setFocused(boolean) -> setFocused
     2599:2604:void setHintText(java.lang.CharSequence) -> setHintText
+    2203:2204:void setPackageName(java.lang.CharSequence) -> setPackageName
+    1770:1771:void setParent(android.view.View) -> setParent
+    1793:1797:void setParent(android.view.View,int) -> setParent
     2146:2147:void setScrollable(boolean) -> setScrollable
     3310:3315:void setShowingHintText(boolean) -> setShowingHintText
+    1429:1432:void setSource(android.view.View,int) -> setSource
     2251:2252:void setText(java.lang.CharSequence) -> setText
+    1969:1972:void setVisibleToUser(boolean) -> setVisibleToUser
     3441:3480:java.lang.String toString() -> toString
     1337:1337:android.view.accessibility.AccessibilityNodeInfo unwrap() -> unwrap
     1330:1330:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat wrap(android.view.accessibility.AccessibilityNodeInfo) -> wrap
+android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat -> android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat:
+    49:441:void <clinit>() -> <clinit>
+    454:456:void <init>(int,java.lang.CharSequence) -> <init>
+    458:460:void <init>(java.lang.Object) -> <init>
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat -> android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat:
     560:562:void <init>(java.lang.Object) -> <init>
     530:537:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat obtain(int,int,boolean,int) -> obtain
@@ -5806,11 +6224,25 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$CollectionItem
     684:686:void <init>(java.lang.Object) -> <init>
     651:658:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$CollectionItemInfoCompat obtain(int,int,int,int,boolean,boolean) -> obtain
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompat -> android.support.v4.view.accessibility.AccessibilityNodeProviderCompat:
+    104:112:void <init>() -> <init>
     120:122:void <init>(java.lang.Object) -> <init>
+    155:155:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int) -> createAccessibilityNodeInfo
+    192:192:java.util.List findAccessibilityNodeInfosByText(java.lang.String,int) -> findAccessibilityNodeInfosByText
+    208:208:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat findFocus(int) -> findFocus
     128:128:java.lang.Object getProvider() -> getProvider
+    172:172:boolean performAction(int,int,android.os.Bundle) -> performAction
+android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16 -> android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16:
+    38:40:void <init>(android.support.v4.view.accessibility.AccessibilityNodeProviderCompat) -> <init>
+    44:49:android.view.accessibility.AccessibilityNodeInfo createAccessibilityNodeInfo(int) -> createAccessibilityNodeInfo
+    56:67:java.util.List findAccessibilityNodeInfosByText(java.lang.String,int) -> findAccessibilityNodeInfosByText
+    73:73:boolean performAction(int,int,android.os.Bundle) -> performAction
+android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19 -> android.support.v4.view.accessibility.AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19:
+    80:81:void <init>(android.support.v4.view.accessibility.AccessibilityNodeProviderCompat) -> <init>
+    85:89:android.view.accessibility.AccessibilityNodeInfo findFocus(int) -> findFocus
 android.support.v4.view.accessibility.AccessibilityRecordCompat -> android.support.v4.view.accessibility.AccessibilityRecordCompat:
     506:509:void setMaxScrollX(android.view.accessibility.AccessibilityRecord,int) -> setMaxScrollX
     556:559:void setMaxScrollY(android.view.accessibility.AccessibilityRecord,int) -> setMaxScrollY
+    137:140:void setSource(android.view.accessibility.AccessibilityRecord,android.view.View,int) -> setSource
 android.support.v4.view.animation.FastOutLinearInInterpolator -> android.support.v4.view.animation.FastOutLinearInInterpolator:
     34:34:void <clinit>() -> <clinit>
     67:68:void <init>() -> <init>
@@ -5922,6 +6354,75 @@ android.support.v4.widget.DirectedAcyclicGraph -> android.support.v4.widget.Dire
     213:215:void poolList(java.util.ArrayList) -> poolList
 android.support.v4.widget.EdgeEffectCompat -> android.support.v4.widget.EdgeEffectCompat:
     152:157:void onPull(android.widget.EdgeEffect,float,float) -> onPull
+android.support.v4.widget.ExploreByTouchHelper -> android.support.v4.widget.ExploreByTouchHelper:
+    100:347:void <clinit>() -> <clinit>
+    135:137:void <init>(android.view.View) -> <init>
+    998:1005:boolean clearAccessibilityFocus(int) -> clearAccessibilityFocus
+    1046:1056:boolean clearKeyboardFocusForVirtualView(int) -> clearKeyboardFocusForVirtualView
+    481:481:boolean clickKeyboardFocusedVirtualView() -> clickKeyboardFocusedVirtualView
+    637:639:android.view.accessibility.AccessibilityEvent createEvent(int,int) -> createEvent
+    677:702:android.view.accessibility.AccessibilityEvent createEventForChild(int,int) -> createEventForChild
+    653:655:android.view.accessibility.AccessibilityEvent createEventForHost(int) -> createEventForHost
+    791:812:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat createNodeForChild(int) -> createNodeForChild
+    734:750:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat createNodeForHost() -> createNodeForHost
+    182:183:boolean dispatchHoverEvent(android.view.MotionEvent) -> dispatchHoverEvent
+    216:257:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    157:160:android.support.v4.view.accessibility.AccessibilityNodeProviderCompat getAccessibilityNodeProvider(android.view.View) -> getAccessibilityNodeProvider
+    427:436:android.support.v4.util.SparseArrayCompat getAllNodes() -> getAllNodes
+    328:330:void getBoundsInParent(int,android.graphics.Rect) -> getBoundsInParent
+    450:471:android.graphics.Rect guessPreviouslyFocusedRect(android.view.View,int,android.graphics.Rect) -> guessPreviouslyFocusedRect
+    932:933:boolean isVisibleToUser(android.graphics.Rect) -> isVisibleToUser
+    309:313:int keyToDirection(int) -> keyToDirection
+    372:423:boolean moveFocus(int,android.graphics.Rect) -> moveFocus
+    719:723:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat obtainAccessibilityNodeInfo(int) -> obtainAccessibilityNodeInfo
+    275:282:void onFocusChanged(boolean,int,android.graphics.Rect) -> onFocusChanged
+    660:664:void onInitializeAccessibilityEvent(android.view.View,android.view.accessibility.AccessibilityEvent) -> onInitializeAccessibilityEvent
+    755:759:void onInitializeAccessibilityNodeInfo(android.view.View,android.support.v4.view.accessibility.AccessibilityNodeInfoCompat) -> onInitializeAccessibilityNodeInfo
+    1128:1128:void onPopulateEventForHost(android.view.accessibility.AccessibilityEvent) -> onPopulateEventForHost
+    1116:1116:void onPopulateEventForVirtualView(int,android.view.accessibility.AccessibilityEvent) -> onPopulateEventForVirtualView
+    1206:1206:void onPopulateNodeForHost(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat) -> onPopulateNodeForHost
+    601:601:void onVirtualViewKeyboardFocusChanged(int,boolean) -> onVirtualViewKeyboardFocusChanged
+    895:897:boolean performAction(int,int,android.os.Bundle) -> performAction
+    908:914:boolean performActionForChild(int,int,android.os.Bundle) -> performActionForChild
+    904:904:boolean performActionForHost(int,android.os.Bundle) -> performActionForHost
+    968:969:boolean requestAccessibilityFocus(int) -> requestAccessibilityFocus
+    1016:1035:boolean requestKeyboardFocusForVirtualView(int) -> requestKeyboardFocusForVirtualView
+    505:506:boolean sendEventForVirtualView(int,int) -> sendEventForVirtualView
+    612:624:void updateHoveredVirtualView(int) -> updateHoveredVirtualView
+android.support.v4.widget.ExploreByTouchHelper$1 -> android.support.v4.widget.ExploreByTouchHelper$1:
+    336:336:void <init>() -> <init>
+    336:336:void obtainBounds(java.lang.Object,android.graphics.Rect) -> obtainBounds
+    339:340:void obtainBounds(android.support.v4.view.accessibility.AccessibilityNodeInfoCompat,android.graphics.Rect) -> obtainBounds
+android.support.v4.widget.ExploreByTouchHelper$2 -> android.support.v4.widget.ExploreByTouchHelper$2:
+    349:349:void <init>() -> <init>
+    349:349:java.lang.Object get(java.lang.Object,int) -> get
+    353:353:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat get(android.support.v4.util.SparseArrayCompat,int) -> get
+    349:349:int size(java.lang.Object) -> size
+    358:358:int size(android.support.v4.util.SparseArrayCompat) -> size
+android.support.v4.widget.ExploreByTouchHelper$MyNodeProvider -> android.support.v4.widget.ExploreByTouchHelper$MyNodeProvider:
+    1238:1239:void <init>(android.support.v4.widget.ExploreByTouchHelper) -> <init>
+    1245:1247:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int) -> createAccessibilityNodeInfo
+    1257:1262:android.support.v4.view.accessibility.AccessibilityNodeInfoCompat findFocus(int) -> findFocus
+    1252:1252:boolean performAction(int,int,android.os.Bundle) -> performAction
+android.support.v4.widget.FocusStrategy -> android.support.v4.widget.FocusStrategy:
+    243:248:boolean beamBeats(int,android.graphics.Rect,android.graphics.Rect,android.graphics.Rect) -> beamBeats
+    326:329:boolean beamsOverlap(int,android.graphics.Rect,android.graphics.Rect) -> beamsOverlap
+    145:183:java.lang.Object findNextFocusInAbsoluteDirection(java.lang.Object,android.support.v4.widget.FocusStrategy$CollectionAdapter,android.support.v4.widget.FocusStrategy$BoundsAdapter,java.lang.Object,android.graphics.Rect,int) -> findNextFocusInAbsoluteDirection
+    40:53:java.lang.Object findNextFocusInRelativeDirection(java.lang.Object,android.support.v4.widget.FocusStrategy$CollectionAdapter,android.support.v4.widget.FocusStrategy$BoundsAdapter,java.lang.Object,int,boolean,boolean) -> findNextFocusInRelativeDirection
+    61:71:java.lang.Object getNextFocusable(java.lang.Object,java.util.ArrayList,boolean) -> getNextFocusable
+    76:86:java.lang.Object getPreviousFocusable(java.lang.Object,java.util.ArrayList,boolean) -> getPreviousFocusable
+    283:283:int getWeightedDistanceFor(int,int) -> getWeightedDistanceFor
+    203:231:boolean isBetterCandidate(int,android.graphics.Rect,android.graphics.Rect,android.graphics.Rect) -> isBetterCandidate
+    297:299:boolean isCandidate(android.graphics.Rect,android.graphics.Rect,int) -> isCandidate
+    343:345:boolean isToDirectionOf(int,android.graphics.Rect,android.graphics.Rect) -> isToDirectionOf
+    365:365:int majorAxisDistance(int,android.graphics.Rect,android.graphics.Rect) -> majorAxisDistance
+    370:372:int majorAxisDistanceRaw(int,android.graphics.Rect,android.graphics.Rect) -> majorAxisDistanceRaw
+    392:392:int majorAxisDistanceToFarEdge(int,android.graphics.Rect,android.graphics.Rect) -> majorAxisDistanceToFarEdge
+    398:400:int majorAxisDistanceToFarEdgeRaw(int,android.graphics.Rect,android.graphics.Rect) -> majorAxisDistanceToFarEdgeRaw
+    423:427:int minorAxisDistance(int,android.graphics.Rect,android.graphics.Rect) -> minorAxisDistance
+android.support.v4.widget.FocusStrategy$SequentialComparator -> android.support.v4.widget.FocusStrategy$SequentialComparator:
+    101:104:void <init>(boolean,android.support.v4.widget.FocusStrategy$BoundsAdapter) -> <init>
+    108:135:int compare(java.lang.Object,java.lang.Object) -> compare
 android.support.v4.widget.ImageViewCompat -> android.support.v4.widget.ImageViewCompat:
     37:41:android.content.res.ColorStateList getImageTintList(android.widget.ImageView) -> getImageTintList
     76:80:android.graphics.PorterDuff$Mode getImageTintMode(android.widget.ImageView) -> getImageTintMode
@@ -8055,6 +8556,7 @@ android.support.v7.widget.AppCompatButton -> android.support.v7.widget.AppCompat
     166:170:void setTextAppearance(android.content.Context,int) -> setTextAppearance
     194:201:void setTextSize(int,float) -> setTextSize
 android.support.v7.widget.AppCompatCheckBox -> android.support.v7.widget.AppCompatCheckBox:
+    55:56:void <init>(android.content.Context) -> <init>
     59:60:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     63:66:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     83:85:int getCompoundPaddingLeft() -> getCompoundPaddingLeft
@@ -11868,8 +12370,29 @@ com.cna.mineru.cna.Adapter.CustomViewPager -> com.cna.mineru.cna.Adapter.CustomV
     38:41:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
     26:33:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
 com.cna.mineru.cna.Adapter.DefaultInputAdapter -> com.cna.mineru.cna.Adapter.DefaultInputAdapter:
-    36:38:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
-    42:54:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    25:27:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
+    31:43:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.cna.mineru.cna.Adapter.ExamChipAdapter -> com.cna.mineru.cna.Adapter.ExamChipAdapter:
+    24:30:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
+    38:38:int getCount() -> getCount
+    43:43:java.lang.Object getItem(int) -> getItem
+    48:48:long getItemId(int) -> getItemId
+    55:68:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.cna.mineru.cna.Adapter.ExamChipAdapter$1 -> com.cna.mineru.cna.Adapter.ExamChipAdapter$1:
+    60:60:void <init>(com.cna.mineru.cna.Adapter.ExamChipAdapter,int) -> <init>
+    63:66:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Adapter.ExpandableListAdapter -> com.cna.mineru.cna.Adapter.ExpandableListAdapter:
+    24:28:void <init>(android.content.Context,java.util.List,java.util.HashMap) -> <init>
+    32:32:java.lang.Object getChild(int,int) -> getChild
+    38:38:long getChildId(int,int) -> getChildId
+    45:57:android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
+    62:62:int getChildrenCount(int) -> getChildrenCount
+    67:67:java.lang.Object getGroup(int) -> getGroup
+    72:72:int getGroupCount() -> getGroupCount
+    77:77:long getGroupId(int) -> getGroupId
+    83:95:android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
+    100:100:boolean hasStableIds() -> hasStableIds
+    105:105:boolean isChildSelectable(int,int) -> isChildSelectable
 com.cna.mineru.cna.Adapter.FragmentExampleAdapter -> com.cna.mineru.cna.Adapter.FragmentExampleAdapter:
     19:20:void <init>(android.support.v4.app.FragmentManager) -> <init>
     38:39:void addFragment(android.support.v4.app.Fragment) -> addFragment
@@ -11884,30 +12407,30 @@ com.cna.mineru.cna.Adapter.FragmentPagerAdapter -> com.cna.mineru.cna.Adapter.Fr
     25:25:android.support.v4.app.Fragment getItem(int) -> getItem
     35:35:java.lang.CharSequence getPageTitle(int) -> getPageTitle
 com.cna.mineru.cna.Adapter.GridAdapter -> com.cna.mineru.cna.Adapter.GridAdapter:
-    27:33:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
-    40:40:int getCount() -> getCount
-    45:45:java.lang.Object getItem(int) -> getItem
-    50:50:long getItemId(int) -> getItemId
-    56:62:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    29:35:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
+    42:42:int getCount() -> getCount
+    47:47:java.lang.Object getItem(int) -> getItem
+    52:52:long getItemId(int) -> getItemId
+    58:67:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.cna.mineru.cna.Adapter.RandomViewPager -> com.cna.mineru.cna.Adapter.RandomViewPager:
     21:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     42:46:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
     28:36:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
 com.cna.mineru.cna.Adapter.RcExamAdapter -> com.cna.mineru.cna.Adapter.RcExamAdapter:
-    28:32:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
-    53:53:int getItemCount() -> getItemCount
-    25:25:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    62:81:void onBindViewHolder(com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder,int) -> onBindViewHolder
-    25:25:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
-    46:48:com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    26:30:void <init>(android.content.Context,int,java.util.ArrayList) -> <init>
+    51:51:int getItemCount() -> getItemCount
+    23:23:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    60:79:void onBindViewHolder(com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder,int) -> onBindViewHolder
+    23:23:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    44:46:com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.cna.mineru.cna.Adapter.RcExamAdapter$1 -> com.cna.mineru.cna.Adapter.RcExamAdapter$1:
-    66:66:void <init>(com.cna.mineru.cna.Adapter.RcExamAdapter,com.cna.mineru.cna.DTO.ExamData) -> <init>
-    69:72:void onClick(android.view.View) -> onClick
+    64:64:void <init>(com.cna.mineru.cna.Adapter.RcExamAdapter,com.cna.mineru.cna.DTO.ExamData) -> <init>
+    67:70:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Adapter.RcExamAdapter$2 -> com.cna.mineru.cna.Adapter.RcExamAdapter$2:
-    75:75:void <init>(com.cna.mineru.cna.Adapter.RcExamAdapter) -> <init>
-    78:78:boolean onLongClick(android.view.View) -> onLongClick
+    73:73:void <init>(com.cna.mineru.cna.Adapter.RcExamAdapter) -> <init>
+    76:76:boolean onLongClick(android.view.View) -> onLongClick
 com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder -> com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder:
-    38:42:void <init>(com.cna.mineru.cna.Adapter.RcExamAdapter,android.view.View) -> <init>
+    36:40:void <init>(com.cna.mineru.cna.Adapter.RcExamAdapter,android.view.View) -> <init>
 com.cna.mineru.cna.AddNote -> com.cna.mineru.cna.AddNote:
     49:49:void <init>() -> <init>
     49:49:boolean access$002(com.cna.mineru.cna.AddNote,boolean) -> access$002
@@ -11982,10 +12505,12 @@ com.cna.mineru.cna.DB.ExamSQLClass$2 -> com.cna.mineru.cna.DB.ExamSQLClass$2:
     175:176:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.DB.GraphDataSQLClass -> com.cna.mineru.cna.DB.GraphDataSQLClass:
     22:26:void <init>(android.content.Context) -> <init>
-    81:304:void first() -> first
-    66:77:java.util.ArrayList get_title(int) -> get_title
-    47:63:void init_Tables() -> init_Tables
+    112:381:void first() -> first
+    97:108:int get_size(int,int) -> get_size
+    67:78:java.util.ArrayList get_title(int) -> get_title
+    47:64:void init_Tables() -> init_Tables
     29:41:android.database.sqlite.SQLiteDatabase init_database(android.content.Context) -> init_database
+    82:93:java.util.ArrayList set_title(int,int) -> set_title
 com.cna.mineru.cna.DB.GraphSQLClass -> com.cna.mineru.cna.DB.GraphSQLClass:
     24:29:void <init>(android.content.Context) -> <init>
     90:101:void add_values(int,int) -> add_values
@@ -11997,16 +12522,16 @@ com.cna.mineru.cna.DB.GraphSQLClass -> com.cna.mineru.cna.DB.GraphSQLClass:
     107:114:void update_value(int,int) -> update_value
 com.cna.mineru.cna.DB.HomeSQLClass -> com.cna.mineru.cna.DB.HomeSQLClass:
     25:29:void <init>(android.content.Context) -> <init>
-    190:198:void add_values(java.lang.String,int,int) -> add_values
+    191:199:void add_values(java.lang.String,int,int) -> add_values
     96:102:void delete_item(int) -> delete_item
-    146:156:int getCount() -> getCount
-    177:185:int getId() -> getId
+    147:157:int getCount() -> getCount
+    178:186:int getId() -> getId
     105:143:java.util.ArrayList getList(int) -> getList
     51:62:void init_Tables() -> init_Tables
     32:47:android.database.sqlite.SQLiteDatabase init_database(android.content.Context) -> init_database
     65:81:java.util.ArrayList load_values() -> load_values
-    201:206:void reset_app() -> reset_app
-    161:173:com.cna.mineru.cna.DTO.HomeData select_item(int) -> select_item
+    202:207:void reset_app() -> reset_app
+    162:174:com.cna.mineru.cna.DTO.HomeData select_item(int) -> select_item
     85:93:void update_item(int,java.lang.String,int) -> update_item
 com.cna.mineru.cna.DB.ImageSQLClass -> com.cna.mineru.cna.DB.ImageSQLClass:
     24:28:void <init>(android.content.Context) -> <init>
@@ -12050,8 +12575,11 @@ com.cna.mineru.cna.DB.UserSQLClass -> com.cna.mineru.cna.DB.UserSQLClass:
     255:260:void update_isGoogle(boolean,java.lang.String,int) -> update_isGoogle
     247:252:void update_isPremium(int) -> update_isPremium
     239:244:void update_isWifiSync(int) -> update_isWifiSync
+com.cna.mineru.cna.DTO.ChipData -> com.cna.mineru.cna.DTO.ChipData:
+    7:10:void <init>(int,java.lang.String) -> <init>
 com.cna.mineru.cna.DTO.ClassData -> com.cna.mineru.cna.DTO.ClassData:
-    9:14:void <init>(int,int,java.lang.String,int) -> <init>
+    10:16:void <init>(int,int,java.lang.String,int,int) -> <init>
+    18:21:void <init>(int,java.lang.String) -> <init>
 com.cna.mineru.cna.DTO.ExamData -> com.cna.mineru.cna.DTO.ExamData:
     12:15:void <init>(int,java.lang.String) -> <init>
     17:20:void <init>(java.lang.String,int) -> <init>
@@ -12077,79 +12605,72 @@ com.cna.mineru.cna.ExamResultActivity$splashHandler -> com.cna.mineru.cna.ExamRe
     187:187:void <init>(com.cna.mineru.cna.ExamResultActivity,com.cna.mineru.cna.ExamResultActivity$1) -> <init>
     189:190:void run() -> run
 com.cna.mineru.cna.Fragment.ExamFragment -> com.cna.mineru.cna.Fragment.ExamFragment:
-    23:25:void <init>() -> <init>
-    30:31:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    36:59:void onViewCreated(android.view.View,android.os.Bundle) -> onViewCreated
-    62:67:void setupViewPager(android.support.v4.view.ViewPager) -> setupViewPager
+    24:26:void <init>() -> <init>
+    31:32:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    37:60:void onViewCreated(android.view.View,android.os.Bundle) -> onViewCreated
+    63:68:void setupViewPager(android.support.v4.view.ViewPager) -> setupViewPager
 com.cna.mineru.cna.Fragment.ExamFragment$1 -> com.cna.mineru.cna.Fragment.ExamFragment$1:
-    43:43:void <init>(com.cna.mineru.cna.Fragment.ExamFragment) -> <init>
-    57:57:void onTabReselected(android.support.design.widget.TabLayout$Tab) -> onTabReselected
-    47:47:void onTabSelected(android.support.design.widget.TabLayout$Tab) -> onTabSelected
-    52:52:void onTabUnselected(android.support.design.widget.TabLayout$Tab) -> onTabUnselected
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment:
-    54:56:void <init>() -> <init>
-    31:31:boolean access$000(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$000
-    31:31:android.widget.TextView access$100(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$100
-    31:31:android.widget.Button access$1000(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1000
-    31:31:android.widget.Button access$1100(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1100
-    31:31:android.widget.Button access$1200(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1200
-    31:31:android.widget.Button access$1300(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1300
-    31:31:int access$1400(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1400
-    31:31:int access$1402(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment,int) -> access$1402
-    31:31:int access$1500(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1500
-    31:31:int access$1502(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment,int) -> access$1502
-    31:31:com.cna.mineru.cna.DB.ExamSQLClass access$1600(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$1600
-    31:31:android.widget.TextView access$200(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$200
-    31:31:android.widget.TextView access$300(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$300
-    31:31:android.widget.TextView access$400(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$400
-    31:31:android.widget.TextView access$500(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$500
-    31:31:android.widget.Button access$600(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$600
-    31:31:android.widget.Button access$700(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$700
-    31:31:android.widget.Button access$800(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$800
-    31:31:android.widget.Button access$900(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$900
-    61:261:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$1:
-    101:101:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment,android.view.View) -> <init>
-    105:150:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10:
-    252:252:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    256:258:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2:
-    153:153:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    156:189:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$1:
-    161:161:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2,int,int) -> <init>
-    164:180:void onClick(android.content.DialogInterface,int) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$2:
-    182:182:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2) -> <init>
-    185:186:void onClick(android.content.DialogInterface,int) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$3 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$3:
-    192:192:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    196:198:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4:
-    200:200:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    204:206:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5:
-    209:209:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    213:215:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$6 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$6:
-    217:217:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    221:223:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$7 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$7:
-    226:226:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    230:232:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8:
-    234:234:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    238:240:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$9 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$9:
-    243:243:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
-    247:249:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$ImageAdapter -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$ImageAdapter:
-    276:278:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment,android.content.Context) -> <init>
-    282:282:int getCount() -> getCount
-    287:287:java.lang.Object getItem(int) -> getItem
-    292:292:long getItemId(int) -> getItemId
-    298:308:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    44:44:void <init>(com.cna.mineru.cna.Fragment.ExamFragment) -> <init>
+    58:58:void onTabReselected(android.support.design.widget.TabLayout$Tab) -> onTabReselected
+    48:48:void onTabSelected(android.support.design.widget.TabLayout$Tab) -> onTabSelected
+    53:53:void onTabUnselected(android.support.design.widget.TabLayout$Tab) -> onTabUnselected
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2:
+    73:75:void <init>() -> <init>
+    41:41:android.support.v4.widget.NestedScrollView access$000(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$000
+    41:41:java.util.List access$100(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$100
+    41:41:java.util.HashMap access$200(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$200
+    41:41:java.util.ArrayList access$300(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$300
+    41:41:com.cna.mineru.cna.Adapter.ExamChipAdapter access$400(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$400
+    41:41:com.cna.mineru.cna.Adapter.ExamChipAdapter access$402(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2,com.cna.mineru.cna.Adapter.ExamChipAdapter) -> access$402
+    41:41:android.widget.ListView access$500(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$500
+    41:41:com.xw.repo.BubbleSeekBar access$600(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$600
+    41:41:com.xw.repo.BubbleSeekBar access$700(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$700
+    41:41:com.xw.repo.BubbleSeekBar access$800(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$800
+    41:41:com.cna.mineru.cna.DB.ExamSQLClass access$900(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$900
+    81:280:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    287:321:void prepareListData(int) -> prepareListData
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$1:
+    109:109:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    112:113:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10:
+    240:240:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    245:278:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$1:
+    250:250:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10,int,int) -> <init>
+    253:269:void onClick(android.content.DialogInterface,int) -> onClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$2:
+    271:271:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10) -> <init>
+    274:275:void onClick(android.content.DialogInterface,int) -> onClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$2:
+    117:117:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    120:121:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$3 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$3:
+    125:125:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    130:134:boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$4 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$4:
+    138:138:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    142:142:void onGroupExpand(int) -> onGroupExpand
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$5 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$5:
+    145:145:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    149:149:void onGroupCollapse(int) -> onGroupCollapse
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$6 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$6:
+    171:171:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    180:180:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
+    184:184:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
+    174:175:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$7 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$7:
+    192:192:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    201:201:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
+    206:206:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
+    195:196:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$8 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$8:
+    214:214:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    223:223:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
+    228:228:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
+    218:218:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$9 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$9:
+    231:231:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
+    234:237:void onScrollChange(android.support.v4.widget.NestedScrollView,int,int,int,int) -> onScrollChange
 com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment:
     35:37:void <init>(int) -> <init>
     108:115:int exifOrientationToDegrees(int) -> exifOrientationToDegrees
@@ -12163,9 +12684,9 @@ com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamSolv
     119:140:android.graphics.Bitmap rotate(android.graphics.Bitmap,int) -> rotate
     144:162:void saveBitmaptoJpeg(android.graphics.Bitmap,java.lang.String) -> saveBitmaptoJpeg
 com.cna.mineru.cna.Fragment.ExamFragmentChild.ListExamFragment -> com.cna.mineru.cna.Fragment.ExamFragmentChild.ListExamFragment:
-    33:35:void <init>() -> <init>
-    40:52:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    57:61:void onResume() -> onResume
+    31:33:void <init>() -> <init>
+    38:50:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    55:59:void onResume() -> onResume
 com.cna.mineru.cna.Fragment.GraphFragment -> com.cna.mineru.cna.Fragment.GraphFragment:
     36:38:void <init>() -> <init>
     60:181:void drawGraph() -> drawGraph
@@ -12685,18 +13206,18 @@ com.cna.mineru.cna.SplashActivity$splash_handler_Main -> com.cna.mineru.cna.Spla
 com.cna.mineru.cna.Utils.BottomNavigationViewHelper -> com.cna.mineru.cna.Utils.BottomNavigationViewHelper:
     14:33:void disableShiftMode(android.support.design.widget.BottomNavigationView) -> disableShiftMode
 com.cna.mineru.cna.Utils.DefaultInputDialog -> com.cna.mineru.cna.Utils.DefaultInputDialog:
-    25:25:void <init>() -> <init>
-    25:25:int access$000(com.cna.mineru.cna.Utils.DefaultInputDialog) -> access$000
-    25:25:com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult access$100(com.cna.mineru.cna.Utils.DefaultInputDialog) -> access$100
-    165:219:boolean loadItemsFromDB(java.util.ArrayList) -> loadItemsFromDB
-    33:159:android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
-    223:224:void setDialogResult(com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult) -> setDialogResult
+    24:24:void <init>() -> <init>
+    24:24:int access$000(com.cna.mineru.cna.Utils.DefaultInputDialog) -> access$000
+    24:24:com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult access$100(com.cna.mineru.cna.Utils.DefaultInputDialog) -> access$100
+    164:218:boolean loadItemsFromDB(java.util.ArrayList) -> loadItemsFromDB
+    32:158:android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
+    222:223:void setDialogResult(com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult) -> setDialogResult
 com.cna.mineru.cna.Utils.DefaultInputDialog$1 -> com.cna.mineru.cna.Utils.DefaultInputDialog$1:
-    52:52:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog) -> <init>
-    55:56:void onClick(android.view.View) -> onClick
+    51:51:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog) -> <init>
+    54:55:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Utils.DefaultInputDialog$2 -> com.cna.mineru.cna.Utils.DefaultInputDialog$2:
-    59:59:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog,android.content.SharedPreferences,com.cna.mineru.cna.DB.UserSQLClass) -> <init>
-    62:155:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    58:58:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog,android.content.SharedPreferences,com.cna.mineru.cna.DB.UserSQLClass) -> <init>
+    61:154:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.cna.mineru.cna.Utils.InsertCodeDialog -> com.cna.mineru.cna.Utils.InsertCodeDialog:
     35:43:void <init>() -> <init>
     35:35:android.widget.EditText access$000(com.cna.mineru.cna.Utils.InsertCodeDialog) -> access$000
@@ -40088,6 +40609,124 @@ com.gun0912.tedpermission.TedPermissionActivity$6 -> com.gun0912.tedpermission.T
     360:363:void onClick(android.content.DialogInterface,int) -> onClick
 com.gun0912.tedpermission.util.ObjectUtils -> com.gun0912.tedpermission.util.ObjectUtils:
     9:24:boolean isEmpty(java.lang.Object) -> isEmpty
+com.xw.repo.BubbleConfigBuilder -> com.xw.repo.BubbleConfigBuilder:
+    54:56:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    59:60:void build() -> build
+    69:70:com.xw.repo.BubbleConfigBuilder max(float) -> max
+    63:65:com.xw.repo.BubbleConfigBuilder min(float) -> min
+com.xw.repo.BubbleSeekBar -> com.xw.repo.BubbleSeekBar:
+    133:134:void <init>(android.content.Context) -> <init>
+    137:138:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    141:233:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    55:55:boolean access$002(com.xw.repo.BubbleSeekBar,boolean) -> access$002
+    55:55:void access$100(com.xw.repo.BubbleSeekBar) -> access$100
+    55:55:boolean access$1000(com.xw.repo.BubbleSeekBar) -> access$1000
+    55:55:float access$1100(com.xw.repo.BubbleSeekBar) -> access$1100
+    55:55:float access$1102(com.xw.repo.BubbleSeekBar,float) -> access$1102
+    55:55:float access$1200(com.xw.repo.BubbleSeekBar) -> access$1200
+    55:55:android.view.WindowManager$LayoutParams access$1300(com.xw.repo.BubbleSeekBar) -> access$1300
+    55:55:android.view.WindowManager access$1400(com.xw.repo.BubbleSeekBar) -> access$1400
+    55:55:boolean access$1500(com.xw.repo.BubbleSeekBar) -> access$1500
+    55:55:float access$1600(com.xw.repo.BubbleSeekBar) -> access$1600
+    55:55:com.xw.repo.BubbleSeekBar$OnProgressChangedListener access$1700(com.xw.repo.BubbleSeekBar) -> access$1700
+    55:55:void access$1800(com.xw.repo.BubbleSeekBar) -> access$1800
+    55:55:boolean access$1902(com.xw.repo.BubbleSeekBar,boolean) -> access$1902
+    55:55:int access$2000(com.xw.repo.BubbleSeekBar) -> access$2000
+    55:55:boolean access$202(com.xw.repo.BubbleSeekBar,boolean) -> access$202
+    55:55:int access$2100(com.xw.repo.BubbleSeekBar) -> access$2100
+    55:55:int access$2200(com.xw.repo.BubbleSeekBar) -> access$2200
+    55:55:int access$2300(com.xw.repo.BubbleSeekBar) -> access$2300
+    55:55:boolean access$300(com.xw.repo.BubbleSeekBar) -> access$300
+    55:55:void access$400(com.xw.repo.BubbleSeekBar) -> access$400
+    55:55:long access$500(com.xw.repo.BubbleSeekBar) -> access$500
+    55:55:com.xw.repo.BubbleSeekBar$BubbleView access$600(com.xw.repo.BubbleSeekBar) -> access$600
+    55:55:float access$702(com.xw.repo.BubbleSeekBar,float) -> access$702
+    55:55:float access$802(com.xw.repo.BubbleSeekBar,float) -> access$802
+    55:55:float access$900(com.xw.repo.BubbleSeekBar) -> access$900
+    906:997:void autoAdjustSection() -> autoAdjustSection
+    882:897:float calThumbCxWhenSeekStepSection(float) -> calThumbCxWhenSeekStepSection
+    1049:1052:float calculateCenterRawXofBubbleView() -> calculateCenterRawXofBubbleView
+    1057:1060:float calculateProgress() -> calculateProgress
+    319:350:void calculateRadiusOfBubble() -> calculateRadiusOfBubble
+    1227:1273:void config(com.xw.repo.BubbleConfigBuilder) -> config
+    1071:1084:void correctOffsetWhenContainerOnScrolling() -> correctOffsetWhenContainerOnScrolling
+    1040:1040:java.lang.String float2String(float) -> float2String
+    1044:1045:float formatFloat(float) -> formatFloat
+    1276:1315:com.xw.repo.BubbleConfigBuilder getConfigBuilder() -> getConfigBuilder
+    1091:1091:float getMax() -> getMax
+    1087:1087:float getMin() -> getMin
+    1175:1175:com.xw.repo.BubbleSeekBar$OnProgressChangedListener getOnProgressChangedListener() -> getOnProgressChangedListener
+    1123:1123:int getProgress() -> getProgress
+    1127:1127:float getProgressFloat() -> getProgressFloat
+    1030:1037:void hideBubble() -> hideBubble
+    236:313:void initConfigByPriority() -> initConfigByPriority
+    353:375:void initSectionTextArray() -> initSectionTextArray
+    860:867:boolean isThumbTouched(android.view.MotionEvent) -> isThumbTouched
+    874:875:boolean isTrackTouched(android.view.MotionEvent) -> isTrackTouched
+    468:499:void locatePositionInWindow() -> locatePositionInWindow
+    669:671:void onDetachedFromWindow() -> onDetachedFromWindow
+    503:638:void onDraw(android.graphics.Canvas) -> onDraw
+    444:449:void onLayout(boolean,int,int,int,int) -> onLayout
+    379:440:void onMeasure(int,int) -> onMeasure
+    1329:1344:void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
+    1320:1324:android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
+    642:650:void onSizeChanged(int,int,int,int) -> onSizeChanged
+    682:853:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    654:655:void onVisibilityChanged(android.view.View,int) -> onVisibilityChanged
+    675:675:boolean performClick() -> performClick
+    1131:1171:float processProgress() -> processProgress
+    1204:1210:void setBubbleColor(int) -> setBubbleColor
+    1213:1223:void setCustomSectionTextArray(com.xw.repo.BubbleSeekBar$CustomSectionTextArray) -> setCustomSectionTextArray
+    1179:1180:void setOnProgressChangedListener(com.xw.repo.BubbleSeekBar$OnProgressChangedListener) -> setOnProgressChangedListener
+    1095:1120:void setProgress(float) -> setProgress
+    1190:1194:void setSecondTrackColor(int) -> setSecondTrackColor
+    1197:1201:void setThumbColor(int) -> setThumbColor
+    1183:1187:void setTrackColor(int) -> setTrackColor
+    1006:1007:void showBubble() -> showBubble
+com.xw.repo.BubbleSeekBar$1 -> com.xw.repo.BubbleSeekBar$1:
+    644:644:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    647:648:void run() -> run
+com.xw.repo.BubbleSeekBar$2 -> com.xw.repo.BubbleSeekBar$2:
+    784:784:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    787:789:void run() -> run
+com.xw.repo.BubbleSeekBar$3 -> com.xw.repo.BubbleSeekBar$3:
+    799:799:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    808:810:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    802:804:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.xw.repo.BubbleSeekBar$4 -> com.xw.repo.BubbleSeekBar$4:
+    813:813:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    816:840:void run() -> run
+com.xw.repo.BubbleSeekBar$4$1 -> com.xw.repo.BubbleSeekBar$4$1:
+    819:819:void <init>(com.xw.repo.BubbleSeekBar$4) -> <init>
+    832:838:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    822:828:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.xw.repo.BubbleSeekBar$5 -> com.xw.repo.BubbleSeekBar$5:
+    928:928:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    931:950:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.xw.repo.BubbleSeekBar$6 -> com.xw.repo.BubbleSeekBar$6:
+    966:966:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    986:994:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    969:982:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.xw.repo.BubbleSeekBar$7 -> com.xw.repo.BubbleSeekBar$7:
+    1016:1016:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    1019:1020:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.xw.repo.BubbleSeekBar$8 -> com.xw.repo.BubbleSeekBar$8:
+    1107:1107:void <init>(com.xw.repo.BubbleSeekBar) -> <init>
+    1110:1112:void run() -> run
+com.xw.repo.BubbleSeekBar$BubbleView -> com.xw.repo.BubbleSeekBar$BubbleView:
+    1421:1422:void <init>(com.xw.repo.BubbleSeekBar,android.content.Context) -> <init>
+    1425:1426:void <init>(com.xw.repo.BubbleSeekBar,android.content.Context,android.util.AttributeSet) -> <init>
+    1428:1438:void <init>(com.xw.repo.BubbleSeekBar,android.content.Context,android.util.AttributeSet,int) -> <init>
+    1452:1482:void onDraw(android.graphics.Canvas) -> onDraw
+    1442:1448:void onMeasure(int,int) -> onMeasure
+    1485:1489:void setProgressText(java.lang.String) -> setProgressText
+com.xw.repo.BubbleUtils -> com.xw.repo.BubbleUtils:
+    18:18:void <clinit>() -> <clinit>
+    59:59:int dp2px(int) -> dp2px
+    22:55:boolean isMIUI() -> isMIUI
+    64:64:int sp2px(int) -> sp2px
+com.xw.repo.bubbleseekbar.R$styleable -> com.xw.repo.bubbleseekbar.R$styleable:
+    1217:1708:void <clinit>() -> <clinit>
 me.zhanghai.android.materialprogressbar.Animators -> me.zhanghai.android.materialprogressbar.Animators:
     29:75:void <clinit>() -> <clinit>
     22:22:void <init>() -> <init>

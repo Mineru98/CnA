@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
         gp_db = new GraphSQLClass(getActivity());
         i_db = new ImageSQLClass((getActivity()));
         loadingDialog = new LoadingDialog();
-        mAdapater = new GridAdapter(getContext(), R.layout.row, list);
+        mAdapater = new GridAdapter(getContext(), R.layout.home_item, list);
 
         list = db.load_values();
 
@@ -255,7 +255,7 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         list = db.load_values();
-        mAdapater = new GridAdapter(getContext(), R.layout.row, list);
+        mAdapater = new GridAdapter(getContext(), R.layout.home_item, list);
         gv.setAdapter(mAdapater);
     }
 

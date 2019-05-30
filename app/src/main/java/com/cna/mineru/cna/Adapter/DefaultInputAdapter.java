@@ -1,28 +1,17 @@
 package com.cna.mineru.cna.Adapter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.cna.mineru.cna.DTO.ExamData;
 import com.cna.mineru.cna.DTO.ListViewBtnItem;
-import com.cna.mineru.cna.MainActivity;
 import com.cna.mineru.cna.R;
-import com.cna.mineru.cna.Utils.DefaultInputDialog;
 
 import java.util.ArrayList;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /*
     RcExamAdapter의 각 Item 요소 표현을 위한 Adapter
@@ -43,7 +32,7 @@ public class DefaultInputAdapter extends ArrayAdapter{
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item2, parent, false);
+            convertView = inflater.inflate(R.layout.default_input_item, parent, false);
         }
 
         TextView tv_class = (TextView) convertView.findViewById(R.id.tv_class);

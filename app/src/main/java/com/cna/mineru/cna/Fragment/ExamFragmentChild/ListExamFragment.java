@@ -1,7 +1,6 @@
 package com.cna.mineru.cna.Fragment.ExamFragmentChild;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.cna.mineru.cna.Adapter.RcExamAdapter;
 import com.cna.mineru.cna.DB.ExamSQLClass;
@@ -46,7 +44,7 @@ public class ListExamFragment extends Fragment {
         db = new ExamSQLClass(getActivity());
         list = db.load_values();
 
-        mAdapater = new RcExamAdapter(getContext(), R.layout.item, list);
+        mAdapater = new RcExamAdapter(getContext(), R.layout.exam_list_item, list);
 
         rv.setAdapter(mAdapater);
         return view;
@@ -56,7 +54,7 @@ public class ListExamFragment extends Fragment {
     public void onResume() {
         super.onResume();
         list = db.load_values();
-        mAdapater = new RcExamAdapter(getContext(), R.layout.item, list);
+        mAdapater = new RcExamAdapter(getContext(), R.layout.exam_list_item, list);
         rv.setAdapter(mAdapater);
     }
 }

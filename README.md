@@ -57,7 +57,7 @@ App
  - ~~Notification Icon 추가.~~ 구현완료
  - ~~로그아웃 시 SQLiteDB 초기화.~~ 구현완료
  - ~~App 내에서 NoteCode 입력 Dialog 구현.(쿠폰 유효기간 보여주기, 유효기간 남은 상태에서 코드 입력 시 쿠폰의 기간만큼 연장 되고. 유효기간이 끝난 상태에서 입력 시 새로운 유효기간 보여줌.)~~ 구현완료
- - ~~DB와 ExamResult 결과 Sharing. ~~ 구현완료
+ - ~~DB와 ExamResult 결과 Sharing.~~ 구현완료
    * 회원가입 후 바로 로그인이 아닌 경우가 아닌 경우 DB와 동기화.
  - ~~단원명 GridView를 더 Custom 해야함.(각각이 CheckBox처럼 동작하도록)~~ 삭제
  - ~~ExamResultAcitivity 구현.~~ 구현완료

@@ -57,18 +57,18 @@ App
  - ~~Notification Icon 추가.~~ 구현완료
  - ~~로그아웃 시 SQLiteDB 초기화.~~ 구현완료
  - ~~App 내에서 NoteCode 입력 Dialog 구현.(쿠폰 유효기간 보여주기, 유효기간 남은 상태에서 코드 입력 시 쿠폰의 기간만큼 연장 되고. 유효기간이 끝난 상태에서 입력 시 새로운 유효기간 보여줌.)~~ 구현완료
- - DB와 ExamResult 결과 Sharing. 
+ - ~~DB와 ExamResult 결과 Sharing. ~~ 구현완료
    * 회원가입 후 바로 로그인이 아닌 경우가 아닌 경우 DB와 동기화.
- - 단원명 GridView를 더 Custom 해야함.(각각이 CheckBox처럼 동작하도록)
+ - ~~단원명 GridView를 더 Custom 해야함.(각각이 CheckBox처럼 동작하도록)~~ 삭제
  - ~~ExamResultAcitivity 구현.~~ 구현완료
    * ~~Note 및 Exam 결과에 대한 Graph를 View에 그리기.~~ 구현완료
  - (중요!)문제 출현 빈도 Algorith 구현.
  - Notification 종류 생성.
  - if Internet Off 상태라면 DB와 동기화 하지 않지 않고 TmpTable에 쌓아뒀다가 Internet On 상태일때 일괄 Server와 동기화 처리(일부 기능 제외)
- - AddNote에서 단원을 입력할 때, 폴더 구조로 (대단원, 소단원으로) 클릭으로 선택 지정.
+ - ~~AddNote에서 단원을 입력할 때, 폴더 구조로 (대단원, 소단원으로) 클릭으로 선택 지정.~~ 구현완료
  - 신규 유저일 경우 튜토리얼 진행하는 투명 Dialog 생성 필요.
  - 재시험 기능
- - 가상 시뮬레이션으로 테스트 가능한 다양한 크기의 디스플레이 테스트.
+ - ~~가상 시뮬레이션으로 테스트 가능한 다양한 크기의 디스플레이 테스트.~~ 구현완료
  - ~~Time Timer 구현.~~ 구현 삭제
  - App Update 확인.
  - Custom Memo Image 구현.
@@ -83,8 +83,8 @@ App
   - 아이디어 시작 : 시험 기간에 공부하다가 잠깐 졸릴 때, 자다가 일어나고 싶을 때 친구에게 깨워달라고 부탁하는데 이러한 점을 이용해서 긍정적인 시너지를 만들어낼 수 있단 생각에 떠올림.
  
 Server
- - (중요!)CnA 노트 인식 프로그램 코드 수정
- - Normal Version에서 ImageUpload 시 두개의 Note 테이블을 형성함. 논리적인 문제 해결 할 것.
+ - ~~(중요!)CnA 노트 인식 프로그램 코드 수정~~ 삭제
+ - ~~Normal Version에서 ImageUpload 시 두개의 Note 테이블을 형성함. 논리적인 문제 해결 할 것.~~ 삭제
  - 현재 API 경로 앞에 Ver 코드를 넣어서 App이 Update가 되더라도 Code를 깔끔하게 유지 하기 위해서 경로를 코드화
  - App & DB 동기화 코드
  - Main Page Content 수정

@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private CustomViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
     private UserSQLClass db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

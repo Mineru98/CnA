@@ -12897,41 +12897,41 @@ com.cna.mineru.cna.LoginActivity$splashHandler -> com.cna.mineru.cna.LoginActivi
     238:238:void <init>(com.cna.mineru.cna.LoginActivity,com.cna.mineru.cna.LoginActivity$1) -> <init>
     240:245:void run() -> run
 com.cna.mineru.cna.MainActivity -> com.cna.mineru.cna.MainActivity:
-    39:177:void <init>() -> <init>
+    39:178:void <init>() -> <init>
     39:39:com.cna.mineru.cna.Adapter.CustomViewPager access$000(com.cna.mineru.cna.MainActivity) -> access$000
     39:39:android.view.MenuItem access$100(com.cna.mineru.cna.MainActivity) -> access$100
     39:39:android.view.MenuItem access$102(com.cna.mineru.cna.MainActivity,android.view.MenuItem) -> access$102
     39:39:android.support.design.widget.BottomNavigationView access$200(com.cna.mineru.cna.MainActivity) -> access$200
-    190:202:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    47:142:void onCreate(android.os.Bundle) -> onCreate
-    159:161:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    166:172:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    206:227:void onResume() -> onResume
-    145:155:void setupViewPager(android.support.v4.view.ViewPager) -> setupViewPager
+    191:203:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    48:143:void onCreate(android.os.Bundle) -> onCreate
+    160:162:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    167:173:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    207:228:void onResume() -> onResume
+    146:156:void setupViewPager(android.support.v4.view.ViewPager) -> setupViewPager
 com.cna.mineru.cna.MainActivity$1 -> com.cna.mineru.cna.MainActivity$1:
-    61:61:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    63:66:void onClick(android.content.DialogInterface,int) -> onClick
+    62:62:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    64:67:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.MainActivity$2 -> com.cna.mineru.cna.MainActivity$2:
-    69:69:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    72:72:void onClick(android.content.DialogInterface,int) -> onClick
+    70:70:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    73:73:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.MainActivity$3 -> com.cna.mineru.cna.MainActivity$3:
-    96:96:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    99:113:boolean onNavigationItemSelected(android.view.MenuItem) -> onNavigationItemSelected
+    97:97:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    100:114:boolean onNavigationItemSelected(android.view.MenuItem) -> onNavigationItemSelected
 com.cna.mineru.cna.MainActivity$4 -> com.cna.mineru.cna.MainActivity$4:
-    117:117:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    138:138:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-    121:121:void onPageScrolled(int,float,int) -> onPageScrolled
-    125:133:void onPageSelected(int) -> onPageSelected
+    118:118:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    139:139:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    122:122:void onPageScrolled(int,float,int) -> onPageScrolled
+    126:134:void onPageSelected(int) -> onPageSelected
 com.cna.mineru.cna.MainActivity$5 -> com.cna.mineru.cna.MainActivity$5:
-    177:177:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    184:185:void onPermissionDenied(java.util.ArrayList) -> onPermissionDenied
-    180:180:void onPermissionGranted() -> onPermissionGranted
+    178:178:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    185:186:void onPermissionDenied(java.util.ArrayList) -> onPermissionDenied
+    181:181:void onPermissionGranted() -> onPermissionGranted
 com.cna.mineru.cna.MainActivity$6 -> com.cna.mineru.cna.MainActivity$6:
-    212:212:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    214:217:void onClick(android.content.DialogInterface,int) -> onClick
+    213:213:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    215:218:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.MainActivity$7 -> com.cna.mineru.cna.MainActivity$7:
-    220:220:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
-    223:223:void onClick(android.content.DialogInterface,int) -> onClick
+    221:221:void <init>(com.cna.mineru.cna.MainActivity) -> <init>
+    224:224:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.ModifyHomeItem -> com.cna.mineru.cna.ModifyHomeItem:
     57:81:void <init>() -> <init>
     57:57:int access$000(com.cna.mineru.cna.ModifyHomeItem) -> access$000

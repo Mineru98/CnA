@@ -12505,7 +12505,7 @@ com.cna.mineru.cna.DB.ExamSQLClass$2 -> com.cna.mineru.cna.DB.ExamSQLClass$2:
     175:176:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.DB.GraphDataSQLClass -> com.cna.mineru.cna.DB.GraphDataSQLClass:
     22:26:void <init>(android.content.Context) -> <init>
-    112:381:void first() -> first
+    112:623:void first() -> first
     97:108:int get_size(int,int) -> get_size
     67:78:java.util.ArrayList get_title(int) -> get_title
     47:64:void init_Tables() -> init_Tables
@@ -12605,72 +12605,72 @@ com.cna.mineru.cna.ExamResultActivity$splashHandler -> com.cna.mineru.cna.ExamRe
     187:187:void <init>(com.cna.mineru.cna.ExamResultActivity,com.cna.mineru.cna.ExamResultActivity$1) -> <init>
     189:190:void run() -> run
 com.cna.mineru.cna.Fragment.ExamFragment -> com.cna.mineru.cna.Fragment.ExamFragment:
-    24:26:void <init>() -> <init>
-    31:32:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    37:60:void onViewCreated(android.view.View,android.os.Bundle) -> onViewCreated
-    63:68:void setupViewPager(android.support.v4.view.ViewPager) -> setupViewPager
+    23:25:void <init>() -> <init>
+    30:31:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    36:59:void onViewCreated(android.view.View,android.os.Bundle) -> onViewCreated
+    62:67:void setupViewPager(android.support.v4.view.ViewPager) -> setupViewPager
 com.cna.mineru.cna.Fragment.ExamFragment$1 -> com.cna.mineru.cna.Fragment.ExamFragment$1:
-    44:44:void <init>(com.cna.mineru.cna.Fragment.ExamFragment) -> <init>
-    58:58:void onTabReselected(android.support.design.widget.TabLayout$Tab) -> onTabReselected
-    48:48:void onTabSelected(android.support.design.widget.TabLayout$Tab) -> onTabSelected
-    53:53:void onTabUnselected(android.support.design.widget.TabLayout$Tab) -> onTabUnselected
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2:
-    73:75:void <init>() -> <init>
-    41:41:android.support.v4.widget.NestedScrollView access$000(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$000
-    41:41:java.util.List access$100(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$100
-    41:41:java.util.HashMap access$200(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$200
-    41:41:java.util.ArrayList access$300(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$300
-    41:41:com.cna.mineru.cna.Adapter.ExamChipAdapter access$400(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$400
-    41:41:com.cna.mineru.cna.Adapter.ExamChipAdapter access$402(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2,com.cna.mineru.cna.Adapter.ExamChipAdapter) -> access$402
-    41:41:android.widget.ListView access$500(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$500
-    41:41:com.xw.repo.BubbleSeekBar access$600(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$600
-    41:41:com.xw.repo.BubbleSeekBar access$700(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$700
-    41:41:com.xw.repo.BubbleSeekBar access$800(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$800
-    41:41:com.cna.mineru.cna.DB.ExamSQLClass access$900(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> access$900
-    81:280:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    287:321:void prepareListData(int) -> prepareListData
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$1:
-    109:109:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    112:113:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10:
-    240:240:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    245:278:void onClick(android.view.View) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$1:
-    250:250:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10,int,int) -> <init>
-    253:269:void onClick(android.content.DialogInterface,int) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10$2:
-    271:271:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$10) -> <init>
-    274:275:void onClick(android.content.DialogInterface,int) -> onClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$2:
-    117:117:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    120:121:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$3 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$3:
-    125:125:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    130:134:boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$4 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$4:
-    138:138:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    142:142:void onGroupExpand(int) -> onGroupExpand
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$5 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$5:
-    145:145:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    149:149:void onGroupCollapse(int) -> onGroupCollapse
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$6 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$6:
-    171:171:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    180:180:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
-    184:184:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
-    174:175:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$7 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$7:
-    192:192:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    201:201:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
-    206:206:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
-    195:196:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$8 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$8:
-    214:214:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    223:223:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
-    228:228:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
-    218:218:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$9 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2$9:
-    231:231:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment2) -> <init>
-    234:237:void onScrollChange(android.support.v4.widget.NestedScrollView,int,int,int,int) -> onScrollChange
+    43:43:void <init>(com.cna.mineru.cna.Fragment.ExamFragment) -> <init>
+    57:57:void onTabReselected(android.support.design.widget.TabLayout$Tab) -> onTabReselected
+    47:47:void onTabSelected(android.support.design.widget.TabLayout$Tab) -> onTabSelected
+    52:52:void onTabUnselected(android.support.design.widget.TabLayout$Tab) -> onTabUnselected
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment:
+    68:70:void <init>() -> <init>
+    36:36:android.support.v4.widget.NestedScrollView access$000(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$000
+    36:36:java.util.List access$100(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$100
+    36:36:java.util.HashMap access$200(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$200
+    36:36:java.util.ArrayList access$300(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$300
+    36:36:com.cna.mineru.cna.Adapter.ExamChipAdapter access$400(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$400
+    36:36:com.cna.mineru.cna.Adapter.ExamChipAdapter access$402(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment,com.cna.mineru.cna.Adapter.ExamChipAdapter) -> access$402
+    36:36:android.widget.ListView access$500(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$500
+    36:36:com.xw.repo.BubbleSeekBar access$600(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$600
+    36:36:com.xw.repo.BubbleSeekBar access$700(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$700
+    36:36:com.xw.repo.BubbleSeekBar access$800(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$800
+    36:36:com.cna.mineru.cna.DB.ExamSQLClass access$900(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> access$900
+    76:275:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    282:316:void prepareListData(int) -> prepareListData
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$1:
+    104:104:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    107:108:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10:
+    235:235:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    240:273:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10$1 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10$1:
+    245:245:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10,int,int) -> <init>
+    248:264:void onClick(android.content.DialogInterface,int) -> onClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10$2:
+    266:266:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10) -> <init>
+    269:270:void onClick(android.content.DialogInterface,int) -> onClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2:
+    112:112:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    115:116:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$3 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$3:
+    120:120:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    125:129:boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4:
+    133:133:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    137:137:void onGroupExpand(int) -> onGroupExpand
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5:
+    140:140:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    144:144:void onGroupCollapse(int) -> onGroupCollapse
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$6 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$6:
+    166:166:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    175:175:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
+    179:179:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
+    169:170:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$7 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$7:
+    187:187:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    196:196:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
+    201:201:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
+    190:191:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8:
+    209:209:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    218:218:void getProgressOnActionUp(com.xw.repo.BubbleSeekBar,int,float) -> getProgressOnActionUp
+    223:223:void getProgressOnFinally(com.xw.repo.BubbleSeekBar,int,float,boolean) -> getProgressOnFinally
+    213:213:void onProgressChanged(com.xw.repo.BubbleSeekBar,int,float,boolean) -> onProgressChanged
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$9 -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$9:
+    226:226:void <init>(com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment) -> <init>
+    229:232:void onScrollChange(android.support.v4.widget.NestedScrollView,int,int,int,int) -> onScrollChange
 com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment -> com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment:
     35:37:void <init>(int) -> <init>
     108:115:int exifOrientationToDegrees(int) -> exifOrientationToDegrees
@@ -12739,163 +12739,163 @@ com.cna.mineru.cna.Fragment.HomeFragment$splashHandler -> com.cna.mineru.cna.Fra
     246:246:void <init>(com.cna.mineru.cna.Fragment.HomeFragment,com.cna.mineru.cna.Fragment.HomeFragment$1) -> <init>
     248:251:void run() -> run
 com.cna.mineru.cna.Fragment.ProfileFragment -> com.cna.mineru.cna.Fragment.ProfileFragment:
-    67:69:void <init>() -> <init>
-    56:56:com.cna.mineru.cna.DB.UserSQLClass access$000(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$000
-    56:56:com.cna.mineru.cna.Utils.LoadingDialog access$100(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$100
-    56:56:boolean access$200(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$200
-    56:56:boolean access$202(com.cna.mineru.cna.Fragment.ProfileFragment,boolean) -> access$202
-    56:56:void access$300(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$300
-    56:56:com.google.firebase.auth.FirebaseUser access$400(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$400
-    56:56:int access$502(com.cna.mineru.cna.Fragment.ProfileFragment,int) -> access$502
-    75:352:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    446:448:void onDestroy() -> onDestroy
-    429:442:void reset_app() -> reset_app
+    68:70:void <init>() -> <init>
+    57:57:com.cna.mineru.cna.DB.UserSQLClass access$000(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$000
+    57:57:com.cna.mineru.cna.Utils.LoadingDialog access$100(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$100
+    57:57:boolean access$200(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$200
+    57:57:boolean access$202(com.cna.mineru.cna.Fragment.ProfileFragment,boolean) -> access$202
+    57:57:void access$300(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$300
+    57:57:com.google.firebase.auth.FirebaseUser access$400(com.cna.mineru.cna.Fragment.ProfileFragment) -> access$400
+    57:57:int access$502(com.cna.mineru.cna.Fragment.ProfileFragment,int) -> access$502
+    76:354:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    448:450:void onDestroy() -> onDestroy
+    431:444:void reset_app() -> reset_app
 com.cna.mineru.cna.Fragment.ProfileFragment$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$1:
-    136:136:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    138:141:void onClick(android.content.DialogInterface,int) -> onClick
+    137:137:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    139:142:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$10 -> com.cna.mineru.cna.Fragment.ProfileFragment$10:
-    342:342:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    345:350:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+    344:344:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    347:352:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
 com.cna.mineru.cna.Fragment.ProfileFragment$2 -> com.cna.mineru.cna.Fragment.ProfileFragment$2:
-    144:144:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    147:147:void onClick(android.content.DialogInterface,int) -> onClick
+    145:145:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    148:148:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$3 -> com.cna.mineru.cna.Fragment.ProfileFragment$3:
-    152:152:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    155:158:void onClick(android.view.View) -> onClick
+    153:153:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    156:159:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$4 -> com.cna.mineru.cna.Fragment.ProfileFragment$4:
-    161:161:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    164:167:void onClick(android.view.View) -> onClick
+    162:162:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    165:168:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$5 -> com.cna.mineru.cna.Fragment.ProfileFragment$5:
-    170:170:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    173:189:void onClick(android.view.View) -> onClick
+    171:171:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    174:190:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$5$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$5$1:
-    181:181:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$5) -> <init>
-    184:185:void onClick(android.content.DialogInterface,int) -> onClick
+    182:182:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$5) -> <init>
+    185:186:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$6 -> com.cna.mineru.cna.Fragment.ProfileFragment$6:
-    192:192:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    195:200:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+    193:193:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    196:201:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
 com.cna.mineru.cna.Fragment.ProfileFragment$7 -> com.cna.mineru.cna.Fragment.ProfileFragment$7:
-    203:203:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    206:256:void onClick(android.view.View) -> onClick
+    204:204:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    207:257:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$7$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$7$1:
-    210:210:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7) -> <init>
-    213:229:void onClick(android.content.DialogInterface,int) -> onClick
+    211:211:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7) -> <init>
+    214:230:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$7$1$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$7$1$1:
-    216:216:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7$1) -> <init>
-    219:227:void finish(int,java.lang.String,int) -> finish
+    217:217:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7$1) -> <init>
+    220:228:void finish(int,java.lang.String,int) -> finish
 com.cna.mineru.cna.Fragment.ProfileFragment$7$2 -> com.cna.mineru.cna.Fragment.ProfileFragment$7$2:
-    231:231:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7) -> <init>
-    234:235:void onClick(android.content.DialogInterface,int) -> onClick
+    232:232:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7) -> <init>
+    235:236:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$7$3 -> com.cna.mineru.cna.Fragment.ProfileFragment$7$3:
-    241:241:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7) -> <init>
-    244:252:void finish(int,java.lang.String,int) -> finish
+    242:242:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$7) -> <init>
+    245:253:void finish(int,java.lang.String,int) -> finish
 com.cna.mineru.cna.Fragment.ProfileFragment$8 -> com.cna.mineru.cna.Fragment.ProfileFragment$8:
-    259:259:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    262:290:void onClick(android.view.View) -> onClick
+    260:260:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    263:293:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$8$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$8$1:
-    264:264:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$8) -> <init>
-    267:280:void onClick(android.content.DialogInterface,int) -> onClick
-com.cna.mineru.cna.Fragment.ProfileFragment$8$2 -> com.cna.mineru.cna.Fragment.ProfileFragment$8$2:
-    282:282:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$8) -> <init>
-    285:286:void onClick(android.content.DialogInterface,int) -> onClick
+    265:265:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$8) -> <init>
+    268:286:void finish(int) -> finish
+    291:291:void finish(int,java.lang.String) -> finish
 com.cna.mineru.cna.Fragment.ProfileFragment$9 -> com.cna.mineru.cna.Fragment.ProfileFragment$9:
-    293:293:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    296:339:void onClick(android.view.View) -> onClick
+    296:296:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    299:341:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Fragment.ProfileFragment$9$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$9$1:
-    298:298:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$9) -> <init>
-    301:329:void onClick(android.content.DialogInterface,int) -> onClick
+    301:301:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$9) -> <init>
+    304:334:void finish(int) -> finish
+    339:339:void finish(int,java.lang.String) -> finish
 com.cna.mineru.cna.Fragment.ProfileFragment$9$1$1 -> com.cna.mineru.cna.Fragment.ProfileFragment$9$1$1:
-    314:314:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$9$1) -> <init>
-    317:319:void onComplete(com.google.android.gms.tasks.Task) -> onComplete
-com.cna.mineru.cna.Fragment.ProfileFragment$9$2 -> com.cna.mineru.cna.Fragment.ProfileFragment$9$2:
-    331:331:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$9) -> <init>
-    334:335:void onClick(android.content.DialogInterface,int) -> onClick
+    318:318:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment$9$1) -> <init>
+    321:323:void onComplete(com.google.android.gms.tasks.Task) -> onComplete
 com.cna.mineru.cna.Fragment.ProfileFragment$JSONTask -> com.cna.mineru.cna.Fragment.ProfileFragment$JSONTask:
-    355:355:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
-    354:354:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    360:418:java.lang.String doInBackground(java.lang.String[]) -> doInBackground
-    354:354:void onPostExecute(java.lang.Object) -> onPostExecute
-    423:425:void onPostExecute(java.lang.String) -> onPostExecute
+    357:357:void <init>(com.cna.mineru.cna.Fragment.ProfileFragment) -> <init>
+    356:356:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    362:420:java.lang.String doInBackground(java.lang.String[]) -> doInBackground
+    356:356:void onPostExecute(java.lang.Object) -> onPostExecute
+    425:427:void onPostExecute(java.lang.String) -> onPostExecute
 com.cna.mineru.cna.GuideActivity -> com.cna.mineru.cna.GuideActivity:
     6:6:void <init>() -> <init>
     9:12:void onCreate(android.os.Bundle) -> onCreate
 com.cna.mineru.cna.LoginActivity -> com.cna.mineru.cna.LoginActivity:
-    60:61:void <clinit>() -> <clinit>
-    60:87:void <init>() -> <init>
-    60:60:java.lang.String access$000(com.cna.mineru.cna.LoginActivity) -> access$000
-    60:60:java.lang.String access$002(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$002
-    60:60:boolean access$100(com.cna.mineru.cna.LoginActivity) -> access$100
-    60:60:com.google.android.gms.common.SignInButton access$1000(com.cna.mineru.cna.LoginActivity) -> access$1000
-    60:60:boolean access$102(com.cna.mineru.cna.LoginActivity,boolean) -> access$102
-    60:60:com.google.android.gms.auth.api.signin.GoogleSignInClient access$1100(com.cna.mineru.cna.LoginActivity) -> access$1100
-    60:60:android.widget.Button access$1200(com.cna.mineru.cna.LoginActivity) -> access$1200
-    60:60:java.lang.String access$1300(com.cna.mineru.cna.LoginActivity) -> access$1300
-    60:60:java.lang.String access$1302(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$1302
-    60:60:java.lang.String access$1400(com.cna.mineru.cna.LoginActivity) -> access$1400
-    60:60:java.lang.String access$1402(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$1402
-    60:60:boolean access$1500(com.cna.mineru.cna.LoginActivity) -> access$1500
-    60:60:boolean access$1502(com.cna.mineru.cna.LoginActivity,boolean) -> access$1502
-    60:60:java.lang.String access$1600(com.cna.mineru.cna.LoginActivity) -> access$1600
-    60:60:java.lang.String access$1602(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$1602
-    60:60:com.cna.mineru.cna.DB.UserSQLClass access$1700(com.cna.mineru.cna.LoginActivity) -> access$1700
-    60:60:android.widget.EditText access$200(com.cna.mineru.cna.LoginActivity) -> access$200
-    60:60:android.widget.EditText access$300(com.cna.mineru.cna.LoginActivity) -> access$300
-    60:60:android.widget.Button access$500(com.cna.mineru.cna.LoginActivity) -> access$500
-    60:60:com.cna.mineru.cna.Utils.LoadingDialog access$600(com.cna.mineru.cna.LoginActivity) -> access$600
-    60:60:boolean access$700(com.cna.mineru.cna.LoginActivity) -> access$700
-    60:60:boolean access$800(com.cna.mineru.cna.LoginActivity) -> access$800
-    60:60:void access$900(com.cna.mineru.cna.LoginActivity) -> access$900
-    266:283:void firebaseAuthWithGoogle(com.google.android.gms.auth.api.signin.GoogleSignInAccount) -> firebaseAuthWithGoogle
-    502:511:java.lang.String getWhatKindOfNetwork(android.content.Context) -> getWhatKindOfNetwork
-    216:219:boolean isValidEmail() -> isValidEmail
-    223:230:boolean isValidPasswd() -> isValidPasswd
-    235:236:void loginUser() -> loginUser
-    250:263:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    92:213:void onCreate(android.os.Bundle) -> onCreate
+    66:67:void <clinit>() -> <clinit>
+    66:96:void <init>() -> <init>
+    66:66:java.lang.String access$000(com.cna.mineru.cna.LoginActivity) -> access$000
+    66:66:java.lang.String access$002(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$002
+    66:66:boolean access$100(com.cna.mineru.cna.LoginActivity) -> access$100
+    66:66:com.google.android.gms.common.SignInButton access$1000(com.cna.mineru.cna.LoginActivity) -> access$1000
+    66:66:boolean access$102(com.cna.mineru.cna.LoginActivity,boolean) -> access$102
+    66:66:com.google.android.gms.auth.api.signin.GoogleSignInClient access$1100(com.cna.mineru.cna.LoginActivity) -> access$1100
+    66:66:android.widget.Button access$1200(com.cna.mineru.cna.LoginActivity) -> access$1200
+    66:66:java.lang.String access$1300(com.cna.mineru.cna.LoginActivity) -> access$1300
+    66:66:java.lang.String access$1302(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$1302
+    66:66:java.lang.String access$1400(com.cna.mineru.cna.LoginActivity) -> access$1400
+    66:66:java.lang.String access$1402(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$1402
+    66:66:boolean access$1500(com.cna.mineru.cna.LoginActivity) -> access$1500
+    66:66:boolean access$1502(com.cna.mineru.cna.LoginActivity,boolean) -> access$1502
+    66:66:java.lang.String access$1600(com.cna.mineru.cna.LoginActivity) -> access$1600
+    66:66:java.lang.String access$1602(com.cna.mineru.cna.LoginActivity,java.lang.String) -> access$1602
+    66:66:com.cna.mineru.cna.DB.UserSQLClass access$1700(com.cna.mineru.cna.LoginActivity) -> access$1700
+    66:66:android.support.v7.widget.AppCompatEditText access$200(com.cna.mineru.cna.LoginActivity) -> access$200
+    66:66:android.support.v7.widget.AppCompatEditText access$300(com.cna.mineru.cna.LoginActivity) -> access$300
+    66:66:android.widget.Button access$500(com.cna.mineru.cna.LoginActivity) -> access$500
+    66:66:com.cna.mineru.cna.Utils.LoadingDialog access$600(com.cna.mineru.cna.LoginActivity) -> access$600
+    66:66:boolean access$700(com.cna.mineru.cna.LoginActivity) -> access$700
+    66:66:boolean access$800(com.cna.mineru.cna.LoginActivity) -> access$800
+    66:66:void access$900(com.cna.mineru.cna.LoginActivity) -> access$900
+    295:312:void firebaseAuthWithGoogle(com.google.android.gms.auth.api.signin.GoogleSignInAccount) -> firebaseAuthWithGoogle
+    536:545:java.lang.String getWhatKindOfNetwork(android.content.Context) -> getWhatKindOfNetwork
+    245:248:boolean isValidEmail() -> isValidEmail
+    252:259:boolean isValidPasswd() -> isValidPasswd
+    264:265:void loginUser() -> loginUser
+    279:292:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    101:242:void onCreate(android.os.Bundle) -> onCreate
 com.cna.mineru.cna.LoginActivity$1 -> com.cna.mineru.cna.LoginActivity$1:
-    113:113:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    113:113:void onSuccess(java.lang.Object) -> onSuccess
-    116:117:void onSuccess(com.google.firebase.iid.InstanceIdResult) -> onSuccess
+    126:126:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    126:126:void onSuccess(java.lang.Object) -> onSuccess
+    129:130:void onSuccess(com.google.firebase.iid.InstanceIdResult) -> onSuccess
 com.cna.mineru.cna.LoginActivity$2 -> com.cna.mineru.cna.LoginActivity$2:
-    120:120:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    123:131:void onClick(android.view.View) -> onClick
+    133:133:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    136:144:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.LoginActivity$3 -> com.cna.mineru.cna.LoginActivity$3:
-    140:140:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    144:145:void onClick(android.view.View) -> onClick
+    153:153:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    156:174:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.LoginActivity$3$1 -> com.cna.mineru.cna.LoginActivity$3$1:
+    158:158:void <init>(com.cna.mineru.cna.LoginActivity$3) -> <init>
+    162:162:void finish(int) -> finish
+    166:172:void finish(int,java.lang.String) -> finish
 com.cna.mineru.cna.LoginActivity$4 -> com.cna.mineru.cna.LoginActivity$4:
-    148:148:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    152:168:void onClick(android.view.View) -> onClick
+    177:177:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    181:197:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.LoginActivity$5 -> com.cna.mineru.cna.LoginActivity$5:
-    171:171:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    174:179:void onClick(android.view.View) -> onClick
+    200:200:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    203:208:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.LoginActivity$6 -> com.cna.mineru.cna.LoginActivity$6:
-    182:182:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    185:191:void onClick(android.view.View) -> onClick
+    211:211:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    214:220:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.LoginActivity$7 -> com.cna.mineru.cna.LoginActivity$7:
-    199:199:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    201:204:void onClick(android.content.DialogInterface,int) -> onClick
+    228:228:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    230:233:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.LoginActivity$8 -> com.cna.mineru.cna.LoginActivity$8:
-    207:207:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    209:209:void onClick(android.content.DialogInterface,int) -> onClick
+    236:236:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    238:238:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.LoginActivity$9 -> com.cna.mineru.cna.LoginActivity$9:
-    268:268:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    271:281:void onComplete(com.google.android.gms.tasks.Task) -> onComplete
+    297:297:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    300:310:void onComplete(com.google.android.gms.tasks.Task) -> onComplete
 com.cna.mineru.cna.LoginActivity$GoogleJSONTask -> com.cna.mineru.cna.LoginActivity$GoogleJSONTask:
-    397:397:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    396:396:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    402:462:java.lang.String doInBackground(java.lang.String[]) -> doInBackground
-    396:396:void onPostExecute(java.lang.Object) -> onPostExecute
-    467:498:void onPostExecute(java.lang.String) -> onPostExecute
+    431:431:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    430:430:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    436:496:java.lang.String doInBackground(java.lang.String[]) -> doInBackground
+    430:430:void onPostExecute(java.lang.Object) -> onPostExecute
+    501:532:void onPostExecute(java.lang.String) -> onPostExecute
 com.cna.mineru.cna.LoginActivity$JSONTask -> com.cna.mineru.cna.LoginActivity$JSONTask:
-    286:286:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    285:285:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    291:348:java.lang.String doInBackground(java.lang.String[]) -> doInBackground
-    285:285:void onPostExecute(java.lang.Object) -> onPostExecute
-    353:393:void onPostExecute(java.lang.String) -> onPostExecute
+    315:315:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    314:314:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    320:382:java.lang.String doInBackground(java.lang.String[]) -> doInBackground
+    314:314:void onPostExecute(java.lang.Object) -> onPostExecute
+    387:427:void onPostExecute(java.lang.String) -> onPostExecute
 com.cna.mineru.cna.LoginActivity$splashHandler -> com.cna.mineru.cna.LoginActivity$splashHandler:
-    238:238:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
-    238:238:void <init>(com.cna.mineru.cna.LoginActivity,com.cna.mineru.cna.LoginActivity$1) -> <init>
-    240:245:void run() -> run
+    267:267:void <init>(com.cna.mineru.cna.LoginActivity) -> <init>
+    267:267:void <init>(com.cna.mineru.cna.LoginActivity,com.cna.mineru.cna.LoginActivity$1) -> <init>
+    269:274:void run() -> run
 com.cna.mineru.cna.MainActivity -> com.cna.mineru.cna.MainActivity:
     39:178:void <init>() -> <init>
     39:39:com.cna.mineru.cna.Adapter.CustomViewPager access$000(com.cna.mineru.cna.MainActivity) -> access$000
@@ -13159,6 +13159,7 @@ com.cna.mineru.cna.SignupActivity -> com.cna.mineru.cna.SignupActivity:
     171:173:void createUser(java.lang.String,java.lang.String) -> createUser
     147:154:boolean isValidEmail() -> isValidEmail
     159:166:boolean isValidPasswd() -> isValidPasswd
+    268:270:void onBackPressed() -> onBackPressed
     57:144:void onCreate(android.os.Bundle) -> onCreate
 com.cna.mineru.cna.SignupActivity$1 -> com.cna.mineru.cna.SignupActivity$1:
     74:74:void <init>(com.cna.mineru.cna.SignupActivity) -> <init>
@@ -13185,9 +13186,9 @@ com.cna.mineru.cna.SignupActivity$JSONTask -> com.cna.mineru.cna.SignupActivity$
     175:175:void onPostExecute(java.lang.Object) -> onPostExecute
     245:263:void onPostExecute(java.lang.String) -> onPostExecute
 com.cna.mineru.cna.SignupActivity$splashHandler -> com.cna.mineru.cna.SignupActivity$splashHandler:
-    266:266:void <init>(com.cna.mineru.cna.SignupActivity) -> <init>
-    266:266:void <init>(com.cna.mineru.cna.SignupActivity,com.cna.mineru.cna.SignupActivity$1) -> <init>
-    268:269:void run() -> run
+    272:272:void <init>(com.cna.mineru.cna.SignupActivity) -> <init>
+    272:272:void <init>(com.cna.mineru.cna.SignupActivity,com.cna.mineru.cna.SignupActivity$1) -> <init>
+    274:275:void run() -> run
 com.cna.mineru.cna.SplashActivity -> com.cna.mineru.cna.SplashActivity:
     17:17:void <init>() -> <init>
     80:80:void onBackPressed() -> onBackPressed
@@ -13205,19 +13206,38 @@ com.cna.mineru.cna.SplashActivity$splash_handler_Main -> com.cna.mineru.cna.Spla
     71:74:void run() -> run
 com.cna.mineru.cna.Utils.BottomNavigationViewHelper -> com.cna.mineru.cna.Utils.BottomNavigationViewHelper:
     14:33:void disableShiftMode(android.support.design.widget.BottomNavigationView) -> disableShiftMode
+com.cna.mineru.cna.Utils.CustomDialog -> com.cna.mineru.cna.Utils.CustomDialog:
+    35:46:void <init>(int) -> <init>
+    21:21:android.support.v7.widget.AppCompatEditText access$000(com.cna.mineru.cna.Utils.CustomDialog) -> access$000
+    21:21:com.cna.mineru.cna.Utils.CustomDialog$OnMyDialogResult access$100(com.cna.mineru.cna.Utils.CustomDialog) -> access$100
+    50:112:android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
+    116:117:void setDialogResult(com.cna.mineru.cna.Utils.CustomDialog$OnMyDialogResult) -> setDialogResult
+com.cna.mineru.cna.Utils.CustomDialog$1 -> com.cna.mineru.cna.Utils.CustomDialog$1:
+    68:68:void <init>(com.cna.mineru.cna.Utils.CustomDialog) -> <init>
+    71:73:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Utils.CustomDialog$2 -> com.cna.mineru.cna.Utils.CustomDialog$2:
+    76:76:void <init>(com.cna.mineru.cna.Utils.CustomDialog) -> <init>
+    79:81:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Utils.CustomDialog$3 -> com.cna.mineru.cna.Utils.CustomDialog$3:
+    94:94:void <init>(com.cna.mineru.cna.Utils.CustomDialog) -> <init>
+    97:99:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Utils.CustomDialog$4 -> com.cna.mineru.cna.Utils.CustomDialog$4:
+    102:102:void <init>(com.cna.mineru.cna.Utils.CustomDialog) -> <init>
+    105:107:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Utils.DefaultInputDialog -> com.cna.mineru.cna.Utils.DefaultInputDialog:
     24:24:void <init>() -> <init>
     24:24:int access$000(com.cna.mineru.cna.Utils.DefaultInputDialog) -> access$000
     24:24:com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult access$100(com.cna.mineru.cna.Utils.DefaultInputDialog) -> access$100
-    164:218:boolean loadItemsFromDB(java.util.ArrayList) -> loadItemsFromDB
-    32:158:android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
-    222:223:void setDialogResult(com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult) -> setDialogResult
+    179:233:boolean loadItemsFromDB(java.util.ArrayList) -> loadItemsFromDB
+    32:161:android.app.Dialog onCreateDialog(android.os.Bundle) -> onCreateDialog
+    166:174:void onDestroy() -> onDestroy
+    237:238:void setDialogResult(com.cna.mineru.cna.Utils.DefaultInputDialog$OnMyDialogResult) -> setDialogResult
 com.cna.mineru.cna.Utils.DefaultInputDialog$1 -> com.cna.mineru.cna.Utils.DefaultInputDialog$1:
-    51:51:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog) -> <init>
-    54:55:void onClick(android.view.View) -> onClick
+    51:51:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog,android.content.SharedPreferences) -> <init>
+    54:58:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.Utils.DefaultInputDialog$2 -> com.cna.mineru.cna.Utils.DefaultInputDialog$2:
-    58:58:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog,android.content.SharedPreferences,com.cna.mineru.cna.DB.UserSQLClass) -> <init>
-    61:154:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    61:61:void <init>(com.cna.mineru.cna.Utils.DefaultInputDialog,android.content.SharedPreferences,com.cna.mineru.cna.DB.UserSQLClass) -> <init>
+    64:157:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.cna.mineru.cna.Utils.InsertCodeDialog -> com.cna.mineru.cna.Utils.InsertCodeDialog:
     35:43:void <init>() -> <init>
     35:35:android.widget.EditText access$000(com.cna.mineru.cna.Utils.InsertCodeDialog) -> access$000
@@ -13289,6 +13309,9 @@ com.cna.mineru.cna.Utils.PhotoDialog2$2 -> com.cna.mineru.cna.Utils.PhotoDialog2
 com.cna.mineru.cna.Utils.PhotoDialog2$3 -> com.cna.mineru.cna.Utils.PhotoDialog2$3:
     41:41:void <init>(com.cna.mineru.cna.Utils.PhotoDialog2) -> <init>
     44:46:void onClick(android.view.View) -> onClick
+com.cna.mineru.cna.Utils.SecurityUtil -> com.cna.mineru.cna.Utils.SecurityUtil:
+    9:9:void <init>() -> <init>
+    12:17:byte[] encryptSHA256(java.lang.String) -> encryptSHA256
 com.cna.mineru.cna.Utils.SignDialog -> com.cna.mineru.cna.Utils.SignDialog:
     22:24:void <init>(android.content.Context) -> <init>
     17:17:android.app.Dialog access$100(com.cna.mineru.cna.Utils.SignDialog) -> access$100

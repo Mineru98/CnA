@@ -51,6 +51,9 @@ public class DefaultInputDialog extends DialogFragment {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putInt("isClassConfig", 0);
+                editor.apply();
                 DefaultInputDialog.this.getDialog().cancel();
             }
         });
@@ -156,6 +159,18 @@ public class DefaultInputDialog extends DialogFragment {
 
         builder.setView(dig);
         return builder.create();
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        SharedPreferences pref = getActivity().getSharedPreferences("isClassConfig", MODE_PRIVATE);
+        mode = pref.getInt("isClassConfig", 0);
+        if(mode==1||mode==2||mode==3){
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putInt("isClassConfig", 0);
+            editor.apply();
+        }
     }
 
     public boolean loadItemsFromDB(ArrayList<ListViewBtnItem> list) {

@@ -28,6 +28,7 @@ import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.R;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.InsertCodeDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.WebViewActivity;
@@ -259,83 +260,84 @@ public class ProfileFragment extends Fragment {
         tv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-                dialog.setMessage("로그아웃 하시겠습니까?");
-                dialog.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                CustomDialog dialog2 = new CustomDialog(1);
+                dialog2.show(getActivity().getSupportFragmentManager(),"logout code");
+                dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        loadingDialog.progressON(getActivity(),"Loading...");
-                        isLogin=false;
-                        SharedPreferences pref = getContext().getSharedPreferences("isLogin", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = pref.edit();
-                        editor.putBoolean("isLogin",false);
-                        editor.apply();
-                        reset_app();
-                        FirebaseAuth.getInstance().signOut();
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra("isLogin",isLogin);
-                        getActivity().setResult(RESULT_OK,resultIntent);
-                        getActivity().finish();
+                    public void finish(int result) {
+                        if(result==1){
+                            Toast.makeText(getContext(), "로그아웃", Toast.LENGTH_SHORT).show();
+                            loadingDialog.progressON(getActivity(),"Loading...");
+                            isLogin=false;
+                            SharedPreferences pref = getContext().getSharedPreferences("isLogin", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putBoolean("isLogin",false);
+                            editor.apply();
+                            reset_app();
+                            FirebaseAuth.getInstance().signOut();
+                            Intent resultIntent = new Intent();
+                            resultIntent.putExtra("isLogin",isLogin);
+                            getActivity().setResult(RESULT_OK,resultIntent);
+                            getActivity().finish();
+                        }
+                        else{
+                            Toast.makeText(getContext(), "로그아웃 아님", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                });
-                dialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
 
+                    @Override
+                    public void finish(int result, String email) {
+
+                    }
+                });
             }
         });
 
         tv_signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-                dialog.setMessage("회원탈퇴 하시겠습니까?");
-                dialog.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                CustomDialog dialog2 = new CustomDialog(2);
+                dialog2.show(getActivity().getSupportFragmentManager(),"logout code");
+                dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        loadingDialog.progressON(getActivity(),"Loading...");
-                        isLogin=false;
-                        SharedPreferences pref = getContext().getSharedPreferences("isLogin",MODE_PRIVATE);
-                        SharedPreferences.Editor editor = pref.edit();
-                        editor.putBoolean("isLogin",false);
-                        editor.apply();
-                        reset_app();
-                        FirebaseAuth.getInstance().signOut();
-                        boolean isGoogle;
-                        isGoogle = db.delete_User();
-                        if(isGoogle){
-                            mFirebaseUser.delete()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
+                    public void finish(int result) {
+                        if(result==1){
+                            Toast.makeText(getContext(), "회원탈퇴", Toast.LENGTH_SHORT).show();
+                            loadingDialog.progressON(getActivity(),"Loading...");
+                            isLogin=false;
+                            SharedPreferences pref = getContext().getSharedPreferences("isLogin",MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putBoolean("isLogin",false);
+                            editor.apply();
+                            reset_app();
+                            FirebaseAuth.getInstance().signOut();
+                            boolean isGoogle;
+                            isGoogle = db.delete_User();
+                            if(isGoogle){
+                                mFirebaseUser.delete()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                }
                                             }
-                                        }
-                                    });
-                        }else{
-                            new JSONTask().execute(getString(R.string.ip_set)+"/api/user/delete");
+                                        });
+                            }else{
+                                new JSONTask().execute(getString(R.string.ip_set)+"/api/user/delete");
+                            }
+
+                            Intent resultIntent = new Intent();
+                            resultIntent.putExtra("isLogin",isLogin);
+                            getActivity().setResult(RESULT_OK,resultIntent);
+                            getActivity().finish();
                         }
-
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra("isLogin",isLogin);
-                        getActivity().setResult(RESULT_OK,resultIntent);
-                        getActivity().finish();
                     }
-                });
-                dialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                    public void finish(int result, String email) {
+
                     }
                 });
-                dialog.show();
-
             }
         });
 

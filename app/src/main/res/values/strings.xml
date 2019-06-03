@@ -1,7 +1,5 @@
 <resources>
-    <!--<string name="ip_set">http://175.215.90.55:8080</string>-->
-    <!--<string name="ip_set">http://122.34.12.104:6450</string>-->
-    <string name="ip_set">http://122.34.12.104</string>
+    <string name="ip_set">http://www.cnaplus.shop</string>
     <string name="app_name">CnA</string>
     <string name="title_home">홈</string>
     <string name="title_graph">분석</string>
@@ -63,4 +61,6 @@
     <string name="tv_loading">Loading..</string>
     <string name="tv_test">Wrong Answer Notes</string>
     <string name="tv_take_photo">촬영을 선택하세요!</string>
+    <string name="dialog_btn_ok">예</string>
+    <string name="dialog_btn_cancel">아니오</string>
 </resources>

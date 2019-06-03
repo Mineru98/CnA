@@ -12,7 +12,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
+import android.text.InputType;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
@@ -25,7 +29,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cna.mineru.cna.DB.UserSQLClass;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
+import com.cna.mineru.cna.Utils.SecurityUtil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -66,8 +72,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private UserSQLClass db;
 
-    private EditText et_pw;
-    private EditText et_email;
+    private AppCompatEditText et_pw;
+    private AppCompatEditText et_email;
+
+    private TextInputLayout layout_pw;
+    private TextInputLayout layout_email;
 
     private Button btn_signup;
     private Button btn_login_email;
@@ -93,8 +102,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         db = new UserSQLClass(LoginActivity.this);
 
-        et_email = (EditText) findViewById(R.id.et_email);
-        et_pw = (EditText) findViewById(R.id.et_pw);
+        layout_pw = (TextInputLayout) findViewById(R.id.layout_pw);
+        layout_email = (TextInputLayout) findViewById(R.id.layout_email);
+
+        et_email = (AppCompatEditText) findViewById(R.id.et_email);
+        et_pw = (AppCompatEditText) findViewById(R.id.et_pw);
+
         TextView tv_lose_pw = (TextView) findViewById(R.id.tv_lose_pw);
         TextView tv_or = (TextView) findViewById(R.id.tv_or);
         btn_login_email = (Button) findViewById(R.id.btn_login_email);
@@ -121,11 +134,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isView){
-                    et_pw.setInputType(0x00000081);
+                    et_pw.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     isView = false;
                 }
                 else {
-                    et_pw.setInputType(0x00000091);
+                    et_pw.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     isView = true;
                 }
             }
@@ -140,8 +153,24 @@ public class LoginActivity extends AppCompatActivity {
         tv_lose_pw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                loadingDialog.progressON(LoginActivity.this,"Loaing...");
-                Toast.makeText(LoginActivity.this, "비밀번호 재설정을 위하여 이메일을 보냈습니다.", Toast.LENGTH_SHORT).show();
+                CustomDialog dig = new CustomDialog(3);
+                dig.show(getSupportFragmentManager(), "lost pw");
+                dig.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+
+                    }
+
+                    @Override
+                    public void finish(int result, String email) {
+                        if (result == 1) {
+                            //loadingDialog.progressON(LoginActivity.this,"Loading...");
+                            Toast.makeText(LoginActivity.this, "비밀번호 재설정을 위하여 " + email + "으로 이메일을 보냈습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "취소하였습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
@@ -153,9 +182,9 @@ public class LoginActivity extends AppCompatActivity {
                     Handler h = new Handler();
                     h.postDelayed(new splashHandler(), 2000);
                     if(et_email.getText().toString().equals(""))
-                        et_email.setHintTextColor(0xFFD32F2F);
+                        et_email.setTextColor(0xFFD32F2F);
                     if(et_pw.getText().toString().equals(""))
-                        et_pw.setHintTextColor(0xFFD32F2F);
+                        et_pw.setTextColor(0xFFD32F2F);
                 }else{
                     btn_login_email.setEnabled(false);
                     Handler h = new Handler();
@@ -240,8 +269,8 @@ public class LoginActivity extends AppCompatActivity {
             btn_login_email.setEnabled(true); // 클릭 유효화
             btn_login_google.setEnabled(true); // 클릭 유효화
             btn_signup.setEnabled(true); // 클릭 유효화
-            et_email.setHintTextColor(0xFF505050);
-            et_pw.setHintTextColor(0xFF505050);
+            et_pw.setTextColor(0xFF505050);
+            et_pw.setTextColor(0xFF505050);
         }
     }
 
@@ -290,6 +319,11 @@ public class LoginActivity extends AppCompatActivity {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("email", et_email.getText().toString());
+                SecurityUtil securityUtil = new SecurityUtil();
+                byte[] rtn1 = securityUtil.encryptSHA256(et_pw.getText().toString());
+                String pw = new String(rtn1);
+                Log.d("TAG","Mineru sha : " +pw);
+//                jsonObject.accumulate("password", pw);
                 jsonObject.accumulate("password", et_pw.getText().toString());
                 jsonObject.accumulate("uuid", token);
                 HttpURLConnection con = null;

@@ -1,161 +1,245 @@
 package com.cna.mineru.cna.Fragment.ExamFragmentChild;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cna.mineru.cna.Adapter.ExamChipAdapter;
+import com.cna.mineru.cna.Adapter.ExpandableListAdapter;
 import com.cna.mineru.cna.DB.ExamSQLClass;
+import com.cna.mineru.cna.DB.GraphDataSQLClass;
+import com.cna.mineru.cna.DB.HomeSQLClass;
+import com.cna.mineru.cna.DB.UserSQLClass;
+import com.cna.mineru.cna.DTO.ChipData;
+import com.cna.mineru.cna.DTO.ClassData;
 import com.cna.mineru.cna.DTO.ExamData;
 import com.cna.mineru.cna.MainActivity;
 import com.cna.mineru.cna.R;
 import com.cna.mineru.cna.RandomExam;
+import com.xw.repo.BubbleSeekBar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class DoExamFragment extends Fragment {
 
-    private TextView tv_time;
-    private TextView tv_count;
-    private TextView title2;
-    private TextView title3;
-    private TextView btn_start;
-    private Button btn_add;
-    private Button btn_add_double;
-    private Button btn_sub;
-    private Button btn_sub_double;
-    private Button btn_add_time;
-    private Button btn_add_double_time;
-    private Button btn_sub_time;
-    private Button btn_sub_double_time;
 
+    private ExamChipAdapter mAdapater;
+    private View view;
+    private TextView btn_start;
+
+    private BubbleSeekBar seekBar_1;
+    private BubbleSeekBar seekBar_2;
+    private BubbleSeekBar seekBar_3;
+
+    private ListView listView;
+    private NestedScrollView sv;
+    private ExpandableListView lvExp;
+
+    private HomeSQLClass h_db;
+    private GraphDataSQLClass c_db;
+    private ExamSQLClass db;
+    private UserSQLClass u_db;
+
+    private int max_value;
     private boolean isNext = false;
     private int time = 0;
     private int problem_num = 0;
+    private int ClassId = 0;
+    private ArrayList<ChipData> list = new ArrayList<>();
+    private ExpandableListAdapter listAdapter;
+    private List<String> listDataHeader;
+    private HashMap<String, List<String>> listDataChild;
 
-    private View view;
-    private ExamSQLClass db;
+    int t_count = 1;
 
     public DoExamFragment() {
 
     }
 
+    @SuppressLint({"ClickableViewAccessibility", "RestrictedApi"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         db = new ExamSQLClass(getActivity());
-        view = inflater.inflate(R.layout.fragment_do_exam, container, false);
+        h_db = new HomeSQLClass(getActivity());
+        c_db = new GraphDataSQLClass(getActivity());
+        u_db = new UserSQLClass(getActivity());
+        ClassId = u_db.getClassId();
 
-        View boundary1 = (View) view.findViewById(R.id.boundary1);
-        View boundary2 = (View) view.findViewById(R.id.boundary2);
-        TextView title1 = (TextView) view.findViewById(R.id.title1);
-        btn_start = (TextView) view.findViewById(R.id.btn_start);
-        title2 = (TextView) view.findViewById(R.id.title2);
-        title3 = (TextView) view.findViewById(R.id.title3);
-        tv_time = (TextView) view.findViewById(R.id.tv_time);
-        tv_count = (TextView) view.findViewById(R.id.tv_count);
-        btn_add = (Button) view.findViewById(R.id.btn_add);
-        btn_add_double = (Button) view.findViewById(R.id.btn_add_double);
-        btn_sub = (Button) view.findViewById(R.id.btn_sub);
-        btn_sub_double = (Button) view.findViewById(R.id.btn_sub_double);
-        btn_add_time = (Button) view.findViewById(R.id.btn_add_time);
-        btn_add_double_time = (Button) view.findViewById(R.id.btn_add_double_time);
-        btn_sub_time = (Button) view.findViewById(R.id.btn_sub_time);
-        btn_sub_double_time = (Button) view.findViewById(R.id.btn_sub_double_time);
-
-        boundary1.setVisibility(View.INVISIBLE);
-        title2.setVisibility(View.INVISIBLE);
-        title3.setVisibility(View.INVISIBLE);
-        tv_time.setVisibility(View.INVISIBLE);
-        tv_count.setVisibility(View.INVISIBLE);
-        btn_start.setVisibility(View.INVISIBLE);
-        btn_add.setVisibility(View.INVISIBLE);
-        btn_add_double.setVisibility(View.INVISIBLE);
-        btn_sub.setVisibility(View.INVISIBLE);
-        btn_sub_double.setVisibility(View.INVISIBLE);
-        btn_add_time.setVisibility(View.INVISIBLE);
-        btn_add_double_time.setVisibility(View.INVISIBLE);
-        btn_sub_time.setVisibility(View.INVISIBLE);
-        btn_sub_double_time.setVisibility(View.INVISIBLE);
-
+        max_value = h_db.getCount();
         problem_num = 0;
         time = 0;
 
-        final GridView gridView = (GridView) view.findViewById(R.id.btn_box);
-        gridView.setAdapter(new ImageAdapter(getContext()));
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @SuppressLint("SetTextI18n")
+        if (max_value < 10) {
+            max_value = 10;
+        }
+
+        view = inflater.inflate(R.layout.fragment_do_exam, container, false);
+
+        sv = (NestedScrollView) view.findViewById(R.id.sv);
+        lvExp = (ExpandableListView) view.findViewById(R.id.lvExp);
+        listView = (ListView) view.findViewById(R.id.listView);
+        btn_start = (TextView) view.findViewById(R.id.btn_start);
+
+        mAdapater = new ExamChipAdapter(getActivity(), R.layout.chip_item, list);
+        prepareListData(ClassId);
+
+        listAdapter = new ExpandableListAdapter(getActivity(), listDataHeader, listDataChild);
+        listView.setAdapter(mAdapater);
+        lvExp.setAdapter(listAdapter);
+
+        listView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                if (!isNext) {
-                    Animation animation = new AlphaAnimation(0, 1);
-                    animation.setDuration(500);
+            public boolean onTouch(View v, MotionEvent event) {
+                sv.requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
 
-                    boundary1.setVisibility(View.VISIBLE);
-                    title2.setVisibility(View.VISIBLE);
-                    title3.setVisibility(View.VISIBLE);
-                    tv_time.setVisibility(View.VISIBLE);
-                    tv_count.setVisibility(View.VISIBLE);
-                    btn_start.setVisibility(View.VISIBLE);
-                    btn_add.setVisibility(View.VISIBLE);
-                    btn_add_double.setVisibility(View.VISIBLE);
-                    btn_sub.setVisibility(View.VISIBLE);
-                    btn_sub_double.setVisibility(View.VISIBLE);
-                    btn_add_time.setVisibility(View.VISIBLE);
-                    btn_add_double_time.setVisibility(View.VISIBLE);
-                    btn_sub_time.setVisibility(View.VISIBLE);
-                    btn_sub_double_time.setVisibility(View.VISIBLE);
+        lvExp.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                sv.requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
 
-                    boundary1.setAnimation(animation);
-                    title2.setAnimation(animation);
-                    title3.setAnimation(animation);
-                    tv_time.setAnimation(animation);
-                    tv_count.setAnimation(animation);
-                    btn_start.setAnimation(animation);
-                    btn_add.setAnimation(animation);
-                    btn_add_double.setAnimation(animation);
-                    btn_sub.setAnimation(animation);
-                    btn_sub_double.setAnimation(animation);
-                    btn_add_time.setAnimation(animation);
-                    btn_add_double_time.setAnimation(animation);
-                    btn_sub_time.setAnimation(animation);
-                    btn_sub_double_time.setAnimation(animation);
+        lvExp.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                list.add(new ChipData(t_count++, listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition)));
+                mAdapater = new ExamChipAdapter(v.getContext(), R.layout.chip_item, list);
+                TextView tv = (TextView) parent.findViewById(R.id.lblListItem);
+                listView.setAdapter(mAdapater);
+                return false;
+            }
+        });
 
-                    //isNext = true;
-                    problem_num += 4;
-                    time += 4 * 3;
-                    tv_time.setText("" + time + " 분");
-                    tv_count.setText("" + problem_num + " 문제");
-                } else {
-                    problem_num += 4;
-                    time += 4 * 3;
-                    tv_time.setText("" + time + " 분");
-                    tv_count.setText("" + problem_num + " 문제");
-                }
+        lvExp.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+
+            }
+        });
+
+        lvExp.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+
+            }
+        });
+
+        View boundary1 = (View) view.findViewById(R.id.boundary1);
+        TextView tv_lv = (TextView) view.findViewById(R.id.tv_lv);
+        TextView tv_lvE = (TextView) view.findViewById(R.id.tv_lvE);
+        TextView tv_lvE2 = (TextView) view.findViewById(R.id.tv_lvE2);
+        TextView tv_mid_low_1 = (TextView) view.findViewById(R.id.tv_mid_low_1);
+        TextView tv_mid_low_2 = (TextView) view.findViewById(R.id.tv_mid_low_2);
+        TextView tv_mid_low_3 = (TextView) view.findViewById(R.id.tv_mid_low_3);
+
+
+        seekBar_1 = (BubbleSeekBar) view.findViewById(R.id.seekBar_1);
+        seekBar_2 = (BubbleSeekBar) view.findViewById(R.id.seekBar_2);
+        seekBar_3 = (BubbleSeekBar) view.findViewById(R.id.seekBar_3);
+
+        seekBar_1.setProgress(25f);
+        seekBar_1.getConfigBuilder()
+                .min(1)
+                .max(max_value)
+                .build();
+
+        seekBar_1.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
+            @Override
+            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+                seekBar_3.setProgress(seekBar_2.getProgress()*(int)seekBar_1.getProgress());
+            }
+
+            @Override
+            public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+            }
+        });
+
+        seekBar_2.setProgress(25f);
+        seekBar_2.getConfigBuilder()
+                .min(1)
+                .max(10)
+                .build();
+        seekBar_2.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
+            @Override
+            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+                seekBar_3.setProgress(seekBar_2.getProgress()*(int)seekBar_1.getProgress());
+            }
+
+            @Override
+            public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+
+            }
+        });
+
+        seekBar_3.setProgress(25f);
+        seekBar_3.getConfigBuilder()
+                .min(0)
+                .max(60)
+                .build();
+        seekBar_3.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
+            @Override
+            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+
+            }
+
+            @Override
+            public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+
+            }
+        });
+
+        sv.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                seekBar_1.correctOffsetWhenContainerOnScrolling();
+                seekBar_2.correctOffsetWhenContainerOnScrolling();
+                seekBar_3.correctOffsetWhenContainerOnScrolling();
             }
         });
 
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int time = Integer.parseInt(tv_time.getText().toString().substring(0,tv_time.getText().toString().length()-2));
-                int ExamNum = Integer.parseInt(tv_count.getText().toString().substring(0,tv_count.getText().toString().length()-3));
+//                int time = Integer.parseInt(seekBar_3.getTag().toString());
+//                int ExamNum = Integer.parseInt(seekBar_1.getTag().toString());
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                int time = seekBar_3.getProgress();
+                int ExamNum = seekBar_1.getProgress();
                 dialog.setTitle("알림");
                 dialog.setMessage(time + "분간 시험이 진행됩니다.\n이대로 진행 하시겠습니까?");
                 dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -169,7 +253,7 @@ public class DoExamFragment extends Fragment {
                             for (int k = 0; k < ExamNum; k++)
                                 ExamIdArr[k] = make.get(k).NoteId;
 
-                            Intent i = new Intent((MainActivity)getActivity(), RandomExam.class);
+                            Intent i = new Intent((MainActivity) getActivity(), RandomExam.class);
                             i.putExtra("time", time * 60 * 1000);
                             i.putExtra("ExamIdArr", ExamIdArr);
                             i.putExtra("ExamNum", ExamNum);
@@ -188,125 +272,46 @@ public class DoExamFragment extends Fragment {
                 dialog.show();
             }
         });
-
-        btn_sub_double.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                problem_num -= 2;
-                tv_count.setText("" + problem_num + " 문제");
-            }
-        });
-        btn_sub.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                problem_num -= 1;
-                tv_count.setText("" + problem_num + " 문제");
-            }
-        });
-
-        btn_sub_double_time.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                time = time - 4;
-                tv_time.setText("" + time + " 분");
-            }
-        });
-        btn_sub_time.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                time = time - 1;
-                tv_time.setText("" + time + " 분");
-            }
-        });
-
-        btn_add_double.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                problem_num += 2;
-                tv_count.setText("" + problem_num + " 문제");
-            }
-        });
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                problem_num += 1;
-                tv_count.setText("" + problem_num + " 문제");
-            }
-        });
-
-        btn_add_double_time.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                time = time + 4;
-                tv_time.setText("" + time + " 분");
-            }
-        });
-
-        btn_add_time.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                time = time + 1;
-                tv_time.setText("" + time + " 분");
-            }
-        });
-
         return view;
     }
 
-    public class ImageAdapter extends BaseAdapter {
-        private Context mContext;
+    private void prepareListData(int classId) {
+        ArrayList[] sub_list;
+        ArrayList<ClassData> t_list;
+        ArrayList<ClassData> t_list2;
+        int count = 1;
 
-        private Integer[] mThumbIds = {
-                R.drawable.btn_all, R.drawable.btn_1,
-                R.drawable.btn_2, R.drawable.btn_3,
-                R.drawable.btn_4, R.drawable.btn_5,
-                R.drawable.btn_6, R.drawable.btn_7,
-                R.drawable.btn_1mid, R.drawable.btn_1fin,
-                R.drawable.btn_2mid, R.drawable.btn_2fin
-        };
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
 
-        ImageAdapter(Context c) {
-            mContext = c;
+        t_list = c_db.set_title(classId, 0);
+        for (int i = 0; i < t_list.size(); i++){
+            listDataHeader.add(t_list.get(i).Title);
         }
 
-        @Override
-        public int getCount() {
-            return mThumbIds.length;
-        }
+//        t_list.clear();
+        t_list2 = c_db.set_title(classId, 1);
+        sub_list = new ArrayList[c_db.get_size(classId, 1)];
+        for(int i =0;i<sub_list.length;i++)
+            sub_list[i] = new ArrayList<String>();
 
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView imageView;
-            if (convertView == null) {
-                imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setPadding(10, 10, 10, 10);
-                imageView.setBackgroundColor(0x0000FF00);
-            } else {
-                imageView = (ImageView) convertView;
+        int i = 0, j = 0;
+        while (c_db.get_size(classId, 0) > j) {
+            if(c_db.get_size(classId, 1) - 1 == i){
+                sub_list[j].add(t_list2.get(i).Title);
+                listDataChild.put(listDataHeader.get(j), sub_list[j]);
+                break;
             }
-            imageView.setImageResource(mThumbIds[position]);
-            return imageView;
 
+            if (count == t_list2.get(i).Tag) {
+                sub_list[j].add(t_list2.get(i).Title);
+                i++;
+            }
+            else {
+                listDataChild.put(listDataHeader.get(j), sub_list[j]);
+                count++;
+                j++;
+            }
         }
     }
 }

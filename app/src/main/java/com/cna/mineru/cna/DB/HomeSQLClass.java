@@ -56,7 +56,7 @@ public class HomeSQLClass extends AppCompatActivity {
                     "Note_Current " + "INTEGER DEFAULT 100," +
                     "ClassId "      + "INTEGER DEFAULT 1);";
 
-                    System.out.println(sqlCreateTb);
+            System.out.println(sqlCreateTb);
             sqliteDb.execSQL(sqlCreateTb);
         }
     }

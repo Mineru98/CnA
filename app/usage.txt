@@ -2989,6 +2989,8 @@ com.google.android.gms.internal.firebase_auth.zzia
 com.google.android.gms.dynamic.zab
 com.google.firebase.auth.ActionCodeResult$ActionDataKey
 android.support.v4.media.MediaBrowserCompatApi26$SubscriptionCallback
+com.cna.mineru.cna.Utils.CustomDialog
+    private com.cna.mineru.cna.Utils.LoadingDialog loadingDialog
 android.support.asynclayoutinflater.R$dimen
 com.google.android.gms.internal.ads.zzdd
     public final java.lang.String zza(android.content.Context,byte[])
@@ -3076,7 +3078,6 @@ android.support.v7.widget.AppCompatTextViewAutoSizeHelper
     private static final int DEFAULT_AUTO_SIZE_GRANULARITY_IN_PX
     static final float UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE
     private static final int VERY_WIDE
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment
 android.support.v7.widget.ListPopupWindow$1
 android.support.compat.R$attr
     private void <init>()
@@ -5462,7 +5463,6 @@ android.support.v4.app.ServiceCompat
 androidx.versionedparcelable.ParcelImpl
     public void <init>(androidx.versionedparcelable.VersionedParcelable)
     public androidx.versionedparcelable.VersionedParcelable getVersionedParcel()
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$1
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat
 com.google.android.gms.internal.auth.zzaa
 com.google.android.gms.gass.R
@@ -6031,7 +6031,6 @@ com.google.android.gms.auth.api.AuthProxy
 com.google.firebase.auth.api.internal.zzac
 com.google.android.gms.internal.ads.zzaep
     public final android.os.IBinder zza(com.google.android.gms.dynamic.IObjectWrapper,com.google.android.gms.dynamic.IObjectWrapper,com.google.android.gms.dynamic.IObjectWrapper,int)
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$1
 com.airbnb.lottie.parser.CircleShapeParser
     private void <init>()
 android.support.annotation.StringRes
@@ -6347,7 +6346,6 @@ com.google.android.gms.internal.ads.zzdh
     public final android.net.Uri zza(android.net.Uri,android.content.Context)
 android.support.v7.util.SortedList$Callback
 android.support.v7.app.ActionBarDrawerToggleHoneycomb$SetIndicatorInfo
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2$2
 com.google.android.gms.internal.common.zzc
     public static void zzb(android.os.Parcel,android.os.Parcelable)
 android.support.v4.media.MediaMetadataCompat$BitmapKey
@@ -6748,7 +6746,6 @@ okhttp3.internal.Internal
 android.support.v4.media.MediaBrowserServiceCompatApi26$ResultWrapper
 com.google.android.gms.internal.auth-api-phone.zza
 com.google.android.gms.flags.R
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$2
 android.support.v4.text.TextUtilsCompat
     public static java.lang.String htmlEncode(java.lang.String)
     private void <init>()
@@ -7377,7 +7374,6 @@ com.google.android.gms.internal.ads.zzauh
 com.google.android.gms.ads.mediation.MediationInterstitialAdCallback
 com.google.android.gms.internal.auth-api-phone.zzb
 androidx.annotation.Nullable
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$3
 com.firebase.ui.auth.data.model.User
     public java.lang.String getPhoneNumber()
 android.support.v4.media.session.MediaSessionCompat$MediaSessionImplApi18
@@ -7457,7 +7453,6 @@ android.support.v4.os.LocaleListCompat$LocaleListCompatBaseImpl
 okio.Pipe$PipeSink
 com.google.firebase.auth.api.internal.zze
 com.google.android.gms.common.api.BooleanResult
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$ImageAdapter
 android.support.customtabs.CustomTabsSessionToken
 android.support.v7.viewpager.R$integer
 com.google.android.gms.ads.rewarded.RewardItem
@@ -8056,7 +8051,6 @@ com.firebase.ui.auth.R$drawable
 android.support.design.internal.BottomNavigationPresenter
     public android.support.v7.view.menu.MenuView getMenuView(android.view.ViewGroup)
     public void setCallback(android.support.v7.view.menu.MenuPresenter$Callback)
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4
 com.google.firebase.auth.api.internal.zzh
 android.support.transition.ObjectAnimatorUtils
     private void <init>()
@@ -8747,7 +8741,6 @@ com.google.gson.internal.bind.TypeAdapters$27
     private static final java.lang.String HOUR_OF_DAY
     private static final java.lang.String MINUTE
     private static final java.lang.String SECOND
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5
 com.airbnb.lottie.animation.content.ShapeContent
     public java.lang.String getName()
 com.google.gson.internal.LinkedHashTreeMap$1
@@ -9429,7 +9422,6 @@ com.github.mikephil.charting.formatter.DefaultValueFormatter
     public int getDecimalDigits()
 com.google.android.gms.internal.firebase_auth.zzet
 android.support.transition.Styleable$Fade
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$6
 android.support.v7.graphics.drawable.DrawableContainer
     public void setEnterFadeDuration(int)
     public void setExitFadeDuration(int)
@@ -10083,7 +10075,6 @@ com.github.mikephil.charting.utils.Transformer
     public android.graphics.Matrix getOffsetMatrix()
     public android.graphics.Matrix getValueToPixelMatrix()
     public android.graphics.Matrix getPixelToValueMatrix()
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$7
 com.google.android.gms.internal.ads.zzdry$zzb$zzi$zza
 com.google.gson.JsonStreamParser
 com.cna.mineru.cna.Adapter.RcExamAdapter
@@ -10854,7 +10845,6 @@ com.google.android.gms.measurement.internal.zzda
     public final void zza(com.google.android.gms.measurement.internal.zzcx)
     public final void zza(com.google.android.gms.measurement.internal.zzcy)
     public final void zzb(com.google.android.gms.measurement.internal.zzcy)
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8
 android.support.design.widget.AppBarLayout$Behavior
     public synthetic bridge void setDragCallback(android.support.design.widget.AppBarLayout$BaseBehavior$BaseDragCallback)
     public synthetic bridge int getLeftAndRightOffset()
@@ -11841,7 +11831,6 @@ com.google.android.gms.common.internal.safeparcel.SafeParcelReader
 com.google.android.gms.internal.auth.zzl
 android.support.v4.R$id
 com.google.android.gms.internal.ads.zzaod
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10
 com.google.android.gms.internal.firebase_auth.zzfe
     public final synthetic com.google.android.gms.internal.firebase_auth.zzjc zzeq()
 android.arch.lifecycle.extensions.R$styleable
@@ -12560,7 +12549,6 @@ com.google.android.gms.ads.AdRequest
     public static final java.lang.String MAX_AD_CONTENT_RATING_MA
     public static final int MAX_CONTENT_URL_LENGTH
     public static final java.lang.String DEVICE_ID_EMULATOR
-com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$9
 com.github.mikephil.charting.interfaces.datasets.ICandleDataSet
     public abstract float getBarSpace()
     public abstract boolean getShowCandleBar()

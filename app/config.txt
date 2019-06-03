@@ -129,95 +129,95 @@
 -renamesourcefileattribute SourceFile
 
 # End: Debug ProGuard rules
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:251
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:252
 -keep class android.arch.lifecycle.ProcessLifecycleOwnerInitializer { <init>(); }
 # Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:42
 -keep class android.support.v4.app.CoreComponentFactory { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:140
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:141
 -keep class android.support.v4.content.FileProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:73
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:74
 -keep class com.cna.mineru.cna.AddNote { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:103
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:104
 -keep class com.cna.mineru.cna.ExamResultActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:115
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:116
 -keep class com.cna.mineru.cna.GuideActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:91
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:92
 -keep class com.cna.mineru.cna.LoginActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:79
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:80
 -keep class com.cna.mineru.cna.MainActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:121
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:122
 -keep class com.cna.mineru.cna.ModifyHomeItem { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:127
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:128
 -keep class com.cna.mineru.cna.NotificationActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:97
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:98
 -keep class com.cna.mineru.cna.RandomExam { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:133
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:134
 -keep class com.cna.mineru.cna.RandomExamSolve { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:109
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:110
 -keep class com.cna.mineru.cna.SignupActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:63
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:64
 -keep class com.cna.mineru.cna.SplashActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:150
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:151
 -keep class com.cna.mineru.cna.Utils.Network.FireBaseMessagingService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:85
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:86
 -keep class com.cna.mineru.cna.Utils.WebViewActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:233
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:234
 -keep class com.facebook.CustomTabActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:229
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:230
 -keep class com.facebook.FacebookActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:167
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:168
 -keep class com.firebase.ui.auth.KickoffActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:246
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:247
 -keep class com.firebase.ui.auth.data.client.AuthUiInitProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:177
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:178
 -keep class com.firebase.ui.auth.ui.credentials.CredentialSaveActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:205
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:206
 -keep class com.firebase.ui.auth.ui.email.EmailActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:200
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:201
 -keep class com.firebase.ui.auth.ui.email.RecoverPasswordActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:220
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:221
 -keep class com.firebase.ui.auth.ui.email.WelcomeBackPasswordPrompt { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:225
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:226
 -keep class com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:172
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:173
 -keep class com.firebase.ui.auth.ui.idp.SingleSignInActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:215
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:216
 -keep class com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:210
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:211
 -keep class com.firebase.ui.auth.ui.phone.PhoneActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:182
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:183
 -keep class com.firebase.ui.auth.ui.provider.GitHubLoginActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:359
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:360
 -keep class com.google.android.gms.ads.AdActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:365
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:366
 -keep class com.google.android.gms.ads.MobileAdsInitProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:269
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:270
 -keep class com.google.android.gms.auth.api.signin.RevocationBoundService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:260
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:261
 -keep class com.google.android.gms.auth.api.signin.internal.SignInHubActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:349
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:350
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:309
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:310
 -keep class com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:323
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:324
 -keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:304
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:305
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:319
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:320
 -keep class com.google.android.gms.measurement.AppMeasurementService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:274
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:275
 -keep class com.google.firebase.auth.internal.FederatedSignInActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:282
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:283
 -keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:329
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:330
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:341
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:342
 -keep class com.google.firebase.iid.FirebaseInstanceIdService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:296
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:297
 -keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:354
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:355
 -keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:257
+# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:258
 -keep class com.gun0912.tedpermission.TedPermissionActivity { <init>(); }
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_confirmation_code_layout.xml:101
 -keep class android.support.constraint.Barrier { <init>(...); }
@@ -232,7 +232,7 @@
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_guide.xml:2
 -keep class android.support.constraint.ConstraintLayout { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\item.xml:6
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\chip_item.xml:6
 -keep class android.support.design.chip.Chip { <init>(...); }
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\980d04331ae55538eb57904f2355bf37\res\layout\design_bottom_navigation_item.xml:27
@@ -282,9 +282,11 @@
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_forgot_password_layout.xml:28
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_confirmation_code_layout.xml:40
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_check_email_layout.xml:24
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\custom_dialog2.xml:19
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:28
 -keep class android.support.design.widget.TextInputLayout { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam2.xml:2
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam.xml:2
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\7ceaf6db616f08ded5772f588c0fbeca\res\layout\abc_alert_dialog_material.xml:41
 -keep class android.support.v4.widget.NestedScrollView { <init>(...); }
 
@@ -320,6 +322,10 @@
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\7ceaf6db616f08ded5772f588c0fbeca\res\layout\abc_alert_dialog_material.xml:18
 -keep class android.support.v7.widget.AlertDialogLayout { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\custom_dialog2.xml:28
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:40
+-keep class android.support.v7.widget.AppCompatEditText { <init>(...); }
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\7ceaf6db616f08ded5772f588c0fbeca\res\layout\abc_alert_dialog_button_bar_material.xml:26
 -keep class android.support.v7.widget.ButtonBarLayout { <init>(...); }
@@ -368,8 +374,8 @@
 
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\splash_page.xml:10
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\progress_page.xml:15
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\custom_dialog_x.xml:6
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\custom_dialog.xml:6
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\anim_dialog_x.xml:6
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\anim_dialog_o.xml:6
 -keep class com.airbnb.lottie.LottieAnimationView { <init>(...); }
 
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_exam.xml:25
@@ -411,10 +417,10 @@
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_random.xml:33
 -keep class com.google.android.gms.ads.AdView { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:97
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:108
 -keep class com.google.android.gms.common.SignInButton { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam2.xml:93
+# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam.xml:93
 -keep class com.xw.repo.BubbleSeekBar { <init>(...); }
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout-land\fui_auth_method_picker_layout.xml:12

@@ -29,7 +29,7 @@ public class SignDialog {
         dlg.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         dlg.setCancelable(false);
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dlg.setContentView(R.layout.custom_dialog);
+        dlg.setContentView(R.layout.anim_dialog_o);
         dlg.show();
         final LottieAnimationView animationView = (LottieAnimationView) dlg.findViewById(R.id.animation_view);
         final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1800);
@@ -50,7 +50,7 @@ public class SignDialog {
         dlg.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         dlg.setCancelable(false);
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dlg.setContentView(R.layout.custom_dialog_x);
+        dlg.setContentView(R.layout.anim_dialog_x);
         dlg.show();
         final LottieAnimationView animationView = (LottieAnimationView) dlg.findViewById(R.id.animation_view);
         final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1200);

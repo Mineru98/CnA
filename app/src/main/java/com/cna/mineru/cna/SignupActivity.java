@@ -263,6 +263,12 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+    }
+
     private class splashHandler implements Runnable{
         public void run()	{
             btn_next.setEnabled(true); // 클릭 유효화

@@ -57,7 +57,7 @@ import static com.cna.mineru.cna.Utils.Network.getWhatKindOfNetwork.getWhatKindO
 public class ModifyHomeItem extends AppCompatActivity {
     private static final int PICK_FROM_ALBUM = 1;
     private static final int PICK_FROM_CAMERA = 2;
-    
+
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
 

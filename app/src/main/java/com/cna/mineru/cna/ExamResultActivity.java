@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cna.mineru.cna.DB.ExamSQLClass;
@@ -56,7 +57,7 @@ public class ExamResultActivity extends AppCompatActivity implements OnChartValu
         setSupportActionBar(mToolbar);
 
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
-        TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
+        ImageView btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
 
         {
             chart = findViewById(R.id.chartView);

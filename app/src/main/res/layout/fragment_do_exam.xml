@@ -15,7 +15,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginEnd="40dp"
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="350dp">
             <TextView
                 android:id="@+id/tv_lvE"
                 android:text="중학교 1학년 1학기"

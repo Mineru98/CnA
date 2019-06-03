@@ -108,7 +108,6 @@
 -keep class android.support.constraint.Barrier { <init>(...); }
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout-land\fui_auth_method_picker_layout.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\splash_page.xml:2
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_welcome_back_password_prompt_layout.xml:19
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_phone_layout.xml:2
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\bd63bd46a2811634943ac229aed428db\res\layout\fui_confirmation_code_layout.xml:2
@@ -235,7 +234,6 @@
 -keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
 
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\7ceaf6db616f08ded5772f588c0fbeca\res\layout-v26\abc_screen_toolbar.xml:37
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_setting.xml:2
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_noti.xml:2
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_note.xml:2
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_exam_solve.xml:2
@@ -257,7 +255,6 @@
 # Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\8fda75a807cbeef3a2e18379fc605c6c\res\layout\browser_actions_context_menu_page.xml:5
 -keep class androidx.browser.browseractions.BrowserActionsFallbackMenuView { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\splash_page.xml:10
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\progress_page.xml:15
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\anim_dialog_x.xml:6
 # Referenced at E:\SourceCode\CnA\app\src\main\res\layout\anim_dialog_o.xml:6

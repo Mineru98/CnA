@@ -11349,41 +11349,41 @@ com.cna.mineru.cna.AddNote -> com.cna.mineru.cna.AddNote:
     49:49:com.cna.mineru.cna.DB.UserSQLClass access$700(com.cna.mineru.cna.AddNote) -> access$700
     49:49:android.widget.EditText access$800(com.cna.mineru.cna.AddNote) -> access$800
     49:49:com.cna.mineru.cna.DB.HomeSQLClass access$900(com.cna.mineru.cna.AddNote) -> access$900
-    287:297:java.io.File createImageFile() -> createImageFile
-    489:496:int exifOrientationToDegrees(int) -> exifOrientationToDegrees
-    302:315:java.lang.String getPath(android.net.Uri) -> getPath
-    263:267:void goToAlbum() -> goToAlbum
-    319:440:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    509:510:void onBackPressed() -> onBackPressed
-    89:259:void onCreate(android.os.Bundle) -> onCreate
-    457:478:android.graphics.Bitmap rotate(android.graphics.Bitmap,int) -> rotate
-    482:484:android.graphics.Bitmap rotateImage(android.graphics.Bitmap,float) -> rotateImage
-    270:283:void takePhoto() -> takePhoto
+    284:294:java.io.File createImageFile() -> createImageFile
+    486:493:int exifOrientationToDegrees(int) -> exifOrientationToDegrees
+    299:312:java.lang.String getPath(android.net.Uri) -> getPath
+    260:264:void goToAlbum() -> goToAlbum
+    316:437:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    506:507:void onBackPressed() -> onBackPressed
+    89:256:void onCreate(android.os.Bundle) -> onCreate
+    454:475:android.graphics.Bitmap rotate(android.graphics.Bitmap,int) -> rotate
+    479:481:android.graphics.Bitmap rotateImage(android.graphics.Bitmap,float) -> rotateImage
+    267:280:void takePhoto() -> takePhoto
 com.cna.mineru.cna.AddNote$1 -> com.cna.mineru.cna.AddNote$1:
-    122:122:void <init>(com.cna.mineru.cna.AddNote) -> <init>
-    125:138:void onClick(android.view.View) -> onClick
+    119:119:void <init>(com.cna.mineru.cna.AddNote) -> <init>
+    122:135:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.AddNote$1$1 -> com.cna.mineru.cna.AddNote$1$1:
-    127:127:void <init>(com.cna.mineru.cna.AddNote$1) -> <init>
-    130:136:void finish(int) -> finish
+    124:124:void <init>(com.cna.mineru.cna.AddNote$1) -> <init>
+    127:133:void finish(int) -> finish
 com.cna.mineru.cna.AddNote$2 -> com.cna.mineru.cna.AddNote$2:
-    141:141:void <init>(com.cna.mineru.cna.AddNote) -> <init>
-    144:157:void onClick(android.view.View) -> onClick
+    138:138:void <init>(com.cna.mineru.cna.AddNote) -> <init>
+    141:154:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.AddNote$2$1 -> com.cna.mineru.cna.AddNote$2$1:
-    146:146:void <init>(com.cna.mineru.cna.AddNote$2) -> <init>
-    149:155:void finish(int) -> finish
+    143:143:void <init>(com.cna.mineru.cna.AddNote$2) -> <init>
+    146:152:void finish(int) -> finish
 com.cna.mineru.cna.AddNote$3 -> com.cna.mineru.cna.AddNote$3:
-    160:160:void <init>(com.cna.mineru.cna.AddNote) -> <init>
-    163:167:void onClick(android.view.View) -> onClick
+    157:157:void <init>(com.cna.mineru.cna.AddNote) -> <init>
+    160:164:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.AddNote$4 -> com.cna.mineru.cna.AddNote$4:
-    170:170:void <init>(com.cna.mineru.cna.AddNote) -> <init>
-    173:257:void onClick(android.view.View) -> onClick
+    167:167:void <init>(com.cna.mineru.cna.AddNote) -> <init>
+    170:254:void onClick(android.view.View) -> onClick
 com.cna.mineru.cna.AddNote$4$1 -> com.cna.mineru.cna.AddNote$4$1:
-    182:182:void <init>(com.cna.mineru.cna.AddNote$4) -> <init>
-    184:184:void onClick(android.content.DialogInterface,int) -> onClick
+    179:179:void <init>(com.cna.mineru.cna.AddNote$4) -> <init>
+    181:181:void onClick(android.content.DialogInterface,int) -> onClick
 com.cna.mineru.cna.AddNote$splashHandler -> com.cna.mineru.cna.AddNote$splashHandler:
-    499:499:void <init>(com.cna.mineru.cna.AddNote) -> <init>
-    499:499:void <init>(com.cna.mineru.cna.AddNote,com.cna.mineru.cna.AddNote$1) -> <init>
-    501:504:void run() -> run
+    496:496:void <init>(com.cna.mineru.cna.AddNote) -> <init>
+    496:496:void <init>(com.cna.mineru.cna.AddNote,com.cna.mineru.cna.AddNote$1) -> <init>
+    498:501:void run() -> run
 com.cna.mineru.cna.DB.ExamSQLClass -> com.cna.mineru.cna.DB.ExamSQLClass:
     32:36:void <init>(android.content.Context) -> <init>
     250:255:void delete_exam(int) -> delete_exam
@@ -11492,17 +11492,17 @@ com.cna.mineru.cna.DTO.ListViewBtnItem -> com.cna.mineru.cna.DTO.ListViewBtnItem
     11:11:java.lang.String getText() -> getText
     7:8:void setText(java.lang.String) -> setText
 com.cna.mineru.cna.ExamResultActivity -> com.cna.mineru.cna.ExamResultActivity:
-    40:40:void <init>() -> <init>
-    40:40:com.github.mikephil.charting.charts.BarChart access$100(com.cna.mineru.cna.ExamResultActivity) -> access$100
-    117:117:void lambda$onCreate$0(android.view.View) -> lambda$onCreate$0$ExamResultActivity
-    53:118:void onCreate(android.os.Bundle) -> onCreate
-    185:185:void onNothingSelected() -> onNothingSelected
-    166:180:void onValueSelected(com.github.mikephil.charting.data.Entry,com.github.mikephil.charting.highlight.Highlight) -> onValueSelected
-    121:162:void setData(java.util.ArrayList) -> setData
+    41:41:void <init>() -> <init>
+    41:41:com.github.mikephil.charting.charts.BarChart access$100(com.cna.mineru.cna.ExamResultActivity) -> access$100
+    118:118:void lambda$onCreate$0(android.view.View) -> lambda$onCreate$0$ExamResultActivity
+    54:119:void onCreate(android.os.Bundle) -> onCreate
+    186:186:void onNothingSelected() -> onNothingSelected
+    167:181:void onValueSelected(com.github.mikephil.charting.data.Entry,com.github.mikephil.charting.highlight.Highlight) -> onValueSelected
+    122:163:void setData(java.util.ArrayList) -> setData
 com.cna.mineru.cna.ExamResultActivity$splashHandler -> com.cna.mineru.cna.ExamResultActivity$splashHandler:
-    187:187:void <init>(com.cna.mineru.cna.ExamResultActivity) -> <init>
-    187:187:void <init>(com.cna.mineru.cna.ExamResultActivity,com.cna.mineru.cna.ExamResultActivity$1) -> <init>
-    189:190:void run() -> run
+    188:188:void <init>(com.cna.mineru.cna.ExamResultActivity) -> <init>
+    188:188:void <init>(com.cna.mineru.cna.ExamResultActivity,com.cna.mineru.cna.ExamResultActivity$1) -> <init>
+    190:191:void run() -> run
 com.cna.mineru.cna.Fragment.ExamFragment -> com.cna.mineru.cna.Fragment.ExamFragment:
     23:25:void <init>() -> <init>
     30:31:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
@@ -12089,20 +12089,17 @@ com.cna.mineru.cna.SignupActivity$splashHandler -> com.cna.mineru.cna.SignupActi
     272:272:void <init>(com.cna.mineru.cna.SignupActivity,com.cna.mineru.cna.SignupActivity$1) -> <init>
     274:275:void run() -> run
 com.cna.mineru.cna.SplashActivity -> com.cna.mineru.cna.SplashActivity:
-    17:17:void <init>() -> <init>
-    80:80:void onBackPressed() -> onBackPressed
-    21:59:void onCreate(android.os.Bundle) -> onCreate
-com.cna.mineru.cna.SplashActivity$1 -> com.cna.mineru.cna.SplashActivity$1:
-    29:29:void <init>(com.cna.mineru.cna.SplashActivity,com.airbnb.lottie.LottieAnimationView) -> <init>
-    32:33:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    13:13:void <init>() -> <init>
+    68:68:void onBackPressed() -> onBackPressed
+    17:47:void onCreate(android.os.Bundle) -> onCreate
 com.cna.mineru.cna.SplashActivity$splash_handler_Login -> com.cna.mineru.cna.SplashActivity$splash_handler_Login:
-    61:61:void <init>(com.cna.mineru.cna.SplashActivity) -> <init>
-    61:61:void <init>(com.cna.mineru.cna.SplashActivity,com.cna.mineru.cna.SplashActivity$1) -> <init>
-    63:66:void run() -> run
+    49:49:void <init>(com.cna.mineru.cna.SplashActivity) -> <init>
+    49:49:void <init>(com.cna.mineru.cna.SplashActivity,com.cna.mineru.cna.SplashActivity$1) -> <init>
+    51:54:void run() -> run
 com.cna.mineru.cna.SplashActivity$splash_handler_Main -> com.cna.mineru.cna.SplashActivity$splash_handler_Main:
-    69:69:void <init>(com.cna.mineru.cna.SplashActivity) -> <init>
-    69:69:void <init>(com.cna.mineru.cna.SplashActivity,com.cna.mineru.cna.SplashActivity$1) -> <init>
-    71:74:void run() -> run
+    57:57:void <init>(com.cna.mineru.cna.SplashActivity) -> <init>
+    57:57:void <init>(com.cna.mineru.cna.SplashActivity,com.cna.mineru.cna.SplashActivity$1) -> <init>
+    59:62:void run() -> run
 com.cna.mineru.cna.Utils.BottomNavigationViewHelper -> com.cna.mineru.cna.Utils.BottomNavigationViewHelper:
     14:33:void disableShiftMode(android.support.design.widget.BottomNavigationView) -> disableShiftMode
 com.cna.mineru.cna.Utils.CustomDialog -> com.cna.mineru.cna.Utils.CustomDialog:

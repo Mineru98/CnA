@@ -109,15 +109,12 @@ public class AddNote extends AppCompatActivity {
         tv_2_2 = (TextView) findViewById(R.id.tv_2_2);
         TextView tv_title_1 = (TextView) findViewById(R.id.tv_title_1);
         TextView tv_title_2 = (TextView) findViewById(R.id.tv_title_2);
-        TextView tv_title_3 = (TextView) findViewById(R.id.tv_title_3);
 
         et_class = (EditText) findViewById(R.id.et_class);
 
         btn_ok = (TextView) findViewById(R.id.btn_save);
         btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
         imageView2 = (ImageView)findViewById(R.id.imageView2);
-
-        ImageView iv_main = (ImageView) findViewById(R.id.iv_main);
 
         set_image.setOnClickListener(new View.OnClickListener() {
             @Override

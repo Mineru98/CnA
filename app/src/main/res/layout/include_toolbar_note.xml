@@ -33,6 +33,7 @@
 
         <ImageView
             android:id="@+id/btn_cancel"
+            android:layout_centerVertical="true"
             android:src="@drawable/ic_back_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

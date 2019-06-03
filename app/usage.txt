@@ -21907,8 +21907,6 @@ com.google.android.gms.internal.ads.zzdoa$zze
     private static final synthetic int[] zzhhu
     private static final synthetic int[] zzhhx
 android.support.transition.WindowIdApi14
-com.cna.mineru.cna.SplashActivity$1
-    final synthetic com.cna.mineru.cna.SplashActivity this$0
 com.google.android.gms.internal.ads.zzdpb
 com.firebase.ui.auth.data.remote.FacebookSignInHandler$Callback
     final synthetic com.firebase.ui.auth.data.remote.FacebookSignInHandler this$0

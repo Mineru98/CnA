@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
     <TextView
         android:id="@+id/tv_title"
@@ -12,7 +11,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:padding="10dp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
         android:textSize="15sp"
         android:textStyle="bold"
         android:fontFamily="@font/nanum_gothic"/>
@@ -30,8 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@color/white"
-            android:shadowColor="@color/white"
+            android:textColor="@color/colorPrimary"
+            android:shadowColor="@color/colorPrimary"
             android:fontFamily="@font/nanum_gothic"
             android:hint="@string/et_hint_email"/>
 
@@ -45,7 +44,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:padding="10dp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
         android:fontFamily="@font/nanum_gothic"
         android:textStyle="normal"
         android:textSize="15sp"/>
@@ -61,7 +60,7 @@
             android:layout_toStartOf="@+id/btn_ok"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:fontFamily="@font/nanum_gothic"
             android:text="@string/dialog_btn_cancel"/>
         <TextView
@@ -71,7 +70,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:fontFamily="@font/nanum_gothic"
             android:text="@string/dialog_btn_ok"/>
     </RelativeLayout>

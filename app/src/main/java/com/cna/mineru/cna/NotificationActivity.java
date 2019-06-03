@@ -16,7 +16,7 @@ public class NotificationActivity extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        ImageView btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
+        TextView btn_cancel = (TextView) findViewById(R.id.btn_cancel);
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {

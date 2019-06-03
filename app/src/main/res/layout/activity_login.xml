@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:layout_marginStart="81dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="93dp"
-        android:src="@drawable/logo"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,8 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@color/white"
-            android:shadowColor="@color/white"
             android:fontFamily="@font/nanum_gothic"
             android:hint="@string/et_hint_email"/>
 
@@ -65,9 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textColor="@color/white"
             android:fontFamily="@font/nanum_gothic"
-            android:shadowColor="@color/white"
             android:hint="@string/et_hint_pw" />
 
     </android.support.design.widget.TextInputLayout>
@@ -98,6 +94,8 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:textColor="@color/textColor"
+        android:elevation="10dp"
+        android:background="@drawable/round"
         android:backgroundTint="@color/white"
         android:text="@string/login_email"
         android:fontFamily="@font/nanum_gothic"
@@ -131,7 +129,9 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="15dp"
+        android:elevation="10dp"
         android:textColor="@color/textColor"
+        android:background="@drawable/round"
         android:backgroundTint="@color/white"
         android:text="@string/signup_msg"
         android:fontFamily="@font/nanum_gothic"

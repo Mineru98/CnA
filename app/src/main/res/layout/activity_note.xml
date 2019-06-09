@@ -126,53 +126,101 @@
             android:layout_below="@+id/Top2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/linear"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_exam_num"
+                    android:src="@drawable/ic_prob"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
                 <TextView
+                    android:id="@+id/tv_exam_num"
                     android:text="@string/tv_title_modify"
                     android:fontFamily="@font/nanum_gothic"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textSize="20sp"
-                    android:layout_marginStart="20dp"
+                    android:textSize="14sp"
+                    android:layout_toEndOf="@+id/iv_exam_num"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:textColor="@color/second_color"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
-                <EditText
-                    android:id="@+id/et_class"
+                <Button
+                    android:id="@+id/btn_class"
+                    android:layout_below="@+id/tv_exam_num"
+                    android:backgroundTint="@color/white"
+                    android:elevation="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/round"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:hint="@string/et_insert"
-                    android:fontFamily="@font/nanum_gothic"
-                    android:inputType="number"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/et_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanum_gothic"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/linear2"
                 android:layout_below="@+id/linear"
-                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:gravity="left|top"
-                android:hint="@string/et_content"
-                android:fontFamily="@font/nanum_gothic"
-                android:inputType="textMultiLine"
-                android:lines="15"
-                android:maxLines="15"
-                android:minLines="1"
-                android:textSize="20sp" />
-        </RelativeLayout>
+                android:layout_alignParentStart="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_title"
+                    android:src="@drawable/ic_prob"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:text="@string/tv_title_prob"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:layout_toEndOf="@+id/iv_title"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/second_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
 
+                <EditText
+                    android:id="@+id/et_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_title"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:gravity="left|top"
+                    android:hint="@string/et_content"
+                    android:fontFamily="@font/nanum_gothic"
+                    android:inputType="textMultiLine"
+                    android:lines="15"
+                    android:maxLines="15"
+                    android:minLines="1"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

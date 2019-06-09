@@ -32,6 +32,8 @@ public class GraphFragment extends Fragment {
     ArrayList<GraphData> list;
     ArrayList<String> s_list;
     private PieChart chart;
+    private int month;
+    private Calendar cal;
 
     public GraphFragment(){
 
@@ -41,10 +43,9 @@ public class GraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_graph, container, false);
         chart = view.findViewById(R.id.chartView);
-//        Calendar cal = Calendar.getInstance();
-//        int year = cal.get(cal.YEAR);
-//        int month = cal.get(cal.MONTH) + 1;
-//        int date = cal.get(cal.DATE);
+
+        cal = Calendar.getInstance();
+        month = cal.get ( cal.MONTH ) + 1;
 
         list = new ArrayList<>();
         s_list = new ArrayList<>();
@@ -61,7 +62,7 @@ public class GraphFragment extends Fragment {
         list.clear();
         s_list.clear();
         list = db.load_values();
-        s_list = d_db.get_title(u_db.getClassId());
+        s_list = d_db.get_title(u_db.getClassId(), month);
 
         int total = list.size();
         float[] select = {0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f,0f};
@@ -136,14 +137,77 @@ public class GraphFragment extends Fragment {
         }
 
         Description description = new Description();
-        if(10<u_db.getClassId()&&u_db.getClassId()<14)
-            description.setText("초등학교 수학과정");
-        else if(20<u_db.getClassId()&&u_db.getClassId()<24)
-            description.setText("중학교 수학과정");
-        else if(30<u_db.getClassId()&&u_db.getClassId()<40)
-            description.setText("고등학교 수학과정");
-        else
-            description.setText("수학과정");
+        switch (u_db.getClassId()){
+            default:
+                description.setText("수학과정");
+                break;
+            case 11:
+                if(month>7)
+                    description.setText("초등학교 1학년 2학기 수학과정");
+                else
+                    description.setText("초등학교 1학년 1학기 수학과정");
+                break;
+            case 12:
+                if(month>7)
+                    description.setText("초등학교 2학년 2학기 수학과정");
+                else
+                    description.setText("초등학교 2학년 1학기 수학과정");
+                break;
+            case 13:
+                if(month>7)
+                    description.setText("초등학교 3학년 2학기 수학과정");
+                else
+                    description.setText("초등학교 3학년 1학기 수학과정");
+                break;
+            case 14:
+                if(month>7)
+                    description.setText("초등학교 4학년 2학기 수학과정");
+                else
+                    description.setText("초등학교 4학년 1학기 수학과정");
+                break;
+            case 15:
+                if(month>7)
+                    description.setText("초등학교 5학년 2학기 수학과정");
+                else
+                    description.setText("초등학교 5학년 1학기 수학과정");
+                break;
+            case 16:
+                if(month>7)
+                    description.setText("초등학교 6학년 2학기 수학과정");
+                else
+                    description.setText("초등학교 6학년 1학기 수학과정");
+                break;
+            case 21:
+                if(month>7)
+                    description.setText("중학교 1학년 2학기 수학과정");
+                else
+                    description.setText("중학교 1학년 1학기 수학과정");
+                break;
+            case 22:
+                if(month>7)
+                    description.setText("중학교 2학년 2학기 수학과정");
+                else
+                    description.setText("중학교 2학년 1학기 수학과정");
+                break;
+            case 23:
+                if(month>7)
+                    description.setText("중학교 3학년 2학기 수학과정");
+                else
+                    description.setText("중학교 3학년 1학기 수학과정");
+                break;
+            case 31:
+                if(month>7)
+                    description.setText("고등학교 1학년 2학기 수학과정");
+                else
+                    description.setText("고등학교 1학년 1학기 수학과정");
+                break;
+            case 32:
+                if(month>7)
+                    description.setText("고등학교 2학년 2학기 수학과정");
+                else
+                    description.setText("고등학교 2학년 1학기 수학과정");
+                break;
+        }
         description.setTextSize(15);
         chart.setDescription(description);
 

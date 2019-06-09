@@ -4,10 +4,12 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatDialog;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.cna.mineru.cna.R;
@@ -29,14 +31,6 @@ public class LoadingDialog {
             progressDialog.show();
         }
 
-//        final ImageView img_loading_frame = (ImageView) progressDialog.findViewById(R.id.img_view);
-//        final AnimationDrawable frameAnimation = (AnimationDrawable) img_loading_frame.getBackground();
-//        img_loading_frame.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                frameAnimation.start();
-//            }
-//        });
         final LottieAnimationView animationView = (LottieAnimationView) progressDialog.findViewById(R.id.animation_view);
         final ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(1600);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -50,6 +44,16 @@ public class LoadingDialog {
         if (!TextUtils.isEmpty(message)) {
             tv_progress_message.setText(message);
         }
+
+        CountDownTimer cTimer = new CountDownTimer(10000, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+            }
+            public void onFinish() {
+                progressOFF();
+            }
+        };
+        cTimer.start();
     }
 
     private void progressSET(String message) {

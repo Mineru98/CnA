@@ -21,12 +21,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cna.mineru.cna.AddNote;
 import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DB.TmpSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
+import com.cna.mineru.cna.LoginActivity;
 import com.cna.mineru.cna.R;
 import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.InsertCodeDialog;
@@ -102,7 +104,6 @@ public class ProfileFragment extends Fragment {
 
         TextView tv_account = (TextView) view.findViewById(R.id.tv_account);
         TextView tv_profile = (TextView) view.findViewById(R.id.tv_profile);
-        Switch sw_profile = (Switch) view.findViewById(R.id.sw_profile);
         TextView tv_insert_code = (TextView) view.findViewById(R.id.tv_insert_code);
         TextView tv_logout = (TextView) view.findViewById(R.id.tv_logout);
         TextView tv_signout = (TextView) view.findViewById(R.id.tv_signout);
@@ -121,33 +122,6 @@ public class ProfileFragment extends Fragment {
             sw_wifisync.setChecked(true);
         }else{
             sw_wifisync.setChecked(false);
-        }
-
-        if(!db.getPremium()){
-            sw_profile.setChecked(true);
-        }else{
-            sw_profile.setChecked(false);
-        }
-
-        if("NONE".equals(getWhatKindOfNetwork(getContext()))) {
-            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-            builder.show();
         }
 
         tv_terms.setOnClickListener(new View.OnClickListener() {
@@ -171,33 +145,23 @@ public class ProfileFragment extends Fragment {
         tv_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!db.getPremium()){
-                    String Code = "";
-                    String Date = "";
-                    Code = db.get_Code();
-                    Date = db.get_CouponDate();
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder.setTitle("쿠폰 내역");
-                    builder.setMessage("쿠폰 코드 : " + Code + "\n기간 : " + Date);
-                    builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    builder.show();
-                }
-            }
-        });
+                //프로필 설정 Activity
+                CustomDialog d = new CustomDialog(16);
+                d.show(getActivity().getSupportFragmentManager(),"chang name");
+                d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
 
-        sw_profile.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!isChecked){
-                    db.update_isPremium(0);
-                }else{
-                    db.update_isPremium(1);
-                }
+                    }
+
+                    @Override
+                    public void finish(int result, String email) {
+                        if(result==1){
+                            db.update_name(email);
+                            //server에도 변경 코드 작성 필요
+                        }
+                    }
+                });
             }
         });
 
@@ -205,37 +169,38 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(db.isCoupon()){
-                    AlertDialog.Builder d = new AlertDialog.Builder(getContext());
-                    d.setMessage("쿠폰 추가 등록");
-                    d.setMessage("이미 등록 된 쿠폰이 있습니다.\n그래도 등록하시겠습니까?");
-                    d.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                    CustomDialog d = new CustomDialog(7);
+                    d.show(getActivity().getSupportFragmentManager(),"add coupon");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
                         @Override
-                        public void onClick(DialogInterface dialog_d, int which) {
-                            dialog_d.dismiss();
-                            InsertCodeDialog dialog = new InsertCodeDialog();
-                            dialog.show(getActivity().getSupportFragmentManager(),"insert code");
-                            dialog.setDialogResult(new InsertCodeDialog.OnMyDialogResult() {
-                                @Override
-                                public void finish(int _class, String code, int tag) {
-                                    if(_class==1){
-                                        Toast.makeText(getContext(), "인증되었습니다.", Toast.LENGTH_SHORT).show();
-                                        db.update_isPremium(1);
-                                        db.addCoupon(tag);
+                        public void finish(int _class) {
+                            if(_class==1){
+                                d.dismiss();
+                                InsertCodeDialog dialog = new InsertCodeDialog();
+                                dialog.show(getActivity().getSupportFragmentManager(),"insert code");
+                                dialog.setDialogResult(new InsertCodeDialog.OnMyDialogResult() {
+                                    @Override
+                                    public void finish(int _class, String code, int tag) {
+                                        if(_class==1){
+                                            Toast.makeText(getContext(), "인증되었습니다.", Toast.LENGTH_SHORT).show();
+                                            db.update_isPremium(1);
+                                            db.addCoupon(tag);
+                                        }
+                                        else{
+                                            Toast.makeText(getContext(), "코드가 일치하지 않습니다..", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                    else{
-                                        Toast.makeText(getContext(), "코드가 일치하지 않습니다..", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+                                });
+                            }
+                            else
+                                d.dismiss();
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
                         }
                     });
-                    d.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog_d, int which) {
-                            dialog_d.dismiss();
-                        }
-                    });
-                    d.show();
                 }else{
                     InsertCodeDialog dialog = new InsertCodeDialog();
                     dialog.show(getActivity().getSupportFragmentManager(),"insert code");
@@ -266,7 +231,6 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void finish(int result) {
                         if(result==1){
-                            Toast.makeText(getContext(), "로그아웃", Toast.LENGTH_SHORT).show();
                             loadingDialog.progressON(getActivity(),"Loading...");
                             isLogin=false;
                             SharedPreferences pref = getContext().getSharedPreferences("isLogin", MODE_PRIVATE);
@@ -275,13 +239,11 @@ public class ProfileFragment extends Fragment {
                             editor.apply();
                             reset_app();
                             FirebaseAuth.getInstance().signOut();
-                            Intent resultIntent = new Intent();
+                            Intent resultIntent = new Intent(getActivity(), LoginActivity.class);
                             resultIntent.putExtra("isLogin",isLogin);
                             getActivity().setResult(RESULT_OK,resultIntent);
                             getActivity().finish();
-                        }
-                        else{
-                            Toast.makeText(getContext(), "로그아웃 아님", Toast.LENGTH_SHORT).show();
+                            startActivity(resultIntent);
                         }
                     }
 
@@ -302,7 +264,6 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void finish(int result) {
                         if(result==1){
-                            Toast.makeText(getContext(), "회원탈퇴", Toast.LENGTH_SHORT).show();
                             loadingDialog.progressON(getActivity(),"Loading...");
                             isLogin=false;
                             SharedPreferences pref = getContext().getSharedPreferences("isLogin",MODE_PRIVATE);
@@ -326,10 +287,11 @@ public class ProfileFragment extends Fragment {
                                 new JSONTask().execute(getString(R.string.ip_set)+"/api/user/delete");
                             }
 
-                            Intent resultIntent = new Intent();
+                            Intent resultIntent = new Intent(getActivity(), LoginActivity.class);
                             resultIntent.putExtra("isLogin",isLogin);
                             getActivity().setResult(RESULT_OK,resultIntent);
                             getActivity().finish();
+                            startActivity(resultIntent);
                         }
                     }
 

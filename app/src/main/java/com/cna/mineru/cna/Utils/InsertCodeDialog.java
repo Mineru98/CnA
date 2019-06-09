@@ -7,17 +7,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.airbnb.lottie.animation.content.Content;
-import com.cna.mineru.cna.DB.UserSQLClass;
 import com.cna.mineru.cna.R;
-import com.cna.mineru.cna.SettingActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

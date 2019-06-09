@@ -23,6 +23,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -33,6 +34,8 @@ import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
 import com.cna.mineru.cna.DB.UserSQLClass;
+import com.cna.mineru.cna.Utils.ClassListDialog;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 import com.cna.mineru.cna.Utils.PhotoDialog;
 
@@ -65,7 +68,7 @@ public class AddNote extends AppCompatActivity {
     private TextView tv_2_2;
 
     private TextView btn_ok;
-    private TextView et_class;
+    private Button btn_class;
 
     private EditText et_title;
 
@@ -81,7 +84,8 @@ public class AddNote extends AppCompatActivity {
 
     private byte[] image;
     private byte[] image2;
-
+    private int Tag;
+    private int SubTag;
     private String mCurrentPhotoPath;
 
     @Override
@@ -100,6 +104,8 @@ public class AddNote extends AppCompatActivity {
         isLeft = true;
 
         imageView = (ImageView) findViewById(R.id.imageView);
+        ImageView iv_exam_num = (ImageView) findViewById(R.id.iv_exam_num);
+        ImageView iv_title = (ImageView) findViewById(R.id.iv_title);
         et_title = (EditText) findViewById(R.id.et_title);
         RelativeLayout set_image = (RelativeLayout) findViewById(R.id.set_image);
         RelativeLayout set_image2 = (RelativeLayout) findViewById(R.id.set_image2);
@@ -109,8 +115,10 @@ public class AddNote extends AppCompatActivity {
         tv_2_2 = (TextView) findViewById(R.id.tv_2_2);
         TextView tv_title_1 = (TextView) findViewById(R.id.tv_title_1);
         TextView tv_title_2 = (TextView) findViewById(R.id.tv_title_2);
+        TextView tv_exam_num = (TextView) findViewById(R.id.tv_exam_num);
+        TextView tv_title = (TextView) findViewById(R.id.tv_title);
 
-        et_class = (EditText) findViewById(R.id.et_class);
+        btn_class = (Button) findViewById(R.id.btn_class);
 
         btn_ok = (TextView) findViewById(R.id.btn_save);
         btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
@@ -154,6 +162,22 @@ public class AddNote extends AppCompatActivity {
             }
         });
 
+        btn_class.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClassListDialog d = new ClassListDialog();
+                d.show(getSupportFragmentManager(),"select exam num");
+                d.setDialogResult(new ClassListDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int Tag, int SubTag, String result) {
+                        btn_class.setText(result);
+                        AddNote.this.Tag = Tag;
+                        AddNote.this.SubTag = SubTag;
+                    }
+                });
+            }
+        });
+
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,23 +194,27 @@ public class AddNote extends AppCompatActivity {
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 2000);
                 btn_ok.setEnabled(false);
-                if(et_class.getText().toString().equals("")){
-                    et_class.setHintTextColor(0xFFD32F2F);
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AddNote.this);
-                    builder.setTitle("입력 오류");
-                    builder.setMessage("단원을 입력해주세요.");
-                    builder.setPositiveButton("확인",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                }
-                            });
-                    builder.show();
+                if(btn_class.getText().toString().equals("단원 선택")){
+                    btn_class.setHintTextColor(0xFFD32F2F);
+                    CustomDialog d = new CustomDialog(13);
+                    d.show(getSupportFragmentManager(),"insert error2");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int result) {
+
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
+                        }
+                    });
                 }else{
-                    int tag = Integer.parseInt(et_class.getText().toString());
+//                    int tag = Integer.parseInt(btn_class.getText().toString());
                     int ClassId = user_db.getClassId();
-                    db.add_values(et_title.getText().toString(), tag, ClassId);
+                    db.add_values(et_title.getText().toString(), Tag, ClassId, SubTag);
                     int id = db.getId();
-                    gp_db.add_values(id, tag);
+                    gp_db.add_values(id, Tag);
 
                     for(int solve=0;solve<2;solve++){
                         ArrayList<ArrayList<Byte>> image_divide = new ArrayList<>();
@@ -313,8 +341,8 @@ public class AddNote extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        loadingDialog.progressON(this,"Loading...");
         if (requestCode == PICK_FROM_ALBUM && resultCode == RESULT_OK) {
+            loadingDialog.progressON(this,"Loading...");
             try {
                 Uri selectedImageUri = data.getData();
                 String getImgURL = "";
@@ -394,7 +422,6 @@ public class AddNote extends AppCompatActivity {
                 }catch (Exception error){
                     error.printStackTrace();
                 }
-
             } else{
                 try{
                     File file = new File(mCurrentPhotoPath);
@@ -432,7 +459,6 @@ public class AddNote extends AppCompatActivity {
                     error.printStackTrace();
                 }
             }
-            loadingDialog.progressOFF();
         }
     }
 
@@ -497,7 +523,7 @@ public class AddNote extends AppCompatActivity {
         public void run()	{
             btn_ok.setEnabled(true); // 클릭 유효화
             btn_cancel.setEnabled(true); // 클릭 유효화
-            et_class.setHintTextColor(0xFF505050);
+            btn_class.setHintTextColor(0xFF505050);
         }
     }
 

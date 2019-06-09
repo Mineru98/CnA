@@ -1,5 +1,6 @@
 package com.cna.mineru.cna.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.DTO.HomeData;
 import com.cna.mineru.cna.R;
 
@@ -24,7 +26,6 @@ public class GridAdapter extends BaseAdapter {
     Context context;
     int layout;
     LayoutInflater inf;
-
     ArrayList<HomeData> items;
     public GridAdapter(Context context, int layout, ArrayList<HomeData> list) {
         items = new ArrayList();
@@ -52,9 +53,9 @@ public class GridAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         if (convertView==null)
             convertView = inf.inflate(layout, null);
         TextView tv = (TextView) convertView.findViewById(R.id.titleText);
@@ -63,7 +64,8 @@ public class GridAdapter extends BaseAdapter {
         TextView tv_count = (TextView) convertView.findViewById(R.id.tv_count);
         HomeData item = items.get(position);
         tv.setText(item.title_text);
-
+//        tv_count.setText(""+db.getNoteCount(position+1));
+        tv_count.setText("");
         return convertView;
     }
 }

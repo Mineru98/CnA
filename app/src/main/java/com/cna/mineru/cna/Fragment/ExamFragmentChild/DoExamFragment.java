@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,9 +28,13 @@ import com.cna.mineru.cna.DTO.ExamData;
 import com.cna.mineru.cna.MainActivity;
 import com.cna.mineru.cna.R;
 import com.cna.mineru.cna.RandomExam;
+import com.cna.mineru.cna.Utils.CustomDialog;
+import com.cna.mineru.cna.Utils.DefaultInputDialog;
+import com.cna.mineru.cna.Utils.InsertCodeDialog;
 import com.xw.repo.BubbleSeekBar;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,6 +44,7 @@ public class DoExamFragment extends Fragment {
     private ExamChipAdapter mAdapater;
     private View view;
     private TextView btn_start;
+    private TextView tv_lvE;
 
     private BubbleSeekBar seekBar_1;
     private BubbleSeekBar seekBar_2;
@@ -58,12 +64,14 @@ public class DoExamFragment extends Fragment {
     private int time = 0;
     private int problem_num = 0;
     private int ClassId = 0;
+    private int month;
+    private Calendar cal;
+    private int t_count = 1;
+
     private ArrayList<ChipData> list = new ArrayList<>();
     private ExpandableListAdapter listAdapter;
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
-
-    int t_count = 1;
 
     public DoExamFragment() {
 
@@ -78,10 +86,11 @@ public class DoExamFragment extends Fragment {
         c_db = new GraphDataSQLClass(getActivity());
         u_db = new UserSQLClass(getActivity());
         ClassId = u_db.getClassId();
-
-        max_value = h_db.getCount();
-        problem_num = 0;
         time = 0;
+        problem_num = 0;
+        max_value = h_db.getCount();
+        cal = Calendar.getInstance();
+        month = cal.get ( cal.MONTH ) + 1;
 
         if (max_value < 10) {
             max_value = 10;
@@ -91,11 +100,92 @@ public class DoExamFragment extends Fragment {
 
         sv = (NestedScrollView) view.findViewById(R.id.sv);
         lvExp = (ExpandableListView) view.findViewById(R.id.lvExp);
+        tv_lvE = (TextView) view.findViewById(R.id.tv_lvE);
         listView = (ListView) view.findViewById(R.id.listView);
         btn_start = (TextView) view.findViewById(R.id.btn_start);
 
         mAdapater = new ExamChipAdapter(getActivity(), R.layout.chip_item, list);
         prepareListData(ClassId);
+        switch (ClassId){
+            default:
+                if(month>7)
+                    tv_lvE.setText("2학기");
+                else
+                    tv_lvE.setText("1학기");
+                break;
+            case 11:
+                if(month>7)
+                    tv_lvE.setText("초등학교 1학년 2학기");
+                else
+                    tv_lvE.setText("초등학교 1학년 1학기");
+                break;
+            case 12:
+                if(month>7)
+                    tv_lvE.setText("초등학교 2학년 2학기");
+                else
+                    tv_lvE.setText("초등학교 2학년 1학기");
+                break;
+            case 13:
+                if(month>7)
+                    tv_lvE.setText("초등학교 3학년 2학기");
+                else
+                    tv_lvE.setText("초등학교 3학년 1학기");
+                break;
+            case 14:
+                if(month>7)
+                    tv_lvE.setText("초등학교 4학년 2학기");
+                else
+                    tv_lvE.setText("초등학교 4학년 1학기");
+                break;
+            case 15:
+                if(month>7)
+                    tv_lvE.setText("초등학교 5학년 2학기");
+                else
+                    tv_lvE.setText("초등학교 5학년 1학기");
+                break;
+            case 16:
+                if(month>7)
+                    tv_lvE.setText("초등학교 6학년 2학기");
+                else
+                    tv_lvE.setText("초등학교 6학년 1학기");
+                break;
+            case 21:
+                if(month>7)
+                    tv_lvE.setText("중학교 1학년 2학기");
+                else
+                    tv_lvE.setText("중학교 1학년 1학기");
+                break;
+            case 22:
+                if(month>7)
+                    tv_lvE.setText("중학교 2학년 2학기");
+                else
+                    tv_lvE.setText("중학교 2학년 1학기");
+                break;
+            case 23:
+                if(month>7)
+                    tv_lvE.setText("중학교 3학년 2학기");
+                else
+                    tv_lvE.setText("중학교 3학년 1학기");
+                break;
+            case 31:
+                if(month>7)
+                    tv_lvE.setText("고등학교 1학년 2학기");
+                else
+                    tv_lvE.setText("고등학교 1학년 1학기");
+                break;
+            case 32:
+                if(month>7)
+                    tv_lvE.setText("고등학교 2학년 2학기");
+                else
+                    tv_lvE.setText("고등학교 2학년 1학기");
+                break;
+            case 33:
+                if(month>7)
+                    tv_lvE.setText("고등학교 3학년 2학기");
+                else
+                    tv_lvE.setText("고등학교 3학년 1학기");
+                break;
+        }
 
         listAdapter = new ExpandableListAdapter(getActivity(), listDataHeader, listDataChild);
         listView.setAdapter(mAdapater);
@@ -235,41 +325,56 @@ public class DoExamFragment extends Fragment {
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                int time = Integer.parseInt(seekBar_3.getTag().toString());
-//                int ExamNum = Integer.parseInt(seekBar_1.getTag().toString());
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-                int time = seekBar_3.getProgress();
-                int ExamNum = seekBar_1.getProgress();
-                dialog.setTitle("알림");
-                dialog.setMessage(time + "분간 시험이 진행됩니다.\n이대로 진행 하시겠습니까?");
-                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ArrayList<ExamData> make = db.make_Exam(ExamNum);
-                        if (make.size() > 0) {
-                            int RoomId = db.get_Exam_RoomId();
-                            dialog.dismiss();
-                            int[] ExamIdArr = new int[ExamNum];
-                            for (int k = 0; k < ExamNum; k++)
-                                ExamIdArr[k] = make.get(k).NoteId;
+                if(!u_db.isClassChecked()){
+                    DefaultInputDialog d = new DefaultInputDialog();
+                    d.show(getActivity().getSupportFragmentManager(),"setting");
+                    d.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int _class) {
+                            DefaultInputDialog d2 = new DefaultInputDialog();
+                            d2.show(getActivity().getSupportFragmentManager(),"setting2");
+                            d2.setDialogResult(new DefaultInputDialog.OnMyDialogResult() {
+                                @Override
+                                public void finish(int _class) {
 
-                            Intent i = new Intent((MainActivity) getActivity(), RandomExam.class);
-                            i.putExtra("time", time * 60 * 1000);
-                            i.putExtra("ExamIdArr", ExamIdArr);
-                            i.putExtra("ExamNum", ExamNum);
-                            i.putExtra("RoomId", RoomId);
-                            startActivity(i);
-                        } else
-                            dialog.dismiss();
-                    }
-                });
-                dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    CustomDialog d = new CustomDialog(5,seekBar_3.getProgress());
+                    d.show(getActivity().getSupportFragmentManager(),"alter");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int _class) {
+                            if(_class==1) {
+                                int time = seekBar_3.getProgress();
+                                int ExamNum = seekBar_1.getProgress();
+                                ArrayList<ExamData> make = db.make_Exam(ExamNum);
+                                if (make.size() > 0) {
+                                    int RoomId = db.get_Exam_RoomId();
+                                    d.dismiss();
+                                    int[] ExamIdArr = new int[ExamNum];
+                                    for (int k = 0; k < ExamNum; k++)
+                                        ExamIdArr[k] = make.get(k).NoteId;
+
+                                    Intent i = new Intent(getActivity(), RandomExam.class);
+                                    i.putExtra("time", time * 60 * 1000);
+                                    i.putExtra("ExamIdArr", ExamIdArr);
+                                    i.putExtra("ExamNum", ExamNum);
+                                    i.putExtra("RoomId", RoomId);
+                                    startActivity(i);
+                                }
+                            } else
+                                d.dismiss();
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
+                        }
+                    });
+                }
             }
         });
         return view;
@@ -284,20 +389,19 @@ public class DoExamFragment extends Fragment {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
-        t_list = c_db.set_title(classId, 0);
+        t_list = c_db.set_title(classId, 0, month);
         for (int i = 0; i < t_list.size(); i++){
             listDataHeader.add(t_list.get(i).Title);
         }
 
-//        t_list.clear();
-        t_list2 = c_db.set_title(classId, 1);
-        sub_list = new ArrayList[c_db.get_size(classId, 1)];
+        t_list2 = c_db.set_title(classId, 1, month);
+        sub_list = new ArrayList[c_db.get_size(classId, 1, month)];
         for(int i =0;i<sub_list.length;i++)
             sub_list[i] = new ArrayList<String>();
 
         int i = 0, j = 0;
-        while (c_db.get_size(classId, 0) > j) {
-            if(c_db.get_size(classId, 1) - 1 == i){
+        while (c_db.get_size(classId, 0,month) > j) {
+            if(c_db.get_size(classId, 1,month) - 1 == i){
                 sub_list[j].add(t_list2.get(i).Title);
                 listDataChild.put(listDataHeader.get(j), sub_list[j]);
                 break;

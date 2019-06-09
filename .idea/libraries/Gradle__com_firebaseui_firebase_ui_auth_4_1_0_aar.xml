@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.firebaseui:firebase-ui-auth:4.1.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd63bd46a2811634943ac229aed428db/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/75b3ce3eaf69defa53ebdcb6b6ff56cc/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd63bd46a2811634943ac229aed428db/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd63bd46a2811634943ac229aed428db/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/75b3ce3eaf69defa53ebdcb6b6ff56cc/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/75b3ce3eaf69defa53ebdcb6b6ff56cc/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

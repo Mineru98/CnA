@@ -52,7 +52,7 @@ public class UserSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS User_Info (" +
                     "User_Id "        + "INTEGER NOT NULL PRIMARY KEY DEFAULT 1," +
                     "Name "           + "TEXT DEFAULT '게스트'," +
-                    "ClassId "        + "INTEGER DEFAULT 11," +
+                    "ClassId "        + "INTEGER DEFAULT 10," +
                     "isFirst "        + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isGoogle "       + "BOOLEAN NOT NULL DEFAULT 0, " +
                     "isWifiSync "     + "BOOLEAN NOT NULL DEFAULT 0, " +
@@ -235,6 +235,14 @@ public class UserSQLClass extends AppCompatActivity {
         }
     }
 
+    public void update_name(String Name){
+        if(sqliteDb != null){
+            String sqlQueryTb1 = "UPDATE User_Info SET Name = '" + Name + "';";
+            System.out.println(sqlQueryTb1);
+            sqliteDb.execSQL(sqlQueryTb1);
+        }
+    }
+
     public void update_isWifiSync(int isWifiSync){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE User_Info SET isWifiSync = " + isWifiSync + ";";
@@ -261,7 +269,7 @@ public class UserSQLClass extends AppCompatActivity {
 
     public void reset_app(){
         if (sqliteDb != null) {
-            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 11;";
+            String sqlInsert = "UPDATE User_Info SET User_Id = 1, Name = '게스트', isFirst = 0, isGoogle = 0, isWifiSync = 0, isPremium = 0, isClassChecked = 0, ClassId = 10;";
             System.out.println(sqlInsert) ;
             sqliteDb.execSQL(sqlInsert) ;
         }

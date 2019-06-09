@@ -52,8 +52,10 @@ public class HomeSQLClass extends AppCompatActivity {
             String sqlCreateTb = "CREATE TABLE IF NOT EXISTS Note (" +
                     "Id "           + "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "Title "        + "TEXT," +
-                    "Note_Type "    + "INTEGER, " +
+                    "Tag "    + "INTEGER, " +
+                    "SubTag "       + "INTEGER, " +
                     "Note_Current " + "INTEGER DEFAULT 100," +
+                    "Count "        + "INTEGER DEFAULT 0," +
                     "ClassId "      + "INTEGER DEFAULT 1);";
 
             System.out.println(sqlCreateTb);
@@ -75,16 +77,48 @@ public class HomeSQLClass extends AppCompatActivity {
                 cursor.moveToNext();
                 int id = cursor.getInt(0);
                 String title = cursor.getString(1);
-                list.add(new HomeData(id, title, 0));
+                list.add(new HomeData(id, title, 0,0));
             }
         }
         return list;
     }
 
-    public void update_item(int id, String title, int note_type){
+    public void add_count(int NoteId) {
+        if (sqliteDb != null) {
+            String sqlQueryTb1 = "SELECT Count FROM Note Where Id = " + NoteId + ";";
+            Cursor cursor = null;
+            System.out.println(sqlQueryTb1);
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            int count = cursor.getInt(0);
+            count++;
+
+            String sqlQueryTb2 = "UPDATE Note SET count = " + count + " WHERE Id = " + NoteId + ";";
+            System.out.println(sqlQueryTb2);
+            sqliteDb.execSQL(sqlQueryTb2);
+        }
+    }
+
+    public void sub_count(int NoteId) {
+        if (sqliteDb != null) {
+            String sqlQueryTb1 = "SELECT Count FROM Note Where Id = " + NoteId + ";";
+            Cursor cursor = null;
+            System.out.println(sqlQueryTb1);
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            cursor.moveToNext();
+            int count = cursor.getInt(0);
+            count--;
+
+            String sqlQueryTb2 = "UPDATE Note SET count = " + count + " WHERE Id = " + NoteId + ";";
+            System.out.println(sqlQueryTb2);
+            sqliteDb.execSQL(sqlQueryTb2);
+        }
+    }
+
+    public void update_item(int id, String title, int Tag, int Subtag){
         if(sqliteDb != null){
             String sqlQueryTb1 = "UPDATE Note SET Title = '" +  title + "', " +
-                    "Note_Type = "+ note_type + " WHERE Id = " + id + ";";
+                    "Tag = "+ Tag + ", Subtag = " + Subtag +" WHERE Id = " + id + ";";
 
             System.out.println(sqlQueryTb1);
 
@@ -135,8 +169,6 @@ public class HomeSQLClass extends AppCompatActivity {
                 String sqlQueryTb2 = "SELECT Id, Title FROM Note WHERE Id = " + rnd[i] + ";";
                 cursor = sqliteDb.rawQuery(sqlQueryTb2, null);
                 cursor.moveToNext();
-                Log.d("TAG","Mineru Id : " + cursor.getInt(0));
-                Log.d("TAG","Mineru Title : " + cursor.getString(1));
                 list.add(new ExamData(cursor.getInt(0),cursor.getString(1)));
             }
         }
@@ -160,16 +192,17 @@ public class HomeSQLClass extends AppCompatActivity {
     public HomeData select_item(int id){
         HomeData data;
         if(sqliteDb != null){
-            String sqlQueryTb1 = "SELECT Id, Title, Note_Type FROM Note WHERE id = " + id + ";";
+            String sqlQueryTb1 = "SELECT Id, Title, Tag, Subtag FROM Note WHERE id = " + id + ";";
             Cursor cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
             System.out.println(sqlQueryTb1);
             cursor.moveToNext();
             id = cursor.getInt(0);
             String title = cursor.getString(1);
             int tag = cursor.getInt(2);
-            data = new HomeData(id,title,tag);
+            int subtag = cursor.getInt(3);
+            data = new HomeData(id,title,tag,subtag);
         } else{
-            data = new HomeData(id,"Error",0);
+            data = new HomeData(id,"Error",0,0);
         }
         return data;
     }
@@ -187,12 +220,13 @@ public class HomeSQLClass extends AppCompatActivity {
     }
 
 
-    public void add_values(String title, int note_type, int ClassId){
+    public void add_values(String title, int Tag, int ClassId, int Subtag){
         if (sqliteDb != null) {
-            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Title, Note_Type, ClassId) VALUES (?,?,?);");
+            SQLiteStatement p = sqliteDb.compileStatement("INSERT INTO Note (Title, Tag, ClassId, Subtag) VALUES (?,?,?,?);");
             p.bindString(1, title);
-            p.bindLong(2, note_type);
-            p.bindLong(3,ClassId);
+            p.bindLong(2, Tag);
+            p.bindLong(3, ClassId);
+            p.bindLong(4, Subtag);
             System.out.println(p);
             p.execute();
         }

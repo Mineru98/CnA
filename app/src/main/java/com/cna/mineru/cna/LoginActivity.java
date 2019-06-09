@@ -136,10 +136,12 @@ public class LoginActivity extends AppCompatActivity {
                 if(isView){
                     et_pw.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     isView = false;
+                    iv_view.setImageResource(R.drawable.ic_view);
                 }
                 else {
                     et_pw.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     isView = true;
+                    iv_view.setImageResource(R.drawable.ic_hide);
                 }
             }
         });
@@ -148,7 +150,11 @@ public class LoginActivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+
+//        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+//        updateUI(account);
 
         tv_lose_pw.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,23 +227,23 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         if("NONE".equals(getWhatKindOfNetwork(this))) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
-            builder.show();
+            CustomDialog dialog2 = new CustomDialog(4);
+            dialog2.show(getSupportFragmentManager(),"network error");
+            dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                @Override
+                public void finish(int result) {
+                    if(result==1){
+                        Intent intentConfirm = new Intent();
+                        intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                        startActivity(intentConfirm);
+                    }
+                }
+
+                @Override
+                public void finish(int result, String email) {
+
+                }
+            });
         }
     }
 
@@ -277,7 +283,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // 구글로그인 버튼 응답
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -287,6 +292,7 @@ public class LoginActivity extends AppCompatActivity {
                 assert account != null;
                 firebaseAuthWithGoogle(account);
             } catch (ApiException ignored) {
+
             }
         }
     }
@@ -322,9 +328,8 @@ public class LoginActivity extends AppCompatActivity {
                 SecurityUtil securityUtil = new SecurityUtil();
                 byte[] rtn1 = securityUtil.encryptSHA256(et_pw.getText().toString());
                 String pw = new String(rtn1);
-                Log.d("TAG","Mineru sha : " +pw);
-//                jsonObject.accumulate("password", pw);
-                jsonObject.accumulate("password", et_pw.getText().toString());
+                jsonObject.accumulate("password", pw);
+//                jsonObject.accumulate("password", et_pw.getText().toString());
                 jsonObject.accumulate("uuid", token);
                 HttpURLConnection con = null;
                 BufferedReader reader = null;

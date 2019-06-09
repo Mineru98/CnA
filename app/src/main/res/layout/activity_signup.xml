@@ -1,153 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/nanum_gothic"
-        android:text="@string/signup_msg"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="300dp"
-        android:layout_height="71dp"
-        android:layout_below="@+id/tv_title"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/nanum_gothic"
-        android:text="@string/sign_up_msg2"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
-
-    <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/ic_back_white" />
-
-    <TextView
-        android:id="@+id/btn_next"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
-        android:layout_alignTop="@+id/btn_back"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/nanum_gothic"
-        android:text="@string/btn_complete"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/et_email"
+    <RelativeLayout
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_subtitle"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:ems="10"
-        android:fontFamily="@font/nanum_gothic"
-        android:hint="@string/et_hint_email"
-        android:textColor="@color/white"
-        android:textColorHint="#BDBDBD"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:text="@string/signup_msg"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_pw"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_email"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:ems="10"
-        android:fontFamily="@font/nanum_gothic"
-        android:hint="@string/et_hint_pw"
-        android:textColor="@color/white"
-        android:textColorHint="#BDBDBD"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="300dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/tv_title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/nanum_gothic"
+            android:text="@string/sign_up_msg2"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
 
-    <EditText
-        android:id="@+id/et_pw_again"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_pw"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:ems="10"
-        android:fontFamily="@font/nanum_gothic"
-        android:hint="@string/et_hint_pw_confirm"
-        android:textColor="@color/white"
-        android:textColorHint="#BDBDBD"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pw" />
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/ic_back_black" />
 
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/btn_back"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/nanum_gothic"
+            android:text="@string/btn_complete"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/iv_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/et_pw"
-        android:layout_alignEnd="@+id/et_pw"
-        android:layout_marginTop="5dp"
-        app:srcCompat="@drawable/ic_view" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/layout_email"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/tv_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/et_pw_again"
-        android:layout_alignEnd="@+id/et_pw_again"
-        android:layout_marginTop="5dp"
-        app:srcCompat="@drawable/ic_check_cancel" />
-</RelativeLayout>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/nanum_gothic"
+                android:hint="@string/et_hint_email"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/layout_pw"
+            android:layout_below="@+id/layout_email"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_pw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:fontFamily="@font/nanum_gothic"
+                android:hint="@string/et_hint_pw"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/layout_pw_again"
+            android:layout_below="@+id/layout_pw"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_pw_again"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:fontFamily="@font/nanum_gothic"
+                android:hint="@string/et_hint_pw_confirm"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/iv_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_view"
+            android:layout_alignTop="@+id/layout_pw"
+            android:layout_alignBottom="@+id/layout_pw"
+            android:layout_alignEnd="@+id/layout_pw"/>
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/layout_pw_again"
+            android:layout_alignBottom="@+id/layout_pw_again"
+            android:layout_alignEnd="@+id/layout_pw_again"
+            app:srcCompat="@drawable/ic_check_cancel" />
+    </RelativeLayout>
+</ScrollView>

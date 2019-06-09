@@ -21,6 +21,7 @@ import com.cna.mineru.cna.Adapter.RandomViewPager;
 import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
 import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamFragment;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -38,7 +39,7 @@ public class RandomExam extends AppCompatActivity {
     private ViewPager viewPager;
     private TextView time_out;
     private TextView tv_count;
-    private Button btn_ok;
+    private TextView btn_ok;
     private AdView mAdView;
 
     private int setting_time;
@@ -62,13 +63,13 @@ public class RandomExam extends AppCompatActivity {
         ArrayList<Integer> i_list = new ArrayList<>();
         b_list = new ArrayList<>();
         db = new ExamSQLClass(this);
-
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, "ca-app-pub-2774747966830250~5467102140");
+//        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
         mAdView = findViewById(R.id.adView);
         viewPager = (RandomViewPager) findViewById(R.id.view_pager);
         time_out = (TextView) findViewById(R.id.time_out);
-        btn_ok = (Button) findViewById(R.id.btn_ok);
+        btn_ok = (TextView) findViewById(R.id.btn_ok);
         tv_count = (TextView) findViewById(R.id.tv_count);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -103,33 +104,34 @@ public class RandomExam extends AppCompatActivity {
             public void onClick(View v) {
                 eachTimer.sendEmptyMessage(0);
                 if(CurrentViewId==ExamNum-1){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
-                    builder.setTitle("시험종료");
-                    builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
-                    builder.setPositiveButton("예",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    myTimer.removeMessages(0);
-                                    eachTimer.removeMessages(0);
-                                    for(int i = 0;i<ExamNum;i++)
-                                        ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
-                                    Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
-                                    i.putExtra("ExamIdArr", ExamIdArr);
-                                    i.putExtra("ExamNum", ExamNum);
-                                    i.putExtra("ResultExamArr", ResultExamArr);
-                                    i.putExtra("RoomId", RoomId);
-                                    startActivity(i);
-                                    finish();
-                                }
-                            });
-                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    CustomDialog d = new CustomDialog(9);
+                    d.show(getSupportFragmentManager(),"exam finish 2");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            myTimer.sendEmptyMessage(0);
-                            dialog.dismiss();
+                        public void finish(int result) {
+                            if(result==1){
+                                myTimer.removeMessages(0);
+                                eachTimer.removeMessages(0);
+                                for(int i = 0;i<ExamNum;i++)
+                                    ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
+                                Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+                                i.putExtra("ExamIdArr", ExamIdArr);
+                                i.putExtra("ExamNum", ExamNum);
+                                i.putExtra("ResultExamArr", ResultExamArr);
+                                i.putExtra("RoomId", RoomId);
+                                startActivity(i);
+                                RandomExam.this.finish();
+                            }else{
+                                myTimer.sendEmptyMessage(0);
+                                d.dismiss();
+                            }
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
                         }
                     });
-                    builder.show();
                 }
                 Handler h = new Handler();
                 h.postDelayed(new splashHandler(), 1000);
@@ -234,22 +236,39 @@ public class RandomExam extends AppCompatActivity {
                 eachTimer.removeMessages(0);
                 //현재 화면의 Index의 타이머만 run 상태로
                 eachPauseTime[CurrentViewId] = SystemClock.elapsedRealtime()+990;
-                for (int i = 0; i < ExamNum; i++) {
-                    long outTime = eachPauseTime[i] - eachBaseTime[i];
-                    @SuppressLint("DefaultLocale")
-                    String easy_outTime = String.format("%02d:%02d:%02d", outTime / 1000 / 60, (outTime / 1000) % 60, (outTime % 1000) / 10);
-                }
-                AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
-                builder.setTitle("시간초과");
-                builder.setMessage("할당된 시간이 다 되었습니다.\n시험을 종료합니다.");
-                builder.setPositiveButton("예",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                myTimer.removeMessages(0);
-                                finish();
-                            }
-                        });
-                builder.show();
+//                for (int i = 0; i < ExamNum; i++) {
+//                    long outTime = eachPauseTime[i] - eachBaseTime[i];
+//                    @SuppressLint("DefaultLocale")
+//                    String easy_outTime = String.format("%02d:%02d:%02d", outTime / 1000 / 60, (outTime / 1000) % 60, (outTime % 1000) / 10);
+//                }
+                CustomDialog d = new CustomDialog(11);
+                d.show(getSupportFragmentManager(),"over time");
+                d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        if(result==0){
+                            myTimer.removeMessages(0);
+                            eachTimer.removeMessages(0);
+                            for(int i = 0;i<ExamNum;i++)
+                                ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
+                            Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+                            i.putExtra("ExamIdArr", ExamIdArr);
+                            i.putExtra("ExamNum", ExamNum);
+                            i.putExtra("ResultExamArr", ResultExamArr);
+                            i.putExtra("RoomId", RoomId);
+                            startActivity(i);
+                            RandomExam.this.finish();
+                        }else{
+                            myTimer.sendEmptyMessage(0);
+                            d.dismiss();
+                        }
+                    }
+
+                    @Override
+                    public void finish(int result, String email) {
+
+                    }
+                });
             }
         }
     };
@@ -306,30 +325,32 @@ public class RandomExam extends AppCompatActivity {
                     int id = data.getIntExtra("id",0);
                     b_list.set(viewPager.getCurrentItem()-1,result);
                     if(id==3) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(RandomExam.this);
-                        builder.setTitle("시험종료");
-                        builder.setMessage("주어진 문제를 모두 풀었습니다.\n시험을 종료합니다.");
-                        builder.setPositiveButton("확인",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        for(int i = 0;i<ExamNum;i++)
-                                            ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
-                                        Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
-                                        i.putExtra("randomArr", ExamIdArr);
-                                        i.putExtra("ExamNum", ExamNum);
-                                        i.putExtra("ResultArr", ResultExamArr);
-                                        i.putExtra("RoomId", RoomId);
-                                        startActivity(i);
-                                        finish();
-                                    }
-                                });
-                        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        CustomDialog d = new CustomDialog(12);
+                        d.show(getSupportFragmentManager(),"exam finish 3");
+                        d.setDialogResult(new CustomDialog.OnMyDialogResult() {
                             @Override
-                            public void onCancel(DialogInterface dialog) {
-                                finish();
+                            public void finish(int result) {
+                                if(result==1){
+                                    for(int i = 0;i<ExamNum;i++)
+                                        ResultExamArr[i] = eachPauseTime[i] - eachBaseTime[i];
+                                    Intent i = new Intent(RandomExam.this,RandomExamSolve.class);
+                                    i.putExtra("randomArr", ExamIdArr);
+                                    i.putExtra("ExamNum", ExamNum);
+                                    i.putExtra("ResultArr", ResultExamArr);
+                                    i.putExtra("RoomId", RoomId);
+                                    startActivity(i);
+                                    RandomExam.this.finish();
+                                }else{
+                                    d.dismiss();
+                                    RandomExam.this.finish();
+                                }
+                            }
+
+                            @Override
+                            public void finish(int result, String email) {
+
                             }
                         });
-                        builder.show();
                     }
                     break;
             }
@@ -338,35 +359,31 @@ public class RandomExam extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(RandomExam.this)
-                .setTitle("종료")
-                .setMessage("이대로 종료하시면 저장이 되지 않습니다.\n그래도 종료하시겠습니까?")
-                .setPositiveButton("네", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        db.delete_exam(RoomId);
-                        finish();
-                    }
+        CustomDialog d = new CustomDialog(15);
+        d.show(getSupportFragmentManager(),"exam finish 2");
+        d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+            @Override
+            public void finish(int result) {
+                if(result==1){
+                    //각 문제 문항 수 하나 빼기
+                    db.delete_exam(RoomId);
+                    RandomExam.this.finish();
+                }else{
+                    d.dismiss();
+                }
+            }
 
-                })
-                .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+            @Override
+            public void finish(int result, String email) {
 
-                    }
-                })
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-
-                    }
-                })
-                .show();
+            }
+        });
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        db.delete_exam(RoomId);
+        db.delete_exam(RoomId);
     }
 }
 

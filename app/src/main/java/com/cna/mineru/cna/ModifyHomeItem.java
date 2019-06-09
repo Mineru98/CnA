@@ -12,26 +12,54 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cna.mineru.cna.DB.ExamSQLClass;
+import com.cna.mineru.cna.DB.GraphDataSQLClass;
 import com.cna.mineru.cna.DB.GraphSQLClass;
 import com.cna.mineru.cna.DB.HomeSQLClass;
 import com.cna.mineru.cna.DB.ImageSQLClass;
+import com.cna.mineru.cna.DB.UserSQLClass;
+import com.cna.mineru.cna.DTO.ExamData;
+import com.cna.mineru.cna.DTO.HomeData;
+import com.cna.mineru.cna.Utils.ClassListDialog;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
+import com.cna.mineru.cna.Utils.MyValueFormatter;
 import com.cna.mineru.cna.Utils.PhotoDialog;
 import com.cna.mineru.cna.Utils.PhotoDialog2;
+import com.cna.mineru.cna.Utils.XAxisValueFormatter2;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.model.GradientColor;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,26 +79,34 @@ import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static com.cna.mineru.cna.Utils.Network.getWhatKindOfNetwork.getWhatKindOfNetwork;
+import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
 
-public class ModifyHomeItem extends AppCompatActivity {
+public class ModifyHomeItem extends AppCompatActivity implements OnChartValueSelectedListener {
     private static final int PICK_FROM_ALBUM = 1;
     private static final int PICK_FROM_CAMERA = 2;
 
     private HomeSQLClass db;
     private GraphSQLClass gp_db;
+    private GraphDataSQLClass d_db;
+    private UserSQLClass u_db;
+    private ExamSQLClass e_db;
 
     private EditText et_title;
-    private EditText et_class;
 
     private PhotoView imageView;
     private PhotoView imageView2;
 
-    private int tag;
+    private Button btn_class;
+    private BarChart bChart;
+
+    private int Tag;
     private int id;
     private int note_id=0;
     private boolean isLeft;
+    private int Subtag;
 
     private Bitmap bm;
     private Bitmap bm2;
@@ -84,7 +120,7 @@ public class ModifyHomeItem extends AppCompatActivity {
     private byte[] image2;
 
     private File tempFile;
-
+    private ArrayList<ExamData> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -94,26 +130,112 @@ public class ModifyHomeItem extends AppCompatActivity {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
+        RelativeLayout r_top = findViewById(R.id.Top);
+        RelativeLayout linear = findViewById(R.id.linear);
+        RelativeLayout linear2 = findViewById(R.id.linear2);
+        RelativeLayout set_image = findViewById(R.id.set_image);
+        RelativeLayout set_image2 = findViewById(R.id.set_image2);
+        ImageView iv_exam_num = findViewById(R.id.iv_exam_num);
+        ImageView iv_title = findViewById(R.id.iv_title);
+        TextView tv_title = (TextView) findViewById(R.id.tv_title);
+        TextView tv_exam_num = (TextView) findViewById(R.id.tv_exam_num);
         TextView btn_ok = (TextView) findViewById(R.id.btn_save);
         ImageView btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
+
+        btn_class = (Button) findViewById(R.id.btn_class);
         et_title = (EditText) findViewById(R.id.et_title);
-        et_class = (EditText) findViewById(R.id.et_class);
         imageView = findViewById(R.id.imageView);
         imageView2 = findViewById(R.id.imageView2);
 
         db = new HomeSQLClass(this);
         gp_db = new GraphSQLClass(this);
-        loadingDialog= new LoadingDialog();
+        d_db = new GraphDataSQLClass(this);
+        u_db = new UserSQLClass(this);
+        e_db = new ExamSQLClass(this);
         ImageSQLClass img_db = new ImageSQLClass(this);
+
+        loadingDialog= new LoadingDialog();
         note_id = db.getId();
 
         Intent intent = getIntent();
         id = intent.getExtras().getInt("id");
         String title = intent.getExtras().getString("title");
-        tag = intent.getExtras().getInt("tag");
+        Tag = intent.getExtras().getInt("tag");
+        Subtag = intent.getExtras().getInt("subtag");
+        btn_class.setText(d_db.getData(Tag,Subtag,u_db.getClassId()));
+
+        btn_class.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClassListDialog d = new ClassListDialog();
+                d.show(getSupportFragmentManager(),"select exam num");
+                d.setDialogResult(new ClassListDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int Tag, int SubTag, String result) {
+                        btn_class.setText(result);
+                        ModifyHomeItem.this.Tag = Tag;
+                        ModifyHomeItem.this.Subtag = SubTag;
+                    }
+                });
+            }
+        });
+
+        {
+            bChart = findViewById(R.id.chartView);
+            bChart.setOnChartValueSelectedListener(this);
+            bChart.setDrawBarShadow(false);
+            bChart.setDrawValueAboveBar(true);
+            bChart.getDescription().setEnabled(false);
+            bChart.animateY(750);
+            bChart.animateX(750);
+            bChart.setMaxVisibleValueCount(60);
+            bChart.setScaleEnabled(false);
+            bChart.setDragEnabled(true);
+            bChart.setDrawGridBackground(false);
+        }
+
+        {
+            ValueFormatter xAxisFormatter = new XAxisValueFormatter2(bChart);
+            XAxis xAxis = bChart.getXAxis();
+            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+            xAxis.setDrawGridLines(false);
+            xAxis.setGranularity(1f);
+            xAxis.setLabelCount(7);
+            xAxis.setValueFormatter(xAxisFormatter);
+
+            ValueFormatter custom = new MyValueFormatter("분");
+
+            YAxis leftAxis = bChart.getAxisLeft();
+            leftAxis.setLabelCount(4, false);
+            leftAxis.setValueFormatter(custom);
+            leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+            leftAxis.setSpaceTop(15f);
+            leftAxis.setAxisMinimum(0f);
+
+            YAxis rightAxis = bChart.getAxisRight();
+            rightAxis.setDrawGridLines(false);
+            rightAxis.setLabelCount(4, false);
+            rightAxis.setValueFormatter(custom);
+            rightAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+            rightAxis.setSpaceTop(15f);
+            rightAxis.setAxisMinimum(0f);
+
+            Legend l = bChart.getLegend();
+            l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+            l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+            l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+            l.setDrawInside(false);
+            l.setForm(Legend.LegendForm.CIRCLE);
+            l.setFormSize(12f);
+            l.setTextSize(12f);
+
+        }
+        Legend legend = bChart.getLegend();
+        legend.setEnabled(false);
+        list = e_db.getEachExam(id);
+        b_setData(list);
 
         int count;
-
         for(int solve=0;solve<2;solve++){
             count = img_db.getCount(id, solve);
             ArrayList<ArrayList<Byte>> image_merge = new ArrayList<>();
@@ -194,7 +316,6 @@ public class ModifyHomeItem extends AppCompatActivity {
         }
 
         et_title.setText(title);
-        et_class.setText(String.valueOf(tag));
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,10 +328,12 @@ public class ModifyHomeItem extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tag = Integer.parseInt(et_class.getText().toString());
-                db.update_item(id, et_title.getText().toString(), tag);
-                gp_db.update_value(id, tag);
-                new JSONNote().execute(getString(R.string.ip_set)+"/api/note/update");
+                if(intent.getExtras().getBoolean("isCalledHome")){
+//                    tag = Integer.parseInt(btn_class.getText().toString());
+                    db.update_item(id, et_title.getText().toString(), Tag, Subtag);
+                    gp_db.update_value(id, Tag);
+//                    new JSONNote().execute(getString(R.string.ip_set)+"/api/note/update");
+                }
                 finish();
             }
         });
@@ -298,25 +421,92 @@ public class ModifyHomeItem extends AppCompatActivity {
         });
 
         if("NONE".equals(getWhatKindOfNetwork(this))) {
-            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-            builder.show();
+            CustomDialog dialog2 = new CustomDialog(4);
+            dialog2.show(getSupportFragmentManager(),"network error");
+            dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                @Override
+                public void finish(int result) {
+                    if(result==1){
+                        Intent intentConfirm = new Intent();
+                        intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                        startActivity(intentConfirm);
+                    }
+                }
+
+                @Override
+                public void finish(int result, String email) {
+
+                }
+            });
         }
+    }
+
+    private void b_setData(ArrayList<ExamData> list) {
+        ArrayList<BarEntry> values = new ArrayList<>();
+
+        for (int i = 0; i<list.size(); i++)
+            values.add(new BarEntry( (i+1)* 1f,list.get(i).TTS / 1000f));
+
+        BarDataSet set1;
+
+        if (bChart.getData() != null &&
+                bChart.getData().getDataSetCount() > 0) {
+            set1 = (BarDataSet) bChart.getData().getDataSetByIndex(0);
+            set1.setValues(values);
+            bChart.getData().notifyDataChanged();
+            bChart.notifyDataSetChanged();
+        } else {
+            set1 = new BarDataSet(values, "정답");
+            set1.setDrawIcons(false);
+            set1.setColors(rgb("#ff33b5e5"), rgb("#ffff4444"));
+
+            int startColor1 = ContextCompat.getColor(this, R.color.main_color);
+            int startColor2 = ContextCompat.getColor(this, R.color.second_color);
+
+            List<GradientColor> gradientColors = new ArrayList<>();
+            for(int i=0;i<list.size();i++) {
+                if (list.get(i).isSolved==1) {
+                    gradientColors.add(new GradientColor(startColor1, startColor1));
+                } else {
+                    gradientColors.add(new GradientColor(startColor2, startColor2));
+                }
+            }
+
+            set1.setGradientColors(gradientColors);
+
+            ArrayList<IBarDataSet> dataSets = new ArrayList<>();
+            dataSets.add(set1);
+
+            BarData data = new BarData(dataSets);
+            data.setValueTextSize(10f);
+            data.setBarWidth(0.9f);
+
+            bChart.setData(data);
+        }
+    }
+
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
+        if (e == null)
+            return;
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+
+        BarChart chartView = (BarChart)this.findViewById(R.id.chartView);
+        RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(chartView.getWidth(),(int)(chartView.getWidth()*1.5));
+        bChart.setLayoutParams(layout);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @Override
+    public void onNothingSelected() {
+
     }
 
     @SuppressLint("IntentReset")
@@ -483,24 +673,23 @@ public class ModifyHomeItem extends AppCompatActivity {
         if(isLeft){
             if("NONE".equals(getWhatKindOfNetwork(this))) {
                 loadingDialog.progressOFF();
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-                builder.setTitle("오류");
-                builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-                builder.setPositiveButton("확인",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intentConfirm = new Intent();
-                                intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                                startActivity(intentConfirm);
-                            }
-                        });
-                builder.setNegativeButton("아니요",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
+                CustomDialog dialog2 = new CustomDialog(4);
+                dialog2.show(getSupportFragmentManager(),"network error");
+                dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        if(result==1){
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    }
 
-                            }
-                        });
-                builder.show();
+                    @Override
+                    public void finish(int result, String email) {
+
+                    }
+                });
             }else{
                 //Upload
                 //uploadFile(getImgURL);
@@ -509,24 +698,23 @@ public class ModifyHomeItem extends AppCompatActivity {
         else{
             if("NONE".equals(getWhatKindOfNetwork(this))) {
                 loadingDialog.progressOFF();
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-                builder.setTitle("오류");
-                builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-                builder.setPositiveButton("확인",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intentConfirm = new Intent();
-                                intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                                startActivity(intentConfirm);
-                            }
-                        });
-                builder.setNegativeButton("아니요",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
+                CustomDialog dialog2 = new CustomDialog(4);
+                dialog2.show(getSupportFragmentManager(),"network error");
+                dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                    @Override
+                    public void finish(int result) {
+                        if(result==1){
+                            Intent intentConfirm = new Intent();
+                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                            startActivity(intentConfirm);
+                        }
+                    }
 
-                            }
-                        });
-                builder.show();
+                    @Override
+                    public void finish(int result, String email) {
+
+                    }
+                });
             }else{
                 //Upload
                 //uploadFile(getImgURL);
@@ -541,7 +729,7 @@ public class ModifyHomeItem extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("id", note_id);
-                jsonObject.accumulate("note_type", et_class.getText().toString());
+                jsonObject.accumulate("note_type", Tag);
                 jsonObject.accumulate("title", et_title.getText().toString());
                 HttpURLConnection con = null;
                 BufferedReader reader = null;

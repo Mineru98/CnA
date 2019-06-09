@@ -7,7 +7,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -15,7 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
+import com.cna.mineru.cna.Utils.SecurityUtil;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,6 +39,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static com.cna.mineru.cna.Utils.Network.getWhatKindOfNetwork.getWhatKindOfNetwork;
@@ -44,9 +52,14 @@ public class SignupActivity extends AppCompatActivity {
 
     private TextView btn_next;
 
-    private EditText et_pw;
-    private EditText et_email;
-    private EditText et_pw_again;
+    private AppCompatEditText et_pw;
+    private AppCompatEditText et_email;
+    private AppCompatEditText et_pw_again;
+
+    private TextInputLayout layout_pw;
+    private TextInputLayout layout_email;
+    private TextInputLayout layout_pw_again;
+
 
     private LoadingDialog loadingDialog;
 
@@ -61,9 +74,14 @@ public class SignupActivity extends AppCompatActivity {
         loadingDialog = new LoadingDialog();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-        et_email = (EditText) findViewById(R.id.et_email);
-        et_pw = (EditText) findViewById(R.id.et_pw);
-        et_pw_again = (EditText) findViewById(R.id.et_pw_again);
+        layout_pw = (TextInputLayout) findViewById(R.id.layout_pw);
+        layout_email = (TextInputLayout) findViewById(R.id.layout_email);
+        layout_pw_again = (TextInputLayout) findViewById(R.id.layout_pw_again);
+
+        et_pw = (AppCompatEditText) findViewById(R.id.et_pw);
+        et_email = (AppCompatEditText) findViewById(R.id.et_email);
+        et_pw_again = (AppCompatEditText) findViewById(R.id.et_pw_again);
+
         TextView tv_title = (TextView) findViewById(R.id.tv_title);
         TextView tv_subtitle = (TextView) findViewById(R.id.tv_subtitle);
         btn_next = (TextView) findViewById(R.id.btn_next);
@@ -77,10 +95,12 @@ public class SignupActivity extends AppCompatActivity {
                 if(isView){
                     et_pw.setInputType(0x00000081);
                     isView = false;
+                    iv_view.setImageResource(R.drawable.ic_view);
                 }
                 else {
                     et_pw.setInputType(0x00000091);
                     isView = true;
+                    iv_view.setImageResource(R.drawable.ic_hide);
                 }
             }
         });
@@ -106,40 +126,59 @@ public class SignupActivity extends AppCompatActivity {
                         createUser(et_email.getText().toString(), et_pw.getText().toString());
                     }
                 } else {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(SignupActivity.this);
-                    dialog.setTitle("입력 오류");
-                    dialog.setMessage("비밀번호가 일치하지 않습니다.");
-                    dialog.setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                    CustomDialog d = new CustomDialog(8);
+                    d.show(getSupportFragmentManager(),"insert error");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                        public void finish(int result) {
+                            d.dismiss();
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
                         }
                     });
-                    dialog.show();
                 }
 
             }
         });
 
-        if("NONE".equals(getWhatKindOfNetwork(this))) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
+        et_pw_again.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                        }
-                    });
-            builder.show();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        if("NONE".equals(getWhatKindOfNetwork(this))) {
+            CustomDialog dialog2 = new CustomDialog(4);
+            dialog2.show(getSupportFragmentManager(),"network error");
+            dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                @Override
+                public void finish(int result) {
+                    if(result==1){
+                        Intent intentConfirm = new Intent();
+                        intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                        startActivity(intentConfirm);
+                    }
+                }
+
+                @Override
+                public void finish(int result, String email) {
+
+                }
+            });
         }
     }
 
@@ -181,8 +220,11 @@ public class SignupActivity extends AppCompatActivity {
                 String token = FirebaseInstanceId.getInstance().getToken();
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("name", "게스트");
+                SecurityUtil securityUtil = new SecurityUtil();
+                byte[] rtn1 = securityUtil.encryptSHA256(et_pw.getText().toString());
+                String pw = new String(rtn1);
                 jsonObject.accumulate("email", et_email.getText().toString());
-                jsonObject.accumulate("password", et_pw.getText().toString());
+                jsonObject.accumulate("password", pw);
                 jsonObject.accumulate("uuid", token);
                 HttpURLConnection con = null;
                 BufferedReader reader = null;

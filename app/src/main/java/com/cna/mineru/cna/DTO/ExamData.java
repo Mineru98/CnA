@@ -9,6 +9,11 @@ public class ExamData {
     public String ExamTitle;
     public long TTS;
 
+    public ExamData(long TTS, int isSolved){
+        this.TTS = TTS;
+        this.isSolved = isSolved;
+    }
+
     public ExamData(int NoteId, String Title){
         this.NoteId = NoteId;
         this.Title = Title;

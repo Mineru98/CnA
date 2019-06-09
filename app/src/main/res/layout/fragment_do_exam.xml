@@ -186,7 +186,8 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:gravity="center"
-                android:textColor="#F05A94"
+                android:textColor="@color/second_color"
+                android:fontFamily="@font/nanum_gothic"
                 android:text="@string/btn_start" />
         </RelativeLayout>
     </RelativeLayout>

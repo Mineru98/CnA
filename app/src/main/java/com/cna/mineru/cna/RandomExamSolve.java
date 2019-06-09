@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +17,10 @@ import com.cna.mineru.cna.Adapter.FragmentExampleAdapter;
 import com.cna.mineru.cna.Adapter.RandomViewPager;
 import com.cna.mineru.cna.DB.ExamSQLClass;
 import com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragmentChild.RandomExamSolveFragment;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.SignDialog;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -27,10 +29,8 @@ public class RandomExamSolve extends AppCompatActivity {
 
     private ViewPager viewPager;
 
-    private Button btn_no;
-    private Button btn_ok;
-
-
+    private TextView btn_no;
+    private TextView btn_ok;
     private TextView tv_time;
     private TextView tv_title;
     private TextView tv_count;
@@ -51,8 +51,8 @@ public class RandomExamSolve extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         viewPager = (RandomViewPager) findViewById(R.id.view_pager);
-        btn_ok = (Button) findViewById(R.id.btn_ok);
-        btn_no = (Button) findViewById(R.id.btn_no);
+        btn_ok = (TextView) findViewById(R.id.btn_ok);
+        btn_no = (TextView) findViewById(R.id.btn_no);
         tv_count = (TextView) findViewById(R.id.tv_count);
         tv_time = (TextView) findViewById(R.id.tv_time);
         tv_title = (TextView) findViewById(R.id.tv_title);
@@ -93,27 +93,27 @@ public class RandomExamSolve extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CurrentViewId == ExamNum - 1) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
-                    builder.setTitle("시험종료");
-                    builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
-                    builder.setPositiveButton("예",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    //시험 결과 저장
-                                    db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
-                                    Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
-                                    i.putExtra("RoomId", RoomId);
-                                    startActivity(i);
-                                    finish();
-                                }
-                            });
-                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    CustomDialog d = new CustomDialog(14);
+                    d.show(getSupportFragmentManager(),"exam finish");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                        public void finish(int result) {
+                            if(result==1){
+                                db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
+                                Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
+                                i.putExtra("RoomId", RoomId);
+                                startActivity(i);
+                                RandomExamSolve.this.finish();
+                            }else{
+                                d.dismiss();
+                            }
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
                         }
                     });
-                    builder.show();
                 }
                 else{
                     dialog.call_btn_ok();
@@ -128,27 +128,27 @@ public class RandomExamSolve extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CurrentViewId == ExamNum - 1) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RandomExamSolve.this);
-                    builder.setTitle("시험종료");
-                    builder.setMessage("시험을 완료하시겠습니까?\n'예'를 누르면 시험이 종료됩니다.");
-                    builder.setPositiveButton("예",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    //시험 결과 저장
-                                    db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
-                                    Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
-                                    i.putExtra("RoomId", RoomId);
-                                    startActivity(i);
-                                    finish();
-                                }
-                            });
-                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    CustomDialog d = new CustomDialog(14);
+                    d.show(getSupportFragmentManager(),"exam finish");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                        public void finish(int result) {
+                            if(result==1){
+                                db.update_result(ResultCheckList, ResultExamArr, RoomId, ExamIdArr);
+                                Intent i = new Intent(RandomExamSolve.this,ExamResultActivity.class);
+                                i.putExtra("RoomId", RoomId);
+                                startActivity(i);
+                                RandomExamSolve.this.finish();
+                            }else{
+                                d.dismiss();
+                            }
+                        }
+
+                        @Override
+                        public void finish(int result, String email) {
+
                         }
                     });
-                    builder.show();
                 }else{
                     dialog.call_btn_x();
                 }
@@ -210,27 +210,22 @@ public class RandomExamSolve extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(RandomExamSolve.this)
-                .setTitle("종료")
-                .setMessage("이대로 종료하시면 정답을 매기지 않는 모든 문제는 오답처리가 됩니다.\n그래도 종료하시겠습니까?")
-                .setPositiveButton("네", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
+        CustomDialog d = new CustomDialog(10);
+        d.show(getSupportFragmentManager(),"exam finish 2");
+        d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+            @Override
+            public void finish(int result) {
+                if(result==1){
+                    RandomExamSolve.this.finish();
+                }else{
+                    d.dismiss();
+                }
+            }
 
-                })
-                .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+            @Override
+            public void finish(int result, String email) {
 
-                    }
-                })
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-
-                    }
-                })
-                .show();
+            }
+        });
     }
 }

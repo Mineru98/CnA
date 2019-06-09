@@ -24,6 +24,7 @@ import com.cna.mineru.cna.DTO.HomeData;
 import com.cna.mineru.cna.Adapter.GridAdapter;
 import com.cna.mineru.cna.ModifyHomeItem;
 import com.cna.mineru.cna.R;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.DefaultInputDialog;
 import com.cna.mineru.cna.Utils.LoadingDialog;
 
@@ -102,7 +103,7 @@ public class HomeFragment extends Fragment {
                     fb.setEnabled(false);
                     Handler h = new Handler();
                     h.postDelayed(new splashHandler(), 1000);
-                    Intent i =new Intent(getActivity(),AddNote.class);
+                    Intent i = new Intent(getActivity(),AddNote.class);
                     startActivity(i);
                 }
             }
@@ -121,7 +122,9 @@ public class HomeFragment extends Fragment {
                 Intent i = new Intent(getActivity(),ModifyHomeItem.class);
                 i.putExtra("id", data.id);
                 i.putExtra("title", data.title_text);
-                i.putExtra("tag", data.tag);
+                i.putExtra("tag", data.Tag);
+                i.putExtra("subtag", data.Subtag);
+                i.putExtra("isCalledHome",true);
                 startActivity(i);
                 getActivity().overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
             }
@@ -131,29 +134,29 @@ public class HomeFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 try{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("오답노트 삭제");
-                    builder.setMessage("정말로 삭제하시겠습니까?");
-                    builder.setPositiveButton("예",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    db.delete_item(list.get(position).id);
-                                    gp_db.delete_value(list.get(position).id);
-                                    i_db.delete_item(list.get(position).id);
-                                    note_id = list.get(position).id;
-                                    new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
-                                    onResume();
-                                }
-                            });
-                    builder.setNegativeButton("아니오",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                }
-                            });
-                    builder.show();
+                    CustomDialog d = new CustomDialog(6);
+                    d.show(getActivity().getSupportFragmentManager(),"alter");
+                    d.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                        @Override
+                        public void finish(int _class) {
+                            if(_class==1) {
+                                db.delete_item(list.get(position).id);
+                                gp_db.delete_value(list.get(position).id);
+                                i_db.delete_item(list.get(position).id);
+                                note_id = list.get(position).id;
+//                                new DelNote().execute(getString(R.string.ip_set)+"/api/note/destroy");
+                                onResume();
+                            }else
+                                d.dismiss();
+                        }
 
+                        @Override
+                        public void finish(int result, String email) {
+
+                        }
+                    });
                 }
-                catch (Exception e) {
+                catch (Exception ignored) {
                 }
                 return true;
             }

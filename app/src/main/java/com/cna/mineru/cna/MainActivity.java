@@ -28,7 +28,9 @@ import com.cna.mineru.cna.Fragment.HomeFragment;
 import com.cna.mineru.cna.Fragment.ExamFragment;
 import com.cna.mineru.cna.Fragment.ProfileFragment;
 import com.cna.mineru.cna.Utils.BottomNavigationViewHelper;
+import com.cna.mineru.cna.Utils.CustomDialog;
 import com.cna.mineru.cna.Utils.DefaultInputDialog;
+import com.google.firebase.auth.FirebaseAuth;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import java.io.File;
@@ -53,27 +55,26 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (CustomViewPager) findViewById(R.id.view_pager);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-
-        if("NONE".equals(getWhatKindOfNetwork(this))) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-            builder.show();
-        }
+//
+//        if("NONE".equals(getWhatKindOfNetwork(this))) {
+//            CustomDialog dialog2 = new CustomDialog(4);
+//            dialog2.show(getSupportFragmentManager(),"network error");
+//            dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+//                @Override
+//                public void finish(int result) {
+//                    if(result==1){
+//                        Intent intentConfirm = new Intent();
+//                        intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+//                        startActivity(intentConfirm);
+//                    }
+//                }
+//
+//                @Override
+//                public void finish(int result, String email) {
+//
+//                }
+//            });
+//        }
 
         db = new UserSQLClass(this); // User_Info Table
         TmpSQLClass t_db = new TmpSQLClass(this); // Tmp Table
@@ -206,24 +207,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         if("NONE".equals(getWhatKindOfNetwork(this))) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("오류");
-            builder.setMessage("인터넷 연결 상태를 확인해 주세요.\n인터넷 설정으로 이동하시겠습니까?");
-            builder.setPositiveButton("확인",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intentConfirm = new Intent();
-                            intentConfirm.setAction("android.settings.WIFI_SETTINGS");
-                            startActivity(intentConfirm);
-                        }
-                    });
-            builder.setNegativeButton("아니요",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
+            CustomDialog dialog2 = new CustomDialog(4);
+            dialog2.show(getSupportFragmentManager(),"network error");
+            dialog2.setDialogResult(new CustomDialog.OnMyDialogResult() {
+                @Override
+                public void finish(int result) {
+                    if(result==1){
+                        Intent intentConfirm = new Intent();
+                        intentConfirm.setAction("android.settings.WIFI_SETTINGS");
+                        startActivity(intentConfirm);
+                    }
+                }
 
-                        }
-                    });
-            builder.show();
+                @Override
+                public void finish(int result, String email) {
+
+                }
+            });
         }
     }
 }

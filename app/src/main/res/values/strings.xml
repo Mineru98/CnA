@@ -1,6 +1,7 @@
 <resources>
+    <!--<string name="ip_set">http://122.34.12.104</string>-->
     <string name="ip_set">http://www.cnaplus.shop</string>
-    <string name="app_name">CnA</string>
+    <string name="app_name">오답노트</string>
     <string name="title_home">홈</string>
     <string name="title_graph">분석</string>
     <string name="title_test">시험</string>
@@ -24,8 +25,10 @@
     <string name="tv_title_dialog_1">학년을 선택해 주세요.</string>
     <string name="tv_title_dialog_2">자동으로 학년별 단원 업데이트가 가능해요 !</string>
     <string name="tv_title_dialog_3">쿠폰 코드 입력</string>
+    <string name="tv_title_dialog_4">단원을 선택해 주세요!</string>
+    <string name="tv_title_dialog_5">단원은 하나만 선택이 가능해요 !</string>
     <string name="et_code_dialog">쿠폰 코드 입력</string>
-    <string name="tv_profile">프로필</string>
+    <string name="tv_profile">프로필 설정</string>
     <string name="tv_logout">로그아웃</string>
     <string name="tv_signout">회원탈퇴</string>
     <string name="tv_wifisync">Wifi가 연결 되어 있을 때만 동기화하기</string>
@@ -42,8 +45,10 @@
     <string name="et_hint_email">이메일</string>
     <string name="et_hint_pw">비밀번호</string>
     <string name="et_hint_pw_confirm">비밀번호 확인</string>
-    <string name="tv_title_modify">단원</string>
-    <string name="et_insert">입력</string>
+    <string name="tv_title_modify">단원명</string>
+    <string name="tv_title_prob">해설</string>
+    <string name="tv_title_chart">문제 분석</string>
+    <string name="et_insert">단원 선택</string>
     <string name="prob">문제</string>
     <string name="prob_2">A Problem</string>
     <string name="solv">해설</string>

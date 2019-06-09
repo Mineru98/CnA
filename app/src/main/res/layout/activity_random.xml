@@ -20,13 +20,15 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true">
 
-        <Button
+        <TextView
             android:id="@+id/btn_ok"
             android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_above="@+id/adView"
+            android:gravity="center"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/main_color"
             android:text="@string/btn_next_prob"
             android:fontFamily="@font/nanum_gothic" />
 
@@ -37,7 +39,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+            ads:adUnitId="ca-app-pub-2774747966830250/5322880887"/>
     </RelativeLayout>
 
     <include

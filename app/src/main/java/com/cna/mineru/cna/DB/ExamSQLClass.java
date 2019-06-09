@@ -61,6 +61,8 @@ public class ExamSQLClass extends AppCompatActivity {
                     "ExamRoomId "  + "INTEGER DEFAULT 0," +
                     "Title "       + "TEXT," +
                     "Tag "         + "INTEGER DEFAULT 0," +
+                    "EachTime "    + "INTEGER DEFAULT 0," +
+                    "AllTime "     + "INTEGER DEFAULT 0," +
                     "TimeToSolve " + "INTEGER," +
                     "isSolved "    + "BOOLEAN DEFAULT 0," +
                     "ExamTitle "   + "TEXT DEFAULT ''," +
@@ -88,6 +90,36 @@ public class ExamSQLClass extends AppCompatActivity {
                 int RoomId = cursor.getInt(0);
                 String examtitle = cursor.getString(1);
                 list.add(new ExamData(examtitle,RoomId));
+            }
+        }
+        return list;
+    }
+
+    public int getNoteCount(int NoteId){
+        int result = 0;
+        if (sqliteDb != null) {
+            String sqlQueryTb1 = "SELECT Id FROM Exam WHERE NoteId = " + NoteId + ";";
+            Cursor cursor = null;
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            for(int i=0;i<cursor.getCount(); i++){
+                cursor.moveToNext();
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<ExamData> getEachExam(int NoteId) {
+        ArrayList<ExamData> list = new ArrayList<>();
+        if (sqliteDb != null) {
+            String sqlQueryTb1 = "SELECT TimeToSolve, isSolved FROM Exam WHERE NoteId = " + NoteId + ";";
+            Cursor cursor = null;
+            cursor = sqliteDb.rawQuery(sqlQueryTb1, null);
+            for(int i=0;i<cursor.getCount(); i++){
+                cursor.moveToNext();
+                long TimeToSolve = cursor.getLong(0);
+                int isSolved = cursor.getInt(1);
+                list.add(new ExamData(TimeToSolve, isSolved));
             }
         }
         return list;
@@ -164,6 +196,21 @@ public class ExamSQLClass extends AppCompatActivity {
                 });
                 dialog.show();
                 return list;
+            } else if(exam_count < 4){
+                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                dialog.setTitle("알림");
+                dialog.setMessage(
+                        "시험은 문제 4개부터 가능합니다.\n" +
+                                "4개 이상의 노트가 등록되어야\n" +
+                                "시험을 볼 수 있습니다.");
+                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+                return list;
             } else if (count < exam_count) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context);
                 dialog.setTitle("알림");
@@ -180,8 +227,6 @@ public class ExamSQLClass extends AppCompatActivity {
             } else {
                 list = homeSQLClass.getList(exam_count);
                 for (int i = 0; i < exam_count; i++) {
-//                    Log.d("TAG","Mineru NoteId " + i + " : " + list.get(i).NoteId);
-//                    Log.d("TAG","Mineru Title " + i + " : "  + list.get(i).Title);
                     String sqlInsert = "";
                     if (i == 0) {
                         sqlInsert = "INSERT INTO Exam " +

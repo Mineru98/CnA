@@ -26,3 +26,7 @@
 # -dontwarn {packageName}
 
 # End: Debug Release rules
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}

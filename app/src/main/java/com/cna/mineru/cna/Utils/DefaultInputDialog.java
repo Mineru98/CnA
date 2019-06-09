@@ -144,10 +144,10 @@ public class DefaultInputDialog extends DialogFragment {
                             db.setClassId(32);
                             DefaultInputDialog.this.getDialog().cancel();
                             break;
-                        case 2:
-                            db.setClassId(33);
-                            DefaultInputDialog.this.getDialog().cancel();
-                            break;
+//                        case 2:
+//                            db.setClassId(33);
+//                            DefaultInputDialog.this.getDialog().cancel();
+//                            break;
                     }
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putInt("isClassConfig", 0);
@@ -226,9 +226,9 @@ public class DefaultInputDialog extends DialogFragment {
             item = new ListViewBtnItem() ;
             item.setText("고등학생 2학년") ;
             list.add(item) ;
-            item = new ListViewBtnItem() ;
-            item.setText("고등학생 3학년") ;
-            list.add(item) ;
+//            item = new ListViewBtnItem() ;
+//            item.setText("고등학생 3학년") ;
+//            list.add(item) ;
         }
         return true ;
     }

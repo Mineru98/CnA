@@ -46,7 +46,7 @@
     <string name="et_hint_pw">비밀번호</string>
     <string name="et_hint_pw_confirm">비밀번호 확인</string>
     <string name="tv_title_modify">단원명</string>
-    <string name="tv_title_prob">해설</string>
+    <string name="tv_title_prob">문제명</string>
     <string name="tv_title_chart">문제 분석</string>
     <string name="et_insert">단원 선택</string>
     <string name="prob">문제</string>

@@ -135,7 +135,8 @@ public class ExamResultActivity extends AppCompatActivity implements OnChartValu
             bChart.animateX(750);
             bChart.setMaxVisibleValueCount(60);
             bChart.setScaleEnabled(false);
-            bChart.setDragEnabled(true);
+            bChart.setDragEnabled(true); // 이 코드는 직접 실행해봐야 알 수 있을 것 같다. false로 할 가능성이 있음.
+            bChart.setTouchEnabled(false); // 현재 이 부분을 클릭 시 스클롤이 됨으로 비활성화해준다.
             bChart.setDrawGridBackground(false);
         }
 
@@ -301,6 +302,7 @@ public class ExamResultActivity extends AppCompatActivity implements OnChartValu
     public void onValueSelected(Entry e, Highlight h) {
         if (e == null)
             return;
+        /* 기존에는 ModifyItemActivity로 넘어갔지만 이 부분은 UX 적으로 문제가 있음으로 주석 처리.
         if(e.getX()!=0.0){
             Handler handler = new Handler();
             handler.postDelayed(new splashHandler(), 2000);
@@ -315,6 +317,7 @@ public class ExamResultActivity extends AppCompatActivity implements OnChartValu
             startActivity(i);
             this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
         }
+        */
     }
 
     @Override
@@ -335,7 +338,8 @@ public class ExamResultActivity extends AppCompatActivity implements OnChartValu
 
     private class splashHandler implements Runnable{
         public void run()	{
-            bChart.setTouchEnabled(true); // 클릭 유효화
+            bChart.setTouchEnabled(false); // 위의 코드와 동일하게 여전히 false를 유지해준다.
+            // bChart.setTouchEnabled(true); // 클릭 유효화
         }
     }
 }

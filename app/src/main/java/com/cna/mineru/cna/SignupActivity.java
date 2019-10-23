@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -39,7 +40,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static com.cna.mineru.cna.Utils.Network.getWhatKindOfNetwork.getWhatKindOfNetwork;
@@ -221,7 +221,7 @@ public class SignupActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("Name", "게스트");
                 SecurityUtil securityUtil = new SecurityUtil();
-                byte[] rtn1 = securityUtil.encryptSHA256(et_pw.getText().toString());
+                byte[] rtn1 = securityUtil.encryptSHA256(String.valueOf(et_pw.getText()));
                 String pw = new String(rtn1);
                 jsonObject.accumulate("Email", et_email.getText().toString());
                 jsonObject.accumulate("Password", pw);

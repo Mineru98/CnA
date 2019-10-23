@@ -2,6 +2,9 @@
     <!--<string name="ip_set">http://122.34.12.104</string>-->
     <!--<string name="ip_set">https://cna-server.run.goorm.io</string>-->
     <string name="ip_set">http://www.cnaplus.shop</string>
+    <string name="admob_app_id">ca-app-pub-2774747966830250~5467102140</string>
+    <string name="banner_ad_unit_id">ca-app-pub-2774747966830250/5322880887</string>
+    <string name="banner_ad_unit_id_for_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="app_name">오답노트</string>
     <string name="title_home">홈</string>
     <string name="title_graph">분석</string>

@@ -177,6 +177,7 @@ public class ExamSQLClass extends AppCompatActivity {
     // Methods for creating exam papers by randomly mixing problems
     public ArrayList<ExamData> make_Exam(int exam_count){
         int count = 0;
+        Log.d("TAG","Mineru: start");
         ArrayList<ExamData> list = new ArrayList<>();
         if (sqliteDb != null) {
             homeSQLClass = new HomeSQLClass(context);

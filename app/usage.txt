@@ -4610,6 +4610,8 @@ android.support.v7.widget.ActionBarContextView
     public synthetic bridge void postShowOverflowMenu()
     public synthetic bridge void animateToVisibility(int)
     private static final java.lang.String TAG
+com.cna.mineru.cna.ExamResultActivity
+    static synthetic com.github.mikephil.charting.charts.BarChart access$000(com.cna.mineru.cna.ExamResultActivity)
 android.support.v4.view.AsyncLayoutInflater$1
 com.bumptech.glide.request.target.GlideDrawableImageViewTarget
     private static final float SQUARE_RATIO_MARGIN
@@ -11713,6 +11715,7 @@ android.support.coordinatorlayout.R$integer
 com.google.android.gms.ads.impl.R
 com.google.android.gms.internal.firebase_auth.zzp$zzm$zza
 androidx.browser.browseractions.BrowserActionItem
+com.cna.mineru.cna.ExamResultActivity$splashHandler
 android.support.v4.media.MediaSessionManagerImplBase
 com.bumptech.glide.load.engine.DecodeJob
     private static final java.lang.String TAG
@@ -13167,63 +13170,717 @@ android.support.v7.widget.helper.ItemTouchHelper$2
 com.google.android.gms.internal.ads.zzdmn
     void <init>()
 android.support.v4.text.PrecomputedTextCompat$PrecomputedTextFutureTask
+android.support.v4.view.ViewPropertyAnimatorCompat$1
+    final synthetic android.support.v4.view.ViewPropertyAnimatorCompat this$0
+android.support.v4.provider.SelfDestructiveThread$3
+    final synthetic android.support.v4.provider.SelfDestructiveThread this$0
+com.google.android.gms.internal.common.zze
+    static void <clinit>()
+    private static volatile com.google.android.gms.internal.common.zzf zziu
+com.google.android.gms.internal.ads.zzbuk
+    private final com.google.android.gms.internal.ads.zzbtu zzfky
+com.google.android.gms.internal.ads.zzddn
+    private static final com.google.android.gms.internal.ads.zzdhn zzgpu
+com.google.android.gms.measurement.internal.zzak
+    private static java.util.Set zzfx
+    private static final com.google.android.gms.internal.measurement.zzct zzfy
+    private static com.google.android.gms.measurement.internal.zzdu zzga
+    private static com.google.android.gms.measurement.internal.zzdu zzgb
+    private static com.google.android.gms.measurement.internal.zzdu zzgc
+    public static com.google.android.gms.measurement.internal.zzdu zzgd
+    private static com.google.android.gms.measurement.internal.zzdu zzir
+    private static com.google.android.gms.measurement.internal.zzdu zzjf
+android.support.transition.ChangeBounds$8
+    final synthetic android.support.transition.ChangeBounds this$0
+com.google.firebase.auth.api.internal.zzen
+    private java.lang.Object zzqk
+    private com.google.android.gms.common.api.Status zzql
+android.support.v7.view.menu.ActionMenuItem
+    private final int mCategoryOrder
+    private int mIconResId
+    private android.view.MenuItem$OnMenuItemClickListener mClickListener
 retrofit2.http.HeaderMap
+com.google.android.gms.internal.ads.zzdbh
+com.google.android.gms.internal.ads.zzaps
+    private static final java.util.Set zzdhz
+com.google.android.gms.internal.ads.zzsb
+    private final int type
+    private final com.google.android.gms.internal.ads.zzry zzbmo
+com.google.android.gms.internal.ads.zzdnk
+    private static final com.google.android.gms.internal.ads.zzdnk zzhdw
+com.airbnb.lottie.animation.content.MergePathsContent
+    private final java.lang.String name
+android.support.v7.widget.CardView
+    int mUserSetMinWidth
+    int mUserSetMinHeight
+    private static final int[] COLOR_BACKGROUND_ATTR
+com.google.firebase.messaging.RemoteMessage$Notification
+    private final java.lang.String zzel
+    private final java.lang.String[] zzem
+    private final java.lang.String zzeo
+    private final java.lang.String[] zzep
+    private final java.lang.String zzeq
+    private final java.lang.String zzer
+    private final java.lang.String zzes
+    private final java.lang.String tag
+    private final java.lang.String zzet
+    private final java.lang.String zzeu
+    private final java.lang.String zzev
+    private final android.net.Uri zzew
+com.google.android.gms.common.internal.zzh
+    private final boolean zzek
+com.google.android.gms.flags.FlagRegistry
+    private final java.util.Collection zzh
+    private final java.util.Collection zzi
+com.google.gson.internal.ConstructorConstructor$14
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.ads.AdLoader
+    private final com.google.android.gms.internal.ads.zzya zzaaj
+com.google.android.gms.common.api.internal.ListenerHolder
+    private volatile java.lang.Object zajj
+com.google.android.gms.internal.ads.zzvk
+    private final java.lang.Object zzbwm
+    private boolean zzbwn
+com.google.android.gms.internal.ads.zzwr$zzh
+com.google.android.gms.internal.ads.zzjy
+    private final int responseCode
+    private final java.util.Map zzaqg
 com.google.android.gms.measurement.internal.zzhp
     private static java.lang.String zzo(java.lang.String,java.lang.String)
+com.google.gson.internal.bind.TreeTypeAdapter$GsonContextImpl
+    final synthetic com.google.gson.internal.bind.TreeTypeAdapter this$0
+com.google.android.gms.internal.measurement.zzeu
+    private static final com.google.android.gms.internal.measurement.zzeu zzahm
 com.google.android.gms.internal.ads.zzdtm
+com.google.android.gms.internal.ads.zzbnx
+    private final com.google.android.gms.internal.ads.zzbnj zzfho
+com.cna.mineru.cna.Adapter.GridAdapter
+    android.content.Context context
+android.support.transition.FragmentTransitionSupport$1
+    final synthetic android.graphics.Rect val$epicenter
+    final synthetic android.support.transition.FragmentTransitionSupport this$0
+com.google.android.gms.internal.ads.zznd
+    private final int zzagb
+com.google.android.gms.internal.ads.zzaax
+    private final com.google.android.gms.internal.ads.zzdaj zzciy
+com.google.android.gms.internal.ads.zzdrx
+    private static final int zzhny
+    private static final int zzhnz
+    private static final int zzhoa
+    private static final int zzhob
+    private static final float[] zzhod
+    private static final double[] zzhoe
+    private static final boolean[] zzhof
+    private static final byte[][] zzhoh
+    private static final byte[] zzhoi
+com.google.android.gms.internal.ads.zzmr
+    private static final int[] zzaxn
+    private static final int[] zzaxo
+    private static final int[] zzaxp
 com.google.android.gms.measurement.internal.zzd
     public void zzn()
+com.google.android.gms.internal.ads.zzaur
+    private boolean zzdrl
+com.google.firebase.analytics.connector.AnalyticsConnectorImpl
+    final java.util.Map zzacd
+com.google.android.gms.internal.ads.zzbng
+    private final com.google.android.gms.internal.ads.zzcxm zzfgw
+com.google.android.gms.internal.measurement.zzed
+    private final boolean zzadx
+com.google.android.gms.common.api.internal.BasePendingResult
+    private com.google.android.gms.common.api.internal.BasePendingResult$zaa mResultGuardian
+com.google.android.gms.internal.ads.zzcyr
+    private final com.google.android.gms.internal.ads.zzcyn zzglu
+android.support.v4.view.ActionProvider
+    private final android.content.Context mContext
+    private android.support.v4.view.ActionProvider$SubUiVisibilityListener mSubUiVisibilityListener
 com.google.android.gms.measurement.internal.zzef
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
     public final synthetic bridge void zzn()
+com.google.android.gms.internal.measurement.zzc
+com.airbnb.lottie.LottieAnimationView$2
+    final synthetic com.airbnb.lottie.LottieAnimationView this$0
+android.support.design.resources.TextAppearance
+    public final android.content.res.ColorStateList textColorHint
+    public final android.content.res.ColorStateList textColorLink
+    public final boolean textAllCaps
+com.airbnb.lottie.model.layer.TextLayer$2
+    final synthetic com.airbnb.lottie.model.layer.TextLayer this$0
+com.google.android.gms.internal.ads.zzbul
+    private final com.google.android.gms.internal.ads.zzbtu zzfky
+com.google.android.gms.internal.ads.zzddo
+    private static final java.util.logging.Logger logger
 com.google.firebase.auth.zzf
     public java.lang.String getSignInMethod()
+android.support.transition.ChangeBounds$9
+    final synthetic android.support.transition.ChangeBounds this$0
+com.google.android.gms.internal.firebase_auth.zzam
+    private final boolean zzgn
+android.support.v4.provider.SelfDestructiveThread$2
+    final synthetic android.support.v4.provider.SelfDestructiveThread this$0
 com.google.android.gms.internal.ads.zzdnj
     public final void zza(int,com.google.android.gms.internal.ads.zzdpc,java.util.Map)
+com.google.android.gms.internal.ads.zzbp$zza$zzd
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zztd
+    private final boolean zzaer
+com.google.android.gms.internal.ads.zzsr
+    private final int zzbnd
+    private final boolean zzbnf
+    private final boolean zzbng
+    private final int zzbnh
+    private final int zzbni
+    private final int zzbnj
+    private final boolean zzbnk
+com.google.android.gms.internal.ads.zzdcj
+    private static final java.util.logging.Logger logger
+android.support.v4.view.ViewPropertyAnimatorCompat$2
+    final synthetic android.support.v4.view.ViewPropertyAnimatorCompat this$0
+com.google.android.gms.internal.ads.zzbtx
+    private final com.google.android.gms.internal.ads.zzbtu zzfky
+com.google.android.gms.common.internal.zzg
+    private static final android.net.Uri zzed
+    private static final android.net.Uri zzee
+com.google.android.gms.internal.ads.zzcaj
+    private final com.google.android.gms.internal.ads.zzcaf zzfqr
+com.google.gson.internal.LinkedTreeMap$KeySet$1
+    final synthetic com.google.gson.internal.LinkedTreeMap$KeySet this$1
+com.google.android.gms.internal.ads.zzsa
+    private final com.google.android.gms.internal.ads.zzsv zzbmk
+    private final com.google.android.gms.internal.ads.zzsd zzbml
+com.google.android.gms.internal.common.zzf
+com.google.android.gms.internal.ads.zzdoa$zzb
+    private final com.google.android.gms.internal.ads.zzdoa zzhhg
+com.google.android.gms.internal.ads.zzwr$zzg$zzb
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzmp
+    private final int errorCode
+com.google.android.gms.common.api.GoogleApiClient$Builder
+    private boolean zacg
+com.google.android.gms.internal.ads.zzdbg
+    static void <clinit>()
+    private static volatile com.google.android.gms.internal.ads.zzdbh zzgoy
+com.google.android.gms.internal.ads.zzdka
+    static void <clinit>()
+    private final java.security.interfaces.ECPrivateKey zzgyo
+    private final com.google.android.gms.internal.ads.zzdkc zzgyp
+    private final java.lang.String zzgyq
+    private final byte[] zzgyr
+    private final com.google.android.gms.internal.ads.zzdku zzgys
+    private final com.google.android.gms.internal.ads.zzdjz zzgyt
+    private static final byte[] zzgpx
+com.google.android.gms.internal.ads.zzanl
+    private final int zzdgd
+    private final java.lang.String zzche
+com.google.android.gms.internal.auth-api.zzd
+    static void <clinit>()
+    private static com.google.android.gms.internal.auth-api.zzf zze
+com.google.android.gms.internal.ads.zzbqo
+    private final com.google.android.gms.internal.ads.zzbqn zzfjo
+okhttp3.CipherSuite
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_NULL_MD5
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_NULL_SHA
+    public static final okhttp3.CipherSuite TLS_RSA_EXPORT_WITH_RC4_40_MD5
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_RC4_128_MD5
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_RSA_EXPORT_WITH_DES40_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_DES_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_DES_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_DES_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DH_anon_EXPORT_WITH_RC4_40_MD5
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_RC4_128_MD5
+    public static final okhttp3.CipherSuite TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_DES_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_KRB5_WITH_DES_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_KRB5_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_KRB5_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_KRB5_WITH_DES_CBC_MD5
+    public static final okhttp3.CipherSuite TLS_KRB5_WITH_3DES_EDE_CBC_MD5
+    public static final okhttp3.CipherSuite TLS_KRB5_WITH_RC4_128_MD5
+    public static final okhttp3.CipherSuite TLS_KRB5_EXPORT_WITH_DES_CBC_40_SHA
+    public static final okhttp3.CipherSuite TLS_KRB5_EXPORT_WITH_RC4_40_SHA
+    public static final okhttp3.CipherSuite TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5
+    public static final okhttp3.CipherSuite TLS_KRB5_EXPORT_WITH_RC4_40_MD5
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_NULL_SHA256
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_AES_256_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_AES_256_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_PSK_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_PSK_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_PSK_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_PSK_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_RSA_WITH_SEED_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+    public static final okhttp3.CipherSuite TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_AES_128_GCM_SHA256
+    public static final okhttp3.CipherSuite TLS_DHE_DSS_WITH_AES_256_GCM_SHA384
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_AES_128_GCM_SHA256
+    public static final okhttp3.CipherSuite TLS_DH_anon_WITH_AES_256_GCM_SHA384
+    public static final okhttp3.CipherSuite TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+    public static final okhttp3.CipherSuite TLS_FALLBACK_SCSV
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_NULL_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_NULL_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_NULL_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_RSA_WITH_NULL_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_RSA_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_anon_WITH_NULL_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_anon_WITH_RC4_128_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_anon_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDH_anon_WITH_AES_256_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+    public static final okhttp3.CipherSuite TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256
+    public static final okhttp3.CipherSuite TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256
+    public static final okhttp3.CipherSuite TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+    public static final okhttp3.CipherSuite TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA
+    public static final okhttp3.CipherSuite TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA
+com.github.mikephil.charting.buffer.AbstractBuffer
+    protected int mFrom
+    protected int mTo
+android.support.constraint.ConstraintLayout$LayoutParams
+    float dimensionRatioValue
+com.google.android.gms.internal.ads.zzjx
+    private final com.google.android.gms.internal.ads.zzjq zzapt
+android.support.design.internal.TextScale$1
+    final synthetic android.support.design.internal.TextScale this$0
+com.google.android.gms.internal.ads.zzdf
+    private boolean zzwh
+    private boolean zzwi
+com.google.android.gms.internal.ads.zzow
+    private static final com.google.android.gms.internal.ads.zznq zzazt
+com.google.android.gms.ads.mediation.customevent.CustomEventAdapter$zza
+    private final com.google.android.gms.ads.mediation.customevent.CustomEventAdapter zzeny
+    private final com.google.android.gms.ads.mediation.MediationBannerListener zzenz
+com.airbnb.lottie.PerformanceTracker
+    private final java.util.Comparator floatComparator
+android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_FOCUS
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_CLEAR_FOCUS
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SELECT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_CLEAR_SELECTION
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_LONG_CLICK
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_ACCESSIBILITY_FOCUS
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_CLEAR_ACCESSIBILITY_FOCUS
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_NEXT_AT_MOVEMENT_GRANULARITY
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_NEXT_HTML_ELEMENT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_PREVIOUS_HTML_ELEMENT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_FORWARD
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_BACKWARD
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_COPY
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_PASTE
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_CUT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SET_SELECTION
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_EXPAND
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_COLLAPSE
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_DISMISS
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SET_TEXT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SHOW_ON_SCREEN
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_TO_POSITION
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_UP
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_LEFT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_DOWN
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SCROLL_RIGHT
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_CONTEXT_CLICK
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SET_PROGRESS
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_MOVE_WINDOW
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SHOW_TOOLTIP
+    public static final android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_HIDE_TOOLTIP
+com.bumptech.glide.disklrucache.DiskLruCache$Value
+    private final java.lang.String key
+    private final long sequenceNumber
+    private final long[] lengths
+    final synthetic com.bumptech.glide.disklrucache.DiskLruCache this$0
+com.airbnb.lottie.PerformanceTracker$1
+    final synthetic com.airbnb.lottie.PerformanceTracker this$0
+com.google.android.gms.measurement.internal.zzhn
+    private final byte[] zzlc
+com.google.android.gms.internal.ads.zzcc
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzdsi
+    private com.google.android.gms.internal.ads.zzdry$zza$zzc zzhrw
+    private java.lang.String zzhry
+    private java.lang.Boolean zzhsd
+    private java.lang.String zzhsf
+    private java.lang.Boolean zzhsg
+    private java.lang.Boolean zzhsh
+    private byte[] zzhsi
 com.google.android.gms.internal.measurement.zzec
     private final java.lang.Object zza(com.google.android.gms.internal.measurement.zzig,java.lang.Class,com.google.android.gms.internal.measurement.zzel)
     public final void zza(java.util.Map,com.google.android.gms.internal.measurement.zzfz,com.google.android.gms.internal.measurement.zzel)
+com.google.android.gms.internal.ads.zzbyf
+    private final com.google.android.gms.internal.ads.zzbyb zzfnl
+com.google.android.gms.internal.ads.zzaww
+    private boolean zzduw
+com.google.android.gms.internal.measurement.zzet
+    private final com.google.android.gms.internal.measurement.zzfk zzahf
+    private final com.google.android.gms.internal.measurement.zzev zzahg
+    private final java.lang.Class zzahh
+    private final boolean zzahi
+    private static final java.lang.reflect.Type[] zzahk
+com.google.android.gms.internal.ads.zzbnw
+    private final com.google.android.gms.internal.ads.zzbnj zzfho
+com.google.android.gms.measurement.internal.zzev
+    private final java.lang.String zzmp
+com.github.mikephil.charting.renderer.BarLineScatterCandleBubbleRenderer
+    protected com.github.mikephil.charting.renderer.BarLineScatterCandleBubbleRenderer$XBounds mXBounds
+com.cna.mineru.cna.ModifyHomeItem
+    private int note_id
+    private java.lang.String getImgURL
+com.cna.mineru.cna.Adapter.RcExamAdapter$2
+    final synthetic com.cna.mineru.cna.Adapter.RcExamAdapter this$0
+com.firebase.ui.auth.AuthUI
+    private static final java.util.IdentityHashMap INSTANCES
+com.google.android.gms.internal.firebase_messaging.zzf
+    private static final enum int zzd
+    private static final synthetic int[] zzf
+android.support.v7.view.menu.MenuItemWrapperJB$ActionProviderWrapperJB
+    final synthetic android.support.v7.view.menu.MenuItemWrapperJB this$0
+com.google.android.gms.internal.ads.zzbkn
+    private com.google.android.gms.internal.ads.zzboo zzfbt
+com.google.android.gms.internal.ads.zzcyq
+    private final com.google.android.gms.internal.ads.zzcyn zzglu
+com.google.android.gms.dynamite.DynamiteModule
+    public static final com.google.android.gms.dynamite.DynamiteModule$VersionPolicy PREFER_HIGHEST_OR_LOCAL_VERSION
+    private static final com.google.android.gms.dynamite.DynamiteModule$VersionPolicy zzim
+com.google.android.gms.internal.ads.zzdfc
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+android.support.transition.FragmentTransitionSupport$2
+    final synthetic android.support.transition.FragmentTransitionSupport this$0
+com.google.android.gms.internal.ads.zzvi
+    private java.lang.String zzbwh
+    private java.lang.String zzbwi
+    private final boolean zzbwj
+com.cna.mineru.cna.Utils.ClassListDialog$2
+    final synthetic com.cna.mineru.cna.Utils.ClassListDialog this$0
+com.google.firebase.iid.FirebaseInstanceIdReceiver
+    static void <clinit>()
+    private static boolean zzbl
+com.google.android.gms.internal.measurement.zzlx
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.internal.ads.zzafg
+    private final com.google.android.gms.ads.formats.MediaView zzcza
+    private final com.google.android.gms.ads.VideoController zzcjf
 okhttp3.internal.http2.Http2Stream$FramingSink
     static void <clinit>()
     static final synthetic boolean $assertionsDisabled
 com.google.android.gms.internal.measurement.zzee$zza
     public final void zze(byte[],int,int)
     final void zza(com.google.android.gms.internal.measurement.zzgi,com.google.android.gms.internal.measurement.zzgx)
+com.google.android.gms.internal.ads.zzwr$zzh$zza
+com.google.android.gms.internal.ads.zzic
+    private long zzahz
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10$1$1
+    final synthetic com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$10$1 this$2
+com.google.android.gms.internal.ads.zzhq
+    static void <clinit>()
+    private static boolean zzagc
+com.google.android.gms.internal.ads.zzsq
+    private static final java.lang.Object zzbnb
+    private static int[] zzbnc
+com.google.android.gms.internal.ads.zzdmj
+    private static final com.google.android.gms.internal.ads.zzdnn zzhch
+com.google.gson.Gson$2
+    final synthetic com.google.gson.Gson this$0
 okhttp3.ConnectionPool
     static final synthetic boolean $assertionsDisabled
+com.cna.mineru.cna.DB.GraphDataSQLClass
+    android.content.Context context
 okhttp3.internal.http2.Http2Stream$FramingSource
     static void <clinit>()
     static final synthetic boolean $assertionsDisabled
+com.google.android.gms.ads.mediation.MediationConfiguration
+    private final com.google.android.gms.ads.AdFormat zzenb
+    private final android.os.Bundle zzemx
+com.google.android.gms.internal.ads.zzbqa
+    private final com.google.android.gms.internal.ads.zzbpw zzfji
+com.google.android.gms.internal.ads.zzano
+    private final synthetic com.google.android.gms.internal.ads.zzaip zzdgm
+com.airbnb.lottie.model.content.GradientFill
+    private final com.airbnb.lottie.model.animatable.AnimatableFloatValue highlightLength
+    private final com.airbnb.lottie.model.animatable.AnimatableFloatValue highlightAngle
+com.google.android.gms.internal.ads.zzr
+    private boolean zzam
+    private boolean zzao
+com.cna.mineru.cna.Fragment.ExamFragment$1
+    final synthetic com.cna.mineru.cna.Fragment.ExamFragment this$0
+com.google.android.gms.internal.ads.zzwr$zzg$zzc
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.auth-api.zze
+    private static final java.lang.ClassLoader zzf
+com.google.android.gms.internal.ads.zzaaz
+    private final com.google.android.gms.internal.ads.zzya zzaaj
+    private final java.util.concurrent.atomic.AtomicBoolean zzcje
+com.google.android.gms.internal.ads.zzki
+    private static final int[] zzaqv
+com.google.android.gms.internal.ads.zzdrz
+com.google.android.gms.internal.ads.zzwr$zzj
 android.support.v7.app.WindowDecorActionBar
+    private android.app.Activity mActivity
+    private android.app.Dialog mDialog
+    private java.util.ArrayList mTabs
+    private int mSavedTabPosition
     static final synthetic boolean $assertionsDisabled
+com.cna.mineru.cna.ModifyHomeItem$6$1
+    final synthetic com.cna.mineru.cna.ModifyHomeItem$6 this$1
+com.google.android.gms.internal.ads.zzdsl
+    private com.google.android.gms.internal.ads.zzdry$zzb$zzd$zzb zzhsp
+    private byte[] zzhsr
+    private byte[] zzhss
+    private java.lang.Integer zzhst
 com.google.android.gms.internal.measurement.zzgy
     public abstract void zza(java.util.Map,com.google.android.gms.internal.measurement.zzfz,com.google.android.gms.internal.measurement.zzel)
+com.google.android.gms.internal.ads.zzdhl
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+android.support.transition.Visibility$1
+    final synthetic android.support.transition.Visibility this$0
+com.airbnb.lottie.model.FontCharacter
+    private final double size
+com.google.android.gms.internal.ads.zzbwc
+    private final com.google.android.gms.internal.ads.zzbvy zzflo
+android.support.v4.media.session.PlaybackStateCompat$CustomAction
+    private java.lang.Object mCustomActionObj
+com.google.android.gms.auth.api.Auth$AuthCredentialsOptions
+    private final java.lang.String zzl
+    private static final com.google.android.gms.auth.api.Auth$AuthCredentialsOptions zzk
+com.google.android.gms.common.util.concurrent.NumberedThreadFactory
+    private final int priority
+android.arch.core.executor.ArchTaskExecutor
+    private static final java.util.concurrent.Executor sMainThreadExecutor
+    private static final java.util.concurrent.Executor sIOThreadExecutor
+com.google.android.gms.internal.ads.zzdgi
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+android.support.transition.Fade$1
+    final synthetic android.support.transition.Fade this$0
+com.google.android.gms.internal.ads.zzbun
+    private final com.google.android.gms.internal.ads.zzbtu zzfky
 com.google.android.gms.internal.ads.zzdpc
     public final com.google.android.gms.internal.ads.zzdrh zzhji
     public final java.lang.Object zzhjj
     public final com.google.android.gms.internal.ads.zzdrh zzhjk
     public final java.lang.Object zzcki
+com.google.android.gms.internal.measurement.zzdp
+    private static final java.util.Comparator zzadk
+com.cna.mineru.cna.Adapter.RcExamAdapter$1
+    final synthetic com.cna.mineru.cna.Adapter.RcExamAdapter this$0
 com.google.android.gms.internal.measurement.zzeb
     abstract long zzsv()
+    private int zzadr
+    private boolean zzadt
+com.google.android.gms.common.internal.BaseGmsClient
+    private final android.os.Looper zzca
+    public static final java.lang.String[] GOOGLE_PLUS_REQUIRED_FEATURES
+com.google.android.gms.internal.ads.zzdnn
+    private static volatile boolean zzhdz
+    private static final java.lang.Class zzhea
+com.google.android.gms.ads.formats.NativeAdOptions
+    private final int zzbqd
+com.google.android.gms.internal.ads.zzfk
+    private final java.lang.String TAG
+com.google.firebase.auth.zzu
+    private com.google.firebase.auth.zzw zzjj
+com.google.android.gms.ads.formats.NativeAdOptions$Builder
+    private int zzbqd
+com.firebase.ui.auth.util.data.ProviderAvailability
+    public static final boolean IS_FACEBOOK_AVAILABLE
+com.google.android.gms.internal.measurement.zzcm
+    private static boolean zzaay
+com.google.android.gms.ads.AdSize
+    public static final com.google.android.gms.ads.AdSize SEARCH
+com.google.android.gms.internal.measurement.zza
+    static void <clinit>()
+    private static com.google.android.gms.internal.measurement.zzc zza
+com.google.android.gms.auth.api.signin.GoogleSignInClient
+    private static final com.google.android.gms.auth.api.signin.GoogleSignInClient$zzc zzar
+com.google.android.gms.internal.ads.zzdoq
+    private com.google.android.gms.internal.ads.zzdmq zzhiu
+    private static final com.google.android.gms.internal.ads.zzdnn zzhch
+com.google.android.gms.internal.ads.zzbtz
+    private final com.google.android.gms.internal.ads.zzbtu zzfky
+com.google.android.gms.internal.ads.zzagi
+    private final com.google.android.gms.ads.formats.NativeAd$AdChoicesInfo zzcyv
+    private final com.google.android.gms.ads.formats.UnifiedNativeAd$zza zzczd
+com.google.android.gms.internal.ads.zzjv
+    private java.lang.String zzaqf
+com.google.android.gms.internal.ads.zzcal
+    private final com.google.android.gms.internal.ads.zzcaf zzfqr
+com.google.android.gms.internal.ads.zzdlw
+    private static final java.util.regex.Pattern zzhbt
+    private static final java.util.regex.Pattern zzhbu
+com.google.android.gms.ads.internal.zzk
+    private final com.google.android.gms.internal.ads.zzarf zzbrq
+    private final com.google.android.gms.internal.ads.zzaqx zzbrs
+    private final com.google.android.gms.internal.ads.zzvk zzbrz
+    private final com.google.android.gms.internal.ads.zzajt zzbsg
+    private final com.google.android.gms.internal.ads.zzaji zzbsi
+android.support.transition.ChangeBounds$7
+    final synthetic android.support.transition.ChangeBounds this$0
 com.google.android.gms.internal.ads.zzdmi
     public abstract com.google.android.gms.internal.ads.zzdmi zza(byte[],int,int,com.google.android.gms.internal.ads.zzdnn)
+com.airbnb.lottie.value.LottieFrameInfo
+    private float startFrame
+    private float endFrame
+    private java.lang.Object startValue
+    private java.lang.Object endValue
+    private float linearKeyframeProgress
+    private float interpolatedKeyframeProgress
+    private float overallProgress
 com.google.android.gms.internal.ads.zzdmz
     abstract boolean zza(com.google.android.gms.internal.ads.zzdmq,int,int)
+com.google.android.gms.internal.ads.zzaec
+    private java.lang.String zzbhy
+com.google.android.gms.internal.ads.zzib
+    private long zzcd
+com.google.android.gms.internal.ads.zzchq
+    private final com.google.android.gms.internal.ads.zzchp zzfxb
+com.google.android.gms.internal.ads.zzdkc
+    private java.security.interfaces.ECPrivateKey zzgyo
+com.cna.mineru.cna.DTO.ExamData
+    public int Id
+com.google.android.gms.internal.ads.zzann
+    private final synthetic com.google.android.gms.internal.ads.zzanm zzdgl
+com.google.android.gms.internal.ads.zzbrc
+    private final com.google.android.gms.internal.ads.zzbqx zzfjw
+com.github.mikephil.charting.components.Legend
+    public float mTextWidthMax
+com.google.android.gms.internal.ads.zzwr$zzf$zza
+android.support.v4.app.NotificationCompatJellybean
+    private static final java.lang.Object sActionsLock
+com.google.android.gms.internal.firebase_auth.zzj
+    static void <clinit>()
+    private static volatile com.google.android.gms.internal.firebase_auth.zzm zzk
+com.bumptech.glide.manager.RequestManagerFragment$FragmentRequestManagerTreeNode
+    final synthetic com.bumptech.glide.manager.RequestManagerFragment this$0
 com.google.android.gms.measurement.internal.zzhq
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzn()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhq zzt()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzeb zzu()
+    private com.google.android.gms.measurement.internal.zzhr zzqs
+com.google.android.gms.internal.ads.zzak
+    private final com.google.android.gms.internal.ads.zzas zzbp
+com.google.android.gms.internal.ads.zzlk
+    private final com.google.android.gms.internal.ads.zzlr zzary
+    private final int zzati
+    private final long zzauf
+android.support.v7.app.AlertController$AlertParams
+    public boolean mRecycleOnMeasure
+com.google.android.gms.internal.firebase_messaging.zzh
+com.google.android.gms.internal.auth-api.zzf
+okhttp3.ConnectionSpec
+    public static final okhttp3.ConnectionSpec COMPATIBLE_TLS
+com.google.firebase.auth.UserProfileChangeRequest
+    private android.net.Uri zzjz
+com.google.android.gms.internal.ads.zzwr$zzk
+com.google.android.gms.internal.ads.zzbny
+    private final com.google.android.gms.internal.ads.zzbnj zzfho
 com.google.android.gms.internal.ads.zzdrh
     public final int zzbak()
+com.google.android.gms.internal.ads.zzod
+    private static final com.google.android.gms.internal.ads.zznq zzazt
+com.bumptech.glide.load.model.ModelCache$1
+    final synthetic com.bumptech.glide.load.model.ModelCache this$0
+com.google.android.gms.internal.ads.zzyr
+    private final java.util.WeakHashMap zzcin
+com.google.android.gms.internal.ads.zznr
+    private static final com.google.android.gms.internal.ads.zzpu zzazn
+com.google.firebase.analytics.FirebaseAnalytics
+    private final java.lang.Object zzabx
 com.google.android.gms.common.api.PendingResult
     public abstract void cancel()
     public abstract boolean isCanceled()
     public abstract java.lang.Integer zam()
+com.google.android.gms.measurement.internal.zzdu
+    private final java.lang.Object zzjm
+com.firebase.ui.auth.data.remote.ProfileMerger$1
+    final synthetic com.firebase.ui.auth.data.remote.ProfileMerger this$0
+com.google.android.gms.common.util.concurrent.NamedThreadFactory
+    private final int priority
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment
+    private boolean isNext
+    private int time
+    private int problem_num
+com.airbnb.lottie.model.layer.TextLayer$1
+    final synthetic com.airbnb.lottie.model.layer.TextLayer this$0
+com.cna.mineru.cna.RandomExamSolve
+    private android.widget.TextView tv_title
+com.google.android.gms.internal.ads.zzcys
+    private final com.google.android.gms.internal.ads.zzcyn zzglu
+com.google.gson.internal.ConstructorConstructor$9
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+android.support.transition.FragmentTransitionSupport$4
+    final synthetic android.graphics.Rect val$epicenter
+    final synthetic android.support.transition.FragmentTransitionSupport this$0
+com.cna.mineru.cna.Utils.XAxisValueFormatter2
+    private final com.github.mikephil.charting.charts.BarLineChartBase chart
+com.google.android.gms.internal.ads.zzcam
+    private final com.google.android.gms.internal.ads.zzayv zzfqs
+android.support.graphics.drawable.VectorDrawableCompat
+    private android.graphics.drawable.Drawable$ConstantState mCachedConstantStateDelegate
+com.google.android.gms.internal.ads.zzdoa$zze
+    private static final synthetic int[] zzhhu
+    private static final synthetic int[] zzhhx
 com.google.android.gms.internal.ads.zzdpb
+com.firebase.ui.auth.data.remote.FacebookSignInHandler$Callback
+    final synthetic com.firebase.ui.auth.data.remote.FacebookSignInHandler this$0
 com.cna.mineru.cna.LoginActivity
+    private android.support.design.widget.TextInputLayout layout_pw
+    private android.support.design.widget.TextInputLayout layout_email
     static final synthetic boolean $assertionsDisabled
+com.google.android.gms.internal.ads.zzrc
+    private final android.net.Uri uri
+com.google.android.gms.internal.ads.zzqq
+    private final int zzbjr
+android.support.v4.app.FragmentHostCallback
+    private final int mWindowAnimations
+android.support.v7.widget.ThemeUtils
+    static final int[] ACTIVATED_STATE_SET
+    static final int[] SELECTED_STATE_SET
+    static final int[] NOT_PRESSED_OR_FOCUSED_STATE_SET
 com.google.android.gms.measurement.internal.zziw
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
@@ -13231,38 +13888,298 @@ com.google.android.gms.measurement.internal.zziw
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhv zzs()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzeb zzu()
     public final synthetic bridge com.google.android.gms.measurement.internal.zziw zzv()
+com.google.android.gms.internal.ads.zzdry$zzb$zzd$zzb
+com.google.android.gms.internal.ads.zzdrs
+    private boolean zzhnr
+    private static final com.google.android.gms.internal.ads.zzdrt zzhnq
+com.github.mikephil.charting.components.YAxis
+    private boolean mUseAutoScaleRestrictionMin
+    private boolean mUseAutoScaleRestrictionMax
+com.cna.mineru.cna.Utils.ClassListDialog$4
+    final synthetic com.cna.mineru.cna.Utils.ClassListDialog this$0
+com.bumptech.glide.util.Util
+    private static final char[] SHA_1_CHARS
+com.google.firebase.messaging.FirebaseMessaging
+    private static final java.util.regex.Pattern zzec
+com.google.firebase.auth.zzb
+    private final java.lang.String zzhw
+    private final java.lang.String zzhx
+    private static final com.google.android.gms.internal.firebase_auth.zzaz zzhz
 com.google.firebase.auth.FacebookAuthCredential
     public java.lang.String getSignInMethod()
+com.cna.mineru.cna.AddNote$5$1
+    final synthetic com.cna.mineru.cna.AddNote$5 this$1
 com.google.android.gms.internal.measurement.zzei
     public final void zza(int,com.google.android.gms.internal.measurement.zzfz,java.util.Map)
+com.google.android.gms.internal.ads.zzdnx
+    private static final com.google.android.gms.internal.ads.zzdnx zzhgz
+com.google.android.gms.common.api.internal.zab
+    private final int type
+com.google.android.gms.internal.ads.zzcag
+    private final com.google.android.gms.internal.ads.zzcaf zzfqr
+android.support.v4.content.Loader
+    android.content.Context mContext
+com.google.android.gms.internal.ads.zzdoj
+    private com.google.android.gms.internal.ads.zzdpj zzhid
+com.google.android.gms.internal.measurement.zzez
+    private static final java.nio.charset.Charset ISO_8859_1
+    private static final java.nio.ByteBuffer zzais
+    private static final com.google.android.gms.internal.measurement.zzeb zzait
+com.google.android.gms.internal.ads.zzhw
+    private final java.lang.String mimeType
+com.google.ads.mediation.MediationAdRequest
+    private final java.util.Date zzms
+    private final com.google.ads.AdRequest$Gender zzmt
+    private final java.util.Set zzmu
+    private final boolean zzmv
+    private final android.location.Location zzmw
+android.support.constraint.solver.widgets.ConstraintWidgetContainer
+    int mDebugSolverPassCount
+com.google.android.gms.internal.measurement.zzct
+    private final java.lang.String zzabg
+    private final boolean zzabk
+    private final boolean zzabl
+    private final boolean zzabm
+    private final boolean zzabn
+    private final com.google.android.gms.internal.measurement.zzcx zzabo
 com.google.android.gms.internal.ads.zzdng
 com.google.android.gms.internal.measurement.zzdw
     abstract boolean zza(com.google.android.gms.internal.measurement.zzdp,int,int)
+com.google.android.gms.internal.ads.zzdcg
+    private static final java.nio.charset.Charset UTF_8
+com.google.android.gms.internal.measurement.zzcb
+    private static boolean zzaap
+com.bumptech.glide.util.LruCache
+    private final int initialMaxSize
+com.google.android.gms.internal.ads.zzcio
+    private final com.google.android.gms.internal.ads.zzcif zzfxp
+com.google.android.gms.internal.ads.zzwr$zzd$zza
 com.google.android.gms.measurement.internal.zzej
     public final synthetic bridge com.google.android.gms.measurement.internal.zzfd zzgz()
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
+android.support.v7.view.menu.ListMenuItemView
+    private int mMenuType
+com.google.android.gms.internal.ads.zzjm
+    private java.lang.String zzapa
+android.support.v7.view.StandaloneActionMode
+    private boolean mFocusable
+com.google.android.gms.internal.ads.zzayz
+com.google.android.gms.internal.ads.zzbpz
+    private final com.google.android.gms.internal.ads.zzbpw zzfji
+android.support.v7.graphics.drawable.AnimatedStateListDrawableCompat
+    private static final java.lang.String LOGTAG
+com.google.android.gms.internal.ads.zzdti
+    private static final com.google.android.gms.internal.ads.zzdti zzhuj
+com.google.android.gms.internal.ads.zzbzf
+    private final com.google.android.gms.internal.ads.zzbze zzfpe
+com.google.android.gms.internal.ads.zzbnt
+    private final com.google.android.gms.internal.ads.zzbnj zzfho
+com.google.android.gms.internal.ads.zzcfw
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+android.support.transition.ViewUtils
+    static final android.util.Property CLIP_BOUNDS
+com.google.android.gms.ads.mediation.MediationAdConfiguration
+    private final java.lang.String zzemw
+    private final android.os.Bundle zzemx
+    private final android.os.Bundle zzemy
+    private final android.content.Context zzlj
+    private final boolean zzmv
+    private final android.location.Location zzmw
+    private final int zzdgc
+    private final int zzemz
+    private final java.lang.String zzche
 com.google.android.gms.measurement.AppMeasurement$UserProperty
+com.google.android.gms.internal.measurement.zziu
+    private static final java.nio.charset.Charset ISO_8859_1
+com.google.android.gms.internal.ads.zzdgt
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+android.support.constraint.ConstraintLayout
+    int mLastMeasureWidthSize
+    int mLastMeasureHeightSize
+    int mLastMeasureWidthMode
+    int mLastMeasureHeightMode
+com.firebase.ui.auth.ui.phone.CountryListSpinner$DialogPopup$1
+    final synthetic com.firebase.ui.auth.ui.phone.CountryListSpinner$DialogPopup this$1
+com.google.android.gms.internal.ads.zzbyc
+    private final com.google.android.gms.internal.ads.zzbyb zzfnl
+com.google.android.gms.internal.firebase_auth.zzc
 android.support.design.bottomappbar.BottomAppBar$2
+com.cna.mineru.cna.DB.GraphSQLClass
+    android.content.Context context
+com.google.android.gms.internal.ads.zzbmo
+    private boolean zzfgb
+com.github.mikephil.charting.listener.PieRadarChartTouchListener$AngularVelocitySample
+    final synthetic com.github.mikephil.charting.listener.PieRadarChartTouchListener this$0
+com.google.firebase.iid.zzy
+    private final java.lang.String zzbw
+android.support.v4.media.MediaMetadataCompat
+    private static final java.lang.String[] PREFERRED_DESCRIPTION_ORDER
+    private static final java.lang.String[] PREFERRED_BITMAP_ORDER
+    private static final java.lang.String[] PREFERRED_URI_ORDER
 com.google.android.gms.internal.measurement.zzbs$zzh
     private final void zzb(com.google.android.gms.internal.measurement.zzbs$zzd$zza)
     public static com.google.android.gms.internal.measurement.zzbs$zzh$zza zzpt()
     static synthetic void zza(com.google.android.gms.internal.measurement.zzbs$zzh,com.google.android.gms.internal.measurement.zzbs$zzd$zza)
+com.cna.mineru.cna.Adapter.RcExamAdapter$ViewHolder
+    final synthetic com.cna.mineru.cna.Adapter.RcExamAdapter this$0
+com.google.android.gms.internal.ads.zzfp
+com.google.android.gms.common.GooglePlayServicesUtilLight
+    private static boolean zzah
+    private static boolean zzai
+com.google.android.gms.auth.api.signin.internal.zzp
+    private com.google.android.gms.auth.api.signin.GoogleSignInAccount zzbp
+    private com.google.android.gms.auth.api.signin.GoogleSignInOptions zzbq
+com.cna.mineru.cna.Utils.ClassListDialog$5
+    final synthetic com.cna.mineru.cna.Utils.ClassListDialog this$0
+com.google.firebase.auth.internal.zzak
+    private final com.google.firebase.auth.internal.zzac zzun
+com.google.gson.Gson$1
+    final synthetic com.google.gson.Gson this$0
+com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt$1
+    final synthetic com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt this$0
+com.google.android.gms.internal.measurement.zzhq
+    private final java.util.List zzalx
+android.support.v4.text.TextDirectionHeuristicsCompat$AnyStrong
+    static final android.support.v4.text.TextDirectionHeuristicsCompat$AnyStrong INSTANCE_LTR
+android.support.transition.ChangeBounds$10
+    final synthetic android.support.transition.ChangeBounds this$0
+com.airbnb.lottie.value.LottieValueCallback
+    private com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation animation
+com.google.android.gms.internal.ads.zzjk
+    private final int offset
+com.google.android.gms.internal.measurement.zzfk
+    private final java.lang.Class zzajh
+    private final java.lang.Object zzajj
+retrofit2.Retrofit
+    final java.util.concurrent.Executor callbackExecutor
+com.google.android.gms.internal.ads.zziy
+    private final boolean zzana
+    private final int zzanb
+    private final byte[] zzanc
+com.google.android.gms.measurement.internal.zzjg$zza
+    private final synthetic com.google.android.gms.measurement.internal.zzjg zztl
+com.google.android.gms.internal.ads.zzasf
+    private final int zzdpg
+    private final java.lang.String zzdpj
+    private final boolean zzdpo
+    private final boolean zzdpp
+    private final int zzdpt
+    private final int zzdpw
+    private final int zzdpx
+    private final int zzdpy
+    private final double zzdpz
+    private final boolean zzdqa
+    private final boolean zzdqb
+    private final int zzdqc
+    private final java.lang.String zzdqd
+    private final java.lang.String zzdqe
+    private final boolean zzdqf
 com.google.android.gms.measurement.internal.zzgp
     public final synthetic bridge void zzn()
     public final synthetic bridge com.google.android.gms.measurement.internal.zza zzp()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzgp zzq()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzeb zzu()
+com.google.android.gms.internal.ads.zzbjw
+    private final com.google.android.gms.internal.ads.zzbjo zzeoh
+android.support.v4.text.TextDirectionHeuristicsCompat
+    public static final android.support.v4.text.TextDirectionHeuristicCompat ANYRTL_LTR
+    public static final android.support.v4.text.TextDirectionHeuristicCompat LOCALE
+com.google.android.gms.internal.ads.zzhv
+    private final int errorCode
 com.google.android.gms.internal.ads.zzdnf
     private final java.lang.Object zza(com.google.android.gms.internal.ads.zzdrh,java.lang.Class,com.google.android.gms.internal.ads.zzdnn)
     public final void zza(java.util.Map,com.google.android.gms.internal.ads.zzdpc,com.google.android.gms.internal.ads.zzdnn)
+android.support.v7.app.AlertController$2
+    final synthetic android.support.v7.app.AlertController this$0
+android.support.v4.app.FragmentTransitionCompat21$4
+    final synthetic android.support.v4.app.FragmentTransitionCompat21 this$0
+com.google.android.gms.internal.measurement.zzeh
+    private static final com.google.android.gms.internal.measurement.zzeh zzaeo
+com.google.android.gms.internal.ads.zzdnw
+    private final boolean zzhgx
+com.cna.mineru.cna.ExamResultActivity
+    private com.cna.mineru.cna.DB.HomeSQLClass h_db
+com.google.android.gms.internal.measurement.zzbk$zze$zza
+    private static final com.google.android.gms.internal.measurement.zzfb zzvf
+com.google.android.gms.internal.firebase_auth.zzd
+    private static final java.lang.ClassLoader zzd
+com.google.android.gms.common.logging.Logger
+    private final com.google.android.gms.common.internal.GmsLogger zzew
+com.google.android.gms.internal.ads.zzla
+    private int repeatMode
+    private int zzasf
+com.cna.mineru.cna.DB.ExamSQLClass$3
+    final synthetic com.cna.mineru.cna.DB.ExamSQLClass this$0
+com.google.android.gms.internal.firebase_messaging.zzj
+    private static final java.io.OutputStream zzg
 okhttp3.internal.http2.Http2Stream
     static void <clinit>()
+    private final java.util.List requestHeaders
     static final synthetic boolean $assertionsDisabled
+com.google.android.gms.internal.ads.zzbpy
+    private final com.google.android.gms.internal.ads.zzbpw zzfji
+com.google.android.gms.internal.ads.zzwr$zzm
 okhttp3.internal.connection.StreamAllocation
     static void <clinit>()
     static final synthetic boolean $assertionsDisabled
+okhttp3.internal.http.HttpHeaders
+    private static final java.util.regex.Pattern PARAMETER
+com.google.android.gms.internal.ads.zzcfv
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+com.google.android.gms.internal.ads.zzoj
+    private static final int zzakd
+    private static final int zzakj
+    private static final int zzakk
+    private static final int zzakl
+    private static final int zzakm
+    private static final int zzakn
+    private static final int zzakw
+    private static final int zzbcx
+    private static final int zzalc
+    private static final int zzalk
+    private static final int zzbda
+    private static final int zzbdb
+    private static final int zzbdc
+    private static final int zzall
+    private static final int zzalm
+    private static final int zzalp
+    private static final int zzbdq
+com.google.android.gms.internal.ads.zzdj
+    private final java.security.SecureRandom zzwq
+com.github.mikephil.charting.renderer.BarLineScatterCandleBubbleRenderer$XBounds
+    final synthetic com.github.mikephil.charting.renderer.BarLineScatterCandleBubbleRenderer this$0
+com.firebase.ui.auth.data.remote.TwitterSignInHandler$TwitterSessionResult
+    final synthetic com.firebase.ui.auth.data.remote.TwitterSignInHandler this$0
+com.google.android.gms.internal.ads.zzabe
+    private final com.google.android.gms.internal.ads.zzabc zzcjt
+android.support.v4.graphics.TypefaceCompatBaseImpl$1
+    final synthetic android.support.v4.graphics.TypefaceCompatBaseImpl this$0
+com.google.firebase.auth.GetTokenResult
+    private java.lang.String zza
+com.google.android.gms.common.util.CrashUtils
+    private static final java.lang.String[] zzgg
+    private static android.os.DropBoxManager zzgh
+    private static boolean zzgi
+    private static int zzgj
+    private static int zzgk
+    private static int zzgl
+com.cna.mineru.cna.SignupActivity
+    private android.support.design.widget.TextInputLayout layout_pw
+    private android.support.design.widget.TextInputLayout layout_email
+    private android.support.design.widget.TextInputLayout layout_pw_again
+com.google.android.gms.auth.api.signin.GoogleSignInOptions
+    private java.util.Map zaae
+    public static final com.google.android.gms.auth.api.signin.GoogleSignInOptions DEFAULT_GAMES_SIGN_IN
+com.google.android.gms.internal.ads.zzhd
+    private final com.google.android.gms.internal.ads.zzhi zzaeu
 com.google.android.gms.internal.ads.zzdpo
+com.google.android.gms.internal.measurement.zzis
+    private boolean zzaos
+com.cna.mineru.cna.Adapter.DefaultInputAdapter
+    int resourceId
+com.google.android.gms.internal.ads.zzcyo
+    private final com.google.android.gms.internal.ads.zzcyn zzglu
 com.google.android.gms.measurement.internal.zzhv
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzn()
@@ -13270,18 +14187,109 @@ com.google.android.gms.measurement.internal.zzhv
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhv zzs()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhq zzt()
     public final synthetic bridge com.google.android.gms.measurement.internal.zziw zzv()
+com.google.android.gms.internal.measurement.zzjv
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.internal.ads.zzdqr
+    private final java.util.List zzhle
+com.google.android.gms.internal.ads.zzbiw
+    private boolean zzelf
+    private java.lang.ref.WeakReference zzelq
+com.google.android.gms.internal.ads.zzcwi
+    private com.google.android.gms.internal.ads.zzbbm zzfqw
+com.bumptech.glide.request.target.ViewTarget
+    private static boolean isTagUsedAtLeastOnce
+com.google.android.gms.internal.base.zam
 android.support.v4.content.res.GrowingArrayUtils
     private void <init>()
     static void <clinit>()
     static final synthetic boolean $assertionsDisabled
+com.google.android.gms.common.internal.GmsLogger
+    private static final int zzef
+    private static final java.lang.String zzeg
+com.google.android.gms.internal.ads.zzdol
+    private final java.lang.Class zzhio
+    private final java.lang.Object zzhiq
+android.support.v7.widget.RecyclerView$ItemAnimator$ItemHolderInfo
+    public int right
+    public int bottom
+android.support.v7.widget.CardViewApi17Impl$1
+    final synthetic android.support.v7.widget.CardViewApi17Impl this$0
+com.google.firebase.iid.FirebaseInstanceId$zza
+    private final com.google.firebase.events.Subscriber zzbh
+com.google.android.gms.internal.firebase_messaging.zzm
+    static void <clinit>()
+    private static final java.lang.Throwable[] zzj
 com.google.android.gms.internal.measurement.zzgm
     private static int zza(byte[],int,int,com.google.android.gms.internal.measurement.zzig,java.lang.Class,com.google.android.gms.internal.measurement.zzdk)
+com.google.android.gms.internal.ads.zzafc
+    private final com.google.android.gms.ads.formats.NativeAd$AdChoicesInfo zzcyv
+com.bumptech.glide.load.resource.bitmap.Downsampler
+    public static final com.bumptech.glide.load.resource.bitmap.Downsampler AT_MOST
+    public static final com.bumptech.glide.load.resource.bitmap.Downsampler NONE
+com.google.android.gms.measurement.internal.zzem
+    private static final java.lang.String zzky
+okhttp3.internal.http1.Http1Codec$FixedLengthSource
+    final synthetic okhttp3.internal.http1.Http1Codec this$0
+com.google.android.gms.internal.ads.zzdci
+    private static final com.google.android.gms.internal.ads.zzdhn zzgpu
+com.google.android.gms.internal.ads.zzix
+    private final int id
+    private final long zzack
+    private final com.google.android.gms.internal.ads.zziy[] zzamz
+com.google.android.gms.internal.ads.zztx
+    private final java.lang.Object lock
+    private final java.util.WeakHashMap zzbtb
+    private final java.util.ArrayList zzbtc
+    private final android.content.Context zzys
+    private final com.google.android.gms.internal.ads.zzbaj zzbtd
+    private final com.google.android.gms.internal.ads.zzaki zzbte
+com.google.android.gms.internal.ads.zzdac
+    private final com.google.android.gms.internal.ads.zzdab zzgnq
+com.google.android.gms.internal.ads.zzig
+    private boolean zzair
+    private boolean zzaiw
+com.google.android.gms.internal.ads.zzwr$zzc$zza
+com.google.android.gms.internal.ads.zzhu
+    private final int zzahn
+android.support.v4.app.FragmentTransitionCompat21$2
+    final synthetic android.support.v4.app.FragmentTransitionCompat21 this$0
 com.google.android.gms.internal.measurement.zzef
 retrofit2.ParameterHandler$HeaderMap
+com.bumptech.glide.GenericRequestBuilder
+    protected final java.lang.Class modelClass
+android.support.v4.media.session.MediaSessionCompat$Token
+    private android.os.Bundle mSessionToken2Bundle
+com.google.android.gms.common.api.internal.GoogleServices
+    private final boolean zzbb
+com.google.android.gms.internal.ads.zzwr$zzk$zza
+com.google.android.gms.internal.ads.zzbnv
+    private final com.google.android.gms.internal.ads.zzbnj zzfho
 com.google.firebase.auth.PlayGamesAuthCredential
     public java.lang.String getSignInMethod()
+com.google.android.gms.internal.flags.zzb
+    static void <clinit>()
+    private static com.google.android.gms.internal.flags.zzd zzc
+android.support.v4.app.SupportActivity
+    private android.support.v4.util.SimpleArrayMap mExtraDataMap
+com.google.android.gms.internal.ads.zzwr$zzn
+com.cna.mineru.cna.Fragment.HomeFragment$1$1$1
+    final synthetic com.cna.mineru.cna.Fragment.HomeFragment$1$1 this$2
+com.google.android.gms.internal.ads.zzcpe
+    private final android.content.Context zzlj
+android.support.v4.view.NestedScrollingParentHelper
+    private final android.view.ViewGroup mViewGroup
+com.google.android.gms.internal.ads.zzbye
+    private final com.google.android.gms.internal.ads.zzbyb zzfnl
 android.support.design.shape.MaterialShapeDrawable
     public void setInterpolation(float)
+com.google.android.gms.internal.ads.zzbce
+    private int zzebg
+com.google.android.gms.internal.ads.zzcyp
+    private final com.google.android.gms.internal.ads.zzcyn zzglu
+com.google.android.gms.internal.measurement.zzkh
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.auth.api.credentials.CredentialRequest$Builder
+    private boolean zzag
 com.google.android.gms.internal.measurement.zzbs$zzg
     private final void zzf(java.lang.Iterable)
     private final void zzb(com.google.android.gms.internal.measurement.zzbs$zzh$zza)
@@ -13289,8 +14297,49 @@ com.google.android.gms.internal.measurement.zzbs$zzg
     static synthetic void zza(com.google.android.gms.internal.measurement.zzbs$zzg,com.google.android.gms.internal.measurement.zzbs$zzh$zza)
 com.google.android.gms.internal.ads.zzcf
     protected abstract void zzak(java.lang.String)
+com.google.android.gms.internal.ads.zzdge
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.common.zzb
+    static void <clinit>()
+    private static com.google.android.gms.internal.common.zzd zzc
+com.google.android.gms.internal.ads.zzblp
+    private final com.google.android.gms.internal.ads.zzble zzfew
+com.google.android.gms.internal.ads.zzyf
+    private final com.google.android.gms.internal.ads.zzagj zzchp
+    private final com.google.android.gms.internal.ads.zzauk zzchr
+    private final com.google.android.gms.internal.ads.zzagk zzcht
+com.cna.mineru.cna.DB.NotiSQLClass
+    android.content.Context context
+com.google.android.gms.internal.ads.zzatk
+    private final com.google.android.gms.internal.ads.zzasx zzdqs
+    private final android.content.Context zzlj
+    private final java.lang.Object lock
+    private final com.google.android.gms.internal.ads.zzath zzdqt
+okhttp3.MediaType
+    private final java.lang.String subtype
+com.google.android.gms.common.util.Strings
+    private static final java.util.regex.Pattern zzhh
+com.google.android.gms.signin.zaa
+    private static final com.google.android.gms.common.api.Scope zar
+    private static final com.google.android.gms.common.api.Scope zas
+    private static final com.google.android.gms.common.api.Api zarr
+com.google.android.gms.common.api.Status
+    private static final com.google.android.gms.common.api.Status zzar
+    public static final com.google.android.gms.common.api.Status RESULT_DEAD_CLIENT
+com.google.android.gms.internal.common.zzd
+com.google.android.gms.internal.ads.zzsc
+    private final int responseCode
+    private final java.util.Map zzaqg
+com.google.android.gms.internal.ads.zzcxk
+    private static final synthetic int[] zzgjx
 com.google.android.gms.internal.ads.zzdpn
     private static int zza(byte[],int,int,com.google.android.gms.internal.ads.zzdrh,java.lang.Class,com.google.android.gms.internal.ads.zzdmn)
+com.google.android.gms.internal.base.zal
+    static void <clinit>()
+    private static volatile com.google.android.gms.internal.base.zam zaro
+com.google.android.gms.internal.ads.zzfn
+    static void <clinit>()
+    private static com.google.android.gms.internal.ads.zzfp zzaaf
 com.google.android.gms.internal.measurement.zzgl
 com.google.android.gms.internal.ads.zzdnh
     public abstract void zzgw(java.lang.String)
@@ -13298,6 +14347,27 @@ com.google.android.gms.internal.ads.zzdnh
     public abstract void zzj(com.google.android.gms.internal.ads.zzdpj)
     abstract void zza(com.google.android.gms.internal.ads.zzdpj,com.google.android.gms.internal.ads.zzdqa)
     abstract void zzk(byte[],int,int)
+com.airbnb.lottie.LottieImageAsset
+    private final int width
+    private final int height
+    private final java.lang.String dirName
+com.google.android.gms.internal.flags.zzd
+com.google.ads.mediation.customevent.CustomEventAdapter$zzb
+    private final com.google.ads.mediation.customevent.CustomEventAdapter zzna
+    private final com.google.ads.mediation.MediationInterstitialListener zznc
+    private final synthetic com.google.ads.mediation.customevent.CustomEventAdapter zznd
+com.cna.mineru.cna.RandomExam$3
+    final synthetic com.cna.mineru.cna.RandomExam this$0
+com.google.android.gms.internal.ads.zzuz
+    private final int zzbvz
+com.google.android.gms.internal.measurement.zzfi
+    private com.google.android.gms.internal.measurement.zzgi zzaiw
+com.google.android.gms.internal.ads.zzbhb
+    private final com.google.android.gms.internal.ads.zzwh zzejf
+    private com.google.android.gms.internal.ads.zzbim zzejj
+    private boolean zzejm
+com.google.android.gms.internal.ads.zztw
+    private final boolean zzbsz
 com.google.android.gms.internal.measurement.zzfz
     public final com.google.android.gms.internal.measurement.zzig zzakb
     public final java.lang.Object zzakc
@@ -13313,65 +14383,598 @@ com.google.android.gms.measurement.internal.zzdy
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhq zzt()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzeb zzu()
     public final synthetic bridge com.google.android.gms.measurement.internal.zziw zzv()
+    private java.lang.String zzjs
+android.support.v4.view.ViewPager
+    private int mChildWidthMeasureSpec
+    private boolean mNeedCalculatePageOffsets
+android.support.v4.view.PagerAdapter
+    private android.database.DataSetObserver mViewPagerObserver
 com.google.android.gms.internal.measurement.zzee
     public abstract void zzdr(java.lang.String)
     public abstract void zza(com.google.android.gms.internal.measurement.zzdp)
     public abstract void zzb(com.google.android.gms.internal.measurement.zzgi)
     abstract void zza(com.google.android.gms.internal.measurement.zzgi,com.google.android.gms.internal.measurement.zzgx)
     abstract void zze(byte[],int,int)
+android.support.design.widget.ViewUtilsLollipop
+    private static final int[] STATE_LIST_ANIM_ATTRS
+com.bumptech.glide.load.model.LazyHeaders$Builder
+    private boolean copyOnModify
+    private boolean isEncodingDefault
+    private boolean isUserAgentDefault
+com.google.android.gms.internal.ads.zzbb
+    private static com.google.android.gms.internal.ads.zzdtb zzcp
+com.google.android.gms.internal.measurement.zzev
+    private final boolean zzahs
+com.google.android.gms.internal.ads.zzbqm
+    private final com.google.android.gms.internal.ads.zzbql zzfjm
+com.google.android.gms.internal.ads.zzdgq$zzb
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.firebase_auth.zzf
+    private static final com.google.android.gms.internal.firebase_auth.zzg zzi
+com.google.android.gms.internal.flags.zzc
+    private static final java.lang.ClassLoader zzd
+com.google.android.gms.internal.ads.zzcfx
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+android.support.v4.app.FragmentTransitionCompat21$1
+    final synthetic android.support.v4.app.FragmentTransitionCompat21 this$0
+okhttp3.internal.http2.Hpack$Writer
+    int headerTableSizeSetting
 com.google.android.gms.common.api.internal.zaag
     public void reconnect()
     public boolean isConnected()
+retrofit2.DefaultCallAdapterFactory$1
+    final synthetic retrofit2.DefaultCallAdapterFactory this$0
+com.google.android.gms.internal.ads.zzdtj
+    private static final com.google.android.gms.internal.ads.zzdtt zzhuk
+com.bumptech.glide.Glide
+    private final com.bumptech.glide.load.DecodeFormat decodeFormat
+    private final android.os.Handler mainHandler
+    private final com.bumptech.glide.load.engine.prefill.BitmapPreFiller bitmapPreFiller
+com.cna.mineru.cna.Utils.LoadingDialog$1
+    final synthetic com.cna.mineru.cna.Utils.LoadingDialog this$0
+com.google.android.gms.internal.ads.zzdh
+    private java.lang.String zzwk
+    private java.lang.String zzwl
+com.google.android.gms.internal.common.zzc
+    private static final java.lang.ClassLoader zzd
+com.google.android.gms.common.stats.ConnectionTracker
+    private final java.util.List zzfc
+    private final java.util.List zzfd
+    private final java.util.List zzfe
+    private final java.util.List zzff
+    private static boolean zzfb
+com.bumptech.glide.load.model.Headers
+    public static final com.bumptech.glide.load.model.Headers NONE
+com.google.android.gms.internal.ads.zzdru
+    private static final java.nio.charset.Charset UTF_8
+    private static final java.nio.charset.Charset ISO_8859_1
+com.google.android.gms.internal.ads.zzcfr
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+okhttp3.internal.http2.Http2Codec
+    private final okhttp3.OkHttpClient client
 android.support.design.bottomappbar.BottomAppBar
     static synthetic android.support.design.bottomappbar.BottomAppBarTopEdgeTreatment access$100(android.support.design.bottomappbar.BottomAppBar)
     static synthetic android.support.design.shape.MaterialShapeDrawable access$200(android.support.design.bottomappbar.BottomAppBar)
+com.bumptech.glide.load.engine.executor.FifoPriorityThreadPoolExecutor$DefaultThreadFactory$1
+    final synthetic com.bumptech.glide.load.engine.executor.FifoPriorityThreadPoolExecutor$DefaultThreadFactory this$0
+com.google.firebase.auth.FirebaseAuth
+    private final java.lang.Object zzir
+com.google.android.gms.internal.ads.zznl
+    private final int[] zzahp
+    private final long[] zzahr
 com.google.android.gms.internal.ads.zzdnh$zza
     public final void zzk(byte[],int,int)
     final void zza(com.google.android.gms.internal.ads.zzdpj,com.google.android.gms.internal.ads.zzdqa)
+com.google.android.gms.internal.ads.zzbz
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzdsa
+com.google.android.gms.internal.ads.zzmz
+    private int zzayw
+    private int zzayx
+android.support.transition.ViewOverlayApi14$OverlayViewGroup
+    static java.lang.reflect.Method sInvalidateChildInParentFastMethod
+com.google.android.gms.internal.ads.zzceo
+    private boolean zzfua
+com.google.android.gms.internal.ads.zzdsr
+    private com.google.android.gms.internal.ads.zzbe zzhth
+    private long zzajx
+com.google.android.gms.internal.ads.zzajz
+    private final android.content.Context zzlj
+android.support.design.widget.FloatingActionButtonImpl$DisabledElevationAnimation
+    final synthetic android.support.design.widget.FloatingActionButtonImpl this$0
 retrofit2.http.Body
+android.support.v4.media.session.PlaybackStateCompat
+    private java.lang.Object mStateObj
+com.google.android.gms.internal.ads.zzxi
+    private com.google.android.gms.internal.ads.zzwv zzces
+    private com.google.android.gms.internal.ads.zzwv zzcet
+    private com.google.android.gms.internal.ads.zzwv zzceu
+com.google.android.gms.internal.ads.zzlw
+    private static final com.google.android.gms.internal.ads.zzlw zzave
+com.google.android.gms.internal.ads.zzrg
+    static void <clinit>()
+    private final com.google.android.gms.internal.ads.zzrn zzblc
+    private static final int[] zzblb
+com.bumptech.glide.GenericTranscodeRequest
+    private final com.bumptech.glide.load.model.ModelLoader modelLoader
+    private final java.lang.Class dataClass
+    private final java.lang.Class resourceClass
+    private final com.bumptech.glide.RequestManager$OptionsApplier optionsApplier
+com.google.android.gms.internal.ads.zzbwi
+    private final com.google.android.gms.internal.ads.zzbvy zzflo
+com.bumptech.glide.load.engine.prefill.BitmapPreFiller
+    private final com.bumptech.glide.load.engine.cache.MemoryCache memoryCache
+    private final com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool bitmapPool
+    private final com.bumptech.glide.load.DecodeFormat defaultFormat
+    private final android.os.Handler handler
+com.google.android.gms.internal.base.zab
+    static void <clinit>()
+    private static com.google.android.gms.internal.base.zad zac
+android.support.constraint.solver.LinearSystem
+    private android.support.constraint.solver.ArrayRow[] tempClientsCopy
+com.google.android.gms.internal.measurement.zzbk$zzc$zzb
+    private static final com.google.android.gms.internal.measurement.zzfb zzvf
+com.google.android.gms.internal.ads.zzaji
+    private final java.util.Map zzdbh
+    private final java.util.LinkedList zzdbi
+android.support.v4.app.FragmentTransitionImpl$3
+    final synthetic android.support.v4.app.FragmentTransitionImpl this$0
+com.google.android.gms.internal.ads.zzwr$zzb$zza
+com.google.ads.mediation.customevent.CustomEventAdapter$zza
+    private final com.google.ads.mediation.customevent.CustomEventAdapter zzna
+    private final com.google.ads.mediation.MediationBannerListener zznb
+com.google.android.gms.internal.ads.zzbjt
+    private final com.google.android.gms.internal.ads.zzbjo zzeoh
+com.cna.mineru.cna.DB.TmpSQLClass
+    android.content.Context context
+com.google.android.gms.internal.measurement.zzmd
+    private static final com.google.android.gms.internal.measurement.zzcm zzatr
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
 com.google.android.gms.internal.ads.zzdpz
     public abstract void zza(java.util.Map,com.google.android.gms.internal.ads.zzdpc,com.google.android.gms.internal.ads.zzdnn)
+com.google.android.gms.internal.ads.zzpa
+    private final com.google.android.gms.internal.ads.zzpb[] zzbgl
+com.google.android.gms.internal.ads.zzcci
+    private final com.google.android.gms.internal.ads.zzbhg zzbru
+com.cna.mineru.cna.DTO.ChipData
+    public int id
+com.google.gson.internal.ConstructorConstructor$4
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.firebase.auth.internal.zzaq
+    private com.google.android.gms.tasks.Task zzut
+    private long zzuu
+    private static long zzuq
+com.google.android.gms.internal.measurement.zzlq
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.internal.ads.zzdmq
+    private static final java.util.Comparator zzhct
+com.google.android.gms.internal.ads.zzrh
+    public final java.lang.String zzble
+    public final java.lang.String zzblf
+    public final boolean zzblg
+android.support.v4.app.FragmentActivity$NonConfigurationInstances
+    java.lang.Object custom
+com.cna.mineru.cna.DB.ImageSQLClass
+    android.content.Context context
 com.google.android.gms.internal.ads.zzdnc
     abstract long zzawj()
+    private int zzhdb
+    private boolean zzhdd
+com.google.android.gms.internal.base.zac
+    private static final java.lang.ClassLoader zad
+com.google.android.gms.internal.ads.zzbhn
+    private boolean zzelf
+    private java.lang.ref.WeakReference zzelq
 com.google.firebase.auth.GithubAuthCredential
     public java.lang.String getSignInMethod()
+com.bumptech.glide.DrawableTypeRequest
+    private final com.bumptech.glide.load.model.ModelLoader streamModelLoader
+    private final com.bumptech.glide.load.model.ModelLoader fileDescriptorModelLoader
+    private final com.bumptech.glide.RequestManager$OptionsApplier optionsApplier
+com.google.android.gms.internal.ads.zzaf
+    private final com.google.android.gms.internal.ads.zzp zzbk
+    private long zzad
+com.google.android.gms.internal.ads.zzayv
+    private static final com.google.android.gms.internal.ads.zzayz zzdxl
+android.support.design.transformation.FabTransformationBehavior$3
+    final synthetic android.support.design.transformation.FabTransformationBehavior this$0
+com.google.android.gms.internal.measurement.zzhv
+    private static final long zzamj
+    private static final long zzamk
+    private static final long zzaml
+    private static final long zzamm
+    private static final long zzamn
+    private static final long zzamo
+    private static final long zzamp
+    private static final long zzamq
+    private static final long zzamr
+    private static final long zzams
+    private static final long zzamt
+    private static final long zzamu
+    private static final int zzamw
+com.google.android.gms.internal.ads.zzkt
+    private static final java.util.UUID zzarh
+    private static final java.util.UUID zzari
+    private static final java.util.UUID zzarj
+com.google.android.gms.internal.ads.zzdry$zzb$zzd$zzb$zza
+com.github.mikephil.charting.utils.MPPointF
+    public static final android.os.Parcelable$Creator CREATOR
+com.google.android.gms.internal.ads.zzabb
+    private final com.google.android.gms.internal.ads.zzya zzaaj
+com.bumptech.glide.gifdecoder.GifDecoder
+    private byte[] data
+com.google.gson.internal.bind.JsonTreeReader
+    private static final java.io.Reader UNREADABLE_READER
+okhttp3.internal.http1.Http1Codec$UnknownLengthSource
+    final synthetic okhttp3.internal.http1.Http1Codec this$0
 com.google.android.gms.internal.measurement.zzga
+android.support.transition.Transition
+    private android.view.ViewGroup mSceneRoot
+com.google.android.gms.common.internal.ClientSettings
+    private final int zabt
+    private final android.view.View zabu
+com.google.android.gms.internal.ads.zzcfq
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+com.google.android.gms.internal.ads.zzxy
+    private boolean zzcgr
+    private boolean zzbqn
+    private java.lang.String zzcgt
+    private com.google.android.gms.internal.ads.zzabz zzcgu
+    private android.location.Location zzmw
+    private java.lang.String zzcgv
+    private java.lang.String zzcgz
+    private java.lang.String zzcha
+    private boolean zzchb
+    private java.lang.String zzche
+com.google.android.gms.internal.measurement.zzel
+    private static volatile boolean zzaer
+    private static final java.lang.Class zzaes
+com.google.android.gms.internal.ads.zzbh
+    private java.nio.ByteBuffer zzde
+com.google.android.gms.internal.ads.zzmh
+    private static boolean zzagc
+    private static boolean zzavt
+com.google.android.gms.internal.ads.zzawn
+    private com.google.android.gms.internal.ads.zztx zzdtq
+com.github.mikephil.charting.utils.ViewPortHandler
+    protected float[] valsBufferForFitScreen
+com.google.android.gms.common.api.Api$zab
 com.google.android.gms.internal.ads.zzdrn
     public abstract void zza(int,com.google.android.gms.internal.ads.zzdpc,java.util.Map)
+com.google.android.gms.internal.ads.zzdsq
+    private com.google.android.gms.internal.ads.zzbe zzhth
+    private long zzajx
+    private java.nio.ByteBuffer zzhto
+com.google.android.gms.internal.firebase_messaging.zzn
+    private static final int zzl
+com.google.android.gms.internal.ads.zzqt
+    private boolean zzbkk
+    private com.google.android.gms.internal.ads.zzlh zzbkl
+com.google.android.gms.internal.measurement.zzmc
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.internal.ads.zzbwh
+    private final com.google.android.gms.internal.ads.zzbvy zzflo
+com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1
+    final synthetic com.google.gson.internal.bind.ReflectiveTypeAdapterFactory this$0
+com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool
+    private final int initialMaxSize
+com.google.android.gms.internal.ads.zzbjb
+    private final java.lang.String method
 retrofit2.http.Multipart
+android.support.constraint.solver.widgets.Guideline
+    private int mMinimumPosition
+    private android.support.constraint.solver.widgets.Rectangle mHead
+    private int mHeadSize
+com.google.android.gms.auth.api.Auth
+    public static final com.google.android.gms.common.api.Api PROXY_API
+    public static final com.google.android.gms.auth.api.proxy.ProxyApi ProxyApi
+com.google.android.gms.ads.internal.zza
+    private final com.google.android.gms.internal.ads.zzavd zzbqu
+    private final com.google.android.gms.internal.ads.zzwm zzbqv
+com.google.android.gms.common.util.Hex
+    private static final char[] zzgy
+com.bumptech.glide.manager.SupportRequestManagerFragment$SupportFragmentRequestManagerTreeNode
+    final synthetic com.bumptech.glide.manager.SupportRequestManagerFragment this$0
 retrofit2.http.Url
+com.google.gson.FieldAttributes
+    private final java.lang.reflect.Field field
+android.support.v4.app.FragmentTransitionImpl$2
+    final synthetic android.support.v4.app.FragmentTransitionImpl this$0
+com.firebase.ui.auth.util.data.AuthOperationManager$1
+    final synthetic com.firebase.ui.auth.util.data.AuthOperationManager this$0
 com.google.firebase.auth.OAuthCredential
     public abstract java.lang.String getAccessToken()
     public abstract java.lang.String getIdToken()
+com.google.android.gms.internal.ads.zzbip
+    private com.google.android.gms.internal.ads.zzbim zzejj
+    private boolean zzejm
+com.google.gson.internal.ConstructorConstructor$3
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzrx
+    private final int zzbjr
+android.support.design.transformation.FabTransformationBehavior$4
+    final synthetic android.support.design.transformation.FabTransformationBehavior this$0
+com.google.firebase.messaging.zzc
+    public final int id
 com.google.android.gms.internal.measurement.zzig
     public final int zzxa()
+com.google.android.gms.internal.ads.zzxh
+    private com.google.android.gms.internal.ads.zzwv zzceg
+    private com.google.android.gms.internal.ads.zzwr$zzb zzceh
+    private com.google.android.gms.internal.ads.zzwr$zzc zzcek
+    private com.google.android.gms.internal.ads.zzwr$zzj zzcel
+    private com.google.android.gms.internal.ads.zzwr$zzh zzcem
+    private com.google.android.gms.internal.ads.zzwr$zze zzcen
+    private com.google.android.gms.internal.ads.zzwr$zzf zzceo
+com.google.android.gms.internal.ads.zzlv
+    private static final int[] zzava
+    private static final int[] zzavc
+    private static final int[] zzavd
+com.google.android.gms.internal.ads.zzwv
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
 com.google.android.gms.internal.measurement.zzbs$zzd
     private final void setName(java.lang.String)
     private final void zzal(long)
     public static com.google.android.gms.internal.measurement.zzbs$zzd$zza zzms()
     static synthetic void zza(com.google.android.gms.internal.measurement.zzbs$zzd,java.lang.String)
     static synthetic void zza(com.google.android.gms.internal.measurement.zzbs$zzd,long)
+com.google.android.gms.internal.measurement.zzix
+    private static final int zzaox
+    private static final int zzaoy
+    private static final int zzaoz
+    private static final int zzapa
+    private static final int[] zzakh
+    private static final long[] zzapb
+    private static final float[] zzapc
+    private static final double[] zzapd
+    private static final boolean[] zzape
+    private static final java.lang.String[] zzapf
+    private static final byte[][] zzapg
+android.support.v4.os.ResultReceiver
+    final boolean mLocal
 com.google.firebase.auth.api.internal.zzai
     public synthetic abstract java.lang.Object clone()
+com.google.android.gms.internal.ads.zzwr$zzb
+com.google.android.gms.internal.ads.zzbbn
+    private static final com.google.android.gms.internal.ads.zzbbm zzeaj
+com.google.android.gms.internal.ads.zzdst
+    long zzbkn
+    private static com.google.android.gms.internal.ads.zzdtb zzcp
+retrofit2.Response
+    private final okhttp3.ResponseBody errorBody
 com.google.android.gms.measurement.internal.zzfc
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
+com.google.android.gms.internal.ads.zzbwk
+    private final com.google.android.gms.internal.ads.zzbvy zzflo
+com.google.android.gms.ads.mediation.rtb.RtbSignalData
+    private final android.content.Context zzlj
+    private final com.google.android.gms.ads.mediation.MediationConfiguration zzeoe
+    private final android.os.Bundle zzcgw
+    private final com.google.android.gms.ads.AdSize zzdh
+com.google.android.gms.common.api.zac
+    private static final java.util.Map zacj
+    private static final java.lang.Object sLock
 android.support.design.bottomappbar.BottomAppBarTopEdgeTreatment
     void setFabDiameter(float)
+com.google.android.gms.internal.measurement.zzfn
+    private com.google.android.gms.internal.measurement.zzdp zzajm
+    private static final com.google.android.gms.internal.measurement.zzel zzacw
+com.google.android.gms.common.util.zzb
+    static void <clinit>()
+    private static java.util.regex.Pattern zzgx
+com.google.android.gms.internal.ads.zzsy
+    private static final java.util.regex.Pattern zzaqx
+    private static final java.util.regex.Pattern zzaqy
+    private static final java.util.regex.Pattern zzbnr
+    private static final int[] zzbns
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$4
+    final synthetic com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment this$0
+com.google.android.gms.internal.ads.zzase
+    private final java.util.List zzdoz
+    private final java.lang.String type
+    private final java.lang.String zzdlz
+    private final java.lang.String zzdpd
+    private final int errorCode
+    private final boolean zzdpe
+    private final java.lang.String zzdol
+    private final boolean zzdom
 com.google.android.gms.internal.measurement.zzdh
     public synthetic abstract java.lang.Object clone()
+com.google.android.gms.internal.measurement.zzj
+com.google.android.gms.internal.ads.zzbjv
+    private final com.google.android.gms.internal.ads.zzbjo zzeoh
+com.google.android.gms.internal.ads.zzgv
+    private final java.lang.String zzaeo
+    private final java.lang.String zzaep
+android.support.constraint.solver.widgets.ConstraintWidget
+    boolean mIsWidthWrapContent
+    boolean mIsHeightWrapContent
+    private int mDrawWidth
+    private int mDrawHeight
+    private int mContainerItemSkip
+    boolean mHorizontalWrapVisited
+    boolean mVerticalWrapVisited
+    boolean mHorizontalChainFixedPosition
+    boolean mVerticalChainFixedPosition
+    android.support.constraint.solver.widgets.ConstraintWidget mHorizontalNextWidget
+    android.support.constraint.solver.widgets.ConstraintWidget mVerticalNextWidget
+com.google.gson.internal.ConstructorConstructor$1
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.cna.mineru.cna.Utils.SignDialog$2
+    final synthetic com.cna.mineru.cna.Utils.SignDialog this$0
+com.google.android.gms.internal.ads.zzdmb
+    static void <clinit>()
+    private static final java.lang.Throwable[] zzhbx
+com.github.mikephil.charting.animation.Easing
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInQuad
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutQuad
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInCubic
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutCubic
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutCubic
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInQuart
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutQuart
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutQuart
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInSine
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutSine
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutSine
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInExpo
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutExpo
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutExpo
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInCirc
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutCirc
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutCirc
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInElastic
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutElastic
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutElastic
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInBack
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseOutBack
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutBack
+    public static final com.github.mikephil.charting.animation.Easing$EasingFunction EaseInOutBounce
+android.support.graphics.drawable.AnimatedVectorDrawableCompat
+    private android.animation.Animator$AnimatorListener mAnimatorListener
+    java.util.ArrayList mAnimationCallbacks
+com.cna.mineru.cna.DB.ExamSQLClass$2
+    final synthetic com.cna.mineru.cna.DB.ExamSQLClass this$0
+android.support.v4.content.ModernAsyncTask
+    private static volatile java.util.concurrent.Executor sDefaultExecutor
+com.google.android.gms.internal.ads.zzdne
+    private final boolean zzhde
+com.google.gson.internal.ConstructorConstructor$2
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+okhttp3.MultipartBody
+    private final okhttp3.MediaType originalType
+    public static final okhttp3.MediaType ALTERNATIVE
+    public static final okhttp3.MediaType DIGEST
+    public static final okhttp3.MediaType PARALLEL
+com.airbnb.lottie.model.Font
+    private final float ascent
 com.google.android.gms.measurement.internal.zzjo
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
     public final synthetic bridge void zzn()
+com.google.android.gms.internal.ads.zzadj
+    private final com.google.android.gms.internal.ads.zzadk zzcxx
+com.google.android.gms.common.GooglePlayServicesUtil
+    static void <clinit>()
+    public static final int GOOGLE_PLAY_SERVICES_VERSION_CODE
+com.google.android.gms.internal.ads.zzbg
+    private int zzcy
+    private int zzcz
+    private int zzda
+    private int zzdb
+    private int zzdc
+    private int zzdd
+android.arch.lifecycle.MethodCallsLogger
+    private java.util.Map mCalledMethods
+com.google.android.gms.internal.firebase_auth.zza
+    static void <clinit>()
+    private static com.google.android.gms.internal.firebase_auth.zzc zza
+android.support.v7.widget.SuggestionsAdapter
+    private final android.app.SearchManager mSearchManager
+com.google.android.gms.internal.ads.zzbpx
+    private final com.google.android.gms.internal.ads.zzbpw zzfji
+com.google.android.gms.internal.auth.zza
+    private final java.lang.String zzb
+android.support.v4.text.PrecomputedTextCompat
+    private static final java.lang.Object sLock
+    private static java.util.concurrent.Executor sExecutor
+com.cna.mineru.cna.SignupActivity$4
+    final synthetic com.cna.mineru.cna.SignupActivity this$0
 retrofit2.ParameterHandler$RelativeUrl
 retrofit2.http.FormUrlEncoded
+android.support.v4.graphics.TypefaceCompatBaseImpl$2
+    final synthetic android.support.v4.graphics.TypefaceCompatBaseImpl this$0
+android.support.v7.widget.ActionBarContextView$1
+    final synthetic android.support.v7.widget.ActionBarContextView this$0
+android.support.design.transformation.FabTransformationBehavior$1
+    final synthetic android.support.design.transformation.FabTransformationBehavior this$0
+com.google.android.gms.internal.firebase_auth.zzbd
+    private final transient int zzhg
+com.google.android.gms.internal.ads.zzcfu
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+com.google.android.gms.internal.ads.zzaxd
+    private boolean zzdvd
+com.google.firebase.messaging.SendException
+    private final int errorCode
+com.google.android.gms.internal.ads.zzawr
+    public static final enum int zzdud
+    private static final synthetic int[] zzduf
 com.google.android.gms.measurement.internal.zzgf
     public void zzl()
+com.google.android.gms.auth.api.credentials.CredentialPickerConfig
+    private final boolean zzw
+android.support.v4.app.FragmentManagerImpl$4
+    final synthetic android.support.v4.app.FragmentManagerImpl this$0
+android.support.v7.app.AlertController$4
+    final synthetic android.support.v7.app.AlertController this$0
+com.google.android.gms.internal.ads.zzwr$zzc
 com.google.android.gms.internal.measurement.zzbs$zzh$zza
     public final com.google.android.gms.internal.measurement.zzbs$zzh$zza zza(com.google.android.gms.internal.measurement.zzbs$zzd$zza)
+com.google.android.gms.internal.ads.zzddd$zza
+    private final com.google.android.gms.internal.ads.zzdbz zzgqa
+com.google.android.gms.internal.ads.zzcdm
+    private final com.google.android.gms.internal.ads.zzbhg zzbru
+    private final com.google.android.gms.internal.ads.zzcxu zzfjp
+com.google.android.gms.ads.internal.overlay.zzq
+    public int paddingTop
+android.support.v4.app.FragmentManagerImpl
+    static final android.view.animation.Interpolator ACCELERATE_QUINT
+    static final android.view.animation.Interpolator ACCELERATE_CUBIC
+com.google.android.gms.internal.ads.zzwr$zzj$zza
+android.support.v4.media.session.MediaControllerCompat$PlaybackInfo
+    private final int mPlaybackType
+    private final int mAudioStream
+    private final int mVolumeControl
+    private final int mMaxVolume
+    private final int mCurrentVolume
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$5
+    final synthetic com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment this$0
+com.airbnb.lottie.animation.content.ShapeContent
+    private final java.lang.String name
+com.google.firebase.iid.Registrar$zza
+    private final com.google.firebase.iid.FirebaseInstanceId zzcu
+com.google.gson.internal.LinkedTreeMap$EntrySet$1
+    final synthetic com.google.gson.internal.LinkedTreeMap$EntrySet this$1
+com.google.android.gms.internal.ads.zzdss
+    private int flags
+com.google.gson.Gson
+    private final com.google.gson.internal.Excluder excluder
+    private final com.google.gson.FieldNamingStrategy fieldNamingStrategy
+    private final boolean htmlSafe
+com.google.android.gms.internal.ads.zzblj
+    private static final com.google.android.gms.internal.ads.zzblj zzfeq
+com.google.android.gms.internal.ads.zzgd
+    private final boolean zzabp
+com.google.android.gms.internal.ads.zzdox
+    private static final com.google.android.gms.internal.ads.zzdox zzhjd
+com.cna.mineru.cna.Utils.SignDialog$1
+    final synthetic com.cna.mineru.cna.Utils.SignDialog this$0
+com.google.android.gms.internal.ads.zzrd
+    private final long[] zzbla
 okhttp3.internal.http2.Http2Connection
     static final synthetic boolean $assertionsDisabled
+com.google.android.gms.internal.measurement.zzdg
+    private static final com.google.android.gms.internal.measurement.zzel zzacw
+com.google.android.gms.internal.ads.zzbju
+    private final com.google.android.gms.internal.ads.zzbjo zzeoh
+com.cna.mineru.cna.DB.ExamSQLClass$1
+    final synthetic com.cna.mineru.cna.DB.ExamSQLClass this$0
+com.google.android.gms.internal.firebase_auth.zzbe
+    private static final com.google.android.gms.internal.firebase_auth.zzaz zzhh
+com.google.android.gms.internal.ads.zzkq
+    private static final java.util.regex.Pattern zzaqx
+    private static final java.util.regex.Pattern zzaqy
+com.google.android.gms.internal.ads.zzdnu
+    private final com.google.android.gms.internal.ads.zzdol zzhgk
+    private final com.google.android.gms.internal.ads.zzdnw zzhgl
+    private final java.lang.Class zzhgm
+    private final boolean zzhgn
+    private static final java.lang.reflect.Type[] zzhgp
+com.firebase.ui.auth.viewmodel.email.WelcomeBackPasswordHandler$6
+    final synthetic com.firebase.ui.auth.viewmodel.email.WelcomeBackPasswordHandler this$0
+okhttp3.internal.platform.AndroidPlatform
+    private final java.lang.Class sslParametersClass
 com.google.android.gms.measurement.internal.zzac
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
@@ -13382,7 +14985,45 @@ android.support.v4.app.RemoteInput
     public java.util.Set getAllowedDataTypes()
     public boolean getAllowFreeFormInput()
     public android.os.Bundle getExtras()
+android.support.v4.media.AudioAttributesCompat
+    private static final int[] SDK_USAGES
+com.google.firebase.auth.FirebaseAuthWeakPasswordException
+    private final java.lang.String zzjf
+com.google.android.gms.internal.ads.zzdma
+    private static final int zzhbw
+com.google.android.gms.internal.ads.zzhy
+    private byte[] data
+com.google.android.gms.measurement.internal.zzjn
+    private final java.lang.Float zztt
+okhttp3.internal.cache.CacheInterceptor$1
+    final synthetic okhttp3.internal.cache.CacheInterceptor this$0
+com.google.android.gms.internal.ads.zzbw
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzazi
+    private java.util.concurrent.atomic.AtomicInteger zzdxx
+android.support.design.transformation.FabTransformationBehavior$2
+    final synthetic android.support.design.transformation.FabTransformationBehavior this$0
+com.google.android.gms.internal.ads.zzcft
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+com.google.android.gms.internal.ads.zzat
+    private final javax.net.ssl.SSLSocketFactory zzck
+android.support.design.widget.TabLayout$Tab
+    private java.lang.Object tag
+com.google.android.gms.internal.ads.zzlt
+    private java.lang.Object zzaun
+    public int zzati
+    private boolean zzauo
+android.support.v7.widget.ActionMenuPresenter$OverflowMenuButton$1
+    final synthetic android.support.v7.widget.ActionMenuPresenter val$this$0
 retrofit2.ParameterHandler$Body
+com.google.android.gms.internal.ads.zzabc
+    private com.google.android.gms.ads.initialization.InitializationStatus zzcjs
+com.google.android.gms.internal.ads.zzazt
+    private android.view.ViewTreeObserver$OnScrollChangedListener zzdyp
+com.google.android.gms.internal.ads.zzwj$zza$zzb
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.measurement.zzbs$zzh$zzb
+    private static final com.google.android.gms.internal.measurement.zzfb zzvf
 com.google.android.gms.measurement.internal.zzeb
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzn()
@@ -13393,45 +15034,368 @@ com.google.android.gms.measurement.internal.zzeb
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhq zzt()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzeb zzu()
     public final synthetic bridge com.google.android.gms.measurement.internal.zziw zzv()
+com.google.android.gms.internal.ads.zzapf
+    private final synthetic com.google.android.gms.internal.ads.zzamw zzdhh
+    private final synthetic com.google.android.gms.internal.ads.zzapd zzdhj
+com.github.mikephil.charting.renderer.DataRenderer
+    protected android.graphics.Paint mDrawPaint
+com.google.android.gms.internal.ads.zzkg
+    private static final int[] zzaqr
+    private static final int[] zzaqs
+com.github.mikephil.charting.formatter.DefaultValueFormatter
+    protected int mDecimalDigits
+com.google.android.gms.internal.ads.zzwr$zzd
+android.support.v7.graphics.drawable.DrawableContainer
+    private int mLastIndex
+com.google.android.gms.internal.ads.zzju
+    private final java.lang.String zzaqd
+com.google.android.gms.internal.ads.zzbqt
+    private final com.google.android.gms.internal.ads.zzbqs zzfjr
 com.google.firebase.auth.FirebaseUser
     public abstract com.google.firebase.auth.FirebaseUserMetadata getMetadata()
+com.google.android.gms.internal.ads.zzdkw
+    public static final com.google.android.gms.internal.ads.zzdkw zzhar
+    public static final com.google.android.gms.internal.ads.zzdkw zzhas
+com.google.android.gms.internal.firebase_auth.zzfw
+    private static final com.google.android.gms.internal.firebase_auth.zzhv zzfq
+com.google.android.gms.internal.ads.zzdat$zzb
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.measurement.zzkb
+    private static final com.google.android.gms.internal.measurement.zzcm zzarr
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.internal.ads.zzp
+    private final long zzad
+com.google.firebase.analytics.connector.internal.zzd
+    private static final java.util.Set zzacl
+com.google.android.gms.internal.ads.zzawk
+    private boolean zzdnl
+android.support.transition.TransitionSet$1
+    final synthetic android.support.transition.TransitionSet this$0
+com.google.android.gms.internal.ads.zzamn
+    private final long zzdfe
+    private final java.util.List zzdfg
+    private final java.util.List zzdfh
+    private final java.util.List zzdfi
+    private final java.util.List zzdfj
+    private final java.util.List zzdfk
+    private final boolean zzdfl
+    private final java.lang.String zzdfm
+    private final long zzdfn
+    private final java.lang.String zzdfo
+    private final int zzdfp
+    private final int zzdfq
+    private final long zzdfr
+    private final boolean zzdfs
+    private final boolean zzdft
+    private final boolean zzdfu
+    private final boolean zzdfv
+    private int zzdfw
+    private int zzdfx
+    private boolean zzdfy
 com.google.android.gms.internal.firebase_auth.zzay
     public final com.google.android.gms.internal.firebase_auth.zzay zzcd()
+android.support.v7.widget.AppCompatSpinner$DropdownPopup$1
+    final synthetic android.support.v7.widget.AppCompatSpinner val$this$0
 com.google.android.gms.internal.measurement.zzim
     public abstract void zza(int,com.google.android.gms.internal.measurement.zzfz,java.util.Map)
+android.support.constraint.solver.SolverVariable
+    private static int uniqueSlackId
+    private static int uniqueUnrestrictedId
+    private static int uniqueConstantId
+    private static int uniqueId
 com.google.android.gms.common.api.GoogleApiClient
     public void connect(int)
     public abstract void reconnect()
     public abstract boolean isConnected()
+com.google.android.gms.internal.measurement.zzh
+    static void <clinit>()
+    private static volatile com.google.android.gms.internal.measurement.zzj zze
+com.google.android.gms.internal.ads.zzbm
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzmm
+    private final int zzahn
+com.google.firebase.components.RestrictedComponentContainer$RestrictedPublisher
+    private final java.util.Set allowedPublishedEvents
+    private final com.google.firebase.events.Publisher delegate
+com.google.android.gms.internal.firebase_auth.zzk
+    private static final enum int zzl
+    private static final synthetic int[] zzn
+com.google.android.gms.internal.ads.zzqz
+    private final long zzbku
+    private final long zzbkv
+    private final boolean zzaut
+com.google.android.gms.internal.ads.zzfi
+    private final int zzzv
+    private static final java.lang.String TAG
+com.google.android.gms.internal.ads.zzdqy
+    private static final long zzhlr
+    private static final long zzhls
+    private static final long zzhlt
+    private static final long zzhlu
+    private static final long zzhlv
+    private static final long zzhlw
+    private static final long zzhlx
+    private static final long zzhly
+    private static final long zzhlz
+    private static final long zzhma
+    private static final long zzhmb
+    private static final long zzhmc
+com.google.android.gms.internal.ads.zzew
+    private long zzzo
+com.google.android.gms.internal.measurement.zzil
+    private int zzadr
+com.google.android.gms.internal.ads.zzef
+    private static final char[] zzym
+com.google.android.gms.internal.ads.zzpf
+    private final java.lang.String mimeType
+    private final boolean zzbhm
+    private final java.lang.String zzaeo
+    private final java.lang.String zzaep
 com.google.gson.internal.LinkedTreeMap
     static final synthetic boolean $assertionsDisabled
+com.google.android.gms.internal.ads.zzcye
+    private final com.google.android.gms.internal.ads.zzcyd zzglo
 com.google.android.gms.internal.measurement.zzbs$zzd$zza
     public final com.google.android.gms.internal.measurement.zzbs$zzd$zza zzby(java.lang.String)
     public final com.google.android.gms.internal.measurement.zzbs$zzd$zza zzak(long)
+com.google.android.gms.internal.ads.zzasp
+    private com.google.android.gms.internal.ads.zzalk zzdqn
+com.google.gson.internal.ConstructorConstructor$8
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzbim
 retrofit2.RequestBuilder
     void setRelativeUrl(java.lang.Object)
     void setBody(okhttp3.RequestBody)
+com.google.android.gms.internal.ads.zzia
+    private final int length
+    private final int[] zzahp
+    private final long[] zzahr
+okhttp3.internal.Util
+    public static final okhttp3.RequestBody EMPTY_REQUEST
+    public static final java.nio.charset.Charset ISO_8859_1
+com.google.android.gms.internal.ads.zzddb
+    public static final com.google.android.gms.internal.ads.zzdhn zzgpu
+com.google.android.gms.internal.ads.zzta
+    private final int width
+    private final int height
 com.google.android.gms.internal.ads.zzdnh$zze
     public final void zzk(byte[],int,int)
+com.github.mikephil.charting.utils.ColorTemplate
+    public static final int[] LIBERTY_COLORS
+    public static final int[] JOYFUL_COLORS
+    public static final int[] PASTEL_COLORS
+    public static final int[] COLORFUL_COLORS
+    public static final int[] VORDIPLOM_COLORS
+    public static final int[] MATERIAL_COLORS
 com.google.firebase.auth.TwitterAuthCredential
     public java.lang.String getSignInMethod()
+com.google.android.gms.internal.ads.zzaeg
+    private final com.google.android.gms.internal.ads.zzaed zzcyp
+com.google.android.gms.internal.ads.zzapg
+    private final synthetic com.google.android.gms.internal.ads.zzamw zzdhh
+    private final synthetic com.google.android.gms.internal.ads.zzapd zzdhj
+android.support.v7.widget.ScrollingTabContainerView
+    private static final android.view.animation.Interpolator sAlphaInterpolator
+com.airbnb.lottie.LottieDrawable
+    private final java.util.Set colorFilterData
+com.google.android.gms.internal.measurement.zzdn
+    private static final com.google.android.gms.internal.measurement.zzdn zzade
+com.google.android.gms.internal.ads.zzwr$zzn$zza
+com.google.android.gms.internal.ads.zzgl
+    private final java.util.Map zzab
+    private final java.io.FileDescriptor zzacn
+    private final long zzaco
+    private final long zzacp
+com.google.android.gms.internal.ads.zzcvm
+    private final android.content.Context zzlj
+com.google.android.gms.internal.ads.zzxl
+    private java.lang.Integer zzcfd
+    private java.lang.Integer zzcff
+    private com.google.android.gms.internal.ads.zzwv zzcfg
+    private com.google.android.gms.internal.ads.zzxm zzcfh
+    private com.google.android.gms.internal.ads.zzxk zzcfk
+    private com.google.android.gms.internal.ads.zzwr$zzg zzcfl
+com.google.android.gms.internal.ads.zzape
+    private final synthetic com.google.android.gms.internal.ads.zzamw zzdhh
 com.google.android.gms.measurement.internal.zzfd
     public final synthetic bridge com.google.android.gms.measurement.internal.zzfd zzgz()
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
     public final synthetic bridge void zzn()
+com.google.android.gms.internal.ads.zzads
+    private final boolean zzcyh
+    private static final int zzcxz
+com.github.mikephil.charting.utils.Transformer
+    protected float[] valuePointsForGenerateTransformedValuesScatter
+    protected float[] valuePointsForGenerateTransformedValuesBubble
+    protected float[] valuePointsForGenerateTransformedValuesLine
+    protected float[] valuePointsForGenerateTransformedValuesCandle
+    private android.graphics.Matrix mMBuffer1
+    private android.graphics.Matrix mMBuffer2
+com.google.android.gms.internal.firebase_messaging.zza
+    private static final com.google.android.gms.internal.firebase_messaging.zzb zza
+com.google.android.gms.internal.ads.zzazb
+    private final java.util.Map zzab
+com.google.firebase.FirebaseApp
+    private final com.google.firebase.events.Publisher publisher
+    private final java.util.List lifecycleListeners
+com.google.android.gms.internal.ads.zzbqb
+    private final com.google.android.gms.internal.ads.zzbpw zzfji
 com.google.android.gms.internal.measurement.zzee$zzd
     public final void zze(byte[],int,int)
+com.google.android.gms.internal.ads.zzdkv
+    private final int zzhan
+com.google.android.gms.internal.ads.zzwr$zze
 retrofit2.ServiceMethod$Builder
     private varargs java.lang.RuntimeException parameterError(java.lang.Throwable,int,java.lang.String,java.lang.Object[])
+com.google.android.gms.measurement.module.Analytics
+    private final com.google.android.gms.measurement.internal.zzfj zzj
+com.google.android.gms.internal.ads.zzamm
+    private final java.lang.String zzdei
+    private final java.lang.String zzdej
+    private final java.lang.String zzdel
+    private final java.lang.String zzdem
+    private final java.util.List zzden
+    private final java.util.List zzdeo
+    private final java.util.List zzdep
+    private final java.util.List zzdeq
+    private final java.util.List zzder
+    private final java.util.List zzdet
+    private final java.util.List zzdeu
+    private final java.util.List zzdev
+    private final java.lang.String zzdew
+    private final java.lang.String zzdex
+    private final java.lang.String zzdey
+    private final java.lang.String zzdez
+    private final java.lang.String zzdfa
+    private final java.util.List zzdfb
+    private final java.lang.String zzdfc
+    private final long zzdfe
+com.google.android.gms.dynamite.DynamiteModule$zzb
+    private final int zziq
+com.google.android.gms.internal.ads_identifier.zzd
+com.google.android.gms.internal.measurement.zzz
+    private static boolean zzan
+    private static boolean zzao
+com.cna.mineru.cna.Fragment.ProfileFragment$6$1$1
+    final synthetic com.cna.mineru.cna.Fragment.ProfileFragment$6$1 this$2
+com.google.android.gms.internal.ads.zzwr$zzi$zzc
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzdsm
+com.google.android.gms.internal.ads.zzbyj
+    private final com.google.android.gms.internal.ads.zzbyb zzfnl
+android.support.v7.widget.ListPopupWindow
+    private boolean mIsAnimatedFromAnchor
+    private java.lang.Runnable mShowDropDownRunnable
+com.google.android.gms.internal.firebase_auth.zzaz
+    static void <clinit>()
+    private static final java.util.Map$Entry[] zzgw
+com.google.gson.internal.ConstructorConstructor$11
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.measurement.zzjo
+    private static final com.google.android.gms.internal.measurement.zzcm zzapw
+com.google.android.gms.internal.ads.zzdtp
+    private static final com.google.android.gms.internal.ads.zzdth zzhuo
+android.support.v4.media.session.MediaSessionCompat$QueueItem
+    private java.lang.Object mItem
+com.google.android.gms.internal.ads.zzrk
+    private final int length
+    private final int[] zzblr
+    private final com.google.android.gms.internal.ads.zzrb[] zzbls
+    private final int[] zzblt
+    private final int[][][] zzblu
+    private final com.google.android.gms.internal.ads.zzrb zzblv
+com.github.mikephil.charting.renderer.XAxisRendererHorizontalBarChart
+    protected com.github.mikephil.charting.charts.BarChart mChart
+com.bumptech.glide.RequestManager
+    private final com.bumptech.glide.manager.RequestManagerTreeNode treeNode
+com.google.gson.internal.ConstructorConstructor$10
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzqh
+    private final java.lang.String zzbid
+com.google.gson.internal.Primitives
+    private static final java.util.Map WRAPPER_TO_PRIMITIVE_TYPE
+com.google.android.gms.internal.ads.zzcpj
+    private final java.lang.String zzdbf
+android.support.constraint.solver.widgets.ConstraintAnchor
+    private android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType mConnectionType
+android.support.v4.view.ViewCompat
+    private static final java.util.concurrent.atomic.AtomicInteger sNextGeneratedId
 com.google.android.gms.ads.mediation.VersionInfo
     public final int getMinorVersion()
     public final int getMicroVersion()
+com.google.firebase.auth.internal.zzac
+    private boolean zzud
 com.google.android.gms.internal.ads.zzdnh$zzd
     public final void zzk(byte[],int,int)
+    private final int zzhdq
+com.google.android.gms.internal.ads.zzdor
+    private static final com.google.android.gms.internal.ads.zzdos zzhiy
+com.google.android.gms.internal.ads.zziq
+    private static final int zzajz
+    private static final int zzakd
+    private static final int zzakj
+    private static final int zzakk
+    private static final int zzakl
+    private static final int zzakm
+    private static final int zzakn
+    private static final int zzakv
+    private static final int zzakw
+    private static final int zzakx
+    private static final int zzalc
+    private static final int zzalk
+    private static final int zzall
+    private static final int zzalm
 com.google.android.gms.internal.measurement.zzee$zze
     public final void zze(byte[],int,int)
+    private final int zzaeg
+com.firebase.ui.auth.viewmodel.idp.LinkingSocialProviderResponseHandler$4$1
+    final synthetic com.firebase.ui.auth.viewmodel.idp.LinkingSocialProviderResponseHandler$4 this$1
+com.airbnb.lottie.animation.keyframe.ValueCallbackKeyframeAnimation
+    private final com.airbnb.lottie.value.LottieFrameInfo frameInfo
+com.google.android.gms.internal.measurement.zzey$zzd
+    private static final synthetic int[] zzain
+    private static final synthetic int[] zzaiq
+com.google.gson.internal.ConstructorConstructor$7
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+android.support.design.widget.CoordinatorLayout$LayoutParams
+    java.lang.Object mBehaviorTag
+com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment$8
+    final synthetic com.cna.mineru.cna.Fragment.ExamFragmentChild.DoExamFragment this$0
+android.support.v4.graphics.ColorUtils
+    private static final java.lang.ThreadLocal TEMP_ARRAY
+com.google.firebase.components.DependencyCycleException
+    private final java.util.List componentsInCycle
+com.google.android.gms.internal.ads.zzxk
+com.google.android.gms.internal.firebase_auth.zzm
+com.google.android.gms.internal.ads.zzbp$zza$zzc
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.firebase.auth.FirebaseAuthUserCollisionException
+    private java.lang.String zzif
+    private java.lang.String zzhy
+com.google.android.gms.common.api.Api
+    private final com.google.android.gms.common.api.Api$zaa zaav
+    private final com.google.android.gms.common.api.Api$zab zaax
+com.google.android.gms.internal.ads.zzcfp
+    private final com.google.android.gms.internal.ads.zzcfo zzfux
+com.google.android.gms.internal.ads.zzamp
+    private static final com.google.android.gms.internal.ads.zzapc zzdga
+okhttp3.CacheControl
+    public static final okhttp3.CacheControl FORCE_NETWORK
+    public static final okhttp3.CacheControl FORCE_CACHE
+com.google.android.gms.internal.ads.zzwr$zzf
+com.google.android.gms.measurement.internal.zzr
+    private final boolean zzea
 okhttp3.internal.http.UnrepeatableRequestBody
+com.google.android.gms.internal.ads.zzdry$zza$zzc
+com.bumptech.glide.disklrucache.Util
+    static final java.nio.charset.Charset UTF_8
+com.google.android.gms.common.util.AndroidUtilsLight
+    static void <clinit>()
+    private static volatile int zzgf
+com.google.android.gms.common.api.Api$zaa
+com.google.android.gms.ads.mediation.MediationBannerAdConfiguration
+    private final com.google.android.gms.ads.AdSize zzdh
 com.google.android.gms.measurement.internal.zza
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzn()
@@ -13440,39 +15404,325 @@ com.google.android.gms.measurement.internal.zza
     public final synthetic bridge com.google.android.gms.measurement.internal.zzhv zzs()
     public final synthetic bridge com.google.android.gms.measurement.internal.zzeb zzu()
     public final synthetic bridge com.google.android.gms.measurement.internal.zziw zzv()
+com.google.android.gms.internal.ads_identifier.zzc
+    private static final java.lang.ClassLoader zzd
+com.google.android.gms.internal.ads.zzbwg
+    private final com.google.android.gms.internal.ads.zzbvy zzflo
 com.google.android.gms.measurement.internal.zzjc
     public final synthetic bridge com.google.android.gms.measurement.internal.zzfd zzgz()
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
     public final synthetic bridge void zzn()
+com.google.android.gms.internal.ads.zzaux
+    private com.google.android.gms.internal.ads.zzave zzdrh
+com.google.android.gms.ads.mediation.customevent.CustomEventAdapter$zzb
+    private final com.google.android.gms.ads.mediation.customevent.CustomEventAdapter zzeny
+    private final com.google.android.gms.ads.mediation.MediationInterstitialListener zzeoa
+    private final synthetic com.google.android.gms.ads.mediation.customevent.CustomEventAdapter zzeob
+com.airbnb.lottie.animation.content.TrimPathContent
+    private final java.lang.String name
+com.google.gson.internal.ConstructorConstructor$12
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzdrm
+    private final java.lang.Object zzhiq
+android.support.design.transformation.FabTransformationScrimBehavior$1
+    final synthetic android.support.design.transformation.FabTransformationScrimBehavior this$0
+com.google.android.gms.internal.ads.zzbur
+    private boolean zzfla
+com.google.android.gms.internal.ads.zzcyg
+    private final com.google.android.gms.internal.ads.zzcyf zzglp
+com.google.firebase.auth.internal.zze
+    private java.util.Map zztc
+com.cna.mineru.cna.DB.HomeSQLClass
+    android.content.Context context
+com.google.android.gms.internal.ads.zzrj
+    private int zzaul
+    private com.google.android.gms.internal.ads.zzrk zzblq
 com.google.android.gms.internal.measurement.zzbs$zzg$zza
     public final com.google.android.gms.internal.measurement.zzbs$zzg$zza zzb(java.lang.Iterable)
     public final com.google.android.gms.internal.measurement.zzbs$zzg$zza zza(com.google.android.gms.internal.measurement.zzbs$zzh$zza)
+com.cna.mineru.cna.Utils.XAxisValueFormatter
+    private final com.github.mikephil.charting.charts.BarLineChartBase chart
+com.google.android.gms.internal.ads.zzbkd
+    private com.google.android.gms.internal.ads.zzdtt zzepb
 com.google.firebase.auth.PhoneAuthCredential
     public java.lang.String getSignInMethod()
 com.google.android.gms.internal.ads.zzdnr
     static void zza(com.google.android.gms.internal.ads.zzdnh,com.google.android.gms.internal.ads.zzdrh,int,java.lang.Object)
 com.google.android.gms.internal.firebase_auth.zzav
     public com.google.android.gms.internal.firebase_auth.zzay zzcd()
+android.support.constraint.solver.widgets.ResolutionAnchor
+    float computedValue
+    private float oppositeOffset
+android.support.design.widget.ShadowDrawableWrapper
+    float maxShadowSize
+com.google.android.gms.internal.measurement.zzij
+    private final java.lang.Object zzajj
+com.google.android.gms.internal.ads.zzbua
+    private final com.google.android.gms.internal.ads.zzbtu zzfky
+com.google.android.gms.internal.ads.zzddd
+    private static final java.util.logging.Logger logger
 com.google.android.gms.measurement.internal.zzs
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzn()
+com.google.android.gms.internal.ads.zzcxd
+    private static final com.google.android.gms.internal.ads.zzcxd zzgjr
+com.google.gson.internal.bind.TypeAdapters$26$1
+    final synthetic com.google.gson.internal.bind.TypeAdapters$26 this$0
+com.github.mikephil.charting.utils.Utils
+    public static final double DOUBLE_EPSILON
+    private static final int[] POW_10
+com.google.android.gms.internal.ads.zzpu
+android.support.v4.app.FragmentTransitionImpl$1
+    final synthetic android.support.v4.app.FragmentTransitionImpl this$0
+com.google.android.gms.internal.ads.zzapi
+    private final synthetic com.google.android.gms.internal.ads.zzaoz zzdhm
+com.google.android.gms.internal.ads.zzjs
+    private final com.google.android.gms.internal.ads.zzkn zzapr
+com.google.android.gms.internal.ads.zzus
+    private boolean zzbvb
 com.google.firebase.auth.AuthCredential
     public abstract java.lang.String getSignInMethod()
+okio.Base64
+    private static final byte[] URL_MAP
+com.google.android.gms.internal.ads.zzdmo
+    private static final com.google.android.gms.internal.ads.zzdmo zzhcp
+com.cna.mineru.cna.SignupActivity$3$1
+    final synthetic com.cna.mineru.cna.SignupActivity$3 this$1
+com.google.android.gms.internal.firebase_messaging.zze
+    static void <clinit>()
+    private static volatile com.google.android.gms.internal.firebase_messaging.zzh zzc
+com.google.android.gms.internal.ads.zzwr$zzm$zza
+android.support.v7.widget.ActionMenuPresenter$OverflowMenuButton
+    private final float[] mTempPts
+com.google.android.gms.internal.ads.zzdca
+    private final com.google.android.gms.internal.ads.zzdgt zzgpn
+com.google.android.gms.internal.ads.zzub
+    private final long timestamp
+    private final boolean zzbtp
+    private final float zzbty
 com.google.android.gms.internal.measurement.zzeo
     static void zza(com.google.android.gms.internal.measurement.zzee,com.google.android.gms.internal.measurement.zzig,int,java.lang.Object)
+com.google.android.gms.internal.ads.zzact
+    private static final com.google.android.gms.internal.ads.zzaci zzcku
+    private static final com.google.android.gms.internal.ads.zzaci zzcky
+    private static final com.google.android.gms.internal.ads.zzaci zzckz
+    private static final com.google.android.gms.internal.ads.zzaci zzcla
+    private static final com.google.android.gms.internal.ads.zzaci zzclb
+    private static final com.google.android.gms.internal.ads.zzaci zzcld
+    private static final com.google.android.gms.internal.ads.zzaci zzcle
+    private static final com.google.android.gms.internal.ads.zzaci zzclk
+    private static final com.google.android.gms.internal.ads.zzaci zzcll
+    private static final com.google.android.gms.internal.ads.zzaci zzclm
+    private static final com.google.android.gms.internal.ads.zzaci zzclu
+    private static final com.google.android.gms.internal.ads.zzaci zzcmn
+    private static final com.google.android.gms.internal.ads.zzaci zzcmo
+    private static final com.google.android.gms.internal.ads.zzaci zzcmp
+    private static final com.google.android.gms.internal.ads.zzaci zzcmq
+    private static final com.google.android.gms.internal.ads.zzaci zzcmr
+    private static final com.google.android.gms.internal.ads.zzaci zzcms
+    private static final com.google.android.gms.internal.ads.zzaci zzcnn
+    private static final com.google.android.gms.internal.ads.zzaci zzcno
+    private static final com.google.android.gms.internal.ads.zzaci zzcnp
+    private static final com.google.android.gms.internal.ads.zzaci zzcoh
+    private static final com.google.android.gms.internal.ads.zzaci zzcoi
+    private static final com.google.android.gms.internal.ads.zzaci zzcoo
+    private static final com.google.android.gms.internal.ads.zzaci zzcoq
+    private static final com.google.android.gms.internal.ads.zzaci zzcos
+    private static final com.google.android.gms.internal.ads.zzaci zzcot
+    private static final com.google.android.gms.internal.ads.zzaci zzcov
+    private static final com.google.android.gms.internal.ads.zzaci zzcpd
+    private static final com.google.android.gms.internal.ads.zzaci zzcpj
+    private static final com.google.android.gms.internal.ads.zzaci zzcpk
+    private static final com.google.android.gms.internal.ads.zzaci zzcpl
+    private static final com.google.android.gms.internal.ads.zzaci zzcpm
+    private static final com.google.android.gms.internal.ads.zzaci zzcpo
+    private static final com.google.android.gms.internal.ads.zzaci zzcpp
+    private static final com.google.android.gms.internal.ads.zzaci zzcpq
+    private static final com.google.android.gms.internal.ads.zzaci zzcpr
+    private static final com.google.android.gms.internal.ads.zzaci zzcps
+    private static final com.google.android.gms.internal.ads.zzaci zzcpt
+    private static final com.google.android.gms.internal.ads.zzaci zzcpu
+    private static final com.google.android.gms.internal.ads.zzaci zzcpv
+    private static final com.google.android.gms.internal.ads.zzaci zzcpw
+    private static final com.google.android.gms.internal.ads.zzaci zzcpx
+    private static final com.google.android.gms.internal.ads.zzaci zzcpy
+    private static final com.google.android.gms.internal.ads.zzaci zzcpz
+    private static final com.google.android.gms.internal.ads.zzaci zzcqa
+    private static final com.google.android.gms.internal.ads.zzaci zzcqb
+    private static final com.google.android.gms.internal.ads.zzaci zzcqo
+    private static final com.google.android.gms.internal.ads.zzaci zzcqq
+    private static final com.google.android.gms.internal.ads.zzaci zzcqr
+    private static final com.google.android.gms.internal.ads.zzaci zzcqs
+    private static final com.google.android.gms.internal.ads.zzaci zzcqw
+    private static final com.google.android.gms.internal.ads.zzaci zzcqx
+    private static final com.google.android.gms.internal.ads.zzaci zzcrt
+    private static final com.google.android.gms.internal.ads.zzaci zzcru
+    private static final com.google.android.gms.internal.ads.zzaci zzcrv
+    private static final com.google.android.gms.internal.ads.zzaci zzcrz
+    private static final com.google.android.gms.internal.ads.zzaci zzcsa
+    private static final com.google.android.gms.internal.ads.zzaci zzcsc
+    private static final com.google.android.gms.internal.ads.zzaci zzcsd
+    private static final com.google.android.gms.internal.ads.zzaci zzcsg
+    private static final com.google.android.gms.internal.ads.zzaci zzcsj
+    private static final com.google.android.gms.internal.ads.zzaci zzcsn
+    private static final com.google.android.gms.internal.ads.zzaci zzcsp
+    private static final com.google.android.gms.internal.ads.zzaci zzcsq
+    private static final com.google.android.gms.internal.ads.zzaci zzcss
+    private static final com.google.android.gms.internal.ads.zzaci zzcst
+    private static final com.google.android.gms.internal.ads.zzaci zzcsu
+    private static final com.google.android.gms.internal.ads.zzaci zzcsv
+    private static final com.google.android.gms.internal.ads.zzaci zzcsx
+    private static final com.google.android.gms.internal.ads.zzaci zzcta
+    private static final com.google.android.gms.internal.ads.zzaci zzctb
+    private static final com.google.android.gms.internal.ads.zzaci zzctc
+    private static final com.google.android.gms.internal.ads.zzaci zzctd
+    private static final com.google.android.gms.internal.ads.zzaci zzcte
+    private static final com.google.android.gms.internal.ads.zzaci zzctf
+    private static final com.google.android.gms.internal.ads.zzaci zzctg
+    private static final com.google.android.gms.internal.ads.zzaci zzcti
+    private static final com.google.android.gms.internal.ads.zzaci zzctj
+    private static final com.google.android.gms.internal.ads.zzaci zzctl
+    private static final com.google.android.gms.internal.ads.zzaci zzctm
+    private static final com.google.android.gms.internal.ads.zzaci zzctn
+    private static final com.google.android.gms.internal.ads.zzaci zzcuo
+    private static final com.google.android.gms.internal.ads.zzaci zzcut
+    private static final com.google.android.gms.internal.ads.zzaci zzcuy
+    private static final com.google.android.gms.internal.ads.zzaci zzcuz
+    private static final com.google.android.gms.internal.ads.zzaci zzcva
+    private static final com.google.android.gms.internal.ads.zzaci zzcvb
+    private static final com.google.android.gms.internal.ads.zzaci zzcvc
+    private static final com.google.android.gms.internal.ads.zzaci zzcvf
+    private static final com.google.android.gms.internal.ads.zzaci zzcvg
+    private static final com.google.android.gms.internal.ads.zzaci zzcvj
+    private static final com.google.android.gms.internal.ads.zzaci zzcvm
+    private static final com.google.android.gms.internal.ads.zzaci zzcvs
+    private static final com.google.android.gms.internal.ads.zzaci zzcvy
+    private static final com.google.android.gms.internal.ads.zzaci zzcwa
+    private static final com.google.android.gms.internal.ads.zzaci zzcwk
+    private static final com.google.android.gms.internal.ads.zzaci zzcwl
+    private static final com.google.android.gms.internal.ads.zzaci zzcws
+com.google.gson.internal.ConstructorConstructor$6
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzant
+    private final int zzdgd
+    private final java.lang.String zzche
+com.cna.mineru.cna.DTO.GraphData
+    public int id
 com.google.android.gms.measurement.internal.zzed
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
     public final synthetic bridge void zzn()
+com.google.android.gms.internal.ads.zzhm
+    private final int zzagb
 com.google.firebase.auth.GoogleAuthCredential
     public java.lang.String getSignInMethod()
+com.google.android.gms.common.GooglePlayServicesNotAvailableException
+    public final int errorCode
+com.google.android.gms.internal.ads.zzazd
+    private static final com.google.android.gms.internal.ads.zzazf zzdxt
+com.google.android.gms.internal.ads.zzbp$zza$zzb
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.google.android.gms.internal.ads.zzbrg
+    private final com.google.android.gms.internal.ads.zzbrf zzfjx
+com.google.android.gms.internal.ads.zzdaj
+com.google.android.gms.internal.ads.zzxj
+    private com.google.android.gms.internal.ads.zzwr$zzn zzcew
+    private java.lang.Integer zzcex
+    private java.lang.Integer zzcez
+    private com.google.android.gms.internal.ads.zzwv zzcfa
+    private com.google.android.gms.internal.ads.zzwv zzcfb
+    private com.google.android.gms.internal.ads.zzwv zzcfc
+com.google.android.gms.internal.ads.zzdao$zza
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
 com.google.android.gms.internal.measurement.zzbs$zzc$zza
     public final boolean zzml()
+com.google.android.gms.internal.ads.zzcsu
+    private final android.content.Context zzlj
+com.google.android.gms.internal.ads.zzaya
+    private final com.google.android.gms.internal.ads.zzaxz zzdwe
+com.google.gson.internal.ConstructorConstructor$13
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzwr$zza$zza
+    private static final com.google.android.gms.internal.ads.zzdoe zzeg
+com.firebase.ui.auth.ui.email.RegisterEmailFragment$2
+    final synthetic com.firebase.ui.auth.ui.email.RegisterEmailFragment this$0
+com.google.android.gms.internal.ads.zzaal
+    private final java.lang.String description
+    private com.google.android.gms.internal.ads.zzaai zzcir
+com.cna.mineru.cna.ModifyHomeItem$4$1
+    final synthetic com.cna.mineru.cna.ModifyHomeItem$4 this$1
+com.google.android.gms.ads.mediation.customevent.CustomEventAdapter$zzc
+    private final com.google.android.gms.ads.mediation.customevent.CustomEventAdapter zzeny
+    private final com.google.android.gms.ads.mediation.MediationNativeListener zzeoc
+com.google.android.gms.internal.ads.zzpb
+    private final boolean zzana
+    private final int zzanb
+    private final byte[] zzanc
+com.google.android.gms.internal.ads.zzwr$zze$zza
+com.google.android.gms.internal.ads.zzcoz
+    private final android.content.Context zzlj
+android.support.v7.widget.RecyclerView$RecyclerViewDataObserver
+    final synthetic android.support.v7.widget.RecyclerView this$0
+com.google.android.gms.internal.ads_identifier.zzb
+    static void <clinit>()
+    private static com.google.android.gms.internal.ads_identifier.zzd zzc
 com.google.android.gms.measurement.internal.zzjs
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzn()
+    private static final java.util.List zzua
+com.google.android.gms.internal.ads.zzdso
+    private com.google.android.gms.internal.ads.zzdsm zzhsy
+    private java.lang.Integer zzhsz
+    private java.lang.String zzhtb
+android.support.v7.view.menu.BaseMenuPresenter
+    protected android.view.LayoutInflater mInflater
+com.cna.mineru.cna.DB.UserSQLClass
+    android.content.Context context
+com.google.android.gms.internal.ads.zzbwf
+    private final com.google.android.gms.internal.ads.zzbvy zzflo
+com.google.gson.internal.ConstructorConstructor$5
+    final synthetic com.google.gson.internal.ConstructorConstructor this$0
+com.google.android.gms.internal.ads.zzrz
+    private final byte[] zzbmf
+com.google.android.gms.internal.ads.zzdoc
+    private static final java.nio.charset.Charset ISO_8859_1
+    private static final java.nio.ByteBuffer zzhib
+    private static final com.google.android.gms.internal.ads.zzdnc zzhic
+com.google.android.gms.internal.ads.zzri
+    private final int zzbjr
+    private final java.lang.Object data
+com.github.mikephil.charting.buffer.BarBuffer
+    protected int mDataSetIndex
+    protected int mDataSetCount
+com.google.android.gms.internal.base.zad
+com.google.android.gms.internal.ads.zzcaq
+    private final com.google.android.gms.internal.ads.zzcap zzfqz
 com.google.android.gms.measurement.internal.zzhl
     public final synthetic bridge void zzl()
     public final synthetic bridge void zzm()
+com.google.android.gms.internal.ads.zzbjq
+    private final com.google.android.gms.internal.ads.zzbjo zzeoh
+com.google.android.gms.common.api.GoogleApi$Settings
+    public static final com.google.android.gms.common.api.GoogleApi$Settings DEFAULT_SETTINGS
+com.google.android.gms.internal.ads.zzku
+    private final int type
+    private final int zzark
+android.support.v7.widget.DrawableUtils
+    public static final android.graphics.Rect INSETS_NONE
+    private static java.lang.Class sInsetsClazz
+com.google.android.gms.internal.ads.zzaey
+    private final com.google.android.gms.ads.formats.NativeAd$AdChoicesInfo zzcyv
+com.github.mikephil.charting.charts.BarLineChartBase
+    protected android.graphics.Matrix mFitScreenMatrixBuffer
+    protected float[] mGetPositionBuffer
 com.google.android.gms.measurement.internal.zzff
+com.google.android.gms.internal.measurement.zzfq
+    private static final com.google.android.gms.internal.measurement.zzfp zzajr
+com.google.android.gms.internal.ads.zzaph
+    private final synthetic com.google.android.gms.internal.ads.zzamw zzdhh
+android.support.v7.widget.RecyclerView
+    final java.lang.Runnable mUpdateChildViewsRunnable
+    static final boolean POST_UPDATES_ON_ANIMATION
+android.support.v4.media.session.MediaControllerCompat$Callback
+    final java.lang.Object mCallbackObj

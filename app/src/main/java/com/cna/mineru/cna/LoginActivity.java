@@ -1,9 +1,7 @@
 package com.cna.mineru.cna;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -12,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
@@ -21,9 +18,9 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.util.Patterns;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +56,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -324,12 +323,11 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("Email", et_email.getText().toString());
                 SecurityUtil securityUtil = new SecurityUtil();
-                byte[] rtn1 = securityUtil.encryptSHA256(et_pw.getText().toString());
+                byte[] rtn1 = securityUtil.encryptSHA256(String.valueOf(et_pw.getText()));
                 String pw = new String(rtn1);
                 jsonObject.accumulate("Password", pw);
-//                jsonObject.accumulate("password", et_pw.getText().toString());
+                jsonObject.accumulate("Email", et_email.getText().toString());
                 jsonObject.accumulate("uuid", token);
                 HttpURLConnection con = null;
                 BufferedReader reader = null;

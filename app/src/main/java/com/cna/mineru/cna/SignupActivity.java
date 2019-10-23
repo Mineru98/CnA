@@ -219,12 +219,12 @@ public class SignupActivity extends AppCompatActivity {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 String token = FirebaseInstanceId.getInstance().getToken();
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("name", "게스트");
+                jsonObject.accumulate("Name", "게스트");
                 SecurityUtil securityUtil = new SecurityUtil();
                 byte[] rtn1 = securityUtil.encryptSHA256(et_pw.getText().toString());
                 String pw = new String(rtn1);
-                jsonObject.accumulate("email", et_email.getText().toString());
-                jsonObject.accumulate("password", pw);
+                jsonObject.accumulate("Email", et_email.getText().toString());
+                jsonObject.accumulate("Password", pw);
                 jsonObject.accumulate("uuid", token);
                 HttpURLConnection con = null;
                 BufferedReader reader = null;
@@ -236,6 +236,8 @@ public class SignupActivity extends AppCompatActivity {
                     con.setRequestProperty("Connection", "Keep-Alive");
                     con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
                     con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+                    //새로운 api 인증을 위한 코드
+                    con.setRequestProperty("authorization","eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJtYXN0ZXIiOiIxMjM0NSIsIkVtYWlsIjoiYWRtaW5AY25hcGx1cy5zaG9wIiwiaWF0IjoxNTcxNTgzMjY0LCJleHAiOjE2MDMxNDA4NjR9.jyG3_Fp5vz_YNhurKxCeZq3a-PC-5OgruBYilFsLRzdKskPgo5x29QnqIcyzoUngC8UfUriqhYRpOnU63pf-3A");
                     con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
                     con.setRequestProperty("Accept-Charset", "UTF-8");
                     con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미

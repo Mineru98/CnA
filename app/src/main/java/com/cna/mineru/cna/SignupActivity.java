@@ -237,7 +237,7 @@ public class SignupActivity extends AppCompatActivity {
                     con.setRequestProperty("Cache-Control", "no-cache");//캐시 설정
                     con.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
                     //새로운 api 인증을 위한 코드
-                    con.setRequestProperty("authorization","eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJtYXN0ZXIiOiIxMjM0NSIsIkVtYWlsIjoiYWRtaW5AY25hcGx1cy5zaG9wIiwiaWF0IjoxNTcxNTgzMjY0LCJleHAiOjE2MDMxNDA4NjR9.jyG3_Fp5vz_YNhurKxCeZq3a-PC-5OgruBYilFsLRzdKskPgo5x29QnqIcyzoUngC8UfUriqhYRpOnU63pf-3A");
+                    con.setRequestProperty("authorization","eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXN0ZXIiOiIxMjM0NSIsIkVtYWlsIjoiYWRtaW5AY25hcGx1cy5zaG9wIiwiaWF0IjoxNTcxNTgzMjY0LCJleHAiOjE2MDMxNDA4NjR9.NNGcd76WBD4C0cLq7Qh86fEV83snbT4ZwKa_LBVFse-J35YAYLS0OZRH3tnvXl9U9e2GfSAEOt4RI0SWzAbl9G3AD9tYNuKu5VXUS-DECCM-1VRQEWtRQeBUG5EqSY9Sqtnoue6MnOgPlFXXuTPxHpyv2HRhJO8YCQxwg-Py0rlbakN5QA6Kkmif6OkF-Kdi5Bz0B2fkaT5szCZxAMPi_TiJpuN6OzGp-XmIiVMMAcHxFuN-DMUaUBoRzTUsnoneI3oEq0PyPdOcQZZz8L5qbzzwyCu4LE4MtahWNhNC-kWs4wmQvFFvdOHt055tImVmwCbICm6ItV2dOGUQr_Ggtg");
                     con.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
                     con.setRequestProperty("Accept-Charset", "UTF-8");
                     con.setDoOutput(true);//Outstream으로 post 데이터를 넘겨주겠다는 의미

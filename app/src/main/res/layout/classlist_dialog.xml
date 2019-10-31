@@ -4,7 +4,6 @@
     android:padding="40dp"
     android:layout_width="wrap_content"
     android:layout_height="450dp">
-
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -17,7 +16,6 @@
         android:textStyle="bold"
         android:fontFamily="@font/nanum_gothic"
         android:text="@string/tv_title_dialog_4" />
-
     <TextView
         android:id="@+id/tv_detail"
         android:layout_width="match_parent"
@@ -30,7 +28,6 @@
         android:textStyle="bold"
         android:fontFamily="@font/nanum_gothic"
         android:text="@string/tv_title_dialog_5" />
-
     <ExpandableListView
         android:id="@+id/lvExp"
         android:layout_marginTop="20dp"
@@ -41,7 +38,6 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
     </ExpandableListView>
-
     <TextView
         android:id="@+id/btn_cancel"
         android:layout_width="wrap_content"

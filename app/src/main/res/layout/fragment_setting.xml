@@ -18,7 +18,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/str_ver" />
-
         <TextView
             android:id="@+id/tv_str_ver"
             android:layout_width="match_parent"
@@ -33,7 +32,6 @@
             android:layout_marginRight="10dp"
             android:text="@string/tv_str_ver"
             android:fontFamily="@font/nanum_gothic"/>
-
         <TextView
             android:id="@+id/tv_abouts"
             android:textStyle="bold"
@@ -47,7 +45,6 @@
             android:layout_marginTop="30dp"
             android:text="@string/str_abouts"
             android:fontFamily="@font/nanum_gothic"/>
-
         <TextView
             android:id="@+id/tv_terms"
             android:layout_width="match_parent"
@@ -60,7 +57,6 @@
             android:layout_marginTop="0dp"
             android:text="@string/tv_terms"
             android:fontFamily="@font/nanum_gothic"/>
-
         <TextView
             android:id="@+id/tv_privacy"
             android:layout_width="match_parent"
@@ -73,7 +69,6 @@
             android:layout_marginTop="0dp"
             android:text="@string/tv_privacy"
             android:fontFamily="@font/nanum_gothic"/>
-
         <TextView
             android:id="@+id/tv_account"
             android:textStyle="bold"
@@ -134,7 +129,6 @@
             android:layout_marginTop="0dp"
             android:text="@string/tv_signout"
             android:fontFamily="@font/nanum_gothic"/>
-
         <TextView
             android:id="@+id/tv_setting"
             android:layout_width="match_parent"
@@ -148,7 +142,6 @@
             android:text="@string/str_setting"
             android:textStyle="bold"
             android:fontFamily="@font/nanum_gothic"/>
-
         <TextView
             android:id="@+id/tv_wifisync"
             android:layout_width="match_parent"
@@ -162,7 +155,6 @@
             android:layout_toStartOf="@+id/sw_wifisync"
             android:text="@string/tv_wifisync"
             android:fontFamily="@font/nanum_gothic"/>
-
         <Switch
             android:id="@+id/sw_wifisync"
             android:layout_width="wrap_content"

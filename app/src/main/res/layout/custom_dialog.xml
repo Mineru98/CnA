@@ -50,5 +50,4 @@
             android:fontFamily="@font/nanum_gothic"
             android:text="@string/dialog_btn_cancel"/>
     </RelativeLayout>
-
 </LinearLayout>

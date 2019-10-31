@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -15,7 +15,6 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
     <com.cna.mineru.cna.Adapter.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
@@ -26,8 +25,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"/>
-
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +38,5 @@
         app:labelVisibilityMode="auto"
         app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
         app:menu="@menu/navigation">
-
-    </android.support.design.widget.BottomNavigationView>
-
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </RelativeLayout>

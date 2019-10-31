@@ -36,7 +36,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/Top2"
             android:layout_below="@+id/Top"
@@ -80,7 +79,6 @@
                     android:textColor="#000000"
                     android:text="@string/prob"/>
             </RelativeLayout>
-
             <RelativeLayout
                 android:id="@+id/set_image2"
                 android:elevation="5dp"
@@ -118,7 +116,6 @@
                     android:text="@string/solv"/>
             </RelativeLayout>
         </RelativeLayout>
-
         <include
             android:id="@+id/toolbar"
             layout="@layout/include_toolbar_note"/>

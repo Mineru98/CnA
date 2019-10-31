@@ -15,7 +15,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         android:fontFamily="@font/nanum_gothic"/>
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_email"
         android:padding="10dp"
         android:layout_marginTop="10dp"
@@ -23,8 +23,7 @@
         android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <android.support.v7.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,9 +32,7 @@
             android:shadowColor="@color/colorPrimary"
             android:fontFamily="@font/nanum_gothic"
             android:hint="@string/et_hint_email"/>
-
-    </android.support.design.widget.TextInputLayout>
-
+    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:id="@+id/tv_subtitle"
         android:layout_width="match_parent"
@@ -74,5 +71,4 @@
             android:fontFamily="@font/nanum_gothic"
             android:text="@string/dialog_btn_ok"/>
     </RelativeLayout>
-
 </LinearLayout>

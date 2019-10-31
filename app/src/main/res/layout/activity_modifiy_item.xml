@@ -33,7 +33,6 @@
                     android:background="@drawable/round"
                     android:src="@drawable/ic_prob" />
             </RelativeLayout>
-
             <RelativeLayout
                 android:id="@+id/set_image2"
                 android:elevation="5dp"
@@ -52,11 +51,9 @@
                     android:src="@drawable/ic_solv" />
             </RelativeLayout>
         </RelativeLayout>
-
         <include
             android:id="@+id/toolbar"
             layout="@layout/include_toolbar_note"/>
-
         <RelativeLayout
             android:layout_below="@+id/Top"
             android:layout_width="wrap_content"
@@ -107,7 +104,6 @@
                     android:hint="@string/et_insert"
                     android:fontFamily="@font/nanum_gothic"/>
             </RelativeLayout>
-
             <RelativeLayout
                 android:id="@+id/linear2"
                 android:layout_below="@+id/linear"
@@ -138,7 +134,6 @@
                     android:textColor="@color/second_color"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
-
                 <EditText
                     android:id="@+id/et_title"
                     android:layout_width="match_parent"
@@ -157,7 +152,6 @@
                     android:minLines="1"
                     android:textSize="20sp" />
             </RelativeLayout>
-
             <RelativeLayout
                 android:id="@+id/linear3"
                 android:layout_below="@+id/linear2"
@@ -206,6 +200,4 @@
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
-
-
 </ScrollView>

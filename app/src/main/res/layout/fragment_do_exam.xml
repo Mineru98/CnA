@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView android:id="@+id/sv"
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/sv"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -43,7 +43,6 @@
                 android:layout_height="match_parent">
             </ExpandableListView>
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/mid"
             android:layout_below="@+id/top"
@@ -71,7 +70,6 @@
                 android:layout_height="match_parent">
             </ListView>
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/mid_low"
             android:layout_below="@+id/mid"
@@ -191,4 +189,4 @@
                 android:text="@string/btn_start" />
         </RelativeLayout>
     </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -10,7 +8,6 @@
     </style>
 
     <style name="AppTheme.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -49,8 +46,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
-        <!--<item name="colorControlNormal">#8d8d8d</item>-->
-        <!--<item name="colorControlActivated">@color/colorPrimary</item>-->
     </style>
 
     <style name="AppTheme.Main" parent="Theme.MaterialComponents.Light.DarkActionBar">

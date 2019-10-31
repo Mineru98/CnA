@@ -132,313 +132,335 @@
 -renamesourcefileattribute SourceFile
 
 # End: Debug ProGuard rules
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:255
--keep class android.arch.lifecycle.ProcessLifecycleOwnerInitializer { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:45
--keep class android.support.v4.app.CoreComponentFactory { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:144
--keep class android.support.v4.content.FileProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:77
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:142
+-keep class androidx.core.content.FileProvider { <init>(); }
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:324
+-keep class androidx.lifecycle.ProcessLifecycleOwnerInitializer { <init>(); }
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:81
 -keep class com.cna.mineru.cna.AddNote { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:107
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:111
 -keep class com.cna.mineru.cna.ExamResultActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:119
--keep class com.cna.mineru.cna.GuideActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:95
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:99
 -keep class com.cna.mineru.cna.LoginActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:83
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:87
 -keep class com.cna.mineru.cna.MainActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:125
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:123
 -keep class com.cna.mineru.cna.ModifyHomeItem { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:131
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:48
+-keep class com.cna.mineru.cna.MyApplication { <init>(); }
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:129
 -keep class com.cna.mineru.cna.NotificationActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:101
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:105
 -keep class com.cna.mineru.cna.RandomExam { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:137
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:135
 -keep class com.cna.mineru.cna.RandomExamSolve { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:113
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:117
 -keep class com.cna.mineru.cna.SignupActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:67
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:71
 -keep class com.cna.mineru.cna.SplashActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:154
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:152
 -keep class com.cna.mineru.cna.Utils.Network.FireBaseMessagingService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:89
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:93
 -keep class com.cna.mineru.cna.Utils.WebViewActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:237
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:48
+-keep class com.cna.mineru.cna.whateverString { <init>(); }
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:235
 -keep class com.facebook.CustomTabActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:233
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:231
 -keep class com.facebook.FacebookActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:171
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:169
 -keep class com.firebase.ui.auth.KickoffActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:250
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:248
 -keep class com.firebase.ui.auth.data.client.AuthUiInitProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:181
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:179
 -keep class com.firebase.ui.auth.ui.credentials.CredentialSaveActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:209
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:207
 -keep class com.firebase.ui.auth.ui.email.EmailActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:204
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:202
 -keep class com.firebase.ui.auth.ui.email.RecoverPasswordActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:224
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:222
 -keep class com.firebase.ui.auth.ui.email.WelcomeBackPasswordPrompt { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:229
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:227
 -keep class com.firebase.ui.auth.ui.idp.AuthMethodPickerActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:176
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:174
 -keep class com.firebase.ui.auth.ui.idp.SingleSignInActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:219
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:217
 -keep class com.firebase.ui.auth.ui.idp.WelcomeBackIdpPrompt { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:214
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:212
 -keep class com.firebase.ui.auth.ui.phone.PhoneActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:186
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:184
 -keep class com.firebase.ui.auth.ui.provider.GitHubLoginActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:366
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:283
 -keep class com.google.android.gms.ads.AdActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:372
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:289
 -keep class com.google.android.gms.ads.MobileAdsInitProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:273
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:266
 -keep class com.google.android.gms.auth.api.signin.RevocationBoundService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:264
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:257
 -keep class com.google.android.gms.auth.api.signin.internal.SignInHubActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:331
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:350
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:347
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:295
 -keep class com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:361
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:371
 -keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:342
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:361
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:357
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:367
 -keep class com.google.android.gms.measurement.AppMeasurementService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:278
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:305
 -keep class com.google.firebase.auth.internal.FederatedSignInActivity { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:286
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:270
 -keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:311
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:330
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:323
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:342
 -keep class com.google.firebase.iid.FirebaseInstanceIdService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:303
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:316
 -keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:336
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:355
 -keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
-# Referenced at E:\SourceCode\CnA\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:261
+# Referenced at E:\SourceCode\CnA_Kotlin\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:254
 -keep class com.gun0912.tedpermission.TedPermissionActivity { <init>(); }
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_confirmation_code_layout.xml:101
--keep class android.support.constraint.Barrier { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout-land\fui_auth_method_picker_layout.xml:2
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_welcome_back_password_prompt_layout.xml:19
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_phone_layout.xml:2
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_confirmation_code_layout.xml:2
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_auth_method_picker_layout.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_random_exam.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_guide.xml:2
--keep class android.support.constraint.ConstraintLayout { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\chip_item.xml:6
--keep class android.support.design.chip.Chip { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_bottom_navigation_item.xml:27
--keep class android.support.design.internal.BaselineLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_navigation_item.xml:17
--keep class android.support.design.internal.NavigationMenuItemView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_navigation_menu.xml:17
--keep class android.support.design.internal.NavigationMenuView { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_main.xml:30
--keep class android.support.design.widget.BottomNavigationView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_text_input_password_icon.xml:18
--keep class android.support.design.widget.CheckableImageButton { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_bottom_sheet_dialog.xml:26
--keep class android.support.design.widget.CoordinatorLayout { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_home.xml:26
--keep class android.support.design.widget.FloatingActionButton { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\mtrl_layout_snackbar.xml:18
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_layout_snackbar.xml:18
--keep class android.support.design.widget.Snackbar$SnackbarLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\mtrl_layout_snackbar_include.xml:18
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\46f074a337e20a1256db09cc99623a0e\res\layout\design_layout_snackbar_include.xml:18
--keep class android.support.design.widget.SnackbarContentLayout { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_exam.xml:13
--keep class android.support.design.widget.TabItem { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_exam.xml:8
--keep class android.support.design.widget.TabLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_welcome_back_password_prompt_layout.xml:49
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_register_email_layout.xml:36
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_phone_layout.xml:37
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_forgot_password_layout.xml:36
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_check_email_layout.xml:35
--keep class android.support.design.widget.TextInputEditText { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_welcome_back_password_prompt_layout.xml:40
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_register_email_layout.xml:25
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_forgot_password_layout.xml:28
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_confirmation_code_layout.xml:40
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_check_email_layout.xml:24
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\custom_dialog2.xml:18
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_signup.xml:74
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:28
--keep class android.support.design.widget.TextInputLayout { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam.xml:2
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_material.xml:41
--keep class android.support.v4.widget.NestedScrollView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_select_dialog_material.xml:23
--keep class android.support.v7.app.AlertController$RecycleListView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_action_menu_item_layout.xml:17
--keep class android.support.v7.view.menu.ActionMenuItemView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_expanded_menu_layout.xml:17
--keep class android.support.v7.view.menu.ExpandedMenuView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_popup_menu_item_layout.xml:17
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_list_menu_item_layout.xml:17
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_cascading_menu_item_layout.xml:20
--keep class android.support.v7.view.menu.ListMenuItemView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_toolbar.xml:27
--keep class android.support.v7.widget.ActionBarContainer { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_toolbar.xml:43
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_action_mode_bar.xml:19
--keep class android.support.v7.widget.ActionBarContextView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_toolbar.xml:17
--keep class android.support.v7.widget.ActionBarOverlayLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_action_menu_layout.xml:17
--keep class android.support.v7.widget.ActionMenuView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_activity_chooser_view.xml:19
--keep class android.support.v7.widget.ActivityChooserView$InnerLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_material.xml:18
--keep class android.support.v7.widget.AlertDialogLayout { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\custom_dialog2.xml:27
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_signup.xml:86
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:40
--keep class android.support.v7.widget.AppCompatEditText { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_button_bar_material.xml:26
--keep class android.support.v7.widget.ButtonBarLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_content_include.xml:19
--keep class android.support.v7.widget.ContentFrameLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_title_material.xml:45
--keep class android.support.v7.widget.DialogTitle { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_simple_overlay_action_mode.xml:23
--keep class android.support.v7.widget.FitWindowsFrameLayout { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_simple.xml:17
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_dialog_title_material.xml:22
--keep class android.support.v7.widget.FitWindowsLinearLayout { <init>(...); }
-
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_list_exam.xml:9
--keep class android.support.v7.widget.RecyclerView { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_search_view.xml:75
--keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout-v26\abc_screen_toolbar.xml:37
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_noti.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_note.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_exam_solve.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_exam_result.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\include_toolbar_exam.xml:2
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_main.xml:10
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_toolbar.xml:36
--keep class android.support.v7.widget.Toolbar { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_simple_overlay_action_mode.xml:32
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_screen_simple.xml:25
--keep class android.support.v7.widget.ViewStubCompat { <init>(...); }
-
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_title_material.xml:56
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_material.xml:52
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\041190b632a84ac29486bb2cdee1245f\res\layout\abc_alert_dialog_button_bar_material.xml:43
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_title_material.xml:57
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:52
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_button_bar_material.xml:43
 -keep class android.widget.Space { <init>(...); }
 
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\280d6ee5953c89b131e6cabeb42dff64\res\layout\browser_actions_context_menu_page.xml:5
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_select_dialog_material.xml:23
+-keep class androidx.appcompat.app.AlertController$RecycleListView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_action_menu_item_layout.xml:17
+-keep class androidx.appcompat.view.menu.ActionMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_expanded_menu_layout.xml:17
+-keep class androidx.appcompat.view.menu.ExpandedMenuView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_popup_menu_item_layout.xml:17
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_list_menu_item_layout.xml:17
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_cascading_menu_item_layout.xml:20
+-keep class androidx.appcompat.view.menu.ListMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:27
+-keep class androidx.appcompat.widget.ActionBarContainer { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:43
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_action_mode_bar.xml:19
+-keep class androidx.appcompat.widget.ActionBarContextView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:17
+-keep class androidx.appcompat.widget.ActionBarOverlayLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_action_menu_layout.xml:17
+-keep class androidx.appcompat.widget.ActionMenuView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_activity_chooser_view.xml:19
+-keep class androidx.appcompat.widget.ActivityChooserView$InnerLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:18
+-keep class androidx.appcompat.widget.AlertDialogLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_button_bar_material.xml:26
+-keep class androidx.appcompat.widget.ButtonBarLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_content_include.xml:19
+-keep class androidx.appcompat.widget.ContentFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_title_material.xml:45
+-keep class androidx.appcompat.widget.DialogTitle { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_simple_overlay_action_mode.xml:23
+-keep class androidx.appcompat.widget.FitWindowsFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_simple.xml:17
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_dialog_title_material.xml:22
+-keep class androidx.appcompat.widget.FitWindowsLinearLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_search_view.xml:75
+-keep class androidx.appcompat.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout-v26\abc_screen_toolbar.xml:37
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\include_toolbar_noti.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\include_toolbar_note.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\include_toolbar_exam_solve.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\include_toolbar_exam_result.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\include_toolbar_exam.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_main.xml:10
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:36
+-keep class androidx.appcompat.widget.Toolbar { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_simple_overlay_action_mode.xml:32
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_screen_simple.xml:25
+-keep class androidx.appcompat.widget.ViewStubCompat { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\e28f4ae6367898424b377dc3b0575752\browser-1.0.0\res\layout\browser_actions_context_menu_page.xml:5
 -keep class androidx.browser.browseractions.BrowserActionsFallbackMenuView { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\progress_page.xml:15
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\anim_dialog_x.xml:6
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\anim_dialog_o.xml:6
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_confirmation_code_layout.xml:101
+-keep class androidx.constraintlayout.widget.Barrier { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout-land\fui_auth_method_picker_layout.xml:2
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_welcome_back_password_prompt_layout.xml:19
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_phone_layout.xml:2
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_confirmation_code_layout.xml:2
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_auth_method_picker_layout.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_random_exam.xml:2
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_guide.xml:2
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_bottom_sheet_dialog.xml:26
+-keep class androidx.coordinatorlayout.widget.CoordinatorLayout { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_do_exam.xml:2
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\138eda894aeb8c4f0908335dd6846397\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:41
+-keep class androidx.core.widget.NestedScrollView { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_home.xml:8
+-keep class androidx.gridlayout.widget.GridLayout { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_list_exam.xml:8
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\progress_page.xml:14
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\anim_dialog_x.xml:6
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\anim_dialog_o.xml:6
 -keep class com.airbnb.lottie.LottieAnimationView { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_exam.xml:25
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_main.xml:19
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_exam.xml:22
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_main.xml:18
 -keep class com.cna.mineru.cna.Adapter.CustomViewPager { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_random_solve.xml:7
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_random.xml:7
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_random_solve.xml:6
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_random.xml:7
 -keep class com.cna.mineru.cna.Adapter.RandomViewPager { <init>(...); }
 
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_phone_layout.xml:22
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_phone_layout.xml:22
 -keep class com.firebase.ui.auth.ui.phone.CountryListSpinner { <init>(...); }
 
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_confirmation_code_layout.xml:47
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_confirmation_code_layout.xml:47
 -keep class com.firebase.ui.auth.ui.phone.SpacedEditText { <init>(...); }
 
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_phone_layout.xml:28
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_phone_layout.xml:28
 -keep class com.firebase.ui.auth.util.ui.BaselineTextInputLayout { <init>(...); }
 
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_provider_button_phone.xml:2
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_provider_button_email.xml:2
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_idp_button_twitter.xml:1
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_idp_button_google.xml:1
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_idp_button_github.xml:1
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_idp_button_facebook.xml:1
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_provider_button_phone.xml:2
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_provider_button_email.xml:2
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_idp_button_twitter.xml:1
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_idp_button_google.xml:1
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_idp_button_github.xml:1
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_idp_button_facebook.xml:1
 -keep class com.firebase.ui.auth.util.ui.SupportVectorDrawablesButton { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_random_exam.xml:10
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\dialog_image_layout.xml:7
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_modifiy_item.xml:27
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_random_exam.xml:10
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\dialog_image_layout.xml:7
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_modifiy_item.xml:27
 -keep class com.github.chrisbanes.photoview.PhotoView { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_modifiy_item.xml:201
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_exam_result.xml:233
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_modifiy_item.xml:195
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_exam_result.xml:223
 -keep class com.github.mikephil.charting.charts.BarChart { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_graph.xml:6
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_exam_result.xml:147
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_graph.xml:5
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_exam_result.xml:140
 -keep class com.github.mikephil.charting.charts.PieChart { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_random.xml:35
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_random.xml:33
 -keep class com.google.android.gms.ads.AdView { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\activity_login.xml:106
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_login.xml:97
 -keep class com.google.android.gms.common.SignInButton { <init>(...); }
 
-# Referenced at E:\SourceCode\CnA\app\src\main\res\layout\fragment_do_exam.xml:93
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_main.xml:28
+-keep class com.google.android.material.bottomnavigation.BottomNavigationView { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\chip_item.xml:6
+-keep class com.google.android.material.chip.Chip { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_home.xml:24
+-keep class com.google.android.material.floatingactionbutton.FloatingActionButton { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_bottom_navigation_item.xml:27
+-keep class com.google.android.material.internal.BaselineLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_text_input_password_icon.xml:18
+-keep class com.google.android.material.internal.CheckableImageButton { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_navigation_item.xml:17
+-keep class com.google.android.material.internal.NavigationMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_navigation_menu.xml:17
+-keep class com.google.android.material.internal.NavigationMenuView { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\mtrl_layout_snackbar.xml:18
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_layout_snackbar.xml:18
+-keep class com.google.android.material.snackbar.Snackbar$SnackbarLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\mtrl_layout_snackbar_include.xml:18
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\1f2d62fd7d5f28bdd208deea9b53dd56\material-1.0.0\res\layout\design_layout_snackbar_include.xml:18
+-keep class com.google.android.material.snackbar.SnackbarContentLayout { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_exam.xml:11
+-keep class com.google.android.material.tabs.TabItem { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_exam.xml:6
+-keep class com.google.android.material.tabs.TabLayout { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_welcome_back_password_prompt_layout.xml:49
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_register_email_layout.xml:36
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_phone_layout.xml:37
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_forgot_password_layout.xml:36
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_check_email_layout.xml:35
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\custom_dialog2.xml:26
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_signup.xml:81
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_login.xml:38
+-keep class com.google.android.material.textfield.TextInputEditText { <init>(...); }
+
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_welcome_back_password_prompt_layout.xml:40
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_register_email_layout.xml:25
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_forgot_password_layout.xml:28
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_confirmation_code_layout.xml:40
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_check_email_layout.xml:24
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\custom_dialog2.xml:18
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_signup.xml:70
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\activity_login.xml:27
+-keep class com.google.android.material.textfield.TextInputLayout { <init>(...); }
+
+# Referenced at E:\SourceCode\CnA_Kotlin\app\src\main\res\layout\fragment_do_exam.xml:91
 -keep class com.xw.repo.BubbleSeekBar { <init>(...); }
 
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout-land\fui_auth_method_picker_layout.xml:12
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_welcome_back_password_prompt_layout.xml:10
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_welcome_back_idp_prompt_layout.xml:9
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_register_email_layout.xml:10
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_phone_layout.xml:9
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_forgot_password_layout.xml:10
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_confirmation_code_layout.xml:9
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_check_email_layout.xml:10
-# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\75b3ce3eaf69defa53ebdcb6b6ff56cc\res\layout\fui_auth_method_picker_layout.xml:11
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout-land\fui_auth_method_picker_layout.xml:12
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_welcome_back_password_prompt_layout.xml:10
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_welcome_back_idp_prompt_layout.xml:9
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_register_email_layout.xml:10
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_phone_layout.xml:9
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_forgot_password_layout.xml:10
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_confirmation_code_layout.xml:9
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_check_email_layout.xml:10
+# Referenced at C:\Users\rmstj\.gradle\caches\transforms-2\files-2.1\587987cc552161c2968768abc63fd1f0\jetified-firebase-ui-auth-4.1.0\res\layout\fui_auth_method_picker_layout.xml:11
 -keep class me.zhanghai.android.materialprogressbar.MaterialProgressBar { <init>(...); }
 
 
+-keep class io.realm.annotations.RealmModule
+-keep @io.realm.annotations.RealmModule class *
+
+-keep class io.realm.internal.Keep
+-keep @io.realm.internal.Keep class * { *; }
+
+-keep class io.realm.internal.KeepMember
+-keep @io.realm.internal.KeepMember class * { @io.realm.internal.KeepMember *; }
+
+-dontwarn javax.**
+-dontwarn io.realm.**
+-keep class io.realm.RealmCollection
+-keep class io.realm.OrderedRealmCollection
+-keepclasseswithmembernames class io.realm.** {
+    native <methods>;
+}
+
+-dontnote rx.Observable
+
+# It's OK not to exist SyncObjectServerFacade in base library.
+-dontnote io.realm.internal.SyncObjectServerFacade
 # Twitter and Facebook are optional
 -dontwarn com.facebook.**
 -dontwarn com.twitter.**
@@ -464,9 +486,6 @@
 -dontwarn okio.**
 -keepattributes Exceptions
 
--keep class * extends android.arch.lifecycle.AndroidViewModel {
-    <init>(android.app.Application);
-}
 # Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -482,7 +501,7 @@
 # limitations under the License.
 
 # CoordinatorLayout resolves the behaviors of its child components with reflection.
--keep public class * extends android.support.design.widget.CoordinatorLayout$Behavior {
+-keep public class * extends androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior {
     public <init>(android.content.Context, android.util.AttributeSet);
     public <init>();
 }
@@ -526,37 +545,32 @@
 
 # Ensure that reflectively-loaded inflater is not obfuscated. This can be
 # removed when we stop supporting AAPT1 builds.
--keepnames class android.support.v7.app.AppCompatViewInflater
+-keepnames class androidx.appcompat.app.AppCompatViewInflater
 
 # aapt is not able to read app::actionViewClass and app:actionProviderClass to produce proguard
 # keep rules. Add a commonly used SearchView to the keep list until b/109831488 is resolved.
--keep class android.support.v7.widget.SearchView { <init>(...); }
-# We keep all fields for every generated proto file as the runtime uses
-# reflection over them that ProGuard cannot detect. Without this keep
-# rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.firebase_auth.zzhs {
-  <fields>;
+-keep class androidx.appcompat.widget.SearchView { <init>(...); }
+# Copyright (C) 2015 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# When layoutManager xml attribute is used, RecyclerView inflates
+#LayoutManagers' constructors using reflection.
+-keep public class * extends androidx.recyclerview.widget.RecyclerView$LayoutManager {
+    public <init>(android.content.Context, android.util.AttributeSet, int, int);
+    public <init>();
 }
 
-# Analytics library is optional.
-# Access to this class is protected by try/catch(NoClassDefFoundError e)
-# b/35686744 Don't fail during proguard if the class is missing from the APK.
--dontwarn com.google.android.gms.measurement.AppMeasurement*
-
-# We keep all fields for every generated proto file as the runtime uses
-# reflection over them that ProGuard cannot detect. Without this keep
-# rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
-  <fields>;
-}
-
-# b/35135904 Ensure that proguard will not strip the mResultGuardian.
--keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {
-  com.google.android.gms.common.api.internal.BasePendingResult$ReleasableResultGuardian mResultGuardian;
-}
-
--dontwarn com.google.firebase.components.Component$Instantiation
--dontwarn com.google.firebase.components.Component$ComponentType
 -keep public class com.google.android.gms.ads.internal.ClientApi {
   <init>();
 }
@@ -573,15 +587,6 @@
 
 # Auto-generated proguard rule with obfuscated symbol
 -dontwarn com.google.android.gms.internal.ads.zzaxz
-
-
-# We keep all fields for every generated proto file as the runtime uses
-# reflection over them that ProGuard cannot detect. Without this keep
-# rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
-  <fields>;
-}
-
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
 # rule, fields may be removed that would cause runtime failures.
@@ -629,21 +634,101 @@
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
 # rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
+  <fields>;
+}
+
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.firebase_auth.zzhy {
+  <fields>;
+}
+
+# Analytics library is optional.
+# Access to this class is protected by try/catch(NoClassDefFoundError e)
+# b/35686744 Don't fail during proguard if the class is missing from the APK.
+-dontwarn com.google.android.gms.measurement.AppMeasurement*
+# Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
+# EnclosingMethod is required to use InnerClasses.
+-keepattributes Signature, InnerClasses, EnclosingMethod
+
+# Retrofit does reflection on method and parameter annotations.
+-keepattributes RuntimeVisibleAnnotations, RuntimeVisibleParameterAnnotations
+
+# Retain service method parameters when optimizing.
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+
+# Ignore annotation used for build tooling.
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
+# Ignore JSR 305 annotations for embedding nullability information.
+-dontwarn javax.annotation.**
+
+# Guarded by a NoClassDefFoundError try/catch and only used when on the classpath.
+-dontwarn kotlin.Unit
+
+# Top-level functions that can only be used by Kotlin.
+-dontwarn retrofit2.KotlinExtensions
+-dontwarn retrofit2.KotlinExtensions$*
+
+# With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
+# and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
+-if interface * { @retrofit2.http.* <methods>; }
+-keep,allowobfuscation interface <1>
+
+# JSR 305 annotations are for embedding nullability information.
+-dontwarn javax.annotation.**
+
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
+# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+-dontwarn org.codehaus.mojo.animal_sniffer.*
+
+# OkHttp platform used only on JVM and when Conscrypt dependency is available.
+-dontwarn okhttp3.internal.platform.ConscryptPlatform
+
+-dontwarn jp.co.cyberagent.android.gpuimage.**
+# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+-dontwarn org.codehaus.mojo.animal_sniffer.*
+
+# b/35135904 Ensure that proguard will not strip the mResultGuardian.
+-keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {
+  com.google.android.gms.common.api.internal.BasePendingResult$ReleasableResultGuardian mResultGuardian;
+}
+
+-dontwarn com.google.firebase.components.Component$Instantiation
+-dontwarn com.google.firebase.components.Component$ComponentType
+-keep class * implements com.google.firebase.components.ComponentRegistrar
+
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
+  <fields>;
+}
+
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
+  <fields>;
+}
+
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
+-keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
+  <fields>;
+}
+
+# We keep all fields for every generated proto file as the runtime uses
+# reflection over them that ProGuard cannot detect. Without this keep
+# rule, fields may be removed that would cause runtime failures.
 -keepclassmembers class * extends com.google.android.gms.internal.ads.zzdoa {
-  <fields>;
-}
-
-# We keep all fields for every generated proto file as the runtime uses
-# reflection over them that ProGuard cannot detect. Without this keep
-# rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
-  <fields>;
-}
-
-# We keep all fields for every generated proto file as the runtime uses
-# reflection over them that ProGuard cannot detect. Without this keep
-# rule, fields may be removed that would cause runtime failures.
--keepclassmembers class * extends com.google.android.gms.internal.measurement.zzey {
   <fields>;
 }
 
@@ -664,13 +749,13 @@
 }
 
 # Keep the classes/members we need for client functionality.
--keep @interface android.support.annotation.Keep
--keep @android.support.annotation.Keep class *
+-keep @interface androidx.annotation.Keep
+-keep @androidx.annotation.Keep class *
 -keepclasseswithmembers class * {
-  @android.support.annotation.Keep <fields>;
+  @androidx.annotation.Keep <fields>;
 }
 -keepclasseswithmembers class * {
-  @android.support.annotation.Keep <methods>;
+  @androidx.annotation.Keep <methods>;
 }
 
 # Keep the names of classes/members we need for client functionality.
@@ -704,68 +789,6 @@
 # non-required dependencies.
 -dontwarn javax.annotation.**
 -dontwarn org.checkerframework.**
-
-# Copyright (C) 2015 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# When layoutManager xml attribute is used, RecyclerView inflates
-#LayoutManagers' constructors using reflection.
--keep public class * extends android.support.v7.widget.RecyclerView$LayoutManager {
-    public <init>(android.content.Context, android.util.AttributeSet, int, int);
-    public <init>();
-}
-
--dontwarn jp.co.cyberagent.android.gpuimage.**
-# Copyright (C) 2016 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# keep setters in VectorDrawables so that animations can still work.
--keepclassmembers class android.support.graphics.drawable.VectorDrawableCompat$* {
-   void set*(***);
-   *** get*();
-}
-
-# Copyright (C) 2017 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# Keep a field in transition that is used to keep a reference to weakly-referenced object
--keepclassmembers class android.support.transition.ChangeBounds$* extends android.animation.AnimatorListenerAdapter {
-  android.support.transition.ChangeBounds$ViewBounds mViewBounds;
-}
-
 # Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -786,30 +809,48 @@
 }
 
 # Prevent Parcelable objects from being removed or renamed.
--keep class android.support.mediacompat.** implements android.os.Parcelable {
+-keep class androidx.media.** implements android.os.Parcelable {
     public static final android.os.Parcelable$Creator *;
 }
--keep class android.support.v4.media.Audio* implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
+# Copyright (C) 2017 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Keep a field in transition that is used to keep a reference to weakly-referenced object
+-keepclassmembers class androidx.transition.ChangeBounds$* extends android.animation.AnimatorListenerAdapter {
+  androidx.transition.ChangeBounds$ViewBounds mViewBounds;
 }
--keep class android.support.v4.media.MediaBrowserCompatUtils* implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
+
+# Copyright (C) 2016 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# keep setters in VectorDrawables so that animations can still work.
+-keepclassmembers class androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$* {
+   void set*(***);
+   *** get*();
 }
--keep class android.support.v4.media.MediaBrowserProtocol* implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
-}
--keep class android.support.v4.media.MediaBrowserService* implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
-}
--keep class android.support.v4.media.Volume* implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
-}
--keep class android.support.v4.media.app.** implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
-}
--keep class android.support.v4.media.session.MediaButton* implements android.os.Parcelable {
-    public static final android.os.Parcelable$Creator *;
-}
+
 # Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -825,7 +866,7 @@
 # limitations under the License.
 
 # CoordinatorLayout resolves the behaviors of its child components with reflection.
--keep public class * extends android.support.design.widget.CoordinatorLayout$Behavior {
+-keep public class * extends androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior {
     public <init>(android.content.Context, android.util.AttributeSet);
     public <init>();
 }
@@ -834,58 +875,68 @@
 -keepattributes *Annotation*
 
 # aapt2 is not (yet) keeping FQCNs defined in the appComponentFactory <application> attribute
--keep class android.support.v4.app.CoreComponentFactory
+-keep class androidx.core.app.CoreComponentFactory
 
 -keepattributes *Annotation*
 
--keepclassmembers enum android.arch.lifecycle.Lifecycle$Event {
+-keepclassmembers enum androidx.lifecycle.Lifecycle$Event {
     <fields>;
 }
 
--keep class * implements android.arch.lifecycle.LifecycleObserver {
+-keep !interface * implements androidx.lifecycle.LifecycleObserver {
 }
 
--keep class * implements android.arch.lifecycle.GeneratedAdapter {
+-keep class * implements androidx.lifecycle.GeneratedAdapter {
     <init>(...);
 }
 
 -keepclassmembers class ** {
-    @android.arch.lifecycle.OnLifecycleEvent *;
+    @androidx.lifecycle.OnLifecycleEvent *;
 }
--keep class * extends android.arch.lifecycle.ViewModel {
+# Copyright (C) 2019 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+-keepclassmembers,allowobfuscation class * implements androidx.savedstate.SavedStateRegistry$AutoRecreated {
     <init>();
 }
--keep public class * extends androidx.versionedparcelable.VersionedParcelable
+
+-keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
+    <init>();
+}
+
+-keepclassmembers,allowobfuscation class * extends androidx.lifecycle.AndroidViewModel {
+    <init>(android.app.Application);
+}
+
+-keep public class * implements androidx.versionedparcelable.VersionedParcelable
 -keep public class android.support.**Parcelizer { *; }
 -keep public class androidx.**Parcelizer { *; }
 -keep public class androidx.versionedparcelable.ParcelImpl
 
--keep @android.support.annotation.Keep class * {*;}
+-keep,allowobfuscation @interface androidx.annotation.Keep
+-keep @androidx.annotation.Keep class * {*;}
 
 -keepclasseswithmembers class * {
-    @android.support.annotation.Keep <methods>;
+    @androidx.annotation.Keep <methods>;
 }
 
 -keepclasseswithmembers class * {
-    @android.support.annotation.Keep <fields>;
+    @androidx.annotation.Keep <fields>;
 }
 
 -keepclasseswithmembers class * {
-    @android.support.annotation.Keep <init>(...);
-}
-
--keep @android.support.annotation.Keep class * {*;}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep <methods>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep <fields>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep <init>(...);
+    @androidx.annotation.Keep <init>(...);
 }
 
 -ignorewarnings

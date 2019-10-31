@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <com.cna.mineru.cna.Adapter.RandomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
@@ -24,7 +23,6 @@
         android:layout_alignParentEnd="true"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
-
         <TextView
             android:id="@+id/btn_ok"
             android:layout_width="wrap_content"
@@ -34,7 +32,6 @@
             android:textColor="@color/main_color"
             android:fontFamily="@font/nanum_gothic"
             android:text="@string/btn_prob_ok"/>
-
         <TextView
             android:id="@+id/btn_no"
             android:layout_width="wrap_content"
@@ -45,5 +42,4 @@
             android:fontFamily="@font/nanum_gothic"
             android:text="@string/btn_prob_x"/>
     </LinearLayout>
-
 </RelativeLayout>

@@ -5,8 +5,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
-
-    <GridView
+    <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,9 +20,8 @@
         android:horizontalSpacing="10dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="10dp">
-    </GridView>
-
-    <android.support.design.widget.FloatingActionButton
+    </androidx.gridlayout.widget.GridLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fb_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

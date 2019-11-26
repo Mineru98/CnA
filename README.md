@@ -68,6 +68,8 @@ App
 - [ ] App Update 확인.
 - [ ] Custom Memo Image 구현.
 - [ ] 예습을 하는 학생들을 위해서 시험을 칠수 있는 범위가 현재 자신의 학년에 대한 내용이 아닌 학년을 추가해서 할 수 있게끔 변경 가능캐 해야함.
+---
+Kotlin Code 부터 실행할 것
 - [ ] OffLine Resource Processing
 - [ ] if OffLine ⇒ OnLine then Query Processing(Option)
   - [ ] Off Automadicaly Process

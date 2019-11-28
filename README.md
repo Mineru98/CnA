@@ -16,7 +16,7 @@ App
 - [ ] if Internet Off 상태라면 DB와 동기화 하지 않지 않고 TmpTable에 쌓아뒀다가 Internet On 상태일때 일괄 Server와 동기화 처리(일부 기능 제외) [Algorith 구현](https://github.com/Mineru98/Warehouse).
 - [x] AddNote에서 단원을 입력할 때, 폴더 구조로 (대단원, 소단원으로) 클릭으로 선택 지정.
 - [ ] 신규 유저일 경우 튜토리얼 진행하는 투명 Dialog 생성 필요. [라이브러리](https://github.com/faruktoptas/FancyShowCaseView)
-- [ ] 재시험 기능
+- [ ] 재시험 기능 [사진 참고](https://raw.githubusercontent.com/Mineru98/Usage_Collection/master/reexam.png)
 - [ ] ~~가상 시뮬레이션으로 테스트 가능한 다양한 크기의 디스플레이 테스트.~~
 - [x] Time Timer.
 - [ ] App Update 확인. [공식 자료](https://developer.android.com/guide/app-bundle/in-app-updates)

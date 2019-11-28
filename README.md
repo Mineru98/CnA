@@ -19,7 +19,7 @@ App
 - [ ] 재시험 기능
 - [ ] ~~가상 시뮬레이션으로 테스트 가능한 다양한 크기의 디스플레이 테스트.~~
 - [x] Time Timer.
-- [ ] App Update 확인.
+- [ ] App Update 확인. [공식 자료](https://developer.android.com/guide/app-bundle/in-app-updates)
 - [ ] Custom Memo Image 구현.
 - [ ] 예습을 하는 학생들을 위해서 시험을 칠수 있는 범위가 현재 자신의 학년에 대한 내용이 아닌 학년을 추가해서 할 수 있게끔 변경 가능캐 해야함.
 ---

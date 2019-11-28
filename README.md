@@ -13,7 +13,7 @@ App
   - [x] Note 및 Exam 결과에 대한 Graph를 View에 그리기.
 - [X] (중요!)문제 출현 빈도 [Algorith 구현](https://github.com/Mineru98/DictionaryRandom).
 - [ ] Notification 종류 생성.
-- [ ] if Internet Off 상태라면 DB와 동기화 하지 않지 않고 TmpTable에 쌓아뒀다가 Internet On 상태일때 일괄 Server와 동기화 처리(일부 기능 제외)[Algorith 구현](https://github.com/Mineru98/Warehouse).
+- [ ] if Internet Off 상태라면 DB와 동기화 하지 않지 않고 TmpTable에 쌓아뒀다가 Internet On 상태일때 일괄 Server와 동기화 처리(일부 기능 제외) [Algorith 구현](https://github.com/Mineru98/Warehouse).
 - [x] AddNote에서 단원을 입력할 때, 폴더 구조로 (대단원, 소단원으로) 클릭으로 선택 지정.
 - [ ] 신규 유저일 경우 튜토리얼 진행하는 투명 Dialog 생성 필요.
 - [ ] 재시험 기능

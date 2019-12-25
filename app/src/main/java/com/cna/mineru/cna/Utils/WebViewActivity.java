@@ -19,7 +19,7 @@ public class WebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-        myUrl = getString(R.string.ip_set)+"/policy";
+        myUrl = getString(R.string.web_ip_set)+"/policy";
         String url = getIntent().getStringExtra("value");
 
         mWebView = (WebView) findViewById(R.id.webview);
@@ -28,7 +28,7 @@ public class WebViewActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
-        mWebView.loadUrl(myUrl + "/"+ url); // 접속 URL
+        mWebView.loadUrl(myUrl + "/"+ url);
 
     }
 }

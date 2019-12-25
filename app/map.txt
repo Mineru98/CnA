@@ -1,5 +1,5 @@
 # compiler: R8
-# compiler_version: 1.5.68
+# compiler_version: 1.5.69
 # min_api: 21
 # pg_map_id: 3aec453
 android.arch.core.executor.ArchTaskExecutor -> android.arch.core.executor.ArchTaskExecutor:

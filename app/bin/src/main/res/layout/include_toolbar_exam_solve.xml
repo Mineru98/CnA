@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_alignParentTop="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="10pt"
+            android:fontFamily="@font/nanum_gothic"
+            android:text="A1"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:textSize="10pt"
+            android:gravity="center|right"
+            android:fontFamily="@font/nanum_gothic"
+            android:text="@string/tv_time_out"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/tv_time"
+            android:textSize="10pt"
+            android:fontFamily="@font/nanum_gothic"
+            android:text="푼 시간"
+            android:textColor="@color/textColor" />
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

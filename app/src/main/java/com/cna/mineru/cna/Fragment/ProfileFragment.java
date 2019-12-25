@@ -128,7 +128,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), WebViewActivity.class);
-                i.putExtra("value","terms");
+                i.putExtra("value","policy/terms");
                 startActivity(i);
             }
         });
@@ -137,7 +137,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), WebViewActivity.class);
-                i.putExtra("value","privacy");
+                i.putExtra("value","policy/privacy");
                 startActivity(i);
             }
         });
